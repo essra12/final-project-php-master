@@ -34,7 +34,7 @@ include("../../path.php");
 
         <div class="header-box-content-table">
             <h2>Create New Teacher</h2><br>
-            <button class="btn-create">+</button>
+            <button class="btn-create" type="submit">+</button>
         </div>
         <img src="../../sources/image/teacher_image_3d.png" >
     </div>

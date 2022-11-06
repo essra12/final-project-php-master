@@ -22,6 +22,14 @@
 body{
     overflow-x: hidden;
 }
+.img {
+    width: 100%;
+    height: auto;
+} 
+
+/**********************************************************Menu Sidebar**********************************************************/
+
+/*menu icon*/
 #menu-toggle{
     display: none;
 } 
@@ -34,7 +42,6 @@ body{
     margin-left: 0;
     width: 100vw; 
 }
-/***************************Menu***************************/
 .sidebar {
     Width:290px;
     height: 100%;
@@ -42,25 +49,16 @@ body{
     top: 0;
     left: 0;
     bottom: 0;
-   /*  padding: 1rem; */
     transition: left 300ms;
 }
-
- .img {
-    width: 100%;
-    height: auto;
-} 
-
 .sidebar-container{
     height: 100%;
     width: 100%;
     background:#222242;
-    /* border-radius: 10px; */
     box-shadow: var(--shadow2);
     padding: 1rem;
     overflow-y: auto;
 }
-
 .sidebar-container::-webkit-scrollbar {
     width: 10px;
   }
@@ -79,7 +77,6 @@ body{
   .sidebar-container::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
-
 
 .brand img{
     width: 30px;
@@ -103,9 +100,6 @@ body{
     justify-content: space-between;
     align-items: center;
 }
-/* .avartar-text{
-    margin-left: 10px;
-} */
 .avartar-text h4{
     font-size: 20px;
 }
@@ -113,7 +107,7 @@ body{
     font-size: 18px;
 }
 
-/*menu item*/
+/*menu items*/
 .sidebar-menu li{
     margin-bottom: 2rem;
 }
@@ -137,39 +131,18 @@ body{
     color: #FFFFFF;
 }
 
-/*admin card*/
+/*admin card in sidebar*/
 .sidebar-card{
-    /* background:#FFFFFF ; */
     text-align: center;
     padding-top: .5rem;
-    /*border-radius: 15px;
-     border: 2px solid var(--lightblue);  */
 }
-
 .sidebar-card img{
     width: 180px;
     height: auto;
     margin: 0px;
 }
-
-/* .sidebar-card h4{
-    font-size: 28px;
-    color: var(--darkblue);
-}
-
-.btn-admin{
-    padding: .5rem 1rem;
-    border: none;
-    border-radius: 15px;
-    background-color: var(--lightblue);
-    color: var(--darkblue);
-    font-size: 20px;
-    width: 80%;
-}
- */
 .sidebar-card-btn{
     background: #FFFFFF;
-    /* margin-left: 1rem; */
     border-radius: 15px;
     width: 65%;
     margin: 0rem 2rem 0rem 3rem;
@@ -185,11 +158,11 @@ body{
     margin: 1.5rem 1.5rem 1.5rem 2rem ;
     font-weight: bold;
 }
-
 .btn-admin:hover{
     background: var(--orange);
     cursor: pointer;
 }
+/*****************************************************Groups_conrrol_panel style*****************************************************/
 
 /********************* main container ********************/
 .main-content{
@@ -397,7 +370,7 @@ main{
     }
 }
 
-/***************************************************** TEACHER/Student/File CONTROL PANAL ***********************************************************/
+/***************************************************** TEACHER/Student/File_CONTROL_PANAL Style ***********************************************************/
 
 #b-vlightblue{
     background: var(--vlightblue);
@@ -557,7 +530,7 @@ table th {
 
 
 
-        /* ---------------------------------- create admin style --------------------- */
+/**************************************************** Add admin style *********************************************************/
 
 
         .create-a-div{
@@ -734,7 +707,7 @@ table th {
         
         
         
-        /* ------------------------------- create group style --------------------------------- */
+        /**********************************************create group style *********************************************************/
         .create-g-div{
         background-color: white;
         width: 50%;

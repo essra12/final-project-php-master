@@ -36,7 +36,7 @@ include("../../path.php");
 
         <div class="header-box-content">
             <h2>Create New Groups</h2><br>
-            <button class="btn-create">+</button>
+            <button class="btn-create" type="submit">+</button>
         </div>
         <img  src="../../sources/image/groups_image_3d.png" >
     </div>
