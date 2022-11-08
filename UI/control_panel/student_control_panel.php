@@ -1,5 +1,7 @@
 <?php 
-include("../../path.php"); 
+include("../../path.php");  
+include(MAIN_PATH."/controls/students.php"); 
+$students=selectAllStudentInfo();  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,63 +56,16 @@ include("../../path.php");
             </thead>
 
             <tbody>
-                <tr>
-                    <td data-label="stu-id">1222</td>
-                    <td data-label="stu-name"><img src="../../sources/image/user-man.png" class="tab-img">MMM MMM</td>
-                    <td data-label="stu_specialization">progrmming</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="stu-id">1333</td>
-                    <td data-label="stu-name"><img src="../../sources/image/user-weman.png" class="tab-img">YYY YYY</td>
-                    <td data-label="stu-specialization">Network</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="stu-id">1222</td>
-                    <td data-label="stu-name"><img src="../../sources/image/user-weman.png" class="tab-img">MMM MMM</td>
-                    <td data-label="stu_specialization">progrmming</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="stu-id">1222</td>
-                    <td data-label="stu-name"><img src="../../sources/image/user-weman.png" class="tab-img">MMM MMM</td>
-                    <td data-label="stu_specialization">progrmming</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="stu-id">1222</td>
-                    <td data-label="stu-name"><img src="../../sources/image/user-weman.png" class="tab-img">MMM MMM</td>
-                    <td data-label="stu_specialization">progrmming</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="stu-id">1222</td>
-                    <td data-label="stu-name"><img src="../../sources/image/user-weman.png" class="tab-img">MMM MMM</td>
-                    <td data-label="stu_specialization">progrmming</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="stu-id">1222</td>
-                    <td data-label="stu-name"><img src="../../sources/image/user-weman.png" class="tab-img">MMM MMM</td>
-                    <td data-label="stu_specialization">progrmming</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="stu-id">1222</td>
-                    <td data-label="stu-name"><img src="../../sources/image/user-weman.png" class="tab-img">MMM MMM</td>
-                    <td data-label="stu_specialization">progrmming</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-
+            <?php foreach($students as $key => $student):?> <!--هذا المتغير عبارة عن سجل واحد من الجدول $student  -->
+                            <tr>
+                                <td data-label="stu-id"><?php echo $student['stu_id'] ?></td>
+                                <td data-label="stu-name"><img src="../../sources/image/user-man.png" class="tab-img"><?php echo $student['full_name'] ?></td>
+                                <td data-label="stu_specialization"><?php echo $student['stu_specialization'] ?></td>
+                                <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
+                                <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
+                            </tr>
+                        <?php endforeach; ?> 
+              
             </tbody>
         </table>
     </div>
