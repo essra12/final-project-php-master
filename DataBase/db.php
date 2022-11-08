@@ -46,21 +46,6 @@ function selectAll($table,$condition=[]) //اختياري اي يمكن عدم �
     }
 }
 
-/* SELECT All Student Info FUNCTIONS */
-
-function selectAllStudentInfo(){ 
-
-    global $conn; //لازم يكون معرف في الدالة لانه بيستخدمه
-    $sql = "SELECT student.stu_id,user.full_name,user.u_img,student.stu_Specialization FROM student,user WHERE user.user_id=student.user_id;";
-    global $conn;
-    $pre=$conn->prepare($sql);
-    $pre->execute();
-    $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
-    return $records;
-}
-
-
-
 /* SELECT ONE RECORD */
 function selectOne($table,$condition) 
 {
@@ -81,6 +66,23 @@ function selectOne($table,$condition)
     $records=$pre->get_result()->fetch_assoc();
     return $records;
 }
+
+/* SELECT All Student Info FUNCTIONS */
+
+function selectAllStudentInfo(){ 
+
+    global $conn; //لازم يكون معرف في الدالة لانه بيستخدمه
+    $sql = "SELECT student.stu_id,user.full_name,user.u_img,student.stu_specialization FROM student,user WHERE user.user_id=student.user_id;";
+    global $conn;
+    $pre=$conn->prepare($sql);
+    $pre->execute();
+    $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
+
+
+
+
 
 
 /* $test = selectAll("user");

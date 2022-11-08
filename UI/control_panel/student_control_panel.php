@@ -60,7 +60,7 @@ $students=selectAllStudentInfo();
                             <tr>
                                 <td data-label="stu-id"><?php echo $student['stu_id'] ?></td>
                                 <td data-label="stu-name"><img src="../../sources/image/user-man.png" class="tab-img"><?php echo $student['full_name'] ?></td>
-                                <td data-label="stu_specialization"><?php echo $student['stu_Specialization'] ?></td>
+                                <td data-label="stu_specialization"><?php echo $student['stu_specialization'] ?></td>
                                 <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
                                 <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
                             </tr>
