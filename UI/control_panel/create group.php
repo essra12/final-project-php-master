@@ -2,6 +2,7 @@
 
 <?php 
 include("../../path.php"); 
+include(MAIN_PATH."/controls/teachers.php"); 
 ?>
 
 <!DOCTYPE html>
@@ -192,10 +193,19 @@ include("../../path.php");
                 <input id="name" class="input-name" type="text"  placeholder="Group Name"/>
                 <i id="user-iocn" class="fa-solid fa-user-group"></i>
 
+                <?php 
+                        global $conn;
+                        $sql="SELECT user.full_name,teacher.tr_id from user,teacher  where user.user_id=teacher.user_id;";
+                        $pre = $conn->prepare($sql);
+                        $pre->execute();
+                        $items = $pre->get_result()->fetch_all(MYSQLI_ASSOC);
+                    ?>
                 <select class="select-t">
-                    <option>essra</option>
-                    <option>sara</option>
+                    <?php foreach($items as $item): ?>
+                        <option value="<?= $item['tr_id']; ?>"><?= $item['full_name']; ?></option>
+                    <?php endforeach; ?>
                 </select>
+
                 <i  id="user-iocn1" class="fa-solid fa-user"></i>
 
                 <input class="bt-save" type="button" value="Save" onclick="check_Enter()" />

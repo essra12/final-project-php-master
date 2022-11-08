@@ -86,3 +86,8 @@ function selectOne($table,$condition)
 /* $test = selectAll("user");
 dd($test);
  */
+
+
+ function insertGroup(){
+    $sql="INSERT INTO `groups`(`g_no`, `tr_id`, `g_name`, `g_img`) VALUES (?,?,?,?);";
+ }

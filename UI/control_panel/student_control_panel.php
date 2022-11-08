@@ -65,56 +65,7 @@ $students=selectAllStudentInfo();
                                 <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
                             </tr>
                         <?php endforeach; ?> 
-               <!--  <tr>
-                    <td data-label="stu-id">1333</td>
-                    <td data-label="stu-name"><img src="../../sources/image/user-weman.png" class="tab-img">YYY YYY</td>
-                    <td data-label="stu-specialization">Network</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="stu-id">1222</td>
-                    <td data-label="stu-name"><img src="../../sources/image/user-weman.png" class="tab-img">MMM MMM</td>
-                    <td data-label="stu_specialization">progrmming</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="stu-id">1222</td>
-                    <td data-label="stu-name"><img src="../../sources/image/user-weman.png" class="tab-img">MMM MMM</td>
-                    <td data-label="stu_specialization">progrmming</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="stu-id">1222</td>
-                    <td data-label="stu-name"><img src="../../sources/image/user-weman.png" class="tab-img">MMM MMM</td>
-                    <td data-label="stu_specialization">progrmming</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="stu-id">1222</td>
-                    <td data-label="stu-name"><img src="../../sources/image/user-weman.png" class="tab-img">MMM MMM</td>
-                    <td data-label="stu_specialization">progrmming</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="stu-id">1222</td>
-                    <td data-label="stu-name"><img src="../../sources/image/user-weman.png" class="tab-img">MMM MMM</td>
-                    <td data-label="stu_specialization">progrmming</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="stu-id">1222</td>
-                    <td data-label="stu-name"><img src="../../sources/image/user-weman.png" class="tab-img">MMM MMM</td>
-                    <td data-label="stu_specialization">progrmming</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr> -->
-
+              
             </tbody>
         </table>
     </div>
