@@ -64,7 +64,7 @@ $students=selectAllStudentInfo();
                                 <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
                                 <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
                             </tr>
-                        <?php endforeach; ?> 
+            <?php endforeach; ?> 
               
             </tbody>
         </table>

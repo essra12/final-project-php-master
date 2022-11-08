@@ -1,5 +1,7 @@
 <?php 
 include("../../path.php"); 
+include(MAIN_PATH."/controls/students.php"); 
+$teachers=selectAllTeacherInfo();  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,15 +57,17 @@ include("../../path.php");
             </thead>
 
             <tbody>
+            <?php foreach($teachers as $key => $teacher):?> <!--هذا المتغير عبارة عن سجل واحد من الجدول $teacher  -->
                 <tr>
-                    <td data-label="tr-id">1222</td>
-                    <td data-label="tr-name"><img src="../../sources/image/user-man.png" class="tab-img">MMM MMM</td>
-                    <td data-label="tr-phone">092*******</td>
-                    <td data-label="g-name">Math</td>
+                    <td data-label="tr-id"><?php echo $teacher['tr_id'] ?></td>
+                    <td data-label="tr-name"><img src="../../sources/image/user-man.png" class="tab-img"><?php echo $teacher['full_name'] ?></td>
+                    <td data-label="tr-phone"><?php echo $teacher['tr_phone_no'] ?></td>
+                    <td data-label="g-name"><?php echo $teacher['g_name'] ?></td>
                     <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
                     <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
                 </tr>
-                <tr>
+            <?php endforeach; ?> 
+                <!-- <tr>
                     <td data-label="tr-id">1333</td>
                     <td data-label="tr-name"><img src="../../sources/image/user-weman.png" class="tab-img">YYY YYY</td>
                     <td data-label="tr-phone">091******</td>
@@ -118,7 +122,7 @@ include("../../path.php");
                     <td data-label="g-name">English</td>
                     <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
                     <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
+                </tr> -->
 
             </tbody>
         </table>

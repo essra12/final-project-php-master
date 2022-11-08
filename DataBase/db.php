@@ -71,8 +71,21 @@ function selectOne($table,$condition)
 
 function selectAllStudentInfo(){ 
 
-    global $conn; //لازم يكون معرف في الدالة لانه بيستخدمه
+    global $conn;
     $sql = "SELECT student.stu_id,user.full_name,user.u_img,student.stu_specialization FROM student,user WHERE user.user_id=student.user_id;";
+    global $conn;
+    $pre=$conn->prepare($sql);
+    $pre->execute();
+    $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
+
+/* SELECT All Teacher Info FUNCTIONS */
+
+function selectAllTeacherInfo(){ 
+
+    global $conn; 
+    $sql = "SELECT teacher.tr_id,user.full_name,teacher.tr_phone_no,groups.g_name from teacher,user,groups WHERE user.user_id=teacher.user_id AND teacher.tr_id=groups.tr_id;";
     global $conn;
     $pre=$conn->prepare($sql);
     $pre->execute();
@@ -83,11 +96,9 @@ function selectAllStudentInfo(){
 
 
 
-
-
-/* $test = selectAll("user");
-dd($test);
- */
+/*  $test = selectAllTeacherInfo();
+dd($test); */
+ 
 
 
  function insertGroup(){
