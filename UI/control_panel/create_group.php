@@ -1,6 +1,6 @@
 <?php 
 include("../../path.php"); 
-include(MAIN_PATH."/controls/teachers.php");
+include(MAIN_PATH."/controls/groups.php");
 ?>
 <html lang="en">
     <head>
@@ -32,14 +32,20 @@ include(MAIN_PATH."/controls/teachers.php");
     
     <div class="g_tr_admin-container">
 
-        <form class="g_tr_admin-form">
-            <div>
-                <h2>Create Group</h2>
-                <img src="../../sources/image/create group.png" alt="">
+        <form action="create_group.php" name="groups" class="g_tr_admin-form" method="POST" onsubmit="return check_Enter(this)">
+        
+        <div class="img_title">
+            <h2>Create Group</h2>
+            <div class="profile-pic-div">
+                <img src="../../sources/image/create_add_photo.png" id="photo" height="200" width="200">
+                <input type="file" id="file" name="g_img">
+                <label for="file" id="uploadBtn">Choose Photo</label>
             </div>
+            
             <div class="create-g-div">
+
                 <div class="form-field ">
-                    <input id="name" class="input-name" type="text"  placeholder="Group Name" />
+                    <input id="name" name="g_name" class="input-name" type="text"  placeholder="Group Name" value="<?php echo $g_name;?>"  />
                 </div>
 
                 <div class="form-field ">
@@ -50,7 +56,8 @@ include(MAIN_PATH."/controls/teachers.php");
                         $pre->execute();
                         $items = $pre->get_result()->fetch_all(MYSQLI_ASSOC);
                     ?>
-                    <select class="select-t">
+                    <select class="select-t" name="tr_id">
+                        <option value=""></option>
                         <?php foreach($items as $item): ?>
                             <option value="<?= $item['tr_id']; ?>"><?= $item['full_name']; ?></option>
                         <?php endforeach; ?>
@@ -58,22 +65,84 @@ include(MAIN_PATH."/controls/teachers.php");
                 </div>
 
             </div>
-            <button type="submit" onclick="check_Enter()">Save</button>
+
+            <?php if(count($errors)> 0): ?>
+                    <div class="msg error" style="color: #D92A2A; margin-bottom: 10px;"> 
+                     <?php foreach($errors as $error): ?>
+                        <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php echo($error); ?></li>
+                     <?php endforeach; ?>
+                    </div> 
+                <?php endif; ?> 
+
+            <button type="submit"  name="create_group" >Save</button> 
         </form>
 
     </div>
 
 </div>
 
-   <!-- check enter -->
+   <!------------------------------------------ check enter ---------------------------------------->
+
    <script>
-    function check_Enter() {
+    function check_Enter(form) {
     const NAME = document.getElementById("name").value;
+    var tr_id = document.groups.tr_id.value;
     if(NAME==""){
-    alert(" pleas enter Group-name");
-    return false
+        alert(" pleas enter Group-name");
+        return false;
+    }
+    if(tr_id==""){
+        alert(" pleas Choese Teacher Name");
+        return false;
     }
     }
+
+    /********************************************* circular image *********************************/
+    const imgDiv = document.querySelector('.profile-pic-div');
+    const img = document.querySelector('#photo');
+    const file = document.querySelector('#file');
+    const uploadBtn = document.querySelector('#uploadBtn');
+
+    //if user hover on img div 
+
+    imgDiv.addEventListener('mouseenter', function(){
+        uploadBtn.style.display = "block";
+    });
+
+    //if we hover out from img div
+
+    imgDiv.addEventListener('mouseleave', function(){
+        uploadBtn.style.display = "none";
+    });
+
+    //lets work for image showing functionality when we choose an image to upload
+
+    //when we choose a foto to upload
+
+    file.addEventListener('change', function(){
+        //this refers to file
+        const choosedFile = this.files[0];
+
+        if (choosedFile) {
+
+            const reader = new FileReader(); //FileReader is a predefined function of JS
+
+            reader.addEventListener('load', function(){
+                img.setAttribute('src', reader.result);
+            });
+
+            reader.readAsDataURL(choosedFile);
+
+            //Allright is done
+
+            //please like the video
+            //comment if have any issue related to vide & also rate my work in comment section
+
+            //And aslo please subscribe for more tutorial like this
+
+            //thanks for watching
+        }
+    });
 </script>
 
 </body>

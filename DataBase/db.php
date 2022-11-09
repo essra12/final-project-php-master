@@ -94,13 +94,36 @@ function selectAllTeacherInfo(){
 }
 
 
+/* Insert to Group FUNCTIONS */
 
+ function insertData($table ,$data)
+{
+    // $sql="INSERT INTO `groups`(`g_no`, `tr_id`, `g_name`, `g_img`) VALUES (?,?,?,?);";
 
-/*  $test = selectAllTeacherInfo();
-dd($test); */
- 
+    global $conn;
+    $sql="INSERT INTO $table SET ";
+    
+    $c=0;
+    foreach($data as $key => $value){
+        if ($c === 0) {
+            $sql = $sql . "$key=?";
+        } else {
+            $sql=$sql . ", $key=?";
+        }
+        $c++;
+    }
 
+    $st=executeQuery($sql,$data);
+    $id=$st->insert_id;
+    return $id;
+}
 
- function insertGroup(){
-    $sql="INSERT INTO `groups`(`g_no`, `tr_id`, `g_name`, `g_img`) VALUES (?,?,?,?);";
- }
+/*  $data=[
+    'g_no' => 0,
+    'tr_id' => 2,
+    'g_name' => 'Math',
+    'g_img' => ''
+ ]; */
+
+/*  $id = insertToGroup($data);
+dd($id); */ 
