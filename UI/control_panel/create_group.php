@@ -30,7 +30,7 @@ include(MAIN_PATH."/controls/groups.php");
 <div class="main-content group">
     
     
-    <div class="g_tr_admin-container" >
+    <div class="g_tr_admin-container group" >
 
         <form action="create_group.php" name="groups" class="g_tr_admin-form" method="POST" onsubmit="return check_Enter(this)">
         
