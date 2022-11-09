@@ -5,19 +5,12 @@ $errors = array();
 
 /*Create Group*/
  $g_name=""; 
+ $tr_id="";
 if(isset($_POST['create_group'])){
     $exisiting_group = selectOne($table,['g_name'=>$_POST['g_name'],'tr_id'=>$_POST['tr_id']]);
     if($exisiting_group)
     {
-        array_push($errors,"This Title alredy exists");
-
-     /* ?>
-     <script> 
-      document.getElementById("error").innerHTML = "This group alredy exists"; 
-      document.getElementById("error").style.color = "red";
-        /* alert("This group alredy exists"); */
-     /* </script> */
-   /*   <?php */ 
+        array_push($errors,"This group alredy exists");
     }
     
     if(count($errors)==0){
@@ -27,6 +20,7 @@ if(isset($_POST['create_group'])){
     }
     else{
         $g_name=$_POST['g_name'];
+        $tr_id=$_POST['tr_id'];
     } 
 
 }

@@ -35,7 +35,11 @@ include(MAIN_PATH."/controls/teachers.php");
       <form class="g_tr_admin-form">
         <div>
             <h2>Add New Teacher</h2>
-            <a href=""><img src="../../sources/image/create group.png" alt=""></a>
+            <div class="profile-pic-div">
+                <img src="../../sources/image/create_add_photo.png" id="photo" height="200" width="200">
+                <input type="file" id="file" name="g_img">
+                <label for="file" id="uploadBtn">Choose Photo</label>
+            </div>
         </div>
         <div class="create-g-div">
 

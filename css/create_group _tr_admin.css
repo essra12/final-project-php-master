@@ -448,7 +448,7 @@ button {
 
 /***************************just for teacher*****************************************/
 .g_tr_admin-container.tr {
-    height    : 93vh;
+    height    : 300vh;
 }
 
 form .form-field.tr:nth-child(2)::before {
