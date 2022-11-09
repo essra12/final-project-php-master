@@ -96,7 +96,7 @@ function selectAllTeacherInfo(){
 
 /* Insert to Group FUNCTIONS */
 
- function insertData($table ,$data)
+function insertData($table ,$data)
 {
     // $sql="INSERT INTO `groups`(`g_no`, `tr_id`, `g_name`, `g_img`) VALUES (?,?,?,?);";
 
