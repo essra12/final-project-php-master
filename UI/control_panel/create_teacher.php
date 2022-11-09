@@ -7,7 +7,7 @@ include(MAIN_PATH."/controls/teachers.php");
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1">
         <title>Control_Panel_add_teacher</title>
-        <link rel="stylesheet" href="../../css/create_group _tr_admin.css">
+        <link rel="stylesheet" href="../../css/create_g_tr_admin.css">
         <!--icon8-->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     </head>
@@ -27,31 +27,35 @@ include(MAIN_PATH."/controls/teachers.php");
 </header>
 <!--  main content -->
 
-<div class="main-content">
+<div class="main-content tr">
     
     
-    <div class="g_tr_admin-container admin ">
+    <div class="g_tr_admin-container tr ">
 
       <form class="g_tr_admin-form">
-        <div>
+        <div class="img_title tr">
             <h2>Add New Teacher</h2>
-            <a href=""><img src="../../sources/image/create group.png" alt=""></a>
+            <div class="profile-pic-div">
+                <img src="../../sources/image/create_add_photo.png" id="photo" height="200" width="200">
+                <input type="file" id="file" name="g_img">
+                <label for="file" id="uploadBtn">Choose Photo</label>
+            </div>
         </div>
         <div class="create-g-div">
 
-            <div class="form-field admin ">
+            <div class="form-field tr ">
                <input id="full_name" class="input-name" type="text"  placeholder="Full Name" maxlength="30"  />
             </div>
 
-            <div class="form-field admin ">
+            <div class="form-field tr ">
                <input id="tr_phon_no" class="input-name" type="text"  placeholder="Phone Number" maxlength="10"  />
             </div>
 
-            <div class="form-field admin">
+            <div class="form-field tr">
                 <input id="pass" class="input-name" type="password"  placeholder="Password" maxlength="25"  />
              </div>
 
-             <div class="form-field admin">
+             <div class="form-field tr">
                 <input id="conf_pass" class="input-name" type="password"  placeholder="Confrim Password" maxlength="25"  />
              </div>
 
@@ -88,6 +92,52 @@ include(MAIN_PATH."/controls/teachers.php");
         return false;
     }
     }
+    /********************************************* circular image *********************************/
+    const imgDiv = document.querySelector('.profile-pic-div');
+    const img = document.querySelector('#photo');
+    const file = document.querySelector('#file');
+    const uploadBtn = document.querySelector('#uploadBtn');
+
+    //if user hover on img div 
+
+    imgDiv.addEventListener('mouseenter', function(){
+        uploadBtn.style.display = "block";
+    });
+
+    //if we hover out from img div
+
+    imgDiv.addEventListener('mouseleave', function(){
+        uploadBtn.style.display = "none";
+    });
+
+    //lets work for image showing functionality when we choose an image to upload
+
+    //when we choose a foto to upload
+
+    file.addEventListener('change', function(){
+        //this refers to file
+        const choosedFile = this.files[0];
+
+        if (choosedFile) {
+
+            const reader = new FileReader(); //FileReader is a predefined function of JS
+
+            reader.addEventListener('load', function(){
+                img.setAttribute('src', reader.result);
+            });
+
+            reader.readAsDataURL(choosedFile);
+
+            //Allright is done
+
+            //please like the video
+            //comment if have any issue related to vide & also rate my work in comment section
+
+            //And aslo please subscribe for more tutorial like this
+
+            //thanks for watching
+        }
+    });
 </script>
 
 </body>

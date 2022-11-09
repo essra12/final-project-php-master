@@ -7,7 +7,7 @@ include(MAIN_PATH."/controls/groups.php");
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1">
         <title>Control_Panel_create_group</title>
-        <link rel="stylesheet" href="../../css/create_group _tr_admin.css">
+        <link rel="stylesheet" href="../../css/create_g_tr_admin.css">
         <!--icon8-->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     </head>
@@ -27,10 +27,10 @@ include(MAIN_PATH."/controls/groups.php");
 </header>
 <!--  main content -->
 
-<div class="main-content">
+<div class="main-content group">
     
     
-    <div class="g_tr_admin-container">
+    <div class="g_tr_admin-container group" >
 
         <form action="create_group.php" name="groups" class="g_tr_admin-form" method="POST" onsubmit="return check_Enter(this)">
         
@@ -48,6 +48,7 @@ include(MAIN_PATH."/controls/groups.php");
                     <input id="name" name="g_name" class="input-name" type="text"  placeholder="Group Name" value="<?php echo $g_name;?>"  />
                 </div>
 
+                <!-- Select Dropdown List  -->
                 <div class="form-field ">
                     <?php 
                         global $conn;
@@ -58,11 +59,18 @@ include(MAIN_PATH."/controls/groups.php");
                     ?>
                     <select class="select-t" name="tr_id">
                         <option value=""></option>
-                        <?php foreach($items as $item): ?>
-                            <option value="<?= $item['tr_id']; ?>"><?= $item['full_name']; ?></option>
-                        <?php endforeach; ?>
+
+                        <?php foreach($items as $key => $item):?>
+                            <?php if(!empty($tr_id) && $tr_id==$item['tr_id']):?>
+                                <option selected value="<?php echo $item['tr_id'] ?>"><?php echo $item['full_name'] ?></option>
+                            <?php else: ?>
+                                <option value="<?php echo $item['tr_id'] ?>"><?php echo $item['full_name'] ?></option>
+                            <?php endif;?>
+                        <?php endforeach; ?>   
+                        
                     </select>
                 </div>
+                <!----------------------------->
 
             </div>
 

@@ -244,7 +244,9 @@ main{
 /**********************************************************************/
 
 /**************************Create group_tr_admin**********************/
-
+ .main-content.group{
+    min-width: 710px;
+} 
 #b-vlightblue{
     background: var(--vlightblue);
 }
@@ -258,12 +260,12 @@ button {
     padding      : 10px 24px;
     color        : #000;
     border-radius: 25px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 } 
 
 .g_tr_admin-container {
-    max-width          : 1600px;
-    height             : 100vh;
+    width              : 99%;
+    height             : auto;
     padding            : 50px 50px;
     background-position: center;
     background-repeat  : no-repeat;
@@ -272,6 +274,9 @@ button {
     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
     margin-top: 0px;
+}
+.g_tr_admin-container.group{
+    margin-top: 30px;
 }
 
 .g_tr_admin-container::before {
@@ -412,23 +417,18 @@ button {
             height             : 130vh;
         }
     
-    input[type="text"],
-    input[type="password"],
-    select,
-    button {
-        width        : 20%;
-        margin-bottom: 15px;
-    } 
-    .profile-pic-div{
-        height: 100px;
-        width: 100px;
-    }
-    
     }
 
 /***************************just for admin*****************************************/
+    .main-content.admin{
+        min-width: 710px;
+    } 
+    .img_title.admin{
+        height: 300px;
+    }
     .g_tr_admin-container.admin {
-        height    : 93vh;
+        height    : auto;
+        margin-top: 30px;
     }
 
     form .form-field.admin:nth-child(2)::before {
@@ -447,8 +447,16 @@ button {
       }
 
 /***************************just for teacher*****************************************/
+
+.main-content.tr{
+    min-width: 710px;
+} 
+.img_title.tr{
+    height: 300px;
+}
+
 .g_tr_admin-container.tr {
-    height    : 300vh;
+    height    : auto;
 }
 
 form .form-field.tr:nth-child(2)::before {
