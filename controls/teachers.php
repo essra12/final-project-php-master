@@ -44,7 +44,7 @@ $conf_password="";
         $conn->query($sql2); 
     /*succes mmessage*/
         $_SESSION['message']='Teacher Added successfully';
-        header('location: ' . BASE_URL .'/UI/control_panel/create_teacher.php');// يتم إستخدام هذه الدالة  من أجل نقل أو تحويل المستخدم للمكان الذي نُريده
+        header('location: ' . BASE_URL .'/UI/control_panel/create_group.php');// يتم إستخدام هذه الدالة  من أجل نقل أو تحويل المستخدم للمكان الذي نُريده
         $conn->close();
         exit();
     }
