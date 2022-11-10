@@ -128,3 +128,5 @@ function selectAllTeacherInfo(){
 
 $id = insertDataToTeacher($data);
 dd($id);  */   
+/*  $id = insertToGroup($data);
+dd($id); */ 
