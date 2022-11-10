@@ -21,7 +21,7 @@ if(isset($_POST['add_admin'])){
     $_POST['admin']=1;
     $post_id = insertData($table,$_POST);
     $_SESSION['message']='Admin added successfully';
-    header('location: ' . BASE_URL .'/UI/control_panel/create_admin.php');
+    header('location: ' . BASE_URL .'/UI/control_panel/admin_control_panel.php');
     $conn->close();
     exit(); 
   }
@@ -30,4 +30,16 @@ if(isset($_POST['add_admin'])){
     $password=$_POST['password'];
     $conf_password=$_POST['conf_password'];
 } 
+}
+
+
+/* Delete Admin */
+if(isset($_GET['deleteID']))
+{
+
+  $deleteAdmin=deleteAdmin($table,$_GET['deleteID']);
+  $_SESSION['message']="Admin deleted successfully";
+  header('location: '.BASE_URL.'/UI/control_panel/admin_control_panel.php');
+  $conn->close();
+  exit();
 }

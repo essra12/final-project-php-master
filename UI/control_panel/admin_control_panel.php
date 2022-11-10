@@ -1,6 +1,6 @@
 <?php 
 include("../../path.php"); 
-include(MAIN_PATH."/controls/students.php"); 
+include(MAIN_PATH."/controls/admins.php"); 
 $table="user";
 $condition=["admin"=>1];
 $admins=selectAll($table,$condition);  
@@ -45,6 +45,18 @@ $admins=selectAll($table,$condition);
         <img class="file_image_3d" src="../../sources/image/admin_image_3d.png" >
     </div>
 
+    <!-- For Succes -->
+    <?php if (isset($_SESSION['message'])): ?>
+                <div class="msg success" style="color: #5a9d48; margin-Top: 20px;">
+                    <li><i class="las la-check-circle" style="color: #5a9d48 ;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;<?php echo $_SESSION['message']; ?></li>
+                    <?php
+                    /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */
+                    unset($_SESSION['message']);
+                    ?>
+                </div>
+              <?php endif; ?>
+    <!----------------->
+
 <!--  table for teacher  -->
 
     <div class="table-box">
@@ -64,7 +76,7 @@ $admins=selectAll($table,$condition);
                     <td data-label="tr-id"><?php echo $admin['user_id'] ?></td>
                     <td data-label="tr-name"><img src="../../sources/image/user-man.png" class="tab-img"><?php echo $admin['full_name'] ?></td>
                     <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
+                    <td data-label="delete"><a href="admin_control_panel.php?deleteID=<?php echo $admin['user_id']; ?>"><i class="las la-trash-alt ticon delet"></i></a></td>
                 </tr>
             <?php endforeach; ?> 
 

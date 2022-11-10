@@ -81,7 +81,7 @@ function selectAllStudentInfo(){
     return $records;
 }
 
-/* SELECT All Teacher Info FUNCTIONS */
+/* SELECT All Teachers Info FUNCTIONS */
 function selectAllTeacherInfo(){ 
 
     global $conn; 
@@ -92,7 +92,17 @@ function selectAllTeacherInfo(){
     $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
     return $records;
 }
+/* SELECT Groups Info FUNCTIONS */
+function selectAllGroupInfo(){ 
 
+    global $conn; 
+    $sql = "SELECT *,teacher.user_id,user.full_name FROM groups,user,teacher WHERE groups.tr_id=teacher.tr_id AND teacher.user_id=user.user_id;";
+    global $conn;
+    $pre=$conn->prepare($sql);
+    $pre->execute();
+    $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
 
 /* Insert to Group FUNCTIONS */
  function insertData($table ,$data)
@@ -115,18 +125,23 @@ function selectAllTeacherInfo(){
     return $id;
 }
 
+/* DELETE Admin FUNCTION */
+function deleteAdmin($table, $id)
+{
+    global $conn;
+    $sql="DELETE FROM $table WHERE user_id=?";
+    $st=executeQuery($sql,['user_id'=>$id]);//وضع في مصفوفة لانه عنصر داخل مصفوفة
+    return $st->affected_rows; //اذا تحقق الحذف يجب ان يرجع قيمة اكبر من 0
+}
+ 
 
-
-/*      $data= [
-    'full_name' => 'hade salm',
-    'password' => 123321,
-    'u_img' => '',
-    'admin' => 0,
-    'user_id'=> 21,
-    'tr_phone_no'=>'092564758'
- ];   
-
-$id = insertDataToTeacher($data);
-dd($id);  */   
-/*  $id = insertToGroup($data);
-dd($id); */ 
+/* DELETE Student FUNCTION */
+function deleteAdmin($table, $id)
+{
+    global $conn;
+    $sql="DELETE FROM $table WHERE user_id=?";
+    $st=executeQuery($sql,['user_id'=>$id]);//وضع في مصفوفة لانه عنصر داخل مصفوفة
+    return $st->affected_rows; //اذا تحقق الحذف يجب ان يرجع قيمة اكبر من 0
+}
+ 
+ 
