@@ -34,7 +34,7 @@ include(MAIN_PATH."/controls/teachers.php");
 
       <form class="g_tr_admin-form" action="create_teacher.php" method="POST" name="create_tr_form" onsubmit="return check_Enter(this)">
         <div class="img_title tr">
-            <h2>Add New Teacher</h2>
+            <h2>Add New Teacher Account</h2>
             
             <!-- For circular image -->
             <div class="profile-pic-div">
@@ -94,8 +94,9 @@ include(MAIN_PATH."/controls/teachers.php");
 
 </div>
 
-   <!-- check enter -->
+   
    <script>
+    /********************************************* check enter *********************************/
     function check_Enter() {
     const full_name = document.getElementById("full_name").value;
     const tr_phon_no = document.getElementById("tr_phon_no").value;
@@ -122,6 +123,17 @@ include(MAIN_PATH."/controls/teachers.php");
         return false;
     }
     }
+
+    /********************************************* for sidebar items  *********************************/
+    const activePage = window.location.pathname;
+    const navLinks = document.querySelectorAll('.sidebar-menu a').forEach(link => {
+    if(link.href.includes(`${activePage}`)){
+        link.classList.add('active');
+        console.log(link);
+    }
+    })
+
+
     /********************************************* circular image *********************************/
     const imgDiv = document.querySelector('.profile-pic-div');
     const img = document.querySelector('#photo');

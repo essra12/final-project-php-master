@@ -35,8 +35,7 @@ $students=selectAllStudentInfo();
     <div class="header-box">
 
         <div class="header-box-content-table">
-            <h2>Create New Student</h2><br>
-            <button class="btn-create" type="submit">+</button>
+            <h2>Students Data</h2>
         </div>
         <img src="../../sources/image/teacher_image_3d.png" >
     </div>
@@ -71,6 +70,18 @@ $students=selectAllStudentInfo();
     </div>
 
 </div>
+
+
+<script>
+    /* for sidebar items */
+    const activePage = window.location.pathname;
+    const navLinks = document.querySelectorAll('.sidebar-menu a').forEach(link => {
+    if(link.href.includes(`${activePage}`)){
+        link.classList.add('active');
+        console.log(link);
+    }
+    })
+</script>
 
 </body>
 </html>

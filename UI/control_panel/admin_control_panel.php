@@ -1,7 +1,9 @@
 <?php 
 include("../../path.php"); 
 include(MAIN_PATH."/controls/students.php"); 
-$teachers=selectAllTeacherInfo();  
+$table="user";
+$condition=["admin"=>1];
+$admins=selectAll($table,$condition);  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,15 +34,15 @@ $teachers=selectAllTeacherInfo();
 <div class="main-content">
     
     <!-- header card -->
-    <div class="header-box">
+    <div class="header-box admin">
 
         <div class="header-box-content-table">
-            <h2>Add New Teacher Account</h2><br>
-            <a href="<?php echo BASE_URL . '/UI/control_panel/create_teacher.php' ?>">
+            <h2>Add New Admin</h2><br>
+            <a href="<?php echo BASE_URL . '/UI/control_panel/create_admin.php' ?>">
                 <button class="btn-create">+</button>
             </a>
         </div>
-        <img src="../../sources/image/teacher_image_3d.png" >
+        <img class="file_image_3d" src="../../sources/image/admin_image_3d.png" >
     </div>
 
 <!--  table for teacher  -->
@@ -49,22 +51,18 @@ $teachers=selectAllTeacherInfo();
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Teacher Id</th>
-                    <th scope="col">Teacher Name</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Group Name</th>
+                    <th scope="col">Admin Id</th>
+                    <th scope="col">Admin Name</th>
                     <th scope="col" width="70px">Edit</th>
                     <th scope="col" width="70px">Delete</th>
                 </tr>
             </thead>
 
             <tbody>
-            <?php foreach($teachers as $key => $teacher):?> <!--هذا المتغير عبارة عن سجل واحد من الجدول $teacher  -->
+            <?php foreach($admins as $key => $admin):?> <!--هذا المتغير عبارة عن سجل واحد من الجدول $teacher  -->
                 <tr>
-                    <td data-label="tr-id"><?php echo $teacher['tr_id'] ?></td>
-                    <td data-label="tr-name"><img src="../../sources/image/user-man.png" class="tab-img"><?php echo $teacher['full_name'] ?></td>
-                    <td data-label="tr-phone"><?php echo $teacher['tr_phone_no'] ?></td>
-                    <td data-label="g-name"><?php echo $teacher['g_name'] ?></td>
+                    <td data-label="tr-id"><?php echo $admin['user_id'] ?></td>
+                    <td data-label="tr-name"><img src="../../sources/image/user-man.png" class="tab-img"><?php echo $admin['full_name'] ?></td>
                     <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
                     <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
                 </tr>
@@ -76,6 +74,7 @@ $teachers=selectAllTeacherInfo();
     </div>
 
 </div>
+
 <script>
     /* for sidebar items */
     const activePage = window.location.pathname;
@@ -85,6 +84,7 @@ $teachers=selectAllTeacherInfo();
         console.log(link);
     }
     })
+    
 </script>
 </body>
 </html>

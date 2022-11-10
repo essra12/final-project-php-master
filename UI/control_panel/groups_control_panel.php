@@ -36,7 +36,9 @@ include("../../path.php");
 
         <div class="header-box-content">
             <h2>Create New Groups</h2><br>
-            <button class="btn-create" type="submit">+</button>
+            <a href="<?php echo BASE_URL . '/UI/control_panel/create_group.php' ?>">
+                <button class="btn-create">+</button>
+            </a>
         </div>
         <img  src="../../sources/image/groups_image_3d.png" >
     </div>
@@ -178,11 +180,16 @@ include("../../path.php");
 
  </div>
 
-
-
-
-
-
+ <script>
+    /* for sidebar items */
+    const activePage = window.location.pathname;
+    const navLinks = document.querySelectorAll('.sidebar-menu a').forEach(link => {
+    if(link.href.includes(`${activePage}`)){
+        link.classList.add('active');
+        console.log(link);
+    }
+    })
+</script>
 
 </body>
 </html>

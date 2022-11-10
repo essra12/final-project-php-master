@@ -101,24 +101,31 @@ body{
     align-items: center;
 }
 .avartar-text h4{
-    font-size: 20px;
+    font-size: 18px;
 }
 .avartar-text p{
-    font-size: 18px;
+    font-size: 16px;
 }
 
 /*menu items*/
 .sidebar-menu li{
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 .sidebar-menu a{
     color: #FFFFFF;
-    font-size: 20px;
+    font-size: 18px;
     display: block;
     padding: .7rem 0rem;
 }
 .sidebar-menu a:hover{
     font-weight: bolder;
+    font-size: 20px;
+}
+
+
+a:is(:link,:active,:hover).active{
+    font-weight: bolder;
+    font-size: 20px;
 }
 
 .sidebar-menu ul{
@@ -127,7 +134,7 @@ body{
 .sidebar-menu a span:first-child{
     display: inline-block;
     margin-right: .8rem;
-    font-size: 24px;
+    font-size: 20px;
     color: #FFFFFF;
 }
 
@@ -157,13 +164,16 @@ body{
     width: 60%;
     margin: 1.5rem 1.5rem 1.5rem 2rem ;
     font-weight: bold;
+    text-transform  : uppercase;
+    transition      : background-color 0.3s;
 }
 .btn-admin:hover{
    /*  background: var(--orange); */
     color: #000000;
-    font-weight: bold;
     background-color: #fff;
     cursor: pointer;
+    border: 2px double #222242;
+    border-radius: 25px;
 }
 /*****************************************************Groups_conrrol_panel style*****************************************************/
 
@@ -228,12 +238,14 @@ header{
     font-style: bold;
     background: var(--vdarkblue);
     box-shadow: var(--shadow2);
+    transition      : background-color 0.3s;
 }
 
 .btn-create:hover {
-    background: var(--orange);
-    color: var(--vdarkblue);
+    color: #000000;
+    background-color: #fff;
     cursor: pointer;
+    border: 2px double #222242;
 }
 
 main{
@@ -478,7 +490,7 @@ table th {
     color: var(--red);
  }
 
- /*file_control_panel*/
+ /* just for file_control_panel*/
  .header-box.file{
 	height: 250px;
 	width: 99%;
@@ -494,6 +506,21 @@ table th {
     margin-right: 100px; 
 }
 
+ /* just for admin_control_panel*/
+ .header-box.admin{
+	height: 250px;
+	width: 99%;
+	box-shadow: var(--shadow2);
+	background: var(--lightblue);
+	margin-top: 20px;
+ 	border-radius: 15px;
+}
+.header-box.admin img{
+	width:auto;
+    height: 250px;
+    float: right;
+    margin-right: 100px; 
+}
 
 
 @media(max-width: 884px){

@@ -92,8 +92,9 @@ include(MAIN_PATH."/controls/admins.php");
 
 </div>
 
-   <!-- check enter -->
+   
    <script>
+    /********************************************check enter**********************************************/
     function check_Enter() {
     const full_name = document.getElementById("full_name").value;
     const pass = document.getElementById("pass").value;
@@ -115,6 +116,15 @@ include(MAIN_PATH."/controls/admins.php");
         return false;
     }
     }
+
+    /********************************************* for sidebar items  *********************************/
+    const activePage = window.location.pathname;
+    const navLinks = document.querySelectorAll('.sidebar-menu a').forEach(link => {
+    if(link.href.includes(`${activePage}`)){
+        link.classList.add('active');
+        console.log(link);
+    }
+    })
 
 
     /********************************************* circular image *********************************/
