@@ -220,8 +220,7 @@ form .form-field::before {
     color: #fff;
     cursor          : pointer;
     transition      : background-color 0.3s;
-    margin-top: 60px;
-    
+     
 }
 
 button[type="submit"]:hover {

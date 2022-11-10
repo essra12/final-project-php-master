@@ -1,5 +1,5 @@
 <?php 
-session_start();
+
 include("path.php"); 
 include(MAIN_PATH."/controls/login_path.php");
 ?>
