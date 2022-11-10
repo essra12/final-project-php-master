@@ -67,62 +67,7 @@ $teachers=selectAllTeacherInfo();
                     <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
                 </tr>
             <?php endforeach; ?> 
-                <!-- <tr>
-                    <td data-label="tr-id">1333</td>
-                    <td data-label="tr-name"><img src="../../sources/image/user-weman.png" class="tab-img">YYY YYY</td>
-                    <td data-label="tr-phone">091******</td>
-                    <td data-label="g-name">English</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="tr-id">1333</td>
-                    <td data-label="tr-name"><img src="../../sources/image/user-weman.png" class="tab-img">YYY YYY</td>
-                    <td data-label="tr-phone">091******</td>
-                    <td data-label="g-name">English</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="tr-id">1333</td>
-                    <td data-label="tr-name"><img src="../../sources/image/user-weman.png" class="tab-img">YYY YYY</td>
-                    <td data-label="tr-phone">091******</td>
-                    <td data-label="g-name">English</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="tr-id">1333</td>
-                    <td data-label="tr-name"><img src="../../sources/image/user-weman.png" class="tab-img">YYY YYY</td>
-                    <td data-label="tr-phone">091******</td>
-                    <td data-label="g-name">English</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="tr-id">1333</td>
-                    <td data-label="tr-name"><img src="../../sources/image/user-weman.png" class="tab-img">YYY YYY</td>
-                    <td data-label="tr-phone">091******</td>
-                    <td data-label="g-name">English</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="tr-id">1333</td>
-                    <td data-label="tr-name"><img src="../../sources/image/user-weman.png" class="tab-img">YYY YYY</td>
-                    <td data-label="tr-phone">091******</td>
-                    <td data-label="g-name">English</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="tr-id">1333</td>
-                    <td data-label="tr-name"><img src="../../sources/image/user-weman.png" class="tab-img">YYY YYY</td>
-                    <td data-label="tr-phone">091******</td>
-                    <td data-label="g-name">English</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr> -->
+
 
             </tbody>
         </table>
