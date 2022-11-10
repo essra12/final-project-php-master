@@ -32,36 +32,62 @@ include(MAIN_PATH."/controls/teachers.php");
     
     <div class="g_tr_admin-container tr ">
 
-      <form class="g_tr_admin-form">
+      <form class="g_tr_admin-form" action="create_teacher.php" method="POST" name="create_tr_form" onsubmit="return check_Enter(this)">
         <div class="img_title tr">
             <h2>Add New Teacher</h2>
+            
+            <!-- For circular image -->
             <div class="profile-pic-div">
                 <img src="../../sources/image/create_add_photo.png" id="photo" height="200" width="200">
-                <input type="file" id="file" name="g_img">
+                <input type="file" id="file" name="u_img">
                 <label for="file" id="uploadBtn">Choose Photo</label>
             </div>
+            <!------------------------>
+        
         </div>
         <div class="create-g-div">
 
             <div class="form-field tr ">
-               <input id="full_name" class="input-name" type="text"  placeholder="Full Name" maxlength="30"  />
+               <input id="full_name" class="input-name" type="text"  placeholder="Full Name" maxlength="30" name="full_name" value="<?php echo $full_name;?>"/>
             </div>
 
             <div class="form-field tr ">
-               <input id="tr_phon_no" class="input-name" type="text"  placeholder="Phone Number" maxlength="10"  />
+               <input id="tr_phon_no" class="input-name" type="text"  placeholder="Phone Number" maxlength="10" name="tr_phone_no" value="<?php echo $tr_phone_no;?>"/>
             </div>
 
             <div class="form-field tr">
-                <input id="pass" class="input-name" type="password"  placeholder="Password" maxlength="25"  />
+                <input id="pass" class="input-name" type="password"  placeholder="Password" maxlength="25"  name="password" value="<?php echo $password;?>"/>
              </div>
 
              <div class="form-field tr">
-                <input id="conf_pass" class="input-name" type="password"  placeholder="Confrim Password" maxlength="25"  />
+                <input id="conf_pass" class="input-name" type="password"  placeholder="Confrim Password" maxlength="25" name="conf_password" value="<?php echo $conf_password;?>"/>
              </div>
 
         </div>
 
-          <button class="btn_save" type="submit" onclick="check_Enter()">Save</button>
+         <!-- For Errors -->
+         <?php if(count($errors)> 0): ?>
+                <div class="msg error" style="color: #D92A2A; margin-bottom: 20px;"> 
+                    <?php foreach($errors as $error): ?>
+                    <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php echo($error); ?></li>
+                    <?php endforeach; ?>
+                </div> 
+            <?php endif; ?> 
+            <!----------------->
+            
+            <!-- For Succes -->
+            <?php if (isset($_SESSION['message'])): ?>
+                <div class="msg success" style="color: #5a9d48; margin-bottom: 20px;">
+                    <li><i class="las la-check-circle" style="color: #5a9d48 ;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;<?php echo $_SESSION['message']; ?></li>
+                    <?php
+                    /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */
+                    unset($_SESSION['message']);
+                    ?>
+                </div>
+              <?php endif; ?>
+            <!----------------->
+
+          <button class="btn_save" type="submit" name="add_teacher">Save</button>
       </form>
 
   </div>
@@ -89,6 +115,10 @@ include(MAIN_PATH."/controls/teachers.php");
     }
     if(conf_pass==""){
         alert(" pleas enter Password again");
+        return false;
+    }
+    if(conf_pass!=pass){
+        alert(" the password is not equal ");
         return false;
     }
     }

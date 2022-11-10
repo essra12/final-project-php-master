@@ -25,8 +25,8 @@ include(MAIN_PATH."/controls/groups.php");
         </label>
     </div>
 </header>
-<!--  main content -->
 
+<!--  main content -->
 <div class="main-content group">
     
     
@@ -36,19 +36,24 @@ include(MAIN_PATH."/controls/groups.php");
         
         <div class="img_title">
             <h2>Create Group</h2>
+
+            <!-- For circular image -->
             <div class="profile-pic-div">
                 <img src="../../sources/image/create_add_photo.png" id="photo" height="200" width="200">
                 <input type="file" id="file" name="g_img">
                 <label for="file" id="uploadBtn">Choose Photo</label>
             </div>
-            
+            <!------------------------>
+
             <div class="create-g-div">
 
+                <!-- group name field -->
                 <div class="form-field ">
                     <input id="name" name="g_name" class="input-name" type="text"  placeholder="Group Name" value="<?php echo $g_name;?>"  />
                 </div>
+                <!---------------------->
 
-                <!-- Select Dropdown List  -->
+                <!-- Select Dropdown List -->
                 <div class="form-field ">
                     <?php 
                         global $conn;
@@ -74,13 +79,27 @@ include(MAIN_PATH."/controls/groups.php");
 
             </div>
 
+            <!-- For Errors -->
             <?php if(count($errors)> 0): ?>
-                    <div class="msg error" style="color: #D92A2A; margin-bottom: 10px;"> 
+                    <div class="msg error" style="color: #D92A2A; margin-bottom: 20px;"> 
                      <?php foreach($errors as $error): ?>
                         <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php echo($error); ?></li>
                      <?php endforeach; ?>
                     </div> 
-                <?php endif; ?> 
+            <?php endif; ?> 
+            <!----------------->
+            
+            <!-- For Succes -->
+            <?php if (isset($_SESSION['message'])): ?>
+                <div class="msg success" style="color: #5a9d48; margin-bottom: 20px;">
+                    <li><i class="las la-check-circle" style="color: #5a9d48 ;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;<?php echo $_SESSION['message']; ?></li>
+                    <?php
+                    /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */
+                    unset($_SESSION['message']);
+                    ?>
+                </div>
+              <?php endif; ?>
+             <!----------------->
 
             <button type="submit"  name="create_group" >Save</button> 
         </form>
