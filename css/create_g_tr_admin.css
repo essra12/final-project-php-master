@@ -166,9 +166,13 @@ body{
 }
 
 .btn-admin:hover{
-    background: var(--orange);
+    /* background: var(--orange); */
+    color: #000000;
+    font-weight: bold;
+    background-color: #fff;
     cursor: pointer;
-}
+} 
+
 /**********************************************************************/
 
 /*************************** main container ***************************/

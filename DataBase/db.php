@@ -1,4 +1,7 @@
 <?php
+
+session_start();//يمكن تعريف الجلسات على انها طريقة لتخزين المعلومات في متغييرات  ونقلها  بين صفحات موقعك المختلفة لتكون متاحة للاستخدام
+
 require("Connection.php");
 
 
@@ -19,7 +22,6 @@ function executeQuery($sql,$data)
 }
 
 /* SELECT All FUNCTIONS */
-
 function selectAll($table,$condition=[]) //اختياري اي يمكن عدم تمرير قيمة له  condition الاقواس لجعل الباراميتر  
 {
     global $conn; //لازم يكون معرف في الدالة لانه بيستخدمه
@@ -68,7 +70,6 @@ function selectOne($table,$condition)
 }
 
 /* SELECT All Student Info FUNCTIONS */
-
 function selectAllStudentInfo(){ 
 
     global $conn;
@@ -81,7 +82,6 @@ function selectAllStudentInfo(){
 }
 
 /* SELECT All Teacher Info FUNCTIONS */
-
 function selectAllTeacherInfo(){ 
 
     global $conn; 
@@ -95,11 +95,8 @@ function selectAllTeacherInfo(){
 
 
 /* Insert to Group FUNCTIONS */
-
  function insertData($table ,$data)
 {
-    // $sql="INSERT INTO `groups`(`g_no`, `tr_id`, `g_name`, `g_img`) VALUES (?,?,?,?);";
-
     global $conn;
     $sql="INSERT INTO $table SET ";
     
@@ -113,17 +110,21 @@ function selectAllTeacherInfo(){
         $c++;
     }
 
-    $st=executeQuery($sql,$data);
-    $id=$st->insert_id;
+    $pre=executeQuery($sql,$data);
+    $id=$pre->insert_id;
     return $id;
 }
 
-/*  $data=[
-    'g_no' => 0,
-    'tr_id' => 2,
-    'g_name' => 'Math',
-    'g_img' => ''
- ]; */
 
-/*  $id = insertToGroup($data);
-dd($id); */ 
+
+/*      $data= [
+    'full_name' => 'hade salm',
+    'password' => 123321,
+    'u_img' => '',
+    'admin' => 0,
+    'user_id'=> 21,
+    'tr_phone_no'=>'092564758'
+ ];   
+
+$id = insertDataToTeacher($data);
+dd($id);  */   
