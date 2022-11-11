@@ -13,7 +13,7 @@ $admins=selectAll($table,$condition);
         <title>Control_Panel_teacher</title>
         <link rel="stylesheet" href="../../css/group_tr_stu_file_control_panel.css">
         <!--icon8-->
-        <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+        <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">   
     </head>
 
 <body id="b-vlightblue">
@@ -77,7 +77,9 @@ $admins=selectAll($table,$condition);
                     <td data-label="tr-name"><img src="<?php echo BASE_URL . '/sources/image/' . $admin['u_img']; ?>" class="tab-img" style="width: 30px; height: 30px;border-radius:100%;"><?php echo $admin['full_name'] ?></td>
                     <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
 
-                    <td data-label="delete"><a href="admin_control_panel.php?deleteID=<?php  echo $admin['user_id'];?>"><i class="las la-trash-alt ticon delet"></i></a></td>
+                    <td data-label="delete"><a  onclick="confirmDelete()" href="admin_control_panel.php?deleteID=<?php echo $admin['user_id']; ?>"><i class="las la-trash-alt ticon delet"></i></a></td>
+
+                    <!-- <td data-label="delete"><a href="admin_control_panel.php?deleteID=<?php  /* echo $admin['user_id']; */?>"><i class="las la-trash-alt ticon delet"></i></a></td> -->
                 </tr>
             <?php endforeach; ?> 
 
@@ -100,6 +102,15 @@ $admins=selectAll($table,$condition);
     })
 
    /*******************for***********************/
+
+   function confirmDelete() {
+    if (confirm("Are you sure you want to delete this data?")) {
+         return true;
+    } 
+    else {
+        return false;
+    }
+}
 
 
 </script>
