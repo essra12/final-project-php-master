@@ -455,10 +455,15 @@ table th {
 .tab-img{
 	display: inline-block;
     width: 30px;
+    height: 30px;
     vertical-align: middle;
     border: 1px solid #000;
-    border-radius: 18px;
+    border-radius:100%;
     margin-right: 8px;
+}
+.tab-img image{ 
+    width: 30px;
+    height: 30px;
 }
 
 .ticon{

@@ -32,7 +32,7 @@ include(MAIN_PATH."/controls/teachers.php");
     
     <div class="g_tr_admin-container tr ">
 
-      <form class="g_tr_admin-form" action="create_teacher.php" method="POST" name="create_tr_form" onsubmit="return check_Enter(this)">
+      <form class="g_tr_admin-form" action="create_teacher.php" method="POST" name="create_tr_form" enctype="multipart/form-data" onsubmit="return check_Enter(this)">
         <div class="img_title tr">
             <h2>Add New Teacher Account</h2>
             
@@ -52,7 +52,7 @@ include(MAIN_PATH."/controls/teachers.php");
             </div>
 
             <div class="form-field tr ">
-               <input id="tr_phon_no" class="input-name" type="text"  placeholder="Phone Number" maxlength="10" name="tr_phone_no" value="<?php echo $tr_phone_no;?>"/>
+               <input id="tr_phon_no" class="input-name" type="text"  placeholder="Phone Number" maxlength="10" name="tr_phone_no" onkeypress="return onlyNumberKey(event)" value="<?php echo $tr_phone_no;?>"/>
             </div>
 
             <div class="form-field tr">
@@ -106,8 +106,12 @@ include(MAIN_PATH."/controls/teachers.php");
         alert(" pleas enter Full name");
         return false;
     }
-        if(tr_phon_no==""){
+    if(tr_phon_no==""){
         alert(" pleas enter Phone Number");
+        return false;
+    }
+    if(tr_phon_no.length<10){
+        alert(" pleas enter the Full Number");
         return false;
     }
     if(pass==""){
@@ -123,6 +127,16 @@ include(MAIN_PATH."/controls/teachers.php");
         return false;
     }
     }
+
+    function onlyNumberKey(evt) {
+  // Only ASCII character in that range allowed
+  var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+  if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)){
+    alert(" pleas enter Just Number");
+    return false;
+  }
+  return true;
+}
 
     /********************************************* for sidebar items  *********************************/
     const activePage = window.location.pathname;

@@ -18,7 +18,7 @@ include(MAIN_PATH."/controls/students.php");
 
       <p class="signup_text"><b>Singup</b><br>as student</p>
 
-    <form class="login-form" action="signup.php" method="POST" name="signup_form" onsubmit="return check_Enter(this)">
+    <form class="login-form" action="signup.php" method="POST" name="signup_form" enctype="multipart/form-data" onsubmit="return check_Enter(this)">
 
         <div class="form-field-signup">
         <input id="id" type="text"  placeholder="ID"  maxlength="8" name="stu_id" value="<?php echo $stu_id;?>"/>

@@ -62,7 +62,7 @@ $teachers=selectAllTeacherInfo();
             <?php foreach($teachers as $key => $teacher):?> <!--هذا المتغير عبارة عن سجل واحد من الجدول $teacher  -->
                 <tr>
                     <td data-label="tr-id"><?php echo $teacher['tr_id'] ?></td>
-                    <td data-label="tr-name"><img src="../../sources/image/user-man.png" class="tab-img"><?php echo $teacher['full_name'] ?></td>
+                    <td data-label="tr-name"><img src="<?php echo BASE_URL . '/sources/image/' . $teacher['u_img']; ?>" class="tab-img" style="width: 30px; height: 30px;border-radius:100%;"><?php echo $teacher['full_name'] ?></td>
                     <td data-label="tr-phone"><?php echo $teacher['tr_phone_no'] ?></td>
                     <td data-label="g-name"><?php echo $teacher['g_name'] ?></td>
                     <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
