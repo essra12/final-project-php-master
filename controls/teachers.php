@@ -57,20 +57,20 @@ $conf_password="";
         $u_img=$_POST['u_img'];
         $admin=$_POST['admin'];
 
-         $sql1="INSERT INTO user(full_name,password,u_img,admin) VALUES ('$full_name','$password','$u_img','$admin')";
-         $conn->query($sql1); 
+         $sql_insert1="INSERT INTO user(full_name,password,u_img,admin) VALUES ('$full_name','$password','$u_img','$admin')";
+         $conn->query($sql_insert1); 
+         $last_id = $conn->insert_id;
+
+         $_SESSION['user_id']=$last_id['user_id'];
+         $_SESSION['full_name']=$last_id['full_name'];
      
     /**************for teacher table **************/
-        unset($_POST['add_teacher']);
-        unset($_POST['full_name']);
-        unset($_POST['password']);
-        unset($_POST['conf_password']);
-        unset($_POST['u_img']);
+        unset($_POST['add_teacher'],$_POST['full_name'],$_POST['password'],$_POST['conf_password'],$_POST['u_img']);
 
         $user_id='LAST_INSERT_ID()';
 
-        $sql2="INSERT INTO teacher(user_id,tr_phone_no) VALUES ( $user_id,'$tr_phone_no')";
-        $conn->query($sql2); 
+        $sql_insert2="INSERT INTO teacher(user_id,tr_phone_no) VALUES ( $user_id,'$tr_phone_no')";
+        $conn->query($sql_insert2); 
 
     /*succes mmessage*/
         $_SESSION['message']='Teacher Added successfully';
@@ -88,3 +88,28 @@ $conf_password="";
 
  }
 
+
+ /********************** dELETE Teacher************************/
+
+ if(isset($_GET['delete_tr_id'])&& isset($_GET['deleteID']))
+ {
+    /*********for groups table*********/
+    $tr_id=$_GET['delete_tr_id'];
+    $sql_delete1="DELETE FROM groups WHERE tr_id='$tr_id';";
+    $conn->query($sql_delete1); 
+
+   /*********for teacher table*********/
+   $sql_delete2="DELETE FROM teacher WHERE tr_id='$tr_id';";
+   $conn->query($sql_delete2);   
+
+   /*********for teacher table*********/
+   $user_id=$_GET['deleteID'];
+   $sql_delete3="DELETE FROM user WHERE user_id='$user_id';";
+   $conn->query($sql_delete3);   
+
+   /*succes mmessage*/
+   $_SESSION['message']="teacher deleted successfully";
+   header('location: '.BASE_URL.'/UI/control_panel/teacher_control_panel.php');
+   $conn->close();
+   exit();
+ } 

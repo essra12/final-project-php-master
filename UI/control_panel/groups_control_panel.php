@@ -97,7 +97,8 @@ $groups=selectAllGroupInfo();
 
 
  <script>
-    /* for sidebar items */
+
+    /********for sidebar (highlights items after click it)**********/
     const activePage = window.location.pathname;
     const navLinks = document.querySelectorAll('.sidebar-menu a').forEach(link => {
     if(link.href.includes(`${activePage}`)){
@@ -105,8 +106,8 @@ $groups=selectAllGroupInfo();
         console.log(link);
     }
     })
-    /*******************for delet confirm***********************/
 
+    /*******************for delet confirm***********************/
     function confirmDelete() {
     if (confirm("Are you sure you want to delete ?")) {
         return true;

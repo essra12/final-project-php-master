@@ -154,4 +154,5 @@ function deleteGroup($id)
     $st=executeQuery($sql,['g_no'=>$id]);//وضع في مصفوفة لانه عنصر داخل مصفوفة
     return $st->affected_rows; //اذا تحقق الحذف يجب ان يرجع قيمة اكبر من 0
 }
- 
+
+

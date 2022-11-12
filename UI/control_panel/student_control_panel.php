@@ -20,6 +20,7 @@ $students=selectAllStudentInfo();
 <?php include(MAIN_PATH."/common/sidebar.php"); ?> 
 <!-------------------->
 
+<!-- header card -->
 <header class="main_icon">
     <div class="header-title">
         <label for="menu-toggle">
@@ -27,6 +28,8 @@ $students=selectAllStudentInfo();
         </label>
     </div>
 </header>
+<!------------------->
+
 <!--  main content -->
 
 <div class="main-content">
@@ -39,21 +42,21 @@ $students=selectAllStudentInfo();
         </div>
         <img src="../../sources/image/teacher_image_3d.png" >
     </div>
+    <!------------------>
 
-        <!-- For Succes message -->
-        <?php if (isset($_SESSION['message'])): ?>
-                <div class="msg success" style="color: #5a9d48; margin-Top: 20px;">
-                    <li><i class="las la-check-circle" style="color: #5a9d48 ;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;<?php echo $_SESSION['message']; ?></li>
-                    <?php
-                    /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */
-                    unset($_SESSION['message']);
-                    ?>
-                </div>
-              <?php endif; ?>
+    <!-- For Succes message -->
+    <?php if (isset($_SESSION['message'])): ?>
+        <div class="msg success" style="color: #5a9d48; margin-Top: 20px;">
+            <li><i class="las la-check-circle" style="color: #5a9d48 ;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;<?php echo $_SESSION['message']; ?></li>
+            <?php
+            /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */
+            unset($_SESSION['message']);
+            ?>
+        </div>
+            <?php endif; ?>
     <!------------------------->
 
-<!--  table for teacher  -->
-
+   <!--  table for teacher  -->
     <div class="table-box">
         <table class="table">
             <thead>
@@ -78,12 +81,14 @@ $students=selectAllStudentInfo();
             </tbody>
         </table>
     </div>
+    <!------------------------>
 
 </div>
 
 
 <script>
-    /* for sidebar items */
+
+    /********for sidebar (highlights items after click it)**********/
     const activePage = window.location.pathname;
     const navLinks = document.querySelectorAll('.sidebar-menu a').forEach(link => {
     if(link.href.includes(`${activePage}`)){
@@ -102,7 +107,6 @@ $students=selectAllStudentInfo();
             return false;
         }
     }
-
 
 </script>
 

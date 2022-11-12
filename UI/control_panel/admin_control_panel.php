@@ -88,7 +88,7 @@ $admins=selectAll($table,$condition);
 
 <script>
 
-    /*************for sidebar items*****************/
+    /********for sidebar (highlights items after click it)**********/
     const activePage = window.location.pathname;
     const navLinks = document.querySelectorAll('.sidebar-menu a').forEach(link => {
     if(link.href.includes(`${activePage}`)){
