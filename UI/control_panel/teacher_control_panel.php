@@ -53,7 +53,6 @@ $teachers=selectAllTeacherInfo();
                     <th scope="col">Teacher Name</th>
                     <th scope="col">Phone</th>
                     <th scope="col">Group Name</th>
-                    <th scope="col" width="70px">Edit</th>
                     <th scope="col" width="70px">Delete</th>
                 </tr>
             </thead>
@@ -65,7 +64,6 @@ $teachers=selectAllTeacherInfo();
                     <td data-label="tr-name"><img src="<?php echo BASE_URL . '/sources/image/' . $teacher['u_img']; ?>" class="tab-img" style="width: 30px; height: 30px;border-radius:100%;"><?php echo $teacher['full_name'] ?></td>
                     <td data-label="tr-phone"><?php echo $teacher['tr_phone_no'] ?></td>
                     <td data-label="g-name"><?php echo $teacher['g_name'] ?></td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
                     <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
                 </tr>
             <?php endforeach; ?> 

@@ -27,5 +27,14 @@ if(isset($_POST['create_group'])){
         $g_name=$_POST['g_name'];
         $tr_id=$_POST['tr_id'];
     } 
+}
 
+/***********************Delete Group***********************/
+if(isset($_GET['deleteID']))
+{
+  $deleteGroup=deleteGroup($_GET['deleteID']);
+  $_SESSION['message']="Group deleted successfully";
+  header('location: '.BASE_URL.'/UI/control_panel/groups_control_panel.php');
+  $conn->close();
+  exit();
 }

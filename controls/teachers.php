@@ -5,13 +5,13 @@ global $conn;
 $errors = array();
 $table1='user';
 $table2='teacher';
-
-
-/* Insert Teacher Data */
 $full_name="";
 $tr_phone_no="";
 $password="";
 $conf_password="";
+
+/***************************Insert Teacher Data****************************/
+
  if(isset($_POST['add_teacher'])){
 
     $exisiting_teacher = selectOne($table2,['tr_phone_no'=>$_POST['tr_phone_no']]);
@@ -20,7 +20,7 @@ $conf_password="";
         array_push($errors,"This Teacher alredy exists");
     }
 
-        /* user Image */
+    /* user Image */
     if (!empty($_FILES['u_img']['name'])) {
         $imgName= time() .'_' . $_FILES['u_img']['name'];// تُرجع الدالة الوقت الحالي بعدد الثواني منذ ذلك الحين time() ،  HTTP POST عبارة عن مصفوفة ارتباطية تحتوي على عناصر تم تحميلها عبر طريقة $_FILES
         
@@ -39,9 +39,10 @@ $conf_password="";
         $_POST['u_img']='create_add_photo.png';
     }
 
-    /*****************/
+    /**************/
 
     if(count($errors)==0){
+
     /**************for user table **************/
         global $conn;
         unset($_POST['add_teacher']);
@@ -86,3 +87,4 @@ $conf_password="";
     } 
 
  }
+

@@ -63,13 +63,14 @@ if(isset($_POST['Add_student'])){
 
         $sql1="INSERT INTO user(full_name,password,u_img,admin) VALUES ('$full_name','$password','$u_img','$admin')";
         $conn->query($sql1); 
-    
+        $last_id = $conn->insert_id;
+
+        $_SESSION['user_id']=$last_id['user_id'];
+        $_SESSION['full_name']=$last_id['full_name'];
+        
+
     /**************for student table **************/
-        unset($_POST['Add_student']);
-        unset($_POST['full_name']);
-        unset($_POST['password']);
-        unset($_POST['conf_password']);
-        unset($_POST['u_img']);
+        unset($_POST['Add_student'],$_POST['full_name'],$_POST['password'],$_POST['conf_password'],$_POST['u_img']);
 
         $user_id='LAST_INSERT_ID()';
 
@@ -90,3 +91,14 @@ if(isset($_POST['Add_student'])){
         $conf_password=$_POST['conf_password'];
     } 
 }
+
+ /***********************Delete Student***********************/
+ if(isset($_GET['deleteID']))
+ {
+   $deleteStudent=deleteStudent($_GET['deleteID']);
+   $_SESSION['message']="Student deleted successfully";
+   header('location: '.BASE_URL.'/UI/control_panel/student_control_panel.php');
+   $conn->close();
+   exit();
+ } 
+

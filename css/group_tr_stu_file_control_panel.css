@@ -262,24 +262,25 @@ main{
 
 .group-card{
     box-shadow: var(--shadow1);
-    padding: 1.5rem .5rem 0rem;
+    padding: 0.5rem .5rem 0rem;
     border-radius: 15px;
     background: var(--lightgreen);
     display: flex;
-    justify-content: center; 
-    padding-left: 2rem;
+   /*  justify-content: center; */
     margin-top: 2rem;
+    transition: background-color 0.5s;
 }
 
 .group-card:hover{
     cursor: pointer;
     margin-top: 20px;
     margin-bottom: 20px;
-    background: #b6e4b0
+    background-color: #b6e4b0; 
 }
 .group-card-info{
     width: 90%;
-    padding: 0rem 0rem 3rem;
+    /* padding: 0rem 0rem 3rem; */
+    margin: 1rem 2rem 2.8rem .5rem;
 }
 .group-card-info h3{
     font-size: 18px;
@@ -287,12 +288,19 @@ main{
 }
 
 .group-card-info p{
-    font-size: 16px;
+    font-size: 14px;
+    color: var(--vdarkblue);
+    margin-top: 5px;
 }
 .group-card-num{
     position: relative;
-    width: 10%;
+    width: 15%;
+    margin-left: 15px;
 }
+.group-card-num a{
+    margin-left: 2.5px;
+}
+
 .group-card-icon{
     width: 32px;
     height: 32px;
@@ -311,10 +319,10 @@ main{
 }
 
 .members-num{
-    font-size: 18px;
+    font-size: 16px;
     position: absolute;
     bottom: 15px;
-    right: 44px;
+    right: 36px;
 }
 
 .overlay{
