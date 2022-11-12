@@ -36,7 +36,7 @@ include(MAIN_PATH."/controls/login_path.php");
             <div class="form-field">
                 <input id="pass" name="pass" type="password" placeholder="Password" maxlength="25" /> 
             </div>
-
+                
 
           <?php if(count($errors)> 0): ?>
                     <div class="error" style="color: #D92A2A;padding_right=30px "> 
@@ -54,6 +54,7 @@ include(MAIN_PATH."/controls/login_path.php");
     </div>
     <form>
 
+        
 </body>
 </html>
 
