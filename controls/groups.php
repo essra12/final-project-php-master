@@ -4,7 +4,7 @@ include(MAIN_PATH. "/database/db.php");
 $table="groups";
 $errors = array();
 
-/*Create Group*/
+/*Insert Group Data*/
  $g_name=""; 
  $tr_id="";
 if(isset($_POST['create_group'])){
@@ -19,7 +19,7 @@ if(isset($_POST['create_group'])){
         $post_id = insertData($table,$_POST);// المضاف حالياً g_no هذه الدالة ترجع   
     /*  dd($post_id); */ //just for teasting , remove 
         $_SESSION['message']='Group created successfully';
-        header('location: ' . BASE_URL .'/UI/control_panel/create_group.php');// يتم إستخدام هذه الدالة  من أجل نقل أو تحويل المستخدم للمكان الذي نُريده
+        header('location: ' . BASE_URL .'/UI/control_panel/groups_control_panel.php');// يتم إستخدام هذه الدالة  من أجل نقل أو تحويل المستخدم للمكان الذي نُريده
         $conn->close();
         exit(); 
     }
@@ -27,5 +27,14 @@ if(isset($_POST['create_group'])){
         $g_name=$_POST['g_name'];
         $tr_id=$_POST['tr_id'];
     } 
+}
 
+/***********************Delete Group***********************/
+if(isset($_GET['deleteID']))
+{
+  $deleteGroup=deleteGroup($_GET['deleteID']);
+  $_SESSION['message']="Group deleted successfully";
+  header('location: '.BASE_URL.'/UI/control_panel/groups_control_panel.php');
+  $conn->close();
+  exit();
 }

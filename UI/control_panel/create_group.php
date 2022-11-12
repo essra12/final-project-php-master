@@ -35,7 +35,7 @@ include(MAIN_PATH."/controls/groups.php");
         <form action="create_group.php" name="groups" class="g_tr_admin-form" method="POST" onsubmit="return check_Enter(this)">
         
         <div class="img_title">
-            <h2>Create Group</h2>
+            <h2>Create New Group</h2>
 
             <!-- For circular image -->
             <div class="profile-pic-div">
@@ -108,9 +108,11 @@ include(MAIN_PATH."/controls/groups.php");
 
 </div>
 
-   <!------------------------------------------ check enter ---------------------------------------->
+ 
 
    <script>
+    
+    /****************************************  check enter ********************************************/
     function check_Enter(form) {
     const NAME = document.getElementById("name").value;
     var tr_id = document.groups.tr_id.value;
@@ -123,6 +125,15 @@ include(MAIN_PATH."/controls/groups.php");
         return false;
     }
     }
+
+    /********************************************* for sidebar items  *********************************/
+        const activePage = window.location.pathname;
+    const navLinks = document.querySelectorAll('.sidebar-menu a').forEach(link => {
+    if(link.href.includes(`${activePage}`)){
+        link.classList.add('active');
+        console.log(link);
+    }
+    })
 
     /********************************************* circular image *********************************/
     const imgDiv = document.querySelector('.profile-pic-div');

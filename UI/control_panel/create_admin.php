@@ -32,7 +32,7 @@ include(MAIN_PATH."/controls/admins.php");
     
     <div class="g_tr_admin-container admin ">
 
-      <form class="g_tr_admin-form" action="create_admin.php" method="POST" name="create_admin_form" onsubmit="return check_Enter(this)">
+      <form class="g_tr_admin-form" action="create_admin.php" method="POST" name="create_admin_form" enctype="multipart/form-data" onsubmit="return check_Enter(this)">
             
             <div  class="img_title admin">
                 <h2>Add New Admin</h2>
@@ -92,8 +92,9 @@ include(MAIN_PATH."/controls/admins.php");
 
 </div>
 
-   <!-- check enter -->
+   
    <script>
+    /********************************************check enter**********************************************/
     function check_Enter() {
     const full_name = document.getElementById("full_name").value;
     const pass = document.getElementById("pass").value;
@@ -115,6 +116,15 @@ include(MAIN_PATH."/controls/admins.php");
         return false;
     }
     }
+
+    /********************************************* for sidebar items  *********************************/
+    const activePage = window.location.pathname;
+    const navLinks = document.querySelectorAll('.sidebar-menu a').forEach(link => {
+    if(link.href.includes(`${activePage}`)){
+        link.classList.add('active');
+        console.log(link);
+    }
+    })
 
 
     /********************************************* circular image *********************************/
