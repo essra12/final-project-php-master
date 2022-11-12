@@ -28,6 +28,7 @@ if (mysqli_num_rows($results) == 1)
   while ($row =mysqli_fetch_assoc($results))
   {
     if($row["admin"]=="1"){
+
       $_SESSION['fullname'] = $fullname;
       header('Location: UI/control_panel/groups_control_panel.php');
     }
@@ -42,8 +43,8 @@ if (mysqli_num_rows($results) == 1)
 
 else {   
   // If the full name and password are not in database
- // array_push($errors," Full name or password incorrect");
- header('Location: UI/group/main page for group.php');
+array_push($errors," Full name or password incorrect");
+
 }
 }
 }
