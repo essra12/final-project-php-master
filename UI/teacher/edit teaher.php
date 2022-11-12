@@ -1,16 +1,15 @@
 <?php
 include("../../Database/Connection.php");  
 global $conn;
-if(isset($_GET['id']))
-{
-    $id= $_GET['id'];
-}if(isset($_GET['name']))
+
+
+if(isset($_GET['name']))
 {
     $name= $_GET['name'];
 }
-if(isset($_GET['spe']))
+if(isset($_GET['phone']))
 {
-    $spe= $_GET['spe'];
+    $phon= $_GET['phone'];
 }
 if(isset($_GET['password']))
 {
@@ -18,17 +17,18 @@ if(isset($_GET['password']))
 }
 
 
+
 $error ="";
 if($_SERVER['REQUEST_METHOD']=='POST')
 {
-    $userID = $_POST['id'];
     $username = $_POST['name'];
-    $specialization = $_POST['spe'];
+    $phone = $_POST['phone'];
     $userpass1 = $_POST['pass'];
     $userpass2 = $_POST['cof-pass'];
 
    if(empty($userpass2)) 
     {
+        $error="* please enter password again  ";
        
     }else  if($userpass1 != $userpass2) 
     {
@@ -36,15 +36,13 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     }
     else {
 
-    $sqln="UPDATE user,student set student.stu_id=$userID, student.stu_specialization='$specialization', user.full_name='$username', user.password='$userpass1'
-         WHERE user.user_id=student.user_id and student.stu_id=$id;";
-
+$sqln="UPDATE user , teacher set   user.full_name=$username, teacher.tr_phone_no=$phone, user.password=$userpass1  WHERE user.user_id=teacher.user_id and teacher.tr_phone_no=$phon ;";
         if(mysqli_query($conn,$sqln)){
         echo '<script type="text/javascript">alert("Record updated successfully .")</script>';
         ?>
         <script type="text/javascript">
-        window.location.href="student-profile.php" </script>
-        <?php exit();
+        window.location.href="profile teacher.php" </script>
+        <?php 
         } else {
         echo "Error updating record: " . mysqli_error($conn);
         }
@@ -52,8 +50,6 @@ if($_SERVER['REQUEST_METHOD']=='POST')
 }
 
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -76,19 +72,17 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     </div>
         <p class="main_text_edit"><b>Profile</b></p>
         <form class="login-form"  method="post">
+        
         <div class="form-field-signup">
-        <input id="textid" name="id" type="text"  placeholder="ID"  value="<?php echo $id ?>"  maxlength="8"/>
-        </div>
-        <div class="form-field-signup">
-            <input id="username" name="name" type="text"  placeholder="Full Name"  value="<?php  echo $name ?>"  maxlength="30" />
+            <input id="username" name="name" type="text"  placeholder="Full Name"  value="<?php  echo $name  ?>"  maxlength="30" />
         </div>
 
         <div class="form-field-signup">
-        <input id="spe" name="spe" type="text"  placeholder="Specialization"  value="<?php  echo $spe  ?>" maxlength="25" />
+        <input id="phone" name="phone" type="text"  placeholder="Phone"  value="<?php  echo $phon  ?>" maxlength="25" />
        </div>
           
           <div class="form-field-signup">
-            <input id="pass" name="pass" type="password" placeholder="Password"  value="<?php echo $password  ?>" maxlength="25" />  
+            <input id="pass" name="pass" type="password" placeholder="Password"  value="<?php  echo $password  ?>" maxlength="25" />  
          </div>
          <div class="form-field-signup">
           <input id="pass2" name="cof-pass" type="password" placeholder="Confrim Password" value="<?php  echo $password  ?>" maxlength="25"/>  
@@ -98,7 +92,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
                    <?php echo $error ?>
                 </div>
                 
-        <button type="submit" name="bts" onclick="check_Enter()">Save</button>
+        <button type="submit" name="bts" onclick="check_Enter()" > Save</button>
 
             
     </form>
@@ -108,23 +102,19 @@ if($_SERVER['REQUEST_METHOD']=='POST')
                //check inputs !
 
                 function check_Enter() {
-                const id = document.getElementById("textid").value;
                 const NAME = document.getElementById("username").value;
+                const phone=document.getElementById("phone").value;
                 const pass = document.getElementById("pass").value;
                 const pass2=document.getElementById("pass2").value;
-                const specialization=document.getElementById("spe").value;
               
-                if(id==""){
-                alert(" pleas enter ID");
-                return false
-                }
+                
                 if(NAME==""){
                 alert(" pleas enter name");
                 return false
                 }
                 
-                if(specialization==""){
-                alert(" pleas enter specialization ");
+                if(phone==""){
+                alert(" pleas enter phone ");
                 return false
                 }
                 else if(pass==""){

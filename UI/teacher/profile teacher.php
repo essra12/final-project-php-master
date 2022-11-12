@@ -239,34 +239,33 @@ text-align: center;
             </div>
             <div class="div-data">
                 
-                <form method="get" action="edit profile.php">
-                <i id="img1" class="fa-solid fa-id-card"></i>
+                <form method="get" action="edit teacher.php">
+                <i id="img3" class="fa-sharp fa-solid fa-phone"></i>
                 <i id="img2"  class="fa-regular fa-user"></i>
-                <i id="img3" class="fa-solid fa-desktop"></i>
                 <i id="img4" class="fa-solid fa-lock"></i>
+
 
 
              <?php
 
                         global $conn;
 
-                        $sqln="SELECT user.* ,student.stu_specialization ,student.stu_id
-                        from user ,student 
-                        WHERE user.user_id=student.user_id;";
+                        $sqln="SELECT user.* ,teacher.tr_phone_no 
+                        from user ,teacher 
+                        WHERE user.user_id=teacher.user_id;";
 
                         $result= mysqli_query($conn,$sqln);
                         $row =mysqli_fetch_row($result);
-                        $id=$row[6];
                         $name=$row[1];
-                        $spe=$row[5];
+                        $phone=$row[5];
                         $pass=$row[2];
 
 
-                        echo "<lable class='l1'>". $id. "</lable>"."<lable class='l2'>" .$name ."</lable>" . "<lable class='l3'>" .$spe ."</lable>" ."<lable class='l4'>".$pass."</lable>" ;
+                        echo " <lable class='l2'>" .$name ."</lable>" . "<lable class='l3'>" .$phone ."</lable>" ."<lable class='l4'>".$pass."</lable>" ;
 
                                         
              ?>
-                <a href="edit profile.php?id=<?php echo $id ?>&name=<?php echo $name ?>&spe=<?php echo $spe?>&password=<?php echo $pass?>" >
+                <a href="edit teaher.php?&name=<?php echo $name ?>&phone=<?php echo $phone?>&password=<?php echo $pass?>" >
                 <input name="bts" class="bt1"  type="button" value="Edit"/></a>
                 <input class="bt2" name="edit" type="button" value="Logout"/>
                 </form>

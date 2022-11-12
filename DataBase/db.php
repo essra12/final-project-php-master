@@ -2,6 +2,7 @@
 require("Connection.php");
 
 
+
 function dd($value){
     echo"<pre>", print_r($value, true), "</pre>";
     die();
@@ -104,3 +105,26 @@ dd($test); */
  function insertGroup(){
     $sql="INSERT INTO `groups`(`g_no`, `tr_id`, `g_name`, `g_img`) VALUES (?,?,?,?);";
  }
+
+
+
+
+
+
+  /*--------------------------------------------  update  Student    --------------------------------------------*/
+ 
+ /*
+  switch($_POST['bts']){
+    case 'Save':Update_student();
+    break;
+    }
+
+    */
+
+
+
+
+ 
+
+
+ /**  -------------------------------  -------------------------------------------------------      ------------------ -------------------     */
