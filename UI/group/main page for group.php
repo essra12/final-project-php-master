@@ -125,9 +125,15 @@ font-size: 18px;
 <body>
        <!-- header div-->
        <div class="header-div">
-            <h1> Hellow , mmm</h1>
-            <input class="search" type="search" placeholder="Enter Code Group " /> 
-            <input class="bt" type="button" value="search" />
+            <h1> Hello ,</h1>
+
+            <form class="example" action="">
+            <div class="search">
+            <input type="text" placeholder="Enter Group Code" name="search">
+            <button type="submit">Join</button>
+            </div>
+            </form> 
+
              <div class="photo-div">
                     <img class="img-user" src="../../sources/image/user-man.png" />
             </div>
