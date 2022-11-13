@@ -10,6 +10,7 @@ if (isset($_POST['submit'])) {
       global $conn;
       $fullname = trim(mysqli_real_escape_string($conn,$_POST['username']));
       $password = mysqli_real_escape_string($conn,$_POST['pass']);
+      /* $user_id = mysqli_real_escape_string($conn,$_POST['user_id']); */
   
   // Ensuring that the user has not left any input field blank
   // error messages will be displayed for every blank input
@@ -19,7 +20,7 @@ if (empty($password)) { array_push($errors, "Password is required"); }
 
 // Checking for the errors
 if (count($errors) == 0) {
-$query = "SELECT full_name,password,admin  FROM `user` WHERE full_name='".$fullname."' and password='".$password."'";
+$query = "SELECT user_id,full_name,password,admin  FROM `user` WHERE full_name='".$fullname."' and password='".$password."'";
 $results = mysqli_query($conn, $query);
 
 // $results = 1 means that one user with the entered full name exists
@@ -29,14 +30,18 @@ if (mysqli_num_rows($results) == 1)
   {
     if($row["admin"]=="1"){
 
-      $_SESSION['fullname'] = $fullname;
+      $_SESSION['full_name'] = $fullname;
+      $_SESSION['id'] = $user_id;
       header('Location: UI/control_panel/groups_control_panel.php');
+      $conn->close();
+      exit();
     }
     else {
-      $_SESSION['fullname'] = $fullname;
+      $_SESSION['full_name'] = $fullname;
       // page after logging in
       header('Location: UI/group/main page for group.php');
-
+      $conn->close();
+     exit();
      }
    }
  } 

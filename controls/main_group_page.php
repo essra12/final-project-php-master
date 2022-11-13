@@ -4,9 +4,9 @@ include(MAIN_PATH. "/database/db.php");
 global $conn;
 $errors = array();
 $table1='groups';
-$username=$_SESSION['fullname'];
-
+$username=$_SESSION['full_name']; 
 $search="";
+
 
  if(isset($_POST['search'])){
 

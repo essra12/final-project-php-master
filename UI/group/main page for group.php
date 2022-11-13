@@ -33,7 +33,7 @@ include(MAIN_PATH."/controls/main_group_page.php");
            
 
              <div class="photo-div">
-                    <img class="img-user" src="../../sources/image/user-man.png" />
+                <a href="..\student\student-profile.php"><img class="img-user" src="../../sources/image/user-man.png" /></a>
             </div>
         </div>
            
