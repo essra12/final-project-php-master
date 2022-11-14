@@ -10,7 +10,7 @@ $tr_phone_no="";
 $password="";
 $conf_password="";
 
-/***************************Insert Teacher Data****************************/
+/*************************************** Insert Teacher Data*****************************************/
 
  if(isset($_POST['add_teacher'])){
 
@@ -89,7 +89,7 @@ $conf_password="";
  }
 
 
- /********************** dELETE Teacher************************/
+ /***************************************** delete Teacher******************************************/
 
  if(isset($_GET['delete_tr_id'])&& isset($_GET['deleteID']))
  {
