@@ -7,9 +7,14 @@ $errors=array();
 
 
 if (isset($_POST['submit'])) {
+
+    
       global $conn;
+      /* md5('somerandomtextthatyouknow'.$_POST['password']) */
       $fullname = trim(mysqli_real_escape_string($conn,$_POST['username']));
-      $password = mysqli_real_escape_string($conn,$_POST['pass']);
+      $password = mysqli_real_escape_string($conn,$_POST['password']);
+     
+      
       /* $user_id = mysqli_real_escape_string($conn,$_POST['user_id']); */
   
   // Ensuring that the user has not left any input field blank
