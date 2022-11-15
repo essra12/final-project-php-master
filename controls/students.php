@@ -92,7 +92,9 @@ if(isset($_POST['Add_student'])){
     } 
 }
 
- /***********************Delete Student***********************/
+
+
+ /********************************************Delete Student**********************************************/
  if(isset($_GET['deleteID']))
  {
    $deleteStudent=deleteStudent($_GET['deleteID']);
