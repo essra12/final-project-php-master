@@ -34,9 +34,9 @@ include(MAIN_PATH."/controls/login_path.php");
             </div>
               
             <div class="form-field">
-                <input id="pass" name="pass" type="password" placeholder="Password" maxlength="25" /> 
+                <input id="pass" name="password" type="password" placeholder="Password" maxlength="25"  /> 
             </div>
-
+                
 
           <?php if(count($errors)> 0): ?>
                     <div class="error" style="color: #D92A2A;padding_right=30px;margin-bottom: 20px; "> 
@@ -49,11 +49,12 @@ include(MAIN_PATH."/controls/login_path.php");
          <button type="submit" id="submit" name="submit">Login</button>
         </form>
         <div class="additional-action">
-            <p>Create an account <b><u>Singup</u></b></p>
-        </div>
+        <a href="<?php echo BASE_URL . '..\UI\student\signup.php' ?>" style="text-decoration: none; color:#000;"><p>Create an account <b><u>Singup</u></b></p></a>
+    </div>
     </div>
     <form>
 
+ 
 </body>
 </html>
 

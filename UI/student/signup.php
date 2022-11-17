@@ -28,10 +28,10 @@ include(MAIN_PATH."/controls/students.php");
         </div>
           
           <div class="form-field-signup">
-            <input id="pass" type="password" placeholder="Password" maxlength="25" name="password" value="<?php echo $password;?>"/>  
+            <input id="pass" type="password" placeholder="Password"  name="password" value="<?php echo $password;?>"/>  
          </div>
          <div class="form-field-signup">
-          <input id="conf_pass" type="password" placeholder="Confrim Password" maxlength="25" name="conf_password" value="<?php echo $conf_password;?>"/>  
+          <input id="conf_pass" type="password" placeholder="Confrim Password"  name="conf_password" value="<?php echo $conf_password;?>"/>  
          </div>
        <div class="form-field-signup">
         <input id="spe" type="text"  placeholder="Specialization"  maxlength="25" name="stu_specialization" value="<?php echo $stu_specialization;?>"/>

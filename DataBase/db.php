@@ -74,7 +74,7 @@ function selectOne($table,$condition)
 function selectAllStudentInfo(){ 
 
     global $conn;
-    $sql = "SELECT student.stu_id,user.full_name,user.u_img,student.stu_specialization FROM student,user WHERE user.user_id=student.user_id;";
+    $sql = "SELECT student.stu_id,user.user_id,user.full_name,user.u_img,student.stu_specialization FROM student,user WHERE user.user_id=student.user_id;";
     global $conn;
     $pre=$conn->prepare($sql);
     $pre->execute();
@@ -82,17 +82,30 @@ function selectAllStudentInfo(){
     return $records;
 }
 
-/* SELECT All Teachers Info FUNCTIONS */
+/* SELECT All Teachers Info with Group name FUNCTIONS */
 function selectAllTeacherInfo(){ 
 
     global $conn; 
-    $sql = "SELECT teacher.tr_id,user.full_name,user.u_img,teacher.tr_phone_no,groups.g_name from teacher,user,groups WHERE user.user_id=teacher.user_id AND teacher.tr_id=groups.tr_id;";
+    $sql = "SELECT teacher.tr_id,user.user_id,user.full_name,user.u_img,teacher.tr_phone_no,groups.g_name from teacher,user,groups WHERE user.user_id=teacher.user_id AND teacher.tr_id=groups.tr_id;";
     global $conn;
     $pre=$conn->prepare($sql);
     $pre->execute();
     $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
     return $records;
 }
+
+/* SELECT All techera  FUNCTIONS */
+function selectAllteacher(){ 
+
+    global $conn;
+    $sql = "Select teacher.tr_id,user.user_id,user.full_name,user.u_img,teacher.tr_phone_no from teacher,user WHERE user.user_id=teacher.user_id;";
+    global $conn;
+    $pre=$conn->prepare($sql);
+    $pre->execute();
+    $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
+
 /* SELECT Groups Info FUNCTIONS */
 function selectAllGroupInfo(){ 
 
@@ -137,9 +150,27 @@ function deleteAdmin($table, $id)
  
 
 /* DELETE Student FUNCTION */
-/* function deleteAdmin($table, $id)
+ function deleteStudent($id)
 {
+    global $conn;
+    $sql1="DELETE FROM student WHERE user_id=?";
+    $st=executeQuery($sql1,['user_id'=>$id]);
+    $sql2="DELETE FROM user WHERE user_id=?";
+    $st=executeQuery($sql2,['user_id'=>$id]);
+    return $st->affected_rows;
+} 
 
+/* DELETE Group FUNCTION */
+function deleteGroup($id)
+{
+    global $conn;
+    $sql="DELETE FROM groups WHERE g_no=?";
+    $st=executeQuery($sql,['g_no'=>$id]);//وضع في مصفوفة لانه عنصر داخل مصفوفة
+    return $st->affected_rows; //اذا تحقق الحذف يجب ان يرجع قيمة اكبر من 0
+}
+
+
+<<<<<<< HEAD
  function insertGroup(){
     $sql="INSERT INTO `groups`(`g_no`, `tr_id`, `g_name`, `g_img`) VALUES (?,?,?,?);";
  }
@@ -157,3 +188,5 @@ function deleteAdmin($table, $id)
 
 
  /**  -------------------------------  -------------------------------------------------------      ------------------ -------------------     */
+=======
+>>>>>>> 05012fa6585c3fb6a0d9f7673c06400ed1d02a2a

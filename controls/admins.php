@@ -45,6 +45,8 @@ if(isset($_POST['add_admin'])){
     $_POST['password']=password_hash($_POST['password'], PASSWORD_DEFAULT);//password عمل تشفير لل
     
     $post_id = insertData($table,$_POST);
+    
+    /*succes message */
     $_SESSION['message']='Admin added successfully';
     header('location: ' . BASE_URL .'/UI/control_panel/admin_control_panel.php');
     $conn->close();

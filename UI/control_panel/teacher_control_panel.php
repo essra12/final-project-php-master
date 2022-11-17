@@ -1,7 +1,7 @@
 <?php 
 include("../../path.php"); 
-include(MAIN_PATH."/controls/students.php"); 
-$teachers=selectAllTeacherInfo();  
+include(MAIN_PATH."/controls/teachers.php"); 
+$teachers=selectAllteacher();  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,8 +27,9 @@ $teachers=selectAllTeacherInfo();
         </label>
     </div>
 </header>
-<!--  main content -->
 
+
+<!--  main content -->
 <div class="main-content">
     
     <!-- header card -->
@@ -42,6 +43,19 @@ $teachers=selectAllTeacherInfo();
         </div>
         <img src="../../sources/image/teacher_image_3d.png" >
     </div>
+    <!------------------>
+
+    <!-- For Succes message -->
+    <?php if (isset($_SESSION['message'])): ?>
+        <div class="msg success" style="color: #5a9d48; margin-Top: 20px;">
+            <li><i class="las la-check-circle" style="color: #5a9d48 ;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;<?php echo $_SESSION['message']; ?></li>
+            <?php
+            /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */
+            unset($_SESSION['message']);
+            ?>
+        </div>
+    <?php endif; ?>
+<!------------------------->    
 
 <!--  table for teacher  -->
 
@@ -52,8 +66,6 @@ $teachers=selectAllTeacherInfo();
                     <th scope="col">Teacher Id</th>
                     <th scope="col">Teacher Name</th>
                     <th scope="col">Phone</th>
-                    <th scope="col">Group Name</th>
-                    <th scope="col" width="70px">Edit</th>
                     <th scope="col" width="70px">Delete</th>
                 </tr>
             </thead>
@@ -64,9 +76,7 @@ $teachers=selectAllTeacherInfo();
                     <td data-label="tr-id"><?php echo $teacher['tr_id'] ?></td>
                     <td data-label="tr-name"><img src="<?php echo BASE_URL . '/sources/image/' . $teacher['u_img']; ?>" class="tab-img" style="width: 30px; height: 30px;border-radius:100%;"><?php echo $teacher['full_name'] ?></td>
                     <td data-label="tr-phone"><?php echo $teacher['tr_phone_no'] ?></td>
-                    <td data-label="g-name"><?php echo $teacher['g_name'] ?></td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
+                    <td data-label="delete"><a onclick="return confirmDelete()" href="teacher_control_panel.php?delete_tr_id=<?php echo $teacher['tr_id']; ?>&deleteID=<?php echo $teacher['user_id']; ?>"><i class="las la-trash-alt ticon delet"></i></a></td>
                 </tr>
             <?php endforeach; ?> 
 
@@ -74,10 +84,13 @@ $teachers=selectAllTeacherInfo();
             </tbody>
         </table>
     </div>
+<!--------------------------->
 
 </div>
+
 <script>
-    /* for sidebar items */
+    
+    /********for sidebar (highlights items after click it)**********/
     const activePage = window.location.pathname;
     const navLinks = document.querySelectorAll('.sidebar-menu a').forEach(link => {
     if(link.href.includes(`${activePage}`)){
@@ -85,6 +98,18 @@ $teachers=selectAllTeacherInfo();
         console.log(link);
     }
     })
+
+       /*******************for delet confirm***********************/
+
+   function confirmDelete() {
+        if (confirm("Are you sure you want to delete teacher?/nif it belongs to a group, delete it causes its group to be deleted !!!")) {
+            return true;
+        } 
+        else {
+            return false;
+        }
+    }
+
 </script>
 </body>
 </html>

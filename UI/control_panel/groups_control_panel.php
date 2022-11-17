@@ -1,6 +1,6 @@
 <?php 
 include("../../path.php"); 
-include(MAIN_PATH."/controls/students.php"); 
+include(MAIN_PATH."/controls/groups.php"); 
 $groups=selectAllGroupInfo();
 ?>
 
@@ -21,6 +21,7 @@ $groups=selectAllGroupInfo();
 <?php include(MAIN_PATH."/common/sidebar.php"); ?> 
 <!-------------------->
 
+<!-- header card -->
 <header class="main_icon">
     <div class="header-title">
         <label for="menu-toggle">
@@ -28,6 +29,8 @@ $groups=selectAllGroupInfo();
         </label>
     </div>
 </header>
+<!------------------->
+
 <!--  main content -->
 
 <div class="main-content">
@@ -41,10 +44,12 @@ $groups=selectAllGroupInfo();
             <a href="<?php echo BASE_URL . '/UI/control_panel/create_group.php' ?>">
                 <button class="btn-create">+</button>
             </a>
+            <h4 style="margin-top: 20px;"><a href="<?php echo BASE_URL . '/UI/control_panel/teacher_with_group_control_panel.php' ?>" style="color: #222242 ;" class="show_tr_g">Show all teachers with their groups</a></h5>
         </div>
         <img  src="../../sources/image/groups_image_3d.png" >
     </div>
-    
+    <!----------------->
+
      <!-- For Succes -->
      <?php if (isset($_SESSION['message'])): ?>
                 <div class="msg success" style="color: #5a9d48; margin-Top: 20px;">
@@ -58,34 +63,43 @@ $groups=selectAllGroupInfo();
     <!----------------->
 
     <main>
+
        <!--  group cards -->
         <div class="group-cards">
             
         <?php foreach($groups as $key => $group):?>
-            <a href="">
+            
                 <div class="group-card">
+                <a href="">
                     <div class="group-card-info">
                         <h3><?php echo $group['g_name'] ?></h3>
                         <p>Group ID:<?php echo $group['g_no'] ?></p>
                         <p>Tr Name: <?php echo $group['full_name'] ?></p>
                     </div>
                     <div class="group-card-num">
+                        <a onclick="return confirmDelete()" href="groups_control_panel.php?deleteID=<?php echo $group['g_no']; ?>"><i class="las la-trash-alt ticon delet" style="margin-left: 0px;padding:0px; margin-top:20px;"></i></a>
                         <div class="group-card-icon">
                             <span class="las la-user-friends"></span>
                         </div>
                         <span class="members-num">33</span> 
                     </div>
+                </a>
                 </div>
-            </a>
+            
             <?php endforeach; ?>
 
         </div>
+        <!-------------------->
+
     </main>
 
  </div>
 
+
+
  <script>
-    /* for sidebar items */
+
+    /********for sidebar (highlights items after click it)**********/
     const activePage = window.location.pathname;
     const navLinks = document.querySelectorAll('.sidebar-menu a').forEach(link => {
     if(link.href.includes(`${activePage}`)){
@@ -93,6 +107,17 @@ $groups=selectAllGroupInfo();
         console.log(link);
     }
     })
+
+    /*******************for delet confirm***********************/
+    function confirmDelete() {
+    if (confirm("Are you sure you want to delete ?")) {
+        return true;
+    } 
+    else {
+        return false;
+    }
+}
+
 </script>
 
 </body>
