@@ -68,7 +68,7 @@ button {
   }
 
 .imagelogo{
-height: 11.6em;
+height: 11.0em;
 width: auto;
 position: absolute;
 left: 14%;   
@@ -220,6 +220,7 @@ form .form-field::before {
     color: #fff;
     cursor          : pointer;
     transition      : background-color 0.3s;
+     
 }
 
 button[type="submit"]:hover {
@@ -243,6 +244,7 @@ button[type="submit"]:hover {
    
 }
 /****************************************/
+
 
 
 /********************************************************************************/ 
@@ -310,11 +312,3 @@ button[type="submit"]:hover {
     
 }
 
-
-.error{
-  margin-left: 15%;
-  color: red;
-  padding-bottom: 3%;
-}
-
-/********************************************************************************************************/

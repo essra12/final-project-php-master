@@ -1,54 +1,6 @@
 <?php
 include("../../Database/Connection.php");  
-global $conn;
-
-
-if(isset($_GET['name']))
-{
-    $name= $_GET['name'];
-}
-if(isset($_GET['phone']))
-{
-    $phon= $_GET['phone'];
-}
-if(isset($_GET['password']))
-{
-    $password= $_GET['password'];
-}
-
-
-
-$error ="";
-if($_SERVER['REQUEST_METHOD']=='POST')
-{
-    $username = $_POST['name'];
-    $phone = $_POST['phone'];
-    $userpass1 = $_POST['pass'];
-    $userpass2 = $_POST['cof-pass'];
-
-   if(empty($userpass2)) 
-    {
-        $error="* please enter password again  ";
-       
-    }else  if($userpass1 != $userpass2) 
-    {
-        $error="* Password is not matching  "; 
-    }
-    else {
-
-$sqln="UPDATE user , teacher set   user.full_name=$username, teacher.tr_phone_no=$phone, user.password=$userpass1  WHERE user.user_id=teacher.user_id and teacher.tr_phone_no=$phon ;";
-        if(mysqli_query($conn,$sqln)){
-        echo '<script type="text/javascript">alert("Record updated successfully .")</script>';
-        ?>
-        <script type="text/javascript">
-        window.location.href="profile teacher.php" </script>
-        <?php 
-        } else {
-        echo "Error updating record: " . mysqli_error($conn);
-        }
-        }
-}
-
+include("../../controls/edit-teacher.php");
 ?>
 
 
@@ -62,13 +14,35 @@ $sqln="UPDATE user , teacher set   user.full_name=$username, teacher.tr_phone_no
     <link rel="stylesheet" href="../../CSS/login_and_singup.css"/>
     <title>Edit Profile</title>
 </head>
+<style> 
+#file1{
+    display: none;
+}
+#uploadBtn1{
+   cursor: pointer; 
+    position: absolute;
+    top: 80%;
+    left: 15%;
+    text-align: center;
+    color: white;
+    line-height: 30px;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+</style>
 <body class="body" >
 <!--using the same signup form for edit profile-->
 <div class="login_container_edit">
     <div class="circle-container"> 
     <div class="main_circle"></div>
-    <img class="imagelogo_edit" src="..\..\sources\image\user-weman.png" alt="no image"/>
-    <h5>Edit photo</h5>
+  <!--   <img class="imagelogo_edit" src="..\..\sources\image\user-weman.png" alt="no image"/> -->
+  <!-- For circular image -->
+<div class="profile-pic-div" style="width:160px ; height:160px  ; position: absolute;left: 33%;  top: 8%; " >
+                    <img src="..\..\sources\image\user-weman.png" id="photo" height="120" width="120">
+                    <input type="file" id="file1" name="u_img">
+                    <label for="file" id="uploadBtn1" >Edit Photo</label>
+   </div>
+   <!-- <h5>Edit photo</h5> -->
     </div>
         <p class="main_text_edit"><b>Profile</b></p>
         <form class="login-form"  method="post">
@@ -78,7 +52,7 @@ $sqln="UPDATE user , teacher set   user.full_name=$username, teacher.tr_phone_no
         </div>
 
         <div class="form-field-signup">
-        <input id="phone" name="phone" type="text"  placeholder="Phone"  value="<?php  echo $phon  ?>" maxlength="25" />
+        <input  id="phone" name="phone" type="text"  placeholder="Phone"  value="<?php  echo $phon  ?> "  maxlength="10" />
        </div>
           
           <div class="form-field-signup">
@@ -88,26 +62,20 @@ $sqln="UPDATE user , teacher set   user.full_name=$username, teacher.tr_phone_no
           <input id="pass2" name="cof-pass" type="password" placeholder="Confrim Password" value="<?php  echo $password  ?>" maxlength="25"/>  
          </div> 
          
-         <div class="error"> 
+         <div class="error" style="color: red; margin-left:20px;" > 
                    <?php echo $error ?>
                 </div>
-                
-        <button type="submit" name="bts" onclick="check_Enter()" > Save</button>
-
-            
+        <button type="submit" name="bts" onclick="check_Enter()" > Save</button> 
     </form>
    
 
     <script>
-               //check inputs !
-
+               /*  check inputs !
                 function check_Enter() {
                 const NAME = document.getElementById("username").value;
                 const phone=document.getElementById("phone").value;
                 const pass = document.getElementById("pass").value;
                 const pass2=document.getElementById("pass2").value;
-              
-                
                 if(NAME==""){
                 alert(" pleas enter name");
                 return false
@@ -125,9 +93,9 @@ $sqln="UPDATE user , teacher set   user.full_name=$username, teacher.tr_phone_no
                 if(pass2==""){
                 alert(" pleas enter password again");
                 return false
-                }
-            
-                }
+                }}
+
+                */
                 </script>
     
 </body>

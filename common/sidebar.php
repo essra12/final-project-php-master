@@ -35,44 +35,49 @@
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="">
+                    <a href="<?php echo BASE_URL . '/UI/control_panel/groups_control_panel.php' ?>">
                         <span class="las la-user-friends"></span>
                         <span>Groups</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="<?php echo BASE_URL . '/UI/control_panel/teacher_control_panel.php' ?>">
                         <span class="las la-user-tie"></span>
                         <span>Teachers</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="<?php echo BASE_URL . '/UI/control_panel/student_control_panel.php' ?>">
                          <span class="las la-user-alt"></span>
                         <span>Students</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="<?php echo BASE_URL . '/UI/control_panel/file_control_panal.php' ?>">
                         <span class="lar la-file"></span>
                         <span>Files</span>
                     </a>
                 </li>
+
+                <li>
+                    <a href="<?php echo BASE_URL . '/logout.php' ?>">
+                        <span class="las la-sign-out-alt"></span>
+                        <span>LogOut</span>
+                    </a>
 
             </ul>
         </div>
 
         <!--menu admen -->
         <div class="sidebar-card">
-            <img src="../../sources/image/admin_image_3d.png">
-            <!-- <div>
-                <h4>create Admin</h4>
-            </div>
-            <button  class="btn btn-admin">Admin</button> -->     
+            <img src="../../sources/image/admin_image_3d.png">  
         </div>
         <div class="sidebar-card-btn">
-            <button  class="btn btn-admin">Admin</button>
+            <a href="<?php echo BASE_URL . '/UI/control_panel/admin_control_panel.php' ?>">
+                 <button  class="btn btn-admin">Admin</button>
+            </a>
         </div>
+
     </div>
 
 </div>

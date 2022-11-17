@@ -35,8 +35,7 @@ $students=selectAllStudentInfo();
     <div class="header-box">
 
         <div class="header-box-content-table">
-            <h2>Create New Student</h2><br>
-            <button class="btn-create" type="submit">+</button>
+            <h2>Students Data</h2>
         </div>
         <img src="../../sources/image/teacher_image_3d.png" >
     </div>
@@ -59,7 +58,7 @@ $students=selectAllStudentInfo();
             <?php foreach($students as $key => $student):?> <!--هذا المتغير عبارة عن سجل واحد من الجدول $student  -->
                             <tr>
                                 <td data-label="stu-id"><?php echo $student['stu_id'] ?></td>
-                                <td data-label="stu-name"><img src="../../sources/image/user-man.png" class="tab-img"><?php echo $student['full_name'] ?></td>
+                                <td data-label="stu-name"><img src="<?php echo BASE_URL . '/sources/image/' . $student['u_img']; ?>" class="tab-img" style="  width: 30px; height: 30px;border-radius:100%;"><?php echo $student['full_name'] ?></td>
                                 <td data-label="stu_specialization"><?php echo $student['stu_specialization'] ?></td>
                                 <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
                                 <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
@@ -71,6 +70,18 @@ $students=selectAllStudentInfo();
     </div>
 
 </div>
+
+
+<script>
+    /* for sidebar items */
+    const activePage = window.location.pathname;
+    const navLinks = document.querySelectorAll('.sidebar-menu a').forEach(link => {
+    if(link.href.includes(`${activePage}`)){
+        link.classList.add('active');
+        console.log(link);
+    }
+    })
+</script>
 
 </body>
 </html>

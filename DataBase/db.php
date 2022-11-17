@@ -1,4 +1,7 @@
 <?php
+
+session_start();//يمكن تعريف الجلسات على انها طريقة لتخزين المعلومات في متغييرات  ونقلها  بين صفحات موقعك المختلفة لتكون متاحة للاستخدام
+
 require("Connection.php");
 
 
@@ -20,7 +23,6 @@ function executeQuery($sql,$data)
 }
 
 /* SELECT All FUNCTIONS */
-
 function selectAll($table,$condition=[]) //اختياري اي يمكن عدم تمرير قيمة له  condition الاقواس لجعل الباراميتر  
 {
     global $conn; //لازم يكون معرف في الدالة لانه بيستخدمه
@@ -69,7 +71,6 @@ function selectOne($table,$condition)
 }
 
 /* SELECT All Student Info FUNCTIONS */
-
 function selectAllStudentInfo(){ 
 
     global $conn;
@@ -81,12 +82,22 @@ function selectAllStudentInfo(){
     return $records;
 }
 
-/* SELECT All Teacher Info FUNCTIONS */
-
+/* SELECT All Teachers Info FUNCTIONS */
 function selectAllTeacherInfo(){ 
 
     global $conn; 
-    $sql = "SELECT teacher.tr_id,user.full_name,teacher.tr_phone_no,groups.g_name from teacher,user,groups WHERE user.user_id=teacher.user_id AND teacher.tr_id=groups.tr_id;";
+    $sql = "SELECT teacher.tr_id,user.full_name,user.u_img,teacher.tr_phone_no,groups.g_name from teacher,user,groups WHERE user.user_id=teacher.user_id AND teacher.tr_id=groups.tr_id;";
+    global $conn;
+    $pre=$conn->prepare($sql);
+    $pre->execute();
+    $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
+/* SELECT Groups Info FUNCTIONS */
+function selectAllGroupInfo(){ 
+
+    global $conn; 
+    $sql = "SELECT *,teacher.user_id,user.full_name FROM groups,user,teacher WHERE groups.tr_id=teacher.tr_id AND teacher.user_id=user.user_id;";
     global $conn;
     $pre=$conn->prepare($sql);
     $pre->execute();
@@ -94,13 +105,40 @@ function selectAllTeacherInfo(){
     return $records;
 }
 
+/* Insert to Group FUNCTIONS */
+ function insertData($table ,$data)
+{
+    global $conn;
+    $sql="INSERT INTO $table SET ";
+    
+    $c=0;
+    foreach($data as $key => $value){
+        if ($c === 0) {
+            $sql = $sql . "$key=?";
+        } else {
+            $sql=$sql . ", $key=?";
+        }
+        $c++;
+    }
 
+    $pre=executeQuery($sql,$data);
+    $id=$pre->insert_id;
+    return $id;
+}
 
-
-/*  $test = selectAllTeacherInfo();
-dd($test); */
+/* DELETE Admin FUNCTION */
+function deleteAdmin($table, $id)
+{
+    global $conn;
+    $sql="DELETE FROM $table WHERE user_id=?";
+    $st=executeQuery($sql,['user_id'=>$id]);//وضع في مصفوفة لانه عنصر داخل مصفوفة
+    return $st->affected_rows; //اذا تحقق الحذف يجب ان يرجع قيمة اكبر من 0
+}
  
 
+/* DELETE Student FUNCTION */
+/* function deleteAdmin($table, $id)
+{
 
  function insertGroup(){
     $sql="INSERT INTO `groups`(`g_no`, `tr_id`, `g_name`, `g_img`) VALUES (?,?,?,?);";
@@ -111,15 +149,6 @@ dd($test); */
 
 
 
-  /*--------------------------------------------  update  Student    --------------------------------------------*/
- 
- /*
-  switch($_POST['bts']){
-    case 'Save':Update_student();
-    break;
-    }
-
-    */
 
 
 

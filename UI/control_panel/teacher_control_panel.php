@@ -35,8 +35,10 @@ $teachers=selectAllTeacherInfo();
     <div class="header-box">
 
         <div class="header-box-content-table">
-            <h2>Create New Teacher</h2><br>
-            <button class="btn-create" type="submit">+</button>
+            <h2>Add New Teacher Account</h2><br>
+            <a href="<?php echo BASE_URL . '/UI/control_panel/create_teacher.php' ?>">
+                <button class="btn-create">+</button>
+            </a>
         </div>
         <img src="../../sources/image/teacher_image_3d.png" >
     </div>
@@ -60,75 +62,29 @@ $teachers=selectAllTeacherInfo();
             <?php foreach($teachers as $key => $teacher):?> <!--هذا المتغير عبارة عن سجل واحد من الجدول $teacher  -->
                 <tr>
                     <td data-label="tr-id"><?php echo $teacher['tr_id'] ?></td>
-                    <td data-label="tr-name"><img src="../../sources/image/user-man.png" class="tab-img"><?php echo $teacher['full_name'] ?></td>
+                    <td data-label="tr-name"><img src="<?php echo BASE_URL . '/sources/image/' . $teacher['u_img']; ?>" class="tab-img" style="width: 30px; height: 30px;border-radius:100%;"><?php echo $teacher['full_name'] ?></td>
                     <td data-label="tr-phone"><?php echo $teacher['tr_phone_no'] ?></td>
                     <td data-label="g-name"><?php echo $teacher['g_name'] ?></td>
                     <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
                     <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
                 </tr>
             <?php endforeach; ?> 
-                <!-- <tr>
-                    <td data-label="tr-id">1333</td>
-                    <td data-label="tr-name"><img src="../../sources/image/user-weman.png" class="tab-img">YYY YYY</td>
-                    <td data-label="tr-phone">091******</td>
-                    <td data-label="g-name">English</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="tr-id">1333</td>
-                    <td data-label="tr-name"><img src="../../sources/image/user-weman.png" class="tab-img">YYY YYY</td>
-                    <td data-label="tr-phone">091******</td>
-                    <td data-label="g-name">English</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="tr-id">1333</td>
-                    <td data-label="tr-name"><img src="../../sources/image/user-weman.png" class="tab-img">YYY YYY</td>
-                    <td data-label="tr-phone">091******</td>
-                    <td data-label="g-name">English</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="tr-id">1333</td>
-                    <td data-label="tr-name"><img src="../../sources/image/user-weman.png" class="tab-img">YYY YYY</td>
-                    <td data-label="tr-phone">091******</td>
-                    <td data-label="g-name">English</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="tr-id">1333</td>
-                    <td data-label="tr-name"><img src="../../sources/image/user-weman.png" class="tab-img">YYY YYY</td>
-                    <td data-label="tr-phone">091******</td>
-                    <td data-label="g-name">English</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="tr-id">1333</td>
-                    <td data-label="tr-name"><img src="../../sources/image/user-weman.png" class="tab-img">YYY YYY</td>
-                    <td data-label="tr-phone">091******</td>
-                    <td data-label="g-name">English</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="tr-id">1333</td>
-                    <td data-label="tr-name"><img src="../../sources/image/user-weman.png" class="tab-img">YYY YYY</td>
-                    <td data-label="tr-phone">091******</td>
-                    <td data-label="g-name">English</td>
-                    <td data-label="edit"></i><i class="las la-pen ticon edit"></i></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr> -->
+
 
             </tbody>
         </table>
     </div>
 
 </div>
-
+<script>
+    /* for sidebar items */
+    const activePage = window.location.pathname;
+    const navLinks = document.querySelectorAll('.sidebar-menu a').forEach(link => {
+    if(link.href.includes(`${activePage}`)){
+        link.classList.add('active');
+        console.log(link);
+    }
+    })
+</script>
 </body>
 </html>

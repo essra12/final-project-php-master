@@ -1,60 +1,7 @@
-<?php
+<?php 
 include("../../Database/Connection.php");  
-global $conn;
-if(isset($_GET['id']))
-{
-    $id= $_GET['id'];
-}if(isset($_GET['name']))
-{
-    $name= $_GET['name'];
-}
-if(isset($_GET['spe']))
-{
-    $spe= $_GET['spe'];
-}
-if(isset($_GET['password']))
-{
-    $password= $_GET['password'];
-}
-
-
-$error ="";
-if($_SERVER['REQUEST_METHOD']=='POST')
-{
-    $userID = $_POST['id'];
-    $username = $_POST['name'];
-    $specialization = $_POST['spe'];
-    $userpass1 = $_POST['pass'];
-    $userpass2 = $_POST['cof-pass'];
-
-   if(empty($userpass2)) 
-    {
-       
-    }else  if($userpass1 != $userpass2) 
-    {
-        $error="* Password is not matching  "; 
-    }
-    else {
-
-    $sqln="UPDATE user,student set student.stu_id=$userID, student.stu_specialization='$specialization', user.full_name='$username', user.password='$userpass1'
-         WHERE user.user_id=student.user_id and student.stu_id=$id;";
-
-        if(mysqli_query($conn,$sqln)){
-        echo '<script type="text/javascript">alert("Record updated successfully .")</script>';
-        ?>
-        <script type="text/javascript">
-        window.location.href="student-profile.php" </script>
-        <?php exit();
-        } else {
-        echo "Error updating record: " . mysqli_error($conn);
-        }
-        }
-}
-
+include("../../controls/edit-studentC.php");
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -66,53 +13,76 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     <link rel="stylesheet" href="../../CSS/login_and_singup.css"/>
     <title>Edit Profile</title>
 </head>
+
+<style> 
+#file1{
+    display: none;
+}
+#uploadBtn1{
+   cursor: pointer; 
+    position: absolute;
+    top: 80%;
+    left: 15%;
+    text-align: center;
+    color: white;
+    line-height: 30px;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+</style>
 <body class="body" >
 <!--using the same signup form for edit profile-->
 <div class="login_container_edit">
     <div class="circle-container"> 
     <div class="main_circle"></div>
-    <img class="imagelogo_edit" src="..\..\sources\image\user-weman.png" alt="no image"/>
-    <h5>Edit photo</h5>
+
+ <!--   <img class="imagelogo_edit" src="..\..\sources\image\user-weman.png" alt="no image"/>  -->
+
+ <!-- For circular image -->
+<div class="profile-pic-div" style="width:160px ; height:160px  ; position: absolute;left: 33%;  top: 12%; " >
+                    <img src="..\..\sources\image\user-weman.png" id="photo" height="120" width="120">
+                    <input type="file" id="file1" name="u_img">
+                    <label for="file" id="uploadBtn1" >Edit Photo</label>
+   </div>
+
+   <!-- <h5>Edit photo</h5> -->
     </div>
         <p class="main_text_edit"><b>Profile</b></p>
-        <form class="login-form"  method="post">
+        <form class="login-form"   method="POST">
         <div class="form-field-signup">
-        <input id="textid" name="id" type="text"  placeholder="ID"  value="<?php echo $id ?>"  maxlength="8"/>
+        <input id="id" name="id" type="text"  placeholder="ID"  value="<?php  echo $id  ?>"  maxlength="8"/>
         </div>
         <div class="form-field-signup">
-            <input id="username" name="name" type="text"  placeholder="Full Name"  value="<?php  echo $name ?>"  maxlength="30" />
+            <input id="name" name="name" type="text"  placeholder="Full Name"  value="<?php  echo $name  ?>" maxlength="30" />
         </div>
-
-        <div class="form-field-signup">
-        <input id="spe" name="spe" type="text"  placeholder="Specialization"  value="<?php  echo $spe  ?>" maxlength="25" />
-       </div>
           
+        <div class="form-field-signup">
+        <input id="spe" type="text"  name="spe" placeholder="Specialization" value="<?php  echo $spe  ?>"  maxlength="25" />
+       </div>
+
           <div class="form-field-signup">
-            <input id="pass" name="pass" type="password" placeholder="Password"  value="<?php echo $password  ?>" maxlength="25" />  
+            <input id="pass" type="password" name="pass" placeholder="Password"  value="<?php  echo $password  ?>" maxlength="25" />  
          </div>
          <div class="form-field-signup">
-          <input id="pass2" name="cof-pass" type="password" placeholder="Confrim Password" value="<?php  echo $password  ?>" maxlength="25"/>  
-         </div> 
-         
-         <div class="error"> 
-                   <?php echo $error ?>
-                </div>
-                
-        <button type="submit" name="bts" onclick="check_Enter()">Save</button>
+          <input id="cof-pass" type="password" name="cof-pass" placeholder="Confrim Password" value="<?php  echo $password  ?>" maxlength="25"/>  
+         </div>
 
-            
+         <div class="error" style="color: red; margin-left:30px;" > 
+                   <?php echo $error ?>
+                </div> 
+        <button type="submit" name="bts" onclick=""> Save</button>
     </form>
    
-
     <script>
+        
                //check inputs !
 
-                function check_Enter() {
-                const id = document.getElementById("textid").value;
-                const NAME = document.getElementById("username").value;
+                function check__Enter() {
+                const id = document.getElementById("id").value;
+                const NAME = document.getElementById("name").value;
+                const spe=document.getElementById("spe").value;
                 const pass = document.getElementById("pass").value;
-                const pass2=document.getElementById("pass2").value;
-                const specialization=document.getElementById("spe").value;
+                const pass2=document.getElementById("cof-pass").value;
               
                 if(id==""){
                 alert(" pleas enter ID");
@@ -122,23 +92,20 @@ if($_SERVER['REQUEST_METHOD']=='POST')
                 alert(" pleas enter name");
                 return false
                 }
-                
-                if(specialization==""){
+                if(spe==""){
                 alert(" pleas enter specialization ");
                 return false
                 }
                 else if(pass==""){
                 alert("    pleas enter password ");
                 return false
-                
                 }
                 if(pass2==""){
                 alert(" pleas enter password again");
                 return false
-                }
-            
-                }
-                </script>
-    
+                }}
+               
+               
+               </script>
 </body>
 </html>

@@ -107,5 +107,16 @@ include("../../path.php");
 
 </div>
 
+<script>
+    /* for sidebar items */
+    const activePage = window.location.pathname;
+    const navLinks = document.querySelectorAll('.sidebar-menu a').forEach(link => {
+    if(link.href.includes(`${activePage}`)){
+        link.classList.add('active');
+        console.log(link);
+    }
+    })
+</script>
+
 </body>
 </html>

@@ -105,24 +105,29 @@ body{
 }
 
 .avartar-text h4{
-    font-size: 20px;
+    font-size: 18px;
 }
 .avartar-text p{
-    font-size: 18px;
+    font-size: 16px;
 }
 
 /****menu item****/
 .sidebar-menu li{
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 .sidebar-menu a{
     color: #FFFFFF;
-    font-size: 20px;
+    font-size: 18px;
     display: block;
     padding: .7rem 0rem;
 }
 .sidebar-menu a:hover{
     font-weight: bolder;
+    font-size: 20px;
+}
+a:is(:link,:active,:hover).active{
+    font-weight: bolder;
+    font-size: 20px;
 }
 
 .sidebar-menu ul{
@@ -131,7 +136,7 @@ body{
 .sidebar-menu a span:first-child{
     display: inline-block;
     margin-right: .8rem;
-    font-size: 24px;
+    font-size: 20px;
     color: #FFFFFF;
 }
 
@@ -163,12 +168,19 @@ body{
     width: 60%;
     margin: 1.5rem 1.5rem 1.5rem 2rem ;
     font-weight: bold;
+    text-transform  : uppercase;
+    transition      : background-color 0.3s;
 }
 
 .btn-admin:hover{
-    background: var(--orange);
+    /* background: var(--orange); */
+    color: #000000;
+    background-color: #fff;
     cursor: pointer;
-}
+    border: 2px double #222242;
+    border-radius: 25px;
+} 
+
 /**********************************************************************/
 
 /*************************** main container ***************************/
@@ -243,8 +255,10 @@ main{
 }
 /**********************************************************************/
 
-/*******************************Create group_tr_admin*****************/
-
+/**************************Create group_tr_admin**********************/
+ .main-content.group{
+    min-width: 710px;
+} 
 #b-vlightblue{
     background: var(--vlightblue);
 }
@@ -258,12 +272,12 @@ button {
     padding      : 10px 24px;
     color        : #000;
     border-radius: 25px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 } 
 
 .g_tr_admin-container {
-    max-width          : 1600px;
-    height             : 90vh;
+    width              : 99%;
+    height             : auto;
     padding            : 50px 50px;
     background-position: center;
     background-repeat  : no-repeat;
@@ -271,7 +285,10 @@ button {
     border-radius      : 15px;
     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
-    margin-top: 20px;
+    margin-top: 0px;
+}
+.g_tr_admin-container.group{
+    margin-top: 30px;
 }
 
 .g_tr_admin-container::before {
@@ -294,7 +311,7 @@ button {
 .g_tr_admin-form img{
     width: 150px;
     height: 150px;
-    margin: 20px 0px 70px 0px;
+    margin: 0px 0px 0px 0px;
     border-radius: 100%;
 }
 
@@ -381,7 +398,7 @@ button {
         text-transform  : uppercase;
         font-size       : 14px;
         background-color: #222242;
-        color: #fff;
+        color           : #fff;
         cursor          : pointer;
         transition      : background-color 0.3s;
     }
@@ -391,8 +408,7 @@ button {
        font-weight: bold;
        background-color: #fff;
     }
-      /* the end of longin button */
-       /* create an account and singup text and login */
+ 
     
       .additional-action {
         position       : relative;
@@ -407,9 +423,24 @@ button {
        
     }
 
+
+    @media only screen and (max-width:720px) {
+        .g_tr_admin-container {
+            height             : 130vh;
+        }
+    
+    }
+
 /***************************just for admin*****************************************/
+    .main-content.admin{
+        min-width: 710px;
+    } 
+    .img_title.admin{
+        height: 300px;
+    }
     .g_tr_admin-container.admin {
-        height    : 93vh;
+        height    : auto;
+        margin-top: 30px;
     }
 
     form .form-field.admin:nth-child(2)::before {
@@ -428,8 +459,16 @@ button {
       }
 
 /***************************just for teacher*****************************************/
+
+.main-content.tr{
+    min-width: 710px;
+} 
+.img_title.tr{
+    height: 300px;
+}
+
 .g_tr_admin-container.tr {
-    height    : 93vh;
+    height    : auto;
 }
 
 form .form-field.tr:nth-child(2)::before {
@@ -453,3 +492,48 @@ form .form-field.tr:nth-child(2)::before {
     top:0.4em;
     left: 27%;
   }
+/**************************for circular image************************/
+  .profile-pic-div{
+    display: inline-flex;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+    transform: translate(-50%,-50%);
+    border-radius: 100%;
+    overflow: hidden;
+    border: 1px solid grey;
+    margin-top: 140px;
+    margin-bottom: 0px;
+    margin-left: 200px;
+}
+
+#photo{
+    height: 100%;
+    width: 100%;
+}
+
+#file{
+    display: none;
+}
+
+#uploadBtn{
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    color: wheat;
+    line-height: 30px;
+    font-family: sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    display: none;
+}
+.login-form .img_title {
+    height: 300px;
+    margin-bottom: 0dp;
+}
+

@@ -1,51 +1,9 @@
 
 <?php
 include("../../Database/Connection.php");  
-global $conn;
-
-
-if(isset($_GET['name']))
-{
-    $name= $_GET['name'];
-}
-
-if(isset($_GET['password']))
-{
-    $password= $_GET['password'];
-}
-
-
-
-$error ="";
-if($_SERVER['REQUEST_METHOD']=='POST')
-{
-    $username = $_POST['name'];
-    $userpass1 = $_POST['pass'];
-    $userpass2 = $_POST['cof-pass'];
-
-    if($userpass1 != $userpass2) 
-    {
-        $error="* Password is not matching  "; 
-    }
-    else {
-
-    $sqln="UPDATE user set user.full_name=$username ,user.password=$userpass1 WHERE user.full_name=$name;";
-
-
-        if(mysqli_query($conn,$sqln)){
-        echo '<script type="text/javascript">alert("Record updated successfully .")</script>';
-        ?>
-        <script type="text/javascript">
-        window.location.href="admin profile.php" </script>
-        <?php 
-        } else {
-        echo "Error updating record: " . mysqli_error($conn);
-        }
-        }
-}
+include("../../controls/edit admin.php");
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -53,17 +11,47 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- <link rel="stylesheet" href="../../css/create_g_tr_admin.css">-->
     <!--using th same login and signup css page with addtional-->
     <link rel="stylesheet" href="../../CSS/login_and_singup.css"/>
     <title>Edit Profile</title>
 </head>
+
+<style> 
+#file1{
+    display: none;
+}
+#uploadBtn1{
+   cursor: pointer; 
+    position: absolute;
+    top: 70%;
+    left: 10%;
+    text-align: center;
+    color: white;
+    line-height: 30px;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+</style>
+
+
 <body class="body" >
 <!--using the same signup form for edit profile-->
 <div class="login_container_edit">
     <div class="circle-container"> 
     <div class="main_circle"></div>
+<!--
     <img class="imagelogo_edit" src="..\..\sources\image\user-weman.png" alt="no image"/>
-    <h5>Edit photo</h5>
+-->
+<!-- For circular image -->
+<div class="profile-pic-div" style="width:140px ; height:140px  ; position: absolute;left: 33%;  top: 12%; " >
+                    <img src="..\..\sources\image\user-weman.png" id="photo" height="100" width="100">
+                    <input type="file" id="file1" name="u_img">
+                    <label for="file" id="uploadBtn1" >Edit Photo</label>
+   </div>
+
+
+   <!-- <h5>Edit photo</h5> -->
     </div>
         <p class="main_text_edit"><b>Profile</b></p>
         <form class="login-form"  method="post">
@@ -71,7 +59,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
        
 
         <div class="form-field-signup">
-        <input id="phone" name="name" type="text"  placeholder="Full_name"  value="<?php echo $name ?>"  maxlength="25" />
+        <input id="name" name="name" type="text"  placeholder="Full_name"  value="<?php echo $name ?>"  maxlength="25" />
        </div>
           
           <div class="form-field-signup">
@@ -81,11 +69,11 @@ if($_SERVER['REQUEST_METHOD']=='POST')
           <input id="pass2" name="cof-pass" type="password" placeholder="Confrim Password" value="<?php  echo $password  ?>" maxlength="25"/>  
          </div> 
          
-         <div class="error"> 
+         <div class="error" style="color: red; margin-left:20px;" > 
                    <?php echo $error ?>
                 </div>
                 
-        <button type="submit" name="bts" onclick="check_Enter()" > Save</button>
+        <button type="submit" name="bts" onclick="" > Save</button>
 
             
     </form>
@@ -95,8 +83,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
                //check inputs !
 
                 function check_Enter() {
-                const NAME = document.getElementById("username").value;
-                const phone=document.getElementById("phone").value;
+                const NAME = document.getElementById("name").value;
                 const pass = document.getElementById("pass").value;
                 const pass2=document.getElementById("pass2").value;
               
@@ -106,10 +93,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
                 return false
                 }
                 
-                if(phone==""){
-                alert(" pleas enter phone ");
-                return false
-                }
+              
                 else if(pass==""){
                 alert("    pleas enter password ");
                 return false

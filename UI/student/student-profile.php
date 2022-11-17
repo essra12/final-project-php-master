@@ -7,6 +7,7 @@ include("../../Database/db.php");
     <title>student-profile</title>
     <meta name="descreption " content=" " />
     <script src="https://kit.fontawesome.com/e1ca29be31.js" crossorigin="anonymous"></script>
+
     </head>
 
     <!--  style for profile student -->
@@ -226,6 +227,23 @@ text-align: center;
 }
 }
 
+#file1{
+    display: none;
+}
+#uploadBtn1{
+   cursor: pointer; 
+    position: absolute;
+    top: 95%;
+    left: 35%;
+    transform: translate(-30% ,-95%);
+    text-align: center;
+    color: white;
+    line-height: 30px;
+    font-family: sans-serif;
+    font-size: 21px;
+}
+</style>
+
 
 
 
@@ -234,8 +252,16 @@ text-align: center;
     <html>
         <body>
             <div class="div-photo">
-                <img class="photo" src="../../sources/image/user-weman.png" /><br>
-                <label class="lable-edit-phto">Edit Photo</label>
+              <!--  <img class="photo" src="../../sources/image/user-weman.png" /><br> -->
+                <!-- For circular image -->
+                <div class="profile-pic-div" style="width:160px ; height:160px  ; position: absolute;left: 50%;  top: 50%;    transform: translate(-50% ,-50%);
+ " >
+                    <img src="..\..\sources\image\user-weman.png" id="photo" height="120" width="120">
+                    <input type="file" id="file1" name="u_img">
+                    <label for="file" id="uploadBtn1" >Edit Photo</label>
+                </div>
+
+              <!--  <label class="lable-edit-phto">Edit Photo</label> -->
             </div>
             <div class="div-data">
                 
@@ -245,28 +271,45 @@ text-align: center;
                 <i id="img3" class="fa-solid fa-desktop"></i>
                 <i id="img4" class="fa-solid fa-lock"></i>
 
-
+               
              <?php
 
                         global $conn;
+                        $fullname=$_SESSION['fullname'];
 
-                        $sqln="SELECT user.* ,student.stu_specialization ,student.stu_id
+                        $sql="SELECT USER.* ,student.stu_id,student.stu_specialization
+                        FROM user,student
+                        WHERE user.user_id=student.user_id and user.full_name='".$fullname."';";
+
+
+
+
+                      /*  $sqln="SELECT user.* ,student.stu_specialization ,student.stu_id
                         from user ,student 
-                        WHERE user.user_id=student.user_id;";
+                        WHERE user.user_id=student.user_id and user.full_name=$name ;";*/
 
-                        $result= mysqli_query($conn,$sqln);
+                        $result= mysqli_query($conn,$sql);
                         $row =mysqli_fetch_row($result);
-                        $id=$row[6];
+                        $id=$row[5];
                         $name=$row[1];
-                        $spe=$row[5];
+                        $spe=$row[6];
                         $pass=$row[2];
 
 
                         echo "<lable class='l1'>". $id. "</lable>"."<lable class='l2'>" .$name ."</lable>" . "<lable class='l3'>" .$spe ."</lable>" ."<lable class='l4'>".$pass."</lable>" ;
 
-                                        
+                            $_GET['id']=$id;           
+                            $_GET['name']=$name;
+                            $_GET['spe']=$spe;
+                            $_GET['password']=$pass;
+                             
+                           $_SESSION['id']=$_GET['id'];
+                           $_SESSION['name']=$_GET['name'];
+                           $_SESSION['spe']=$_GET['spe'];
+                           $_SESSION['pass']=$_GET['password'];
+
              ?>
-                <a href="edit profile.php?id=<?php echo $id ?>&name=<?php echo $name ?>&spe=<?php echo $spe?>&password=<?php echo $pass?>" >
+                <a href="edit profile.php" >
                 <input name="bts" class="bt1"  type="button" value="Edit"/></a>
                 <input class="bt2" name="edit" type="button" value="Logout"/>
                 </form>

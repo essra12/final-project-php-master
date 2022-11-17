@@ -225,7 +225,21 @@ text-align: center;
     margin-left: 11%;
 }
 }
-
+#file1{
+    display: none;
+}
+#uploadBtn1{
+   cursor: pointer; 
+    position: absolute;
+    top: 95%;
+    left: 35%;
+    transform: translate(-30% ,-95%);
+    text-align: center;
+    color: white;
+    line-height: 30px;
+    font-family: sans-serif;
+    font-size: 21px;
+}
 
 
 
@@ -234,8 +248,13 @@ text-align: center;
     <html>
         <body>
             <div class="div-photo">
-                <img class="photo" src="../../sources/image/user-weman.png" /><br>
-                <label class="lable-edit-phto">Edit Photo</label>
+                <!-- photo -->
+                <div class="profile-pic-div" style="width:160px ; height:160px  ; position: absolute;left: 50%;  top: 50%;    transform: translate(-50% ,-50%);" >
+                    <img src="..\..\sources\image\user-weman.png" id="photo" height="120" width="120">
+                    <input type="file" id="file1" name="u_img">
+                    <label for="file" id="uploadBtn1" >Edit Photo</label>
+                </div>  
+
             </div>
             <div class="div-data">
                 
@@ -259,9 +278,16 @@ text-align: center;
 
                         echo " <lable class='l3'>" .$name ."</lable>"  ."<lable class='l4'>".$pass."</lable>" ;
 
+
+                          
+                        $_GET['name']=$name;
+                        $_GET['password']=$pass;
+
+                           $_SESSION['name']=$_GET['name'];
+                           $_SESSION['pass']=$_GET['password'];
                                         
              ?>
-                <a href="edit admin.php?&name=<?php echo $name ?>&password=<?php echo $pass?>" >
+                <a href="edit admin.php" >
                 <input name="bts" class="bt1"  type="button" value="Edit"/></a>
                 <input class="bt2" name="edit" type="button" value="Logout"/>
                 </form>

@@ -1,5 +1,7 @@
 <?php 
 include("../../path.php"); 
+include(MAIN_PATH."/controls/students.php"); 
+$groups=selectAllGroupInfo();
 ?>
 
 <!DOCTYPE html>
@@ -36,153 +38,62 @@ include("../../path.php");
 
         <div class="header-box-content">
             <h2>Create New Groups</h2><br>
-            <button class="btn-create" type="submit">+</button>
+            <a href="<?php echo BASE_URL . '/UI/control_panel/create_group.php' ?>">
+                <button class="btn-create">+</button>
+            </a>
         </div>
         <img  src="../../sources/image/groups_image_3d.png" >
     </div>
-
+    
+     <!-- For Succes -->
+     <?php if (isset($_SESSION['message'])): ?>
+                <div class="msg success" style="color: #5a9d48; margin-Top: 20px;">
+                    <li><i class="las la-check-circle" style="color: #5a9d48 ;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;<?php echo $_SESSION['message']; ?></li>
+                    <?php
+                    /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */
+                    unset($_SESSION['message']);
+                    ?>
+                </div>
+              <?php endif; ?>
+    <!----------------->
 
     <main>
        <!--  group cards -->
         <div class="group-cards">
-            <a href="">
-                <div class="group-card">
-                    <div class="group-card-info">
-                        <h3>Group name...</h3>
-                        <p>Id....</p>
-                        <p>Teacher Name...</p>
-                    </div>
-                    <div class="group-card-num">
-                        <div class="group-card-icon">
-                            <span class="las la-user-friends"></span>
-                        </div>
-                        <span class="members-num">33</span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="">
-                <div class="group-card">
-                    <div class="group-card-info">
-                        <h3>Group name...</h3>
-                        <p>Id....</p>
-                        <p>Teacher Name...</p>
-                    </div>
-                    <div class="group-card-num">
-                        <div class="group-card-icon">
-                            <span class="las la-user-friends"></span>
-                        </div>
-                        <span class="members-num">33</span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="">
-                <div class="group-card">
-                    <div class="group-card-info">
-                        <h3>Group name...</h3>
-                        <p>Id....</p>
-                        <p>Teacher Name...</p>
-                    </div>
-                    <div class="group-card-num">
-                        <div class="group-card-icon">
-                            <span class="las la-user-friends"></span>
-                        </div>
-                        <span class="members-num">33</span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="">
-                <div class="group-card">
-                    <div class="group-card-info">
-                        <h3>Group name...</h3>
-                        <p>Id....</p>
-                        <p>Teacher Name...</p>
-                    </div>
-                    <div class="group-card-num">
-                        <div class="group-card-icon">
-                            <span class="las la-user-friends"></span>
-                        </div>
-                        <span class="members-num">33</span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="">
-                <div class="group-card">
-                    <div class="group-card-info">
-                        <h3>Group name...</h3>
-                        <p>Id....</p>
-                        <p>Teacher Name...</p>
-                    </div>
-                    <div class="group-card-num">
-                        <div class="group-card-icon">
-                            <span class="las la-user-friends"></span>
-                        </div>
-                        <span class="members-num">33</span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="">
-                <div class="group-card">
-                    <div class="group-card-info">
-                        <h3>Group name...</h3>
-                        <p>Id....</p>
-                        <p>Teacher Name...</p>
-                    </div>
-                    <div class="group-card-num">
-                        <div class="group-card-icon">
-                            <span class="las la-user-friends"></span>
-                        </div>
-                        <span class="members-num">33</span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="">
-                <div class="group-card">
-                    <div class="group-card-info">
-                        <h3>Group name...</h3>
-                        <p>Id....</p>
-                        <p>Teacher Name...</p>
-                    </div>
-                    <div class="group-card-num">
-                        <div class="group-card-icon">
-                            <span class="las la-user-friends"></span>
-                        </div>
-                        <span class="members-num">33</span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="">
-                <div class="group-card">
-                    <div class="group-card-info">
-                        <h3>Group name...</h3>
-                        <p>Id....</p>
-                        <p>Teacher Name...</p>
-                    </div>
-                    <div class="group-card-num">
-                        <div class="group-card-icon">
-                            <span class="las la-user-friends"></span>
-                        </div>
-                        <span class="members-num">33</span>
-                    </div>
-                </div>
-            </a>
             
+        <?php foreach($groups as $key => $group):?>
+            <a href="">
+                <div class="group-card">
+                    <div class="group-card-info">
+                        <h3><?php echo $group['g_name'] ?></h3>
+                        <p>Group ID:<?php echo $group['g_no'] ?></p>
+                        <p>Tr Name: <?php echo $group['full_name'] ?></p>
+                    </div>
+                    <div class="group-card-num">
+                        <div class="group-card-icon">
+                            <span class="las la-user-friends"></span>
+                        </div>
+                        <span class="members-num">33</span> 
+                    </div>
+                </div>
+            </a>
+            <?php endforeach; ?>
+
         </div>
     </main>
 
  </div>
 
-
-
-
-
-
+ <script>
+    /* for sidebar items */
+    const activePage = window.location.pathname;
+    const navLinks = document.querySelectorAll('.sidebar-menu a').forEach(link => {
+    if(link.href.includes(`${activePage}`)){
+        link.classList.add('active');
+        console.log(link);
+    }
+    })
+</script>
 
 </body>
 </html>
