@@ -109,7 +109,7 @@ $conf_password="";
 
    /*succes mmessage*/
    $_SESSION['message']="teacher deleted successfully";
-   header('location: '.BASE_URL.'/UI/control_panel/teacher_control_panel.php');
+   header('location: '.BASE_URL.'/UI/control_panel/teacher_control_panel.php'); 
    $conn->close();
    exit();
  } 

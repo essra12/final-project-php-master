@@ -251,6 +251,9 @@ header{
 main{
     padding-top: 3rem;
 }
+.show_tr_g a:hover{
+    color: #2A3D6C;
+}
 
 /*groups card*/
 .group-cards{

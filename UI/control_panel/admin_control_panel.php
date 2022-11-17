@@ -74,7 +74,7 @@ $admins=selectAll($table,$condition);
                 <tr id="<?php echo $admin['user_id'] ?>">
                     <td data-label="tr-id"><?php echo $admin['user_id'] ?></td>
                     <td data-label="tr-name"><img src="<?php echo BASE_URL . '/sources/image/' . $admin['u_img']; ?>" class="tab-img" style="width: 30px; height: 30px;border-radius:100%;"><?php echo $admin['full_name'] ?></td>
-                    <td data-label="delete"><a  onclick="confirmDelete()" href="admin_control_panel.php?deleteID=<?php echo $admin['user_id']; ?>"><i class="las la-trash-alt ticon delet"></i></a></td>
+                    <td data-label="delete"><a  onclick="return confirmDelete()" href="admin_control_panel.php?deleteID=<?php echo $admin['user_id']; ?>"><i class="las la-trash-alt ticon delet"></i></a></td>
                 </tr>
             <?php endforeach; ?> 
 
