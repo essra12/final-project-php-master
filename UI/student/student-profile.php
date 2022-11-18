@@ -1,6 +1,9 @@
 <?php 
 
+include("../../Database/Connection.php");
 include("../../Database/db.php");
+
+
 ?>
 
 <!DOCTYPE html>
@@ -305,15 +308,14 @@ text-align: center;
 
                
              <?php
+             
 
                         global $conn;
+                        $name=$_SESSION['full_name'];
                         
                         $sql="SELECT USER.* ,student.stu_id,student.stu_specialization
                         FROM user,student
-                        WHERE user.user_id=student.user_id ;";
-
-
-
+                        WHERE user.user_id=student.user_id and user.full_name='".$name."';";
 
                       /*  $sqln="SELECT user.* ,student.stu_specialization ,student.stu_id
                         from user ,student 
@@ -340,10 +342,13 @@ text-align: center;
                            $_SESSION['pass']=$_GET['password'];
 
              ?>
-                <a href="edit profile.php" >
-                <input name="bts" class="bt1"  type="button" value="Edit"/></a>
-                <input class="bt2" name="edit" type="button" value="Logout"/>
-                </form>
+
+
+
+<a href="edit profile.php" >
+<input name="bts" class="bt1"  type="button" value="Edit"/></a>
+<input class="bt2" name="edit" type="button" value="Logout"/>
+</form>
 
 
             </div>
