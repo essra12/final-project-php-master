@@ -5,6 +5,7 @@ session_start();//يمكن تعريف الجلسات على انها طريقة 
 require("Connection.php");
 
 
+
 function dd($value){
     echo"<pre>", print_r($value, true), "</pre>";
     die();
@@ -81,7 +82,7 @@ function selectAllStudentInfo(){
     return $records;
 }
 
-/* SELECT All Teachers Info FUNCTIONS */
+/* SELECT All Teachers Info with Group name FUNCTIONS */
 function selectAllTeacherInfo(){ 
 
     global $conn; 
@@ -92,6 +93,19 @@ function selectAllTeacherInfo(){
     $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
     return $records;
 }
+
+/* SELECT All techera  FUNCTIONS */
+function selectAllteacher(){ 
+
+    global $conn;
+    $sql = "Select teacher.tr_id,user.user_id,user.full_name,user.u_img,teacher.tr_phone_no from teacher,user WHERE user.user_id=teacher.user_id;";
+    global $conn;
+    $pre=$conn->prepare($sql);
+    $pre->execute();
+    $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
+
 /* SELECT Groups Info FUNCTIONS */
 function selectAllGroupInfo(){ 
 
@@ -156,3 +170,20 @@ function deleteGroup($id)
 }
 
 
+ function insertGroup(){
+    $sql="INSERT INTO `groups`(`g_no`, `tr_id`, `g_name`, `g_img`) VALUES (?,?,?,?);";
+ }
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+ /**  -------------------------------  -------------------------------------------------------      ------------------ -------------------     */

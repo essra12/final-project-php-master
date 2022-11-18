@@ -1,6 +1,8 @@
-<?php 
+
+<?php
 include("../../Database/Connection.php");  
-include("../../controls/edit-studentC.php");
+include("../../controls/edit admin.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -9,12 +11,29 @@ include("../../controls/edit-studentC.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- <link rel="stylesheet" href="../../css/create_g_tr_admin.css">-->
     <!--using th same login and signup css page with addtional-->
     <link rel="stylesheet" href="../../CSS/login_and_singup.css"/>
     <title>Edit Profile</title>
 </head>
 
 <style> 
+/*
+#file1{
+    display: none;
+}
+#uploadBtn1{
+   cursor: pointer; 
+    position: absolute;
+    top: 70%;
+    left: 10%;
+    text-align: center;
+    color: white;
+    line-height: 30px;
+    font-family: sans-serif;
+    font-size: 15px;
+}*/
+
 .profile-pic-div{
     width:140px ;
      height:140px  ; 
@@ -53,88 +72,94 @@ include("../../controls/edit-studentC.php");
     cursor: pointer;
     display: none;
 }
+
 </style>
+
+
 <body class="body" >
 <!--using the same signup form for edit profile-->
 <div class="login_container_edit">
     <div class="circle-container"> 
     <div class="main_circle"></div>
+<!--
+    <img class="imagelogo_edit" src="..\..\sources\image\user-weman.png" alt="no image"/>
+-->
+<!-- For circular image 
+<div class="profile-pic-div" style="width:140px ; height:140px  ; position: absolute;left: 33%;  top: 12%; " >
+                    <img src="../../sources/image/user-weman.png" id="photo" height="100" width="100">
+                    <input type="file" id="file1" name="u_img">
+                    <label for="file" id="uploadBtn1" >Edit Photo</label>
+   </div>  -->
 
- <!--   <img class="imagelogo_edit" src="..\..\sources\image\user-weman.png" alt="no image"/>  -->
-
-<!-- For circular image -->
-<div class="profile-pic-div"  >
-                <img src="../../sources/image/create_add_photo.png" id="photo" height="120" width="120" >
+   <!-- For circular image -->
+ <div class="profile-pic-div"  >
+                <img src="../../sources/image/create_add_photo.png" id="photo" height="100" width="100" >
                 <input type="file" id="file" name="g_img">
                 <label for="file" id="uploadBtn">Choose Photo</label>
             </div>
+            <!------------------------>
+
 
    <!-- <h5>Edit photo</h5> -->
     </div>
         <p class="main_text_edit"><b>Profile</b></p>
-        <form class="login-form"   method="POST">
-        <div class="form-field-signup">
-        <input id="id" name="id" type="text"  placeholder="ID"  value="<?php  echo $id  ?>"  maxlength="8"/>
-        </div>
-        <div class="form-field-signup">
-            <input id="name" name="name" type="text"  placeholder="Full Name"  value="<?php  echo $name  ?>" maxlength="30" />
-        </div>
-          
-        <div class="form-field-signup">
-        <input id="spe" type="text"  name="spe" placeholder="Specialization" value="<?php  echo $spe  ?>"  maxlength="25" />
-       </div>
+        <form class="login-form"  method="post">
+        
+       
 
+        <div class="form-field-signup">
+        <input id="name" name="name" type="text"  placeholder="Full_name"  value="<?php echo $name ?>"  maxlength="25" />
+       </div>
+          
           <div class="form-field-signup">
-            <input id="pass" type="password" name="pass" placeholder="Password"  value="<?php  echo $password  ?>" maxlength="25" />  
+            <input id="pass" name="pass" type="password" placeholder="Password"  value="<?php  echo $password  ?>" maxlength="25" />  
          </div>
          <div class="form-field-signup">
-          <input id="cof-pass" type="password" name="cof-pass" placeholder="Confrim Password" value="<?php  echo $password  ?>" maxlength="25"/>  
-         </div>
-
-         <div class="error" style="color: red; margin-left:30px;" > 
+          <input id="pass2" name="cof-pass" type="password" placeholder="Confrim Password" value="<?php  echo $password  ?>" maxlength="25"/>  
+         </div> 
+         
+         <div class="error" style="color: red; margin-left:20px;" > 
                    <?php echo $error ?>
-                </div> 
-        <button type="submit" name="bts" onclick=""> Save</button>
+                </div>
+                
+        <button type="submit" name="bts" onclick="" > Save</button>
+
+            
     </form>
    
+
     <script>
-        
                //check inputs !
 
-                function check__Enter() {
-                const id = document.getElementById("id").value;
+                function check_Enter() {
                 const NAME = document.getElementById("name").value;
-                const spe=document.getElementById("spe").value;
                 const pass = document.getElementById("pass").value;
-                const pass2=document.getElementById("cof-pass").value;
+                const pass2=document.getElementById("pass2").value;
               
-                if(id==""){
-                alert(" pleas enter ID");
-                return false
-                }
+                
                 if(NAME==""){
                 alert(" pleas enter name");
                 return false
                 }
-                if(spe==""){
-                alert(" pleas enter specialization ");
-                return false
-                }
+                
+              
                 else if(pass==""){
                 alert("    pleas enter password ");
                 return false
+                
                 }
                 if(pass2==""){
                 alert(" pleas enter password again");
                 return false
-                }}
-               
-               
-               </script>
+                }
+            
+                }
+                </script>
 
 
-<script>
-                 const imgDiv = document.querySelector('.profile-pic-div');
+<!--   ********************************************* circular image *********************************    -->
+    <script>
+    const imgDiv = document.querySelector('.profile-pic-div');
     const img = document.querySelector('#photo');
     const file = document.querySelector('#file');
     const uploadBtn = document.querySelector('#uploadBtn');
@@ -180,5 +205,6 @@ include("../../controls/edit-studentC.php");
         }
     });
 </script>
+    
 </body>
 </html>

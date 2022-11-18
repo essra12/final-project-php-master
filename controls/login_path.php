@@ -1,6 +1,8 @@
 <?php
 include(MAIN_PATH. "/database/db.php");
 
+
+
 $fullname="";
 $admin="";
 $errors=array();

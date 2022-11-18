@@ -44,6 +44,7 @@ $groups=selectAllGroupInfo();
             <a href="<?php echo BASE_URL . '/UI/control_panel/create_group.php' ?>">
                 <button class="btn-create">+</button>
             </a>
+            <h4 style="margin-top: 20px;"><a href="<?php echo BASE_URL . '/UI/control_panel/teacher_with_group_control_panel.php' ?>" style="color: #222242 ;" class="show_tr_g">Show all teachers with their groups</a></h5>
         </div>
         <img  src="../../sources/image/groups_image_3d.png" >
     </div>
@@ -76,7 +77,7 @@ $groups=selectAllGroupInfo();
                         <p>Tr Name: <?php echo $group['full_name'] ?></p>
                     </div>
                     <div class="group-card-num">
-                        <a onclick="confirmDelete()" href="groups_control_panel.php?deleteID=<?php echo $group['g_no']; ?>"><i class="las la-trash-alt ticon delet" style="margin-left: 0px;padding:0px; margin-top:20px;"></i></a>
+                        <a onclick="return confirmDelete()" href="groups_control_panel.php?deleteID=<?php echo $group['g_no']; ?>"><i class="las la-trash-alt ticon delet" style="margin-left: 0px;padding:0px; margin-top:20px;"></i></a>
                         <div class="group-card-icon">
                             <span class="las la-user-friends"></span>
                         </div>

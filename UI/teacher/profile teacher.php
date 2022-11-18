@@ -1,13 +1,11 @@
-<?php 
 
+<?php
 include("../../Database/db.php");
 ?>
-
 <!DOCTYPE html>
 <head>
     <title>student-profile</title>
     <meta name="descreption " content=" " />
-    <link rel="stylesheet" href="..\..\CSS\profile.css" />
     <script src="https://kit.fontawesome.com/e1ca29be31.js" crossorigin="anonymous"></script>
     </head>
 
@@ -227,6 +225,8 @@ text-align: center;
     margin-left: 11%;
 }
 }
+
+
 .profile-pic-div{
     width:140px ;
      height:140px  ; 
@@ -266,81 +266,57 @@ text-align: center;
     display: none;
 }
 
-</style>
-
-
-
-
 
 </style>
     <html>
         <body>
             <div class="div-photo">
-              <!--  <img class="photo" src="../../sources/image/user-weman.png" /><br> -->
-
-                <!-- For circular image -->
+                <!-- photo 
+            <div class="profile-pic-div" style="width:160px ; height:160px  ; position: absolute;left: 50%;  top: 50%;    transform: translate(-50% ,-50%);" >
+                    <img src="..\..\sources\image\user-weman.png" id="photo" height="120" width="120">
+                    <input type="file" id="file1" name="u_img">
+                    <label for="file" id="uploadBtn1" >Edit Photo</label>
+                </div> -->
+                 <!-- photo -->
                 <div class="profile-pic-div"  >
                 <img src="../../sources/image/create_add_photo.png" id="photo" height="120" width="120" >
                 <input type="file" id="file" name="g_img">
                 <label for="file" id="uploadBtn">Choose Photo</label>
             </div>
 
-
-              <!--  <label class="lable-edit-phto">Edit Photo</label> -->
             </div>
+
             <div class="div-data">
                 
-                <form method="get" action="edit profile.php">
-                <i id="img1" class="fa-solid fa-id-card"></i>
+                <form method="get" action="edit teacher.php">
+                <i id="img3" class="fa-sharp fa-solid fa-phone"></i>
                 <i id="img2"  class="fa-regular fa-user"></i>
-                <i id="img3" class="fa-solid fa-desktop"></i>
                 <i id="img4" class="fa-solid fa-lock"></i>
-              
-                
-                <a href="edit profile.php" >
-                <input name="bts" class="bt1"  type="button" value="Edit"/></a>
-               <a href="..\..\logout.php"> 
-                <input class="bt2" name="but_logout" type="button" value="Logout"/></a>
-                </form>
-
-               
              <?php
-
                         global $conn;
-                        
-                        $sql="SELECT USER.* ,student.stu_id,student.stu_specialization
-                        FROM user,student
-                        WHERE user.user_id=student.user_id ;";
-
-
-
-
-                      /*  $sqln="SELECT user.* ,student.stu_specialization ,student.stu_id
-                        from user ,student 
-                        WHERE user.user_id=student.user_id and user.full_name=$name ;";*/
-
-                        $result= mysqli_query($conn,$sql);
+                        $sqln="SELECT user.* ,teacher.tr_phone_no 
+                        from user ,teacher 
+                        WHERE user.user_id=teacher.user_id;";
+                        /** وتخزينها في متغيرات DB  احضار بيانات من  */                      
+                        $result= mysqli_query($conn,$sqln);
                         $row =mysqli_fetch_row($result);
-                        $id=$row[5];
                         $name=$row[1];
-                        $spe=$row[6];
+                        $phone=$row[5];
                         $pass=$row[2];
-
-
-                        echo "<lable class='l1'>". $id. "</lable>"."<lable class='l2'>" .$name ."</lable>" . "<lable class='l3'>" .$spe ."</lable>" ."<lable class='l4'>".$pass."</lable>" ;
-
-                            $_GET['id']=$id;           
+                           
+                            /** BD عرض البيانات التي تم احضارها من  */
+                         echo " <lable class='l2'>" .$name ."</lable>" . "<lable class='l3'>" .$phone ."</lable>" ."<lable class='l4'>".$pass."</lable>" ;
+                        
+                         /** SESSION نقل البيانات الي صحة اخري باستخدام  */
                             $_GET['name']=$name;
-                            $_GET['spe']=$spe;
+                            $_GET['phone']=$phone;
                             $_GET['password']=$pass;
-                             
-                           $_SESSION['id']=$_GET['id'];
-                           $_SESSION['name']=$_GET['name'];
-                           $_SESSION['spe']=$_GET['spe'];
-                           $_SESSION['pass']=$_GET['password'];
 
+                           $_SESSION['name']=$_GET['name'];
+                           $_SESSION['phone']=$_GET['phone'];
+                           $_SESSION['pass']=$_GET['password'];                          
              ?>
-                <a href="edit profile.php" >
+                <a href="edit teaher.php" >
                 <input name="bts" class="bt1"  type="button" value="Edit"/></a>
                 <input class="bt2" name="edit" type="button" value="Logout"/>
                 </form>
@@ -349,6 +325,7 @@ text-align: center;
             </div>
 
 
+            <!--   ********************************************* circular image *********************************    -->
             <script>
                  const imgDiv = document.querySelector('.profile-pic-div');
     const img = document.querySelector('#photo');
