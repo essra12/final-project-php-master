@@ -18,6 +18,7 @@ include("../../controls/edit admin.php");
 </head>
 
 <style> 
+/*
 #file1{
     display: none;
 }
@@ -31,7 +32,47 @@ include("../../controls/edit admin.php");
     line-height: 30px;
     font-family: sans-serif;
     font-size: 15px;
+}*/
+
+.profile-pic-div{
+    width:140px ;
+     height:140px  ; 
+     position: absolute;
+     left: 50%;
+     top: 50%;  
+     transform: translate(-50% ,-50%);
+    border-radius: 100%;
+    overflow: hidden;
+    border: 1px solid grey;
+
 }
+
+#photo{
+    height: 100%;
+    width: 100%;
+}
+
+#file{
+    display: none;
+}
+
+#uploadBtn{
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    color: wheat;
+    line-height: 30px;
+    font-family: sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    display: none;
+}
+
 </style>
 
 
@@ -43,12 +84,20 @@ include("../../controls/edit admin.php");
 <!--
     <img class="imagelogo_edit" src="..\..\sources\image\user-weman.png" alt="no image"/>
 -->
-<!-- For circular image -->
+<!-- For circular image 
 <div class="profile-pic-div" style="width:140px ; height:140px  ; position: absolute;left: 33%;  top: 12%; " >
                     <img src="../../sources/image/user-weman.png" id="photo" height="100" width="100">
                     <input type="file" id="file1" name="u_img">
                     <label for="file" id="uploadBtn1" >Edit Photo</label>
-   </div>
+   </div>  -->
+
+   <!-- For circular image -->
+ <div class="profile-pic-div"  >
+                <img src="../../sources/image/create_add_photo.png" id="photo" height="100" width="100" >
+                <input type="file" id="file" name="g_img">
+                <label for="file" id="uploadBtn">Choose Photo</label>
+            </div>
+            <!------------------------>
 
 
    <!-- <h5>Edit photo</h5> -->
@@ -106,6 +155,56 @@ include("../../controls/edit admin.php");
             
                 }
                 </script>
+
+
+<!--   ********************************************* circular image *********************************    -->
+    <script>
+    const imgDiv = document.querySelector('.profile-pic-div');
+    const img = document.querySelector('#photo');
+    const file = document.querySelector('#file');
+    const uploadBtn = document.querySelector('#uploadBtn');
+
+    //if user hover on img div 
+
+    imgDiv.addEventListener('mouseenter', function(){
+        uploadBtn.style.display = "block";
+    });
+
+    //if we hover out from img div
+
+    imgDiv.addEventListener('mouseleave', function(){
+        uploadBtn.style.display = "none";
+    });
+
+    //lets work for image showing functionality when we choose an image to upload
+
+    //when we choose a foto to upload
+
+    file.addEventListener('change', function(){
+        //this refers to file
+        const choosedFile = this.files[0];
+
+        if (choosedFile) {
+
+            const reader = new FileReader(); //FileReader is a predefined function of JS
+
+            reader.addEventListener('load', function(){
+                img.setAttribute('src', reader.result);
+            });
+
+            reader.readAsDataURL(choosedFile);
+
+            //Allright is done
+
+            //please like the video
+            //comment if have any issue related to vide & also rate my work in comment section
+
+            //And aslo please subscribe for more tutorial like this
+
+            //thanks for watching
+        }
+    });
+</script>
     
 </body>
 </html>
