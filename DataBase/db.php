@@ -170,7 +170,6 @@ function deleteGroup($id)
 }
 
 
-<<<<<<< HEAD
  function insertGroup(){
     $sql="INSERT INTO `groups`(`g_no`, `tr_id`, `g_name`, `g_img`) VALUES (?,?,?,?);";
  }
@@ -188,5 +187,3 @@ function deleteGroup($id)
 
 
  /**  -------------------------------  -------------------------------------------------------      ------------------ -------------------     */
-=======
->>>>>>> 05012fa6585c3fb6a0d9f7673c06400ed1d02a2a
