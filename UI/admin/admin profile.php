@@ -225,6 +225,8 @@ text-align: center;
     margin-left: 11%;
 }
 }
+
+/* photo */
 #file1{
     display: none;
 }
@@ -244,16 +246,24 @@ text-align: center;
 
 
 
+
+
+
+
 </style>
     <html>
         <body>
             <div class="div-photo">
                 <!-- photo -->
                 <div class="profile-pic-div" style="width:160px ; height:160px  ; position: absolute;left: 50%;  top: 50%;    transform: translate(-50% ,-50%);" >
-                    <img src="..\..\sources\image\user-weman.png" id="photo" height="120" width="120">
-                    <input type="file" id="file1" name="u_img">
+                    <img src="../../sources/image/user-weman.png" id="photo" height="120" width="120">
+                    <input type="file" id="file1" name="u_img" >
                     <label for="file" id="uploadBtn1" >Edit Photo</label>
                 </div>  
+
+ <!-- For circular image -->
+
+            <!------------------------>
 
             </div>
             <div class="div-data">

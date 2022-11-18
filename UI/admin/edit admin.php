@@ -45,7 +45,7 @@ include("../../controls/edit admin.php");
 -->
 <!-- For circular image -->
 <div class="profile-pic-div" style="width:140px ; height:140px  ; position: absolute;left: 33%;  top: 12%; " >
-                    <img src="..\..\sources\image\user-weman.png" id="photo" height="100" width="100">
+                    <img src="../../sources/image/user-weman.png" id="photo" height="100" width="100">
                     <input type="file" id="file1" name="u_img">
                     <label for="file" id="uploadBtn1" >Edit Photo</label>
    </div>
