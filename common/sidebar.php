@@ -1,3 +1,8 @@
+<?php 
+include(MAIN_PATH. "/database/connection.php");
+$username=$_SESSION['full_name'];
+$user_id=$_SESSION['user_id'];
+?>
 <!-- menu -->
 <input type="checkbox" name="" id="menu-toggle">
 
@@ -13,7 +18,7 @@
 
         <div class="brand">
             <h2>
-                <img src="../../sources/image/white rectangle.jpg" alt="">
+                <img src="../../sources/image/logo_dark.png" alt="">
             </h2>
         </div>
 
@@ -25,8 +30,8 @@
 
             <div class="avartar-info">
                 <div class="avartar-text">
-                    <h4>Admin Name</h4>
-                    <p>Id.....</p>
+                    <h4><?php echo $username;?></h4>
+                    <p>Id : <?php echo $user_id;?> </p>
                 </div>
             </div>
         </div>
