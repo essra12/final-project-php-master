@@ -1,12 +1,6 @@
 <?php 
-include("../../path.php");  
-include(MAIN_PATH."/controls/stu_profile.php"); 
 
-<<<<<<< HEAD
-<?php
 include("../../Database/db.php");
-=======
->>>>>>> 05012fa6585c3fb6a0d9f7673c06400ed1d02a2a
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +11,6 @@ include("../../Database/db.php");
     <script src="https://kit.fontawesome.com/e1ca29be31.js" crossorigin="anonymous"></script>
     </head>
 
-<<<<<<< HEAD
     <!--  style for profile student -->
 <style>
 body{
@@ -234,71 +227,75 @@ text-align: center;
     margin-left: 11%;
 }
 }
+.profile-pic-div{
+    width:140px ;
+     height:140px  ; 
+     position: absolute;
+     left: 50%;
+     top: 50%;  
+     transform: translate(-50% ,-50%);
+    border-radius: 100%;
+    overflow: hidden;
+    border: 1px solid grey;
 
-#file1{
+}
+
+#photo{
+    height: 100%;
+    width: 100%;
+}
+
+#file{
     display: none;
 }
-#uploadBtn1{
-   cursor: pointer; 
+
+#uploadBtn{
+    height: 40px;
+    width: 100%;
     position: absolute;
-    top: 95%;
-    left: 35%;
-    transform: translate(-30% ,-95%);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
-    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    color: wheat;
     line-height: 30px;
     font-family: sans-serif;
-    font-size: 21px;
+    font-size: 15px;
+    cursor: pointer;
+    display: none;
 }
-</style>
-
-
-
-
 
 </style>
-=======
->>>>>>> 05012fa6585c3fb6a0d9f7673c06400ed1d02a2a
+
+
+
+
+
+</style>
     <html>
         <body>
             <div class="div-photo">
               <!--  <img class="photo" src="../../sources/image/user-weman.png" /><br> -->
+
                 <!-- For circular image -->
-                <div class="profile-pic-div" style="width:160px ; height:160px  ; position: absolute;left: 50%;  top: 50%;    transform: translate(-50% ,-50%);
- " >
-                    <img src="..\..\sources\image\user-weman.png" id="photo" height="120" width="120">
-                    <input type="file" id="file1" name="u_img">
-                    <label for="file" id="uploadBtn1" >Edit Photo</label>
-                </div>
+                <div class="profile-pic-div"  >
+                <img src="../../sources/image/create_add_photo.png" id="photo" height="120" width="120" >
+                <input type="file" id="file" name="g_img">
+                <label for="file" id="uploadBtn">Choose Photo</label>
+            </div>
+
 
               <!--  <label class="lable-edit-phto">Edit Photo</label> -->
             </div>
             <div class="div-data">
                 
-<<<<<<< HEAD
                 <form method="get" action="edit profile.php">
                 <i id="img1" class="fa-solid fa-id-card"></i>
-=======
-                <form method="post" action="edit profile.php">
-                </i>
->>>>>>> 05012fa6585c3fb6a0d9f7673c06400ed1d02a2a
                 <i id="img2"  class="fa-regular fa-user"></i>
                 <i id="img3" class="fa-solid fa-desktop"></i>
                 <i id="img4" class="fa-solid fa-lock"></i>
               
-                <?php if ($data): ?>
-         <ul>
-         <?php foreach($data as $row): ?>
-         <li><?= $row['u_img'] ?></li>
-        <li><?=  $row['stu_id'] ?></li>
-        <li><?= $row['full_name'] ?></li>
-        <li><?= $row['password'] ?></li>
-        <li><?= $row['stu_specialization'] ?></li>
-        <?php endforeach ?>
-         </ul>
-         <?php else: ?>
-          No data found
-         <?php endif ?>
                 
                 <a href="edit profile.php" >
                 <input name="bts" class="bt1"  type="button" value="Edit"/></a>
@@ -306,16 +303,14 @@ text-align: center;
                 <input class="bt2" name="but_logout" type="button" value="Logout"/></a>
                 </form>
 
-<<<<<<< HEAD
                
              <?php
 
                         global $conn;
-                        $fullname=$_SESSION['fullname'];
-
+                        
                         $sql="SELECT USER.* ,student.stu_id,student.stu_specialization
                         FROM user,student
-                        WHERE user.user_id=student.user_id and user.full_name='".$fullname."';";
+                        WHERE user.user_id=student.user_id ;";
 
 
 
@@ -352,11 +347,54 @@ text-align: center;
 
 
             </div>
+
+
+            <script>
+                 const imgDiv = document.querySelector('.profile-pic-div');
+    const img = document.querySelector('#photo');
+    const file = document.querySelector('#file');
+    const uploadBtn = document.querySelector('#uploadBtn');
+
+    //if user hover on img div 
+
+    imgDiv.addEventListener('mouseenter', function(){
+        uploadBtn.style.display = "block";
+    });
+
+    //if we hover out from img div
+
+    imgDiv.addEventListener('mouseleave', function(){
+        uploadBtn.style.display = "none";
+    });
+
+    //lets work for image showing functionality when we choose an image to upload
+
+    //when we choose a foto to upload
+
+    file.addEventListener('change', function(){
+        //this refers to file
+        const choosedFile = this.files[0];
+
+        if (choosedFile) {
+
+            const reader = new FileReader(); //FileReader is a predefined function of JS
+
+            reader.addEventListener('load', function(){
+                img.setAttribute('src', reader.result);
+            });
+
+            reader.readAsDataURL(choosedFile);
+
+            //Allright is done
+
+            //please like the video
+            //comment if have any issue related to vide & also rate my work in comment section
+
+            //And aslo please subscribe for more tutorial like this
+
+            //thanks for watching
+        }
+    });
+</script>
         </body>
     </html>
-=======
-
-            </div>
-    </body>
- </html>
->>>>>>> 05012fa6585c3fb6a0d9f7673c06400ed1d02a2a
