@@ -78,6 +78,7 @@ $groups=selectAllGroupInfo();
                     </div>
                     <div class="group-card-num">
                         <a onclick="return confirmDelete()" href="groups_control_panel.php?deleteID=<?php echo $group['g_no']; ?>"><i class="las la-trash-alt ticon delet" style="margin-left: 0px;padding:0px; margin-top:20px;"></i></a>
+                        <a  href="Edit-Group.php"><i class="las la-trash-alt ticon delet" style="margin-left: 2px;padding:0px; margin-top:5px;"></i></a>
                         <div class="group-card-icon">
                             <span class="las la-user-friends"></span>
                         </div>

@@ -3,7 +3,6 @@
 include("../../path.php"); 
 include(MAIN_PATH."/controls/main_group_page.php");
 ?>
-
 <!DOCTYPE html>
 <head>
     <title>Main page </title>
