@@ -5,6 +5,9 @@ global $conn;
 $errors = array();
 $table1='groups';
 $username=$_SESSION['full_name']; 
+//----user id for get image -----
+$user_id=$_SESSION['user_id'];
+//-------------------------------
 $search="";
 
 

@@ -2,6 +2,17 @@
 <?php 
 include("../../path.php"); 
 include(MAIN_PATH."/controls/main_group_page.php");
+
+//------for get image---------
+$sql="SELECT u_img FROM user Where full_name ='$username';";
+$result = $conn->query($sql);
+if ($result->num_rows == 1) {
+    while($row = $result->fetch_assoc()) {
+      $img=$row["u_img"];
+    }
+}
+//---------------
+
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +44,7 @@ include(MAIN_PATH."/controls/main_group_page.php");
            
 
              <div class="photo-div">
-                <a href="..\student\student-profile.php"><img class="img-user" src="../../sources/image/user-man.png" /></a>
+                <a href="..\student\student-profile.php"><img class="img-user" src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " style="border-radius: 100%; width: 150px; height:150px" /></a>
             </div>
         </div>
            

@@ -2,6 +2,14 @@
 include(MAIN_PATH. "/database/connection.php");
 $username=$_SESSION['full_name'];
 $user_id=$_SESSION['user_id'];
+
+$sql="SELECT u_img FROM user Where user_id ='$user_id';";
+$result = $conn->query($sql);
+if ($result->num_rows == 1) {
+    while($row = $result->fetch_assoc()) {
+      $img=$row["u_img"];
+    }
+}
 ?>
 <!-- menu -->
 <input type="checkbox" name="" id="menu-toggle">
@@ -18,14 +26,14 @@ $user_id=$_SESSION['user_id'];
 
         <div class="brand">
             <h2>
-                <img src="../../sources/image/logo_dark.png" alt="">
+                <img src="../../sources/image/logo_dark2.png" alt="" style="width: 100px;">
             </h2>
         </div>
 
         <!--menu profile photo -->
-        <div class="sidebar-avartar">
+        <div class="sidebar-avartar" style="margin-top:20px">
             <div>
-                <a href=""><img src="../../sources/image/user-man.png" alt=""></a>
+                <a href=""><img src="<?php echo BASE_URL . '/sources/image/'.$img  ?>" alt=" "></a>
             </div>
 
             <div class="avartar-info">

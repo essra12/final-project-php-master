@@ -76,11 +76,12 @@ if(isset($_POST['Add_student'])){
 
         $user_id='LAST_INSERT_ID()';
         
-
         $sql2="INSERT INTO student(stu_id,user_id,stu_specialization) VALUES ($stu_id, $user_id,'$stu_specialization')";
 
         $conn->query($sql2); 
         $_SESSION['full_name'] = $full_name;
+        $_SESSION['user_id']=$last_id['user_id'];
+
     /*When succes add*/
         header('location: ' . BASE_URL .'/UI/group/main page for group.php');// يتم إستخدام هذه الدالة  من أجل نقل أو تحويل المستخدم للمكان الذي نُريده
         $conn->close();
