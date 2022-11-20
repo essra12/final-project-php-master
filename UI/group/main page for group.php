@@ -14,7 +14,6 @@ if ($result->num_rows == 1) {
 //---------------
 
 ?>
-
 <!DOCTYPE html>
 <head>
     <title>Main page </title>
