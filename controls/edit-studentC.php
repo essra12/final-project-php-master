@@ -54,6 +54,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
         echo '<script type="text/javascript">alert("Record updated successfully .")</script>';
         ?>
         <script type="text/javascript">
+            
         window.location.href="student-profile.php" </script>
         <?php 
         } else {
