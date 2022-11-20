@@ -26,14 +26,14 @@ if ($result->num_rows == 1) {
 
         <div class="brand">
             <h2>
-                <img src="../../sources/image/logo_dark2.png" alt="" style="width: 100px;">
+                <img src="../../sources/image/logo_dark.png" alt="" style="width: 100px;">
             </h2>
         </div>
 
         <!--menu profile photo -->
         <div class="sidebar-avartar" style="margin-top:20px">
             <div>
-                <a href=""><img src="<?php echo BASE_URL . '/sources/image/'.$img  ?>" alt=" "></a>
+                <a href=""><img src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " alt=" " style="width: 70px; height:70px ;"></a>
             </div>
 
             <div class="avartar-info">
