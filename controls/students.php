@@ -67,20 +67,21 @@ if(isset($_POST['Add_student'])){
         $conn->query($sql1); 
         $last_id = $conn->insert_id;
 
-        $_SESSION['user_id']=$last_id['user_id'];
-        $_SESSION['full_name']=$last_id['full_name'];
-        
+/*         $_SESSION['user_id']=$last_id['user_id'];
+        $_SESSION['full_name']=$last_id['full_name']; */
+         
 
     /**************for student table **************/
         unset($_POST['Add_student'],$_POST['full_name'],$_POST['password'],$_POST['conf_password'],$_POST['u_img']);
 
         $user_id='LAST_INSERT_ID()';
         
-
         $sql2="INSERT INTO student(stu_id,user_id,stu_specialization) VALUES ($stu_id, $user_id,'$stu_specialization')";
 
         $conn->query($sql2); 
         $_SESSION['full_name'] = $full_name;
+        $_SESSION['user_id']=$last_id['user_id']; 
+
     /*When succes add*/
         header('location: ' . BASE_URL .'/UI/group/main page for group.php');// يتم إستخدام هذه الدالة  من أجل نقل أو تحويل المستخدم للمكان الذي نُريده
         $conn->close();
