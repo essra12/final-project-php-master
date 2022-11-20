@@ -36,7 +36,7 @@ $conf_password="";
         }
     }
     else if (empty($_FILES['u_img']['name'])) {
-        $_POST['u_img']='create_add_photo.png';
+        $_POST['u_img']='blue_rectangle_with_user.JPG';
     }
 
     /**************/

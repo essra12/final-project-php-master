@@ -78,10 +78,6 @@ body{
     background: #555;
   }
 
-.brand img{
-   /*  width: 30px; */
-}
-
 /*profile photo*/
 .sidebar-avartar{
     display: grid;
@@ -93,7 +89,7 @@ body{
 }
 .sidebar-avartar img{
     width: 70px;
-    border-radius: 50%;
+    border-radius: 100%;
 }
 .avartar-info{
     display: flex;
