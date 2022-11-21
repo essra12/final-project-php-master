@@ -19,16 +19,12 @@ if($_SERVER['REQUEST_METHOD']=='POST')
 {   $userID= $_POST['id'];
     $username = $_POST['name'];
     $specialization=$_POST['spe'];
-    $userpass1 = $_POST['pass'];
-    $userpass2 = $_POST['cof-pass'];
+    $userpass1 =sha1( $_POST['pass']);/** password  encryption */
+    $userpass2 = sha1($_POST['cof-pass']);/** password  encryption */
     
-   
 
    /** empty التحقق من حقول الادخال باستحدام  */
-   if(empty($userID)) 
-    {   
-        $error="* please enter your  ID "; 
-    } else if(empty($username)) 
+     if(empty($username)) 
     {   
         $error="* please enter your  name "; 
     } 
@@ -45,6 +41,9 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     else  if($userpass1 != $userpass2) 
     {
         $error="* Password is not matching  "; 
+    }if(empty($userID)) 
+    {   
+        $error="* please enter your  ID "; 
     }
     else 
     {

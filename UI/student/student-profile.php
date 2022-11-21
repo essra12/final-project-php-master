@@ -72,7 +72,7 @@ margin-left: 4%;
     height: 7%;
     position: absolute;
     left: 35%;
-    top: 21%;
+    top: 31%;
 
 }
 #img2{
@@ -80,14 +80,14 @@ margin-left: 4%;
     height: 7%;
     position: absolute;
     left: 35%;
-    top: 30%;
+    top: 40%;
 }
 #img3{
     width: 7%;
     height: 7%;
     position: absolute;
     left: 35%;
-    top: 40%;
+    top: 50%;
 }
 #img4{
     width: 7%;
@@ -101,19 +101,19 @@ margin-left: 4%;
 
     position: absolute;
     left: 45%;
-    top: 20%;
+    top: 30%;
 }
 .l2{
 
 position: absolute;
 left: 45%;
-top: 30%;
+top: 40%;
 }
 .l3{
 
 position: absolute;
 left: 45%;
-top: 40%;
+top: 50%;
 }
 .l4{
 
@@ -297,7 +297,6 @@ text-align: center;
                 <i id="img1" class="fa-solid fa-id-card"></i>
                 <i id="img2"  class="fa-regular fa-user"></i>
                 <i id="img3" class="fa-solid fa-desktop"></i>
-                <i id="img4" class="fa-solid fa-lock"></i>
               
                 
                 <a href="edit profile.php" >
@@ -313,50 +312,30 @@ text-align: center;
                         global $conn;
                         $name=$_SESSION['full_name'];
                         $pp=$_SESSION['pass'];
-
-                       
-
-
-
                         $sql="SELECT USER.* ,student.stu_id,student.stu_specialization 
                         FROM user,student
                         WHERE user.user_id=student.user_id and user.full_name='".$name."';";
-
-                      /*  $sqln="SELECT user.* ,student.stu_specialization ,student.stu_id
-                        from user ,student 
-                        WHERE user.user_id=student.user_id and user.full_name=$name ;";*/
-                      
-                        
-                      
-
                         $result= mysqli_query($conn,$sql);
                         $row =mysqli_fetch_row($result);
                         $id=$row[5];
                         $name=$row[1];
                         $spe=$row[6];
-                        $pass=$row[2];
-                        $img=$row[3];
+                     /*   $img=$row[3];*/
 
-                   $pp1=2020;
-                   $passw=password_verify($pp1,$pass);
+                        /** to encryption password  */
 
-
-
-
-
-                        echo "<lable class='l1'>". $id. "</lable>"."<lable class='l2'>" .$name ."</lable>" . "<lable class='l3'>" .$spe ."</lable>" ."<lable class='l4'>".$passw."</lable>" ;
+                        echo "<lable class='l1'>". $id. "</lable>"."<lable class='l2'>" .$name ."</lable>" . "<lable class='l3'>" .$spe ."</lable>" ;
 
                             $_GET['id']=$id;           
                             $_GET['name']=$name;
                             $_GET['spe']=$spe;
                             $_GET['password']=$pass;
-                            $_GET['img']=$img;
                              
                            $_SESSION['id']=$_GET['id'];
                            $_SESSION['name']=$_GET['name'];
                            $_SESSION['spe']=$_GET['spe'];
                            $_SESSION['pass']=$_GET['password'];
-                           $_SESSION['img']=$_GET['img'];
+                       
 
 
 

@@ -81,11 +81,11 @@ include("../../controls/edit-studentC.php");
         </div>
           
         <div class="form-field-signup">
-        <input id="spe" type="password"  name="pass" placeholder="Specialization"   maxlength="25" value="<?php  echo $password  ?>" />
+        <input id="spe" type="password"  name="pass" placeholder="Specialization"   maxlength="25" value="" />
        </div>
 
           <div class="form-field-signup">
-            <input id="pass" type="password" name="cof-pass" placeholder="Password"  value="<?php  echo $password  ?>" maxlength="25" />  
+            <input id="pass" type="password" name="cof-pass" placeholder="Password"  value="" maxlength="25" />  
          </div>
          <div class="form-field-signup">
           <input id="cof-pass" type="text" name="spe" placeholder="Confrim Password" value="<?php  echo $spe  ?>"maxlength="25"/>  

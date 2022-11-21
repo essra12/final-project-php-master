@@ -62,60 +62,37 @@ transform: translate(-80% ,-52%);
 margin-left: 4%;
 }
 
-#img1{
-    width: 7%;
-    height: 7%;
-    position: absolute;
-    left: 35%;
-    top: 21%;
 
-}
 #img2{
     width: 7%;
     height: 7%;
     position: absolute;
     left: 35%;
-    top: 30%;
+    top: 35%;
 }
 #img3{
     width: 7%;
     height: 7%;
     position: absolute;
     left: 35%;
-    top: 40%;
-}
-#img4{
-    width: 7%;
-    height: 7%;
-    position: absolute;
-    left: 35%;
-    top: 50%;
+    top: 48%;
 }
 
-.l1{
 
-    position: absolute;
-    left: 45%;
-    top: 20%;
-}
+
 .l2{
 
 position: absolute;
 left: 45%;
-top: 30%;
+top: 35%;
 }
 .l3{
 
 position: absolute;
 left: 45%;
-top: 40%;
+top: 48%;
 }
-.l4{
 
-position: absolute;
-left: 45%;
-top: 50%;
-}
 .l1,.l2,.l3,.l4{
     font-size: 22px;
 }
@@ -284,8 +261,6 @@ text-align: center;
             <div class="div-data">
                 <i id="img3" class="fa-sharp fa-solid fa-phone"></i>
                 <i id="img2"  class="fa-regular fa-user"></i>
-                <i id="img4" class="fa-solid fa-lock"></i>
-                <input type="submit" name="bt">
 
              <?php
                         global $conn;
@@ -301,7 +276,7 @@ text-align: center;
                            
                         
                             /** BD عرض البيانات التي تم احضارها من  */
-                         echo " <lable class='l2'>" .$name ."</lable>" . "<lable class='l3'>" .$phone ."</lable>" ."<lable class='l4'>".$pass."</lable>" ;
+                         echo " <lable class='l2'>" .$name ."</lable>" . "<lable class='l3'>" .$phone ."</lable>"  ;
                         
                          /** SESSION نقل البيانات الي صحة اخري باستخدام  */
                             $_GET['name']=$name;
@@ -311,17 +286,14 @@ text-align: center;
                            $_SESSION['name']=$_GET['name'];
                            $_SESSION['phone']=$_GET['phone'];
                            $_SESSION['pass']=$_GET['password'];    
-                           
-
-                           /** insert image to DB  */
+                           /*
 
                             $u_img=$_GET['u_img'];
                             global $conn;
                             $sql="INSERT INTO user(u_img) VALUES ('$u_img')";
                             $result= mysqli_query($conn,$sql);
 
-                         
-
+                         */
                           /* user Image */
     if (!empty($_FILES['u_img']['name'])) {
         $imgName= time() .'_' . $_FILES['u_img']['name'];// تُرجع الدالة الوقت الحالي بعدد الثواني منذ ذلك الحين time() ،  HTTP POST عبارة عن مصفوفة ارتباطية تحتوي على عناصر تم تحميلها عبر طريقة $_FILES
@@ -340,18 +312,13 @@ text-align: center;
     else if (empty($_FILES['u_img']['name'])) {
         $_POST['u_img']='blue_rectangle_with_user.JPG';
     }
-
     /*****************/
-
-             ?>
-
-             
+             ?>   
+                       
                 <a href="edit teaher.php" >
                 <input name="bts" class="bt1"  type="button" value="Edit"/></a>
                 <input class="bt2" name="edit" type="button" value="Logout"/>
                 </form>
-
-
             </div>
 
 

@@ -63,21 +63,7 @@ transform: translate(-80% ,-52%);
 margin-left: 4%;
 }
 
-#img1{
-    width: 7%;
-    height: 7%;
-    position: absolute;
-    left: 35%;
-    top: 21%;
 
-}
-#img2{
-    width: 7%;
-    height: 7%;
-    position: absolute;
-    left: 35%;
-    top: 30%;
-}
 #img3{
     width: 7%;
     height: 7%;
@@ -85,41 +71,18 @@ margin-left: 4%;
     left: 35%;
     top: 40%;
 }
-#img4{
-    width: 7%;
-    height: 7%;
-    position: absolute;
-    left: 35%;
-    top: 50%;
-}
 
-.l1{
 
-    position: absolute;
-    left: 45%;
-    top: 20%;
-}
-.l2{
 
-position: absolute;
-left: 45%;
-top: 30%;
-}
 .l3{
 
 position: absolute;
 left: 45%;
 top: 40%;
+font-size: 22px;
 }
-.l4{
 
-position: absolute;
-left: 45%;
-top: 50%;
-}
-.l1,.l2,.l3,.l4{
-    font-size: 22px;
-}
+
 
 .bt1{
 
@@ -313,7 +276,6 @@ text-align: center;
                 
                 <form method="get" action="edit profile.php">
                 <i id="img3"  class="fa-regular fa-user"></i>
-                <i id="img4" class="fa-solid fa-lock"></i>
 
 
 
@@ -329,7 +291,7 @@ text-align: center;
                         $pass=$row[1];
 
 
-                        echo " <lable class='l3'>" .$name ."</lable>"  ."<lable class='l4'>".$pass."</lable>" ;
+                        echo " <lable class='l3'>" .$name ."</lable>"   ;
 
 
                           
@@ -366,7 +328,7 @@ text-align: center;
 
 
                                         
-             ?>
+             
                 <a href="edit admin.php" >
                 <input name="bts" class="bt1"  type="button" value="Edit"/></a>
                 <input class="bt2" name="edit" type="button" value="Logout"/>

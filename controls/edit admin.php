@@ -12,18 +12,19 @@ $error ="";
 if($_SERVER['REQUEST_METHOD']=='POST')
 {
     $username = $_POST['name'];
-    $userpass1 = $_POST['pass'];
-    $userpass2 = $_POST['cof-pass'];
-    if(empty($username)){
-       $error="   *  please enter your name ";
-
-    }else
+    $userpass1 =sha1( $_POST['pass']);/** password  encryption */
+    $userpass2 = sha1($_POST['cof-pass']);/** password  encryption */
+   
     if($userpass1 != $userpass2) 
     {
         $error="* Password is not matching  "; 
 
     }
-    else {
+    else  if(empty($username)){
+        
+        $error="   *  please enter your name ";
+ 
+     }else {
 
     $sqln="UPDATE user set user.full_name='$username' ,user.password='$userpass1' WHERE user.full_name='$name';";
 

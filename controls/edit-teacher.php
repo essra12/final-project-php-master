@@ -14,15 +14,11 @@ $error ="";
 if($_SERVER['REQUEST_METHOD']=='POST')
 {   $username = $_POST['name'];
     $phone = $_POST['phone'];
-    $userpass1 = $_POST['pass'];
-    $userpass2 = $_POST['cof-pass'];
+    $userpass1 =sha1( $_POST['pass']);/** password  encryption */
+    $userpass2 = sha1($_POST['cof-pass']);/** password  encryption */
 
    /** empty التحقق من حقول الادخال باستحدام  */
-   if(empty($username)) 
-    {
-        $error="* please enter your name   ";
-       
-    }else  if(empty($phon)) 
+     if(empty($phon)) 
     {
         $error="* please enter your phone number  "; 
     } else  if(empty($userpass1)) 
@@ -38,7 +34,11 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     {
         $error="* Password is not matching  "; 
     }
-    else 
+    else  if(empty($username)) 
+    {
+        $error="* please enter your name   ";
+       
+    } 
     {
       
         $sqln="UPDATE user,teacher set   user.full_name='$username', user.password='$userpass1',teacher.tr_phone_no=$phone

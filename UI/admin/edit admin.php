@@ -112,10 +112,10 @@ include("../../controls/edit admin.php");
        </div>
           
           <div class="form-field-signup">
-            <input id="pass" name="pass" type="password" placeholder="Password"  value="<?php  echo $password  ?>" maxlength="25" />  
+            <input id="pass" name="pass" type="password" placeholder="Password"  value="" maxlength="25" />  
          </div>
          <div class="form-field-signup">
-          <input id="pass2" name="cof-pass" type="password" placeholder="Confrim Password" value="<?php  echo $password  ?>" maxlength="25"/>  
+          <input id="pass2" name="cof-pass" type="password" placeholder="Confrim Password" value="" maxlength="25"/>  
          </div> 
          
          <div class="error" style="color: red; margin-left:20px;" > 
