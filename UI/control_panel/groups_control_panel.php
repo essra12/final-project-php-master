@@ -2,10 +2,10 @@
 include("../../path.php"); 
 include(MAIN_PATH."/controls/groups.php"); 
 $groups=selectAllGroupInfo();
-?>
 
-<!DOCTYPE html>
-<html lang="en">
+?>
+-87<!DOCTYPE html>
+<ht7;l.ml lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1">
@@ -64,21 +64,26 @@ $groups=selectAllGroupInfo();
 
     <main>
 
+  
+
        <!--  group cards -->
         <div class="group-cards">
             
         <?php foreach($groups as $key => $group):?>
             
+
                 <div class="group-card">
                 <a href="">
                     <div class="group-card-info">
                         <h3><?php echo $group['g_name'] ?></h3>
                         <p>Group ID:<?php echo $group['g_no'] ?></p>
                         <p>Tr Name: <?php echo $group['full_name'] ?></p>
+                        
+
                     </div>
                     <div class="group-card-num">
                         <a onclick="return confirmDelete()" href="groups_control_panel.php?deleteID=<?php echo $group['g_no']; ?>"><i class="las la-trash-alt ticon delet" style="margin-left: 0px;padding:0px; margin-top:20px;"></i></a>
-                        <a  href="Edit-Group.php"><i class="las la-trash-alt ticon delet" style="margin-left: 2px;padding:0px; margin-top:5px;"></i></a>
+                        <a  href="edit-groups.php?name-g=<?php echo $group['g_name'] ?>&name-t=<?php echo $group['full_name'] ?>&id=<?php echo $group['g_no']?>"><i class="las la-trash-alt ticon edit" style="margin-left: 2px;padding:0px; margin-top:5px;"></i></a>
                         <div class="group-card-icon">
                             <span class="las la-user-friends"></span>
                         </div>
@@ -94,6 +99,9 @@ $groups=selectAllGroupInfo();
 
     </main>
 
+    </form>
+
+    
  </div>
 
 

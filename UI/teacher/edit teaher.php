@@ -72,7 +72,7 @@ include("../../controls/edit-teacher.php");
   <!-- For circular image -->
   <div class="profile-pic-div"  >
                 <img src="../../sources/image/create_add_photo.png" id="photo" height="120" width="120" >
-                <input type="file" id="file" name="g_img">
+                <input type="file" id="file" name="u_img">
                 <label for="file" id="uploadBtn">Choose Photo</label>
             </div>
    <!-- <h5>Edit photo</h5> -->

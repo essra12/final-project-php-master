@@ -1,6 +1,11 @@
 <?php 
 include("../../path.php"); 
 include(MAIN_PATH."/controls/groups.php");
+include("../../controls/edit-group.php"); 
+$nameg=$_GET['name-g'];
+$nameT=$_GET['name-t'];
+$gid=$_GET['id'];
+
 ?>
 <html lang="en">
     <head>
@@ -32,8 +37,11 @@ include(MAIN_PATH."/controls/groups.php");
     
     <div class="g_tr_admin-container group" >
 
-        <form action="create_group.php" name="groups" class="g_tr_admin-form" method="POST" onsubmit="return check_Enter(this)">
+        <form  class="g_tr_admin-form" method="POST" onsubmit="return check_Enter(this)">
         
+
+        <?php
+        ?>
         <div class="img_title">
             <h2>Edite Group</h2>
 
@@ -48,22 +56,30 @@ include(MAIN_PATH."/controls/groups.php");
             <div class="create-g-div">
 
                 <!-- group name field -->
+
+
+
                 <div class="form-field ">
-                    <input id="name" name="g_name" class="input-name" type="text"  placeholder="Group Name" value="<?php echo $g_name;?>"  />
+                    <input id="name" name="g_id" class="input-name" type="text"  placeholder="Group Name" value="<?php echo $nameg;?>"  />
                 </div>
+               
                 <!---------------------->
 
                 <!-- Select Dropdown List -->
+                
                 <div class="form-field ">
                     <?php 
+                    
                         global $conn;
-                        $sql="SELECT user.full_name,teacher.tr_id from user,teacher  where user.user_id=teacher.user_id;";
+                        $sql="SELECT user.full_name,teacher.tr_id from user,teacher  where user.user_id=teacher.user_id; ";
                         $pre = $conn->prepare($sql);
                         $pre->execute();
                         $items = $pre->get_result()->fetch_all(MYSQLI_ASSOC);
+
                     ?>
+                    
                     <select class="select-t" name="tr_id">
-                        <option value=""></option>
+                        <option value=" "><?php echo $nameT ?> </option>
 
                         <?php foreach($items as $key => $item):?>
                             <?php if(!empty($tr_id) && $tr_id==$item['tr_id']):?>
@@ -74,7 +90,11 @@ include(MAIN_PATH."/controls/groups.php");
                         <?php endforeach; ?>   
                         
                     </select>
+
+
                 </div>
+                
+                
                 <!----------------------------->
 
             </div>
@@ -101,7 +121,7 @@ include(MAIN_PATH."/controls/groups.php");
               <?php endif; ?>
              <!----------------->
 
-            <button type="submit"  name="create_group" >Save</button> 
+            <button type="submit"  name="submit" >Save</button> 
         </form>
 
     </div>
