@@ -284,7 +284,7 @@ text-align: center;
                 <!-- For circular image -->
                 <div class="profile-pic-div"  >
                 <img src="../../sources/image/create_add_photo.png" id="photo" height="120" width="120" >
-                <input type="file" id="file" name="g_img">
+                <input type="file" id="file" name="u_img">
                 <label for="file" id="uploadBtn">Choose Photo</label>
             </div>
 
@@ -312,14 +312,22 @@ text-align: center;
 
                         global $conn;
                         $name=$_SESSION['full_name'];
-                        
-                        $sql="SELECT USER.* ,student.stu_id,student.stu_specialization
+                        $pp=$_SESSION['pass'];
+
+                       
+
+
+
+                        $sql="SELECT USER.* ,student.stu_id,student.stu_specialization 
                         FROM user,student
                         WHERE user.user_id=student.user_id and user.full_name='".$name."';";
 
                       /*  $sqln="SELECT user.* ,student.stu_specialization ,student.stu_id
                         from user ,student 
                         WHERE user.user_id=student.user_id and user.full_name=$name ;";*/
+                      
+                        
+                      
 
                         $result= mysqli_query($conn,$sql);
                         $row =mysqli_fetch_row($result);
@@ -327,19 +335,52 @@ text-align: center;
                         $name=$row[1];
                         $spe=$row[6];
                         $pass=$row[2];
+                        $img=$row[3];
+
+                   $pp1=2020;
+                   $passw=password_verify($pp1,$pass);
 
 
-                        echo "<lable class='l1'>". $id. "</lable>"."<lable class='l2'>" .$name ."</lable>" . "<lable class='l3'>" .$spe ."</lable>" ."<lable class='l4'>".$pass."</lable>" ;
+
+
+
+                        echo "<lable class='l1'>". $id. "</lable>"."<lable class='l2'>" .$name ."</lable>" . "<lable class='l3'>" .$spe ."</lable>" ."<lable class='l4'>".$passw."</lable>" ;
 
                             $_GET['id']=$id;           
                             $_GET['name']=$name;
                             $_GET['spe']=$spe;
                             $_GET['password']=$pass;
+                            $_GET['img']=$img;
                              
                            $_SESSION['id']=$_GET['id'];
                            $_SESSION['name']=$_GET['name'];
                            $_SESSION['spe']=$_GET['spe'];
                            $_SESSION['pass']=$_GET['password'];
+                           $_SESSION['img']=$_GET['img'];
+
+
+
+                       
+      /* user Image */
+    if (!empty($_FILES['u_img']['name'])) {
+        $imgName= time() .'_' . $_FILES['u_img']['name'];// تُرجع الدالة الوقت الحالي بعدد الثواني منذ ذلك الحين time() ،  HTTP POST عبارة عن مصفوفة ارتباطية تحتوي على عناصر تم تحميلها عبر طريقة $_FILES
+        
+        $imgPath= " ../../sources/image/" .$imgName;
+        
+        $r= move_uploaded_file($_FILES['u_img']['tmp_name'],$imgPath); // تعمل الدالة  على نقل الملف الذي تم تحميله إلى وجهة جديدة.
+
+        if ($r) {
+            $_POST['u_img']=$imgName;
+        } 
+        else {
+            array_push($errors,"There is an error uploading the image.");
+        }
+    }
+    else if (empty($_FILES['u_img']['name'])) {
+        $_POST['u_img']='blue_rectangle_with_user.JPG';
+    }
+
+    /*****************/
 
              ?>
 

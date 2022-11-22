@@ -45,6 +45,8 @@ if(isset($_POST['Add_student'])){
 
     /*****************/
 
+    
+
     if(count($errors)==0){
 
     /**************for user table **************/
