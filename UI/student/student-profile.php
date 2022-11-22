@@ -279,6 +279,8 @@ text-align: center;
     <html>
         <body>
             <div class="div-photo">
+            <form method="get" action="edit profile.php">
+
               <!--  <img class="photo" src="../../sources/image/user-weman.png" /><br> -->
 
                 <!-- For circular image -->
@@ -293,7 +295,6 @@ text-align: center;
             </div>
             <div class="div-data">
                 
-                <form method="get" action="edit profile.php">
                 <i id="img1" class="fa-solid fa-id-card"></i>
                 <i id="img2"  class="fa-regular fa-user"></i>
                 <i id="img3" class="fa-solid fa-desktop"></i>
@@ -361,20 +362,16 @@ text-align: center;
 
     /*****************/
 
+   
+
              ?>
-
-
-
 <a href="edit profile.php" >
 <input name="bts" class="bt1"  type="button" value="Edit"/></a>
 <input class="bt2" name="edit" type="button" value="Logout"/>
 </form>
-
-
             </div>
 
-
-            <script>
+                <script>
                  const imgDiv = document.querySelector('.profile-pic-div');
     const img = document.querySelector('#photo');
     const file = document.querySelector('#file');

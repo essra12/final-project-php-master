@@ -10,7 +10,6 @@ $id= $_SESSION['id'];
 $name=$_SESSION['name'];
 $spe=$_SESSION['spe'];
 $password=$_SESSION['pass'];
-$img=$_SESSION['img'];
 
 
 /** حفظ القيم المدخلة في المتغيرات */
@@ -47,26 +46,10 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     }
     else 
     {
-       /** update statment  */
-       
 
-        $sqln="UPDATE user,student set student.stu_id=$userID, student.stu_specialization='$specialization', user.full_name='$username', user.password='$userpass1'
-        WHERE user.user_id=student.user_id and student.stu_id=$id;";
-        if(mysqli_query($conn,$sqln)){
-        echo '<script type="text/javascript">alert("Record updated successfully .")</script>';
-        ?>
-        <script type="text/javascript">
-            
-        window.location.href="student-profile.php" </script>
-        <?php 
-        } else {
-        echo "Error updating record: " . mysqli_error($conn);
-        }
-        }
-    
-    
-    
-      /* user Image */
+
+
+         /* user Image */
       if (!empty($_FILES['u_img']['name'])) {
         $imgName= time() .'_' . $_FILES['u_img']['name'];// تُرجع الدالة الوقت الحالي بعدد الثواني منذ ذلك الحين time() ،  HTTP POST عبارة عن مصفوفة ارتباطية تحتوي على عناصر تم تحميلها عبر طريقة $_FILES
         
@@ -84,9 +67,27 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     else if (empty($_FILES['u_img']['name'])) {
         $_POST['u_img']='blue_rectangle_with_user.JPG';
     }
+    $u_img=$_POST['u_img'];
+
 
     /*****************/
-    }
+       /** update statment  */
+       
+
+        $sqln="UPDATE user,student set student.stu_id=$userID, student.stu_specialization='$specialization', user.full_name='$username', user.password='$userpass1'
+        WHERE user.user_id=student.user_id and student.stu_id=$id;";
+        if(mysqli_query($conn,$sqln)){
+        echo '<script type="text/javascript">alert("Record updated successfully .")</script>';
+        ?>
+        <script type="text/javascript">
+            
+        window.location.href="student-profile.php" </script>
+        <?php 
+        } else {
+        echo "Error updating record: " . mysqli_error($conn);
+        }
+    }}
+    
 
 
 

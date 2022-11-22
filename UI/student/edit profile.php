@@ -72,7 +72,7 @@ include("../../controls/edit-studentC.php");
    <!-- <h5>Edit photo</h5> -->
     </div>
         <p class="main_text_edit"><b>Profile</b></p>
-        <form class="login-form"   method="POST">
+        <form class="login-form"   method="POST">   
         <div class="form-field-signup">
         <input id="id" name="id" type="text"  placeholder="ID"  value="<?php  echo $id  ?>"  maxlength="8"/>
         </div>
