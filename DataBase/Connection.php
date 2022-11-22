@@ -13,4 +13,4 @@ $conn=new MySQLi($server_name,$username,$pass,$db_name);
 else{
     echo('The database connection is successful :) ');
 }   
-*/
+ */
