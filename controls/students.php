@@ -1,5 +1,5 @@
 <?php
-/* include("../path.php");  */
+/* include("../path.php");  */ 
 include(MAIN_PATH. "/database/db.php");
 
 global $conn;
@@ -70,7 +70,7 @@ if(isset($_POST['Add_student'])){
         $last_id = $conn->insert_id;
 
 /*         $_SESSION['user_id']=$last_id['user_id'];
-        $_SESSION['full_name']=$last_id['full_name']; */
+        $_SESSION['full_name']=$last_id['full_name'];  */
          
 
     /**************for student table **************/
@@ -80,9 +80,11 @@ if(isset($_POST['Add_student'])){
         
         $sql2="INSERT INTO student(stu_id,user_id,stu_specialization) VALUES ($stu_id, $user_id,'$stu_specialization')";
 
+         
         $conn->query($sql2); 
         $_SESSION['full_name'] = $full_name;
-        $_SESSION['user_id']=$last_id['user_id']; 
+        $_SESSION['user_id']=$last_id;
+       
 
     /*When succes add*/
         header('location: ' . BASE_URL .'/UI/group/main page for group.php');// يتم إستخدام هذه الدالة  من أجل نقل أو تحويل المستخدم للمكان الذي نُريده

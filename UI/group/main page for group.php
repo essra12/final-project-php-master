@@ -3,6 +3,7 @@
 include("../../path.php"); 
 include(MAIN_PATH."/controls/main_group_page.php");
 $user_id=$_SESSION['user_id'];
+
 //------for get image---------
 $sql="SELECT u_img FROM user Where user_id='$user_id';";
 $result = $conn->query($sql);
