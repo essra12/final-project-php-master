@@ -1,4 +1,21 @@
+:root{
+    --darkblue:#2A3D6C ;
+    --vdarkblue:#222242 ;
+    --orange:#FFBA5F;
+    --shadow1:rgba(17,17,26,0.1) 2px 2px 16px; 
+    --shadow2:0 0 0.375rem 0.25rem rgb(0 0 0 / 15%);
+    --lightblue:#A4D2F0;
+    --lightgreen:#D8E6D6;
+    --vlightblue:#e5f3fe;
+    --darkgreen:#53744A;
+    --red:#D92A2A;
+}
 
+*{
+    text-decoration: none;
+    list-style-type: none;
+    box-sizing: border-box;
+}
 /*****************************************************Navigation Bar style**********************************************************/
 
 .navbar {
@@ -7,6 +24,7 @@
     justify-content: space-between;
     align-items: center;
     background-color: #222242;
+    box-shadow: var(--shadow2);
     color: white;
 }
 
@@ -46,5 +64,199 @@ a:is(:link,:active,:hover).active{
     font-size: 18px;
 }
 
-/************************************************************************************************************************************/
+/***********************************************main container for (add material)*************************************************/
 
+.main-container{
+    margin: 2rem 8rem 0rem;
+}
+.main-container .title h1{
+    font-size: 50px;
+    padding-top:20px;
+}
+
+.main-container .inputs{
+    background: var(--vlightblue);    
+    box-shadow: var(--shadow1);
+    border-radius: 15px;
+    padding: 1rem 2rem 1rem 2rem;
+    margin-bottom: 2rem;
+}
+.main-container .inputs label{
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.main-container .inputs input{
+    background:var(--vlightblue);
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--vdarkblue);
+    font-size: 20px;
+    margin-top: 10px;
+}
+/******************************** textarea field**************************************/
+.main-container .inputs textarea{
+    background:var(--vlightblue);
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--vdarkblue);
+    font-size: 26px;
+    margin-top: 10px;
+}
+
+/*****************************attach field******************************************/
+.container_wrapper{
+    margin-top: 25px;
+    text-align: center;
+}
+.wrapper{
+    display: inline-flex;
+    text-align: center;
+  }
+
+  /*****icons*****/
+  .wrapper .icon{
+    margin: 0 20px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  .wrapper .icon span{
+    display: block;
+    height: 55px;
+    width: 55px;
+    background: #fff;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+    transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+ .wrapper .icon a{
+        text-decoration: none;
+        color: #222242;
+  }
+  .wrapper .icon span i{
+    line-height: 60px;
+    font-size: 25px;
+  }
+  .wrapper .icon .tooltip{
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    background: #fff;
+    color: #fff;
+    padding: 10px 18px;
+    font-size: 18px;
+    border-radius: 25px;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+    transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  .wrapper .icon:hover .tooltip{
+    top: -70px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .icon .tooltip:before{
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    background: #fff;
+    left: 50%;
+    bottom: -6px;
+    transform: translateX(-50%) rotate(45deg);
+    transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  .wrapper .icon:hover span{
+    color: #fff;
+  }
+  .wrapper .icon:hover span,
+  .wrapper .icon:hover .tooltip{
+    text-shadow: 0px -1px 0px rgba(0,0,0,0.4);
+  }
+
+  .wrapper .youtube:hover span,
+  .wrapper .youtube:hover .tooltip,
+  .wrapper .youtube:hover .tooltip:before{
+    background: #DE463B;
+  }
+
+  .wrapper .upload:hover span,
+  .wrapper .upload:hover .tooltip,
+  .wrapper .upload:hover .tooltip:before{
+    background: #3B5999;
+  }
+  .wrapper .google_drive:hover span,
+  .wrapper .google_drive:hover .tooltip,
+  .wrapper .google_drive:hover .tooltip:before{
+    background: #4ebc25;
+  }
+
+/****Button*****/
+  .container_wrapper .btn_post{
+    margin:3rem 0rem 0rem 0rem;
+  }
+  .container_wrapper .btn_post button{
+    border       : 2px double var(--vdarkblue);
+    padding      : 10px 24px;
+    color        : #fff;
+    border-radius: 25px;
+    background: var(--vdarkblue);
+    width: 150px;
+    text-transform  : uppercase;
+    font-size       : 14px;
+  }
+
+button[type="submit"]:hover {
+   color: var(--vdarkblue);
+   font-weight: bold;
+   background-color: #fff;
+   cursor: pointer;
+}
+  
+
+/***********************************************main container just for (add assignment)*************************************************/
+
+.main-container .inputs.name input{
+  border: none;
+}
+
+
+@media only screen and (max-width:640px) {
+  .main-container{
+    margin: 2rem 6rem 0rem;
+}
+}
+
+@media only screen and (max-width:582px) {
+  .main-container{
+    margin: 2rem 4rem 0rem;
+}
+}
+@media only screen and (max-width:513px) {
+  .main-container .title h1{
+    font-size: 40px;
+}
+
+.main-container .inputs label{
+  font-size: 24px;
+}
+
+.main-container .inputs input{
+  font-size: 16px;
+}
+
+}
