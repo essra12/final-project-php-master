@@ -113,3 +113,16 @@ if(isset($_POST['Add_student'])){
    exit();
  } 
 
+ 
+ /********************************************Delete Student in  Enrollment Requests page **********************************************/
+ if(isset($_GET['deleteSTID']))
+ {
+   $deleteStudent=deleteStudent($_GET['deleteSTID']);
+   $_SESSION['message']="Student deleted successfully";
+   header('location: '.BASE_URL.'/UI/control_panel/student accounts for teacher.php');
+   $conn->close();
+   exit();
+ } 
+
+ 
+
