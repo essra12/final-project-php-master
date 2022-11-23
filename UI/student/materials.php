@@ -1,5 +1,5 @@
 <?php 
-/include("../../path.php"); 
+include("../../path.php"); 
 include(MAIN_PATH."/controls/materials_and_Assignments.php");
 $table="files";
 $files=selectAll($table);
