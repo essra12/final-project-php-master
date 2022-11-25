@@ -1,0 +1,62 @@
+
+
+
+h1{
+    margin-top: 7%;
+    margin-left: 5%;
+
+}
+hr{
+    margin-left: 5%;
+    margin-right: 5%;
+} 
+
+label{
+    font-size: 22px;
+}
+#true{
+    color: green;
+    position: absolute;
+    right: 11%;
+    font-size: 25px;
+
+}
+#true:hover{
+font-size: 30px;
+}
+#croos{
+    color: red;
+    position: absolute;
+    right: 8%;
+    font-size: 25px;
+  
+}
+#croos:hover{
+font-size: 30px;
+}
+div{
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 10px;
+}
+div:hover{
+    background-color: rgb(250, 244, 244);;
+  
+}
+@media  (max-width:900px) {
+   #true{
+    position: absolute;
+    right: 13%;
+   }
+   
+   
+}
+
+@media  (max-width:600px) {
+    #true{
+     position: absolute;
+     right: 15%;
+    }
+    
+    
+ }
