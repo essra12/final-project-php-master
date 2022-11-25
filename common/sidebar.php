@@ -71,9 +71,9 @@ if ($result->num_rows == 1) {
                         <span>Files</span>
                     </a>
                 </li>
-
+              
                 <li>
-                    <a href="<?php echo BASE_URL . '/logout.php' ?>">
+                <a href="..\..\logout.php">
                         <span class="las la-sign-out-alt"></span>
                         <span>LogOut</span>
                     </a>

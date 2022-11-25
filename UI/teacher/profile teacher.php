@@ -92,7 +92,8 @@ include("../../Database/db.php");
                        
                 <a href="edit teaher.php" >
                 <input name="bts" class="bt1"  type="button" value="Edit"/></a>
-                <input class="bt2" name="edit" type="button" value="Logout"/>
+                <a href="..\..\logout.php">
+                <input class="bt2" name="edit" type="button" value="Logout"/></a>
                 </form>
             </div>
 
