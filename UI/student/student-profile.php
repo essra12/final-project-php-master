@@ -50,8 +50,8 @@ include("../../Database/db.php");
                 
                 <a href="edit profile.php" >
                 <input name="bts" class="bt1"  type="button" value="Edit"/></a>
-               <a href="..\..\logout.php"> 
-                <input class="bt2" name="but_logout" type="button" value="Logout"/></a>
+                <a href="..\..\logout.php">
+                <input class="bt2" name="edit" type="button" value="Logout"/></a>
                 </form>  
              <?php
              
@@ -66,7 +66,7 @@ include("../../Database/db.php");
                         $name=$row[1];
                         $spe=$row[6];
                      /*   $img=$row[3];*/
-
+                     
                         /** to encryption password  */
 
                         echo "<lable class='l1'>". $id. "</lable>"."<lable class='l2'>" .$name ."</lable>" . "<lable class='l3'>" .$spe ."</lable>" ;
@@ -84,7 +84,9 @@ include("../../Database/db.php");
              ?>
 <a href="edit profile.php" >
 <input name="bts" class="bt1"  type="button" value="Edit"/></a>
-<input class="bt2" name="edit" type="button" value="Logout"/>
+                
+<a href="..\..\logout.php">
+<input class="bt2" name="edit" type="button" value="Logout"/></a>
 </form>
             </div>
 

@@ -15,14 +15,10 @@ include("../../path.php");
 
     <body>
         
-      <!--Navigation Bar -->  
-      <?php include(MAIN_PATH."/common/navigation.php"); ?> 
-      <!------------------->
-
-      <!--------main-container----------->
+           <!--------main-container----------->
       <div class="main-container">
         <div class="title">
-            <h1 style="color: #222242;">Add Material</h1>
+            <h1 style="color: #222242;">Materials</h1>
         </div>
 
         <form >
@@ -30,48 +26,25 @@ include("../../path.php");
           <!-- title field -->
           <div class="inputs title">
             <label style="color: #222242;">Title</label>
-            <input type="text" name="title" maxlength="50">
+            <input type="text" name="title" maxlength="50" readonly>
           </div>
           <!------------------>
           
           <!-- description field -->
           <div class="inputs description">
-            <label style="color: #222242;">Description<span style="font-size: 20px;">(optional)</span></label>
-            <textarea type="text" name="description" id="description" maxlength="250" ></textarea>
+            <label style="color: #222242;">Description</label>
+            <textarea type="text" name="description" id="description" maxlength="250" readonly ></textarea>
           </div>
           <!------------------>
 
           <!-- attach field -->
           <div class="inputs attach">
-            <label style="color: #222242;">Attach</label>
+            <label style="color: #222242;">Files</label>
             <div class="container_wrapper">
                 <div class="wrapper">
-
-                  <div class="icon youtube">
-                  <div class="tooltip">
-                      Youtube
-                  </div>
-                  <a href="#"><span><i class="lab la-youtube"></i></span></a>
-                  </div>
-
-                  <div class="icon upload">
-                  <div class="tooltip">
-                      Upload
-                  </div>
-                  <a href="#"><span><i class="las la-upload"></i></span></a>
-                  </div>
-
-                  <div class="icon google_drive">
-                  <div class="tooltip">
-                      Drive
-                  </div>
-                  <a href="#"><span><i class="lab la-google-drive"></i></span></a>
-                  </div>
-                </div>
-
                 <!-- Button -->
                 <div class="btn_post">
-                  <button type="submit" >Post</button>
+                  <button type="submit" >Download</button>
                 </div>
                 <!----------->
 
