@@ -8,27 +8,30 @@ $students=selectAllStudentInfo();
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../../css/Enrollment-requserts.css">
+        <link rel="stylesheet" href="../../css/matterials_and_assin.css">
         <script src="https://kit.fontawesome.com/e1ca29be31.js" crossorigin="anonymous"></script>
     </head>
 <style>
   
 @media  (max-width:540px) {
     #true1{
-        
-    
         margin-left: 80%;
         margin-right: 2%;
        }
        #croos1{
-        margin-right: 0%;
-    
-    
-    }
-    
- }
-   
+        margin-right: 0%; }}
+
+        h1{
+            font-size: 42px;
+        }
     </style>
 <body >
+    
+<!--------------------navigation_bar ----------------------->  
+<?php include(MAIN_PATH."/common/navigation.php"); ?> 
+ <!---------------------------------------------------------->
+  
+
     <form method="POST">
 <!-- Enrollment Requests -->
 <h1>Enrollment Requests</h1>
