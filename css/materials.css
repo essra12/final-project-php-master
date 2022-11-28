@@ -9,7 +9,6 @@
     padding   : 0;
   }
   
-
  /*****************************************************Navigation Bar style**********************************************************/
 
 .navbar {
@@ -98,13 +97,14 @@
     border-radius: calc(var(--curve) * 1px);
     overflow: hidden;
     text-decoration: none;
+    background-color:#A4D2F0;
     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
   }
   
   .card__image {      
     width: 100%;
     height: auto;
-  }
+    }
   
   .card__overlay {
     position: absolute;
