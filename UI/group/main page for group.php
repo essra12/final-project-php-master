@@ -12,22 +12,25 @@ if ($result->num_rows == 1) {
       $img=$row["u_img"];
     }
 }
-//---------------
-
+//----------------------
+//------foreach loop---------
+$groupsInfo=selectGroupName();
 ?>
 <!DOCTYPE html>
 <head>
     <title>Main page </title>
     <meta name="descreption " content=" " />
-    <link rel="stylesheet" href="../../css/main_group_page.css">
+    <link rel="stylesheet" href="../../css/main_page.css">
     <!--icon8-->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+     <!--icon8-->
+     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     </head>
 <html>
 <body>
        <!-- header div-->
        <div class="header-div">
-            
+              <img class="logo" src="../../sources/image/logo_light.png" alt="" style="width: 100px;">
              <h5 id="date" style="font-size:24px; padding-bottom: 10px; padding-left:14px;">  </h5>
             <form class="example"  method="POST" action="" onsubmit="return check_Enter(this)">
             <div class="full_name">
@@ -50,84 +53,37 @@ if ($result->num_rows == 1) {
            
          <!-- ************************************************************************************* -->
 
-         <main>
-       <!--  group cards -->
-        <div class="group-cards">
-            <a href="">
-                <div class="group-card">
-                    <div class="group-card-info">
-                        <h3>Group name...</h3>
-                        <p>Teacher Name...</p>
-                    </div>
-                </div>
-            </a>
 
-            <a href="">
-                <div class="group-card">
-                    <div class="group-card-info">
-                        <h3>Group name...</h3>
-                        <p>Teacher Name...</p>
-                    </div>
-                </div>
-            </a>
+<!-- cards section-->
+ <!-----------------Dynamically Create Card-----------------> 
+ <main>
 
-           <a href="">
-                <div class="group-card">
-                    <div class="group-card-info">
-                        <h3>Group name...</h3>
-                        <p>Teacher Name...</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="">
-                <div class="group-card">
-                    <div class="group-card-info">
-                        <h3>Group name...</h3>
-                        <p>Teacher Name...</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="">
-                <div class="group-card">
-                    <div class="group-card-info">
-                        <h3>Group name...</h3>
-                        <p>Teacher Name...</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="">
-                <div class="group-card">
-                    <div class="group-card-info">
-                        <h3>Group name...</h3>
-                        <p>Teacher Name...</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="">
-                <div class="group-card">
-                    <div class="group-card-info">
-                        <h3>Group name...</h3>
-                        <p>Teacher Name...</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="">
-                <div class="group-card">
-                    <div class="group-card-info">
-                        <h3>Group name...</h3>
-                        <p>Teacher Name...</p>
-                    </div>
-                </div>
-            </a>
+    
+ <div class="container">
             
+     
+  <div class="cards">
+  <?php foreach($groupsInfo as $key => $Info):?>
+    <div href="" class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ9rxpEwZKZ7rQBK0TXlgL8yRNXeABSaOf07X0U-DKjQ&s" class="card__image" alt="" />
+      <div class="card__overlay">
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+          
+          <div class="card__header-text">
+            <h3 onclick="submit()" class="card__title"><?php echo $Info['g_name'] ?></h3>            
+          </div>
         </div>
-    </main>
+      </div>
+  </div>  
+  <?php endforeach; ?>    
+   </div>
+ </div>
+</main>
 
+
+
+    
 <!-- java script for current date -->
     <script>
         const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sept","Oct","Nov","Dec"];
