@@ -4,13 +4,13 @@ include(MAIN_PATH."/controls/groups.php");
 $groups=selectAllGroupInfo();
 
 ?>
--87<!DOCTYPE html>
+<!DOCTYPE html>
 <ht7;l.ml lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1">
         <title>Control_Panel_Groups</title>
-        <link rel="stylesheet" href="../../css/controlpanel_group_teacher_student_file.css">
+        <link rel="stylesheet" href="../../css/control_panel_group_teacher_student_file.css">
         <!--icon8-->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     </head>
@@ -40,7 +40,7 @@ $groups=selectAllGroupInfo();
     <div class="header-box">
 
         <div class="header-box-content">
-            <h2>Create New Groups</h2><br>
+            <h2>Add New Group</h2><br>
             <a href="<?php echo BASE_URL . '/UI/control_panel/create_group.php' ?>">
                 <button class="btn-create">+</button>
             </a>

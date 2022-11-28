@@ -24,6 +24,17 @@ include(MAIN_PATH."/controls/add_material_and_assignment.php");
 
       <!--------main-container----------->
     <div class="main-container">
+
+    <!-- For Errors -->
+    <?php if(count($errors)> 0): ?>
+      <div class="msg error" style="color: #D92A2A; margin-bottom: 20px;"> 
+        <?php foreach($errors as $error): ?>
+        <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php echo($error); ?></li>
+        <?php endforeach; ?>
+      </div> 
+    <?php endif; ?> 
+    <!----------------->
+
       <div class="title">
           <h1 style="color: #222242;">Add Material</h1>
       </div>

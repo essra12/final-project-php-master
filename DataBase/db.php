@@ -23,9 +23,9 @@ function executeQuery($sql,$data)
 }
 
 /* SELECT All FUNCTIONS */
-function selectAll($table,$condition=[]) //اختياري اي يمكن عدم تمرير قيمة له  condition الاقواس لجعل الباراميتر  
+function selectAll($table,$condition=[])  
 {
-    global $conn; //لازم يكون معرف في الدالة لانه بيستخدمه
+    global $conn; 
     $sql = "SELECT * FROM $table";
     if(empty($condition)){
         $pre = $conn->prepare($sql);
