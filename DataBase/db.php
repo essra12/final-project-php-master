@@ -118,6 +118,18 @@ function selectAllGroupInfo(){
     return $records;
 }
 
+/* SELECT Groups Info FUNCTIONS */
+function selectAllFileInfo(){ 
+
+    global $conn; 
+    $sql = "SELECT file.*,post.title FROM `file`, `post` WHERE file.p_no=post.p_no;";
+    global $conn;
+    $pre=$conn->prepare($sql);
+    $pre->execute();
+    $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
+
 /* Insert to Group FUNCTIONS */
  function insertData($table ,$data)
 {
