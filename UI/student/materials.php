@@ -10,7 +10,7 @@ $files=selectAll($table);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="../../css/material_and_assignment.css"> 
+     <link rel="stylesheet" href="../../css/materials.css"> 
       <!--icon8-->
       <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <title>Materials</title>
@@ -32,12 +32,11 @@ $files=selectAll($table);
     
  <div class="container">
             
-   
-   
+     
   <div class="cards">
   <?php foreach($files as $key => $file):?>
     <div href="" class="card">
-      <img src="https://img.freepik.com/free-psd/3d-rendering-ui-icon_23-2149182288.jpg?w=740&t=st=1669226686~exp=1669227286~hmac=4b27df99da7eb07ff889f94e6fc1feb676b3efc3a002f6e85677394696d49f70" class="card__image" alt="" />
+      <img src="../../sources/image/file.png" class="card__image" alt="" />
       <div class="card__overlay">
         <div class="card__header">
           <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
@@ -51,8 +50,6 @@ $files=selectAll($table);
   </div>  
     <?php endforeach; ?>    
    </div>
-  
-
  </div>
 </main>
 

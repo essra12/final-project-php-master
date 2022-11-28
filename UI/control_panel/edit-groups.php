@@ -12,7 +12,7 @@ $gid=$_GET['id'];
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1">
         <title>Edite_group</title>
-        <link rel="stylesheet" href="../../css/create_g_tr_admin.css">
+        <link rel="stylesheet" href="../../css/create_group_teacher_admin.css">
         <!--icon8-->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     </head>
@@ -43,14 +43,14 @@ $gid=$_GET['id'];
         <?php
         ?>
         <div class="img_title">
-            <h2>Edite Group</h2>
+            <h2 class="group_title">Edite Group</h2>
 
             <!-- For circular image -->
-            <div class="profile-pic-div">
+<!--             <div class="profile-pic-div">
                 <img src="../../sources/image/create_add_photo.png" id="photo" height="200" width="200">
                 <input type="file" id="file" name="g_img">
                 <label for="file" id="uploadBtn">Choose Photo</label>
-            </div>
+            </div> -->
             <!------------------------>
 
             <div class="create-g-div">
