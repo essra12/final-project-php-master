@@ -20,14 +20,15 @@ div{
     margin-right: 5%;
     padding: 10px;
 }
-.divC,.divC2:hover{
+.ab:hover{
     background-color: rgb(250, 244, 244);;
    
 }
-div:hover{
+.ab2:hover{
     background-color: rgb(250, 244, 244);;
-  
+   
 }
+
 .divC{
     overflow: auto;
     height: 30vh;
@@ -232,3 +233,5 @@ font-size: 30px;
     }
     
  }
+
+ 
