@@ -32,8 +32,7 @@ $files=selectAll($table);
     
  <div class="container">
             
-   
-   
+     
   <div class="cards">
   <?php foreach($files as $key => $file):?>
     <div href="" class="card">
@@ -51,8 +50,6 @@ $files=selectAll($table);
   </div>  
     <?php endforeach; ?>    
    </div>
-  
-
  </div>
 </main>
 
