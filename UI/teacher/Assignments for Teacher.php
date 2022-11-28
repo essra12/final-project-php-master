@@ -80,19 +80,6 @@ include(MAIN_PATH."/controls/materials_and_Assignments.php");
 </div>
 
 
-<div class="div-card">
-
-        <div class="div-dawenload ">
-        <label style="font-weight: bold;">TITEL</label>
-       <a> <i id="files" class="fa-sharp fa-solid fa-file-arrow-down" style="margin-left: 70%;"></i> </a>
-        </div>
-
-        <div class="div-files">
-      <a>  <i id="files" class="fa-solid fa-file"></i></a>
-            <label>this is one files for works </label>
-        </div>
-
-</div>
 
 
 </main>
