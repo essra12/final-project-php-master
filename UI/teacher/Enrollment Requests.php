@@ -12,18 +12,24 @@ $students=selectAllStudentInfo();
         <script src="https://kit.fontawesome.com/e1ca29be31.js" crossorigin="anonymous"></script>
     </head>
 <style>
-  
+  h1{
+    font-size: 42px;
+  }
 @media  (max-width:540px) {
     #true1{
         margin-left: 80%;
         margin-right: 2%;
        }
        #croos1{
-        margin-right: 0%; }}
+        margin-right: 0%; 
+    
+        
+    }
+h1{
+    font-size: 30px;
+}}
+   
 
-        h1{
-            font-size: 42px;
-        }
     </style>
 <body >
     
@@ -34,7 +40,7 @@ $students=selectAllStudentInfo();
 
     <form method="POST">
 <!-- Enrollment Requests -->
-<h1>Enrollment Requests</h1>
+<h1 >Enrollment Requests</h1>
 <hr >
 <div class="divC">
    <?php foreach($students as $key => $student):?> <!--هذا المتغير عبارة عن سجل واحد من الجدول $student  -->
