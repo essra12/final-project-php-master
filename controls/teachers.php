@@ -2,6 +2,7 @@
 /* include("../path.php");  */
 include(MAIN_PATH. "/database/db.php");
 global $conn;
+
 $errors = array();
 $table1='user';
 $table2='teacher';
@@ -49,20 +50,19 @@ $conf_password="";
         $tr_phone_no=$_POST['tr_phone_no'];//تخزين قيمة المتغير قبل حدفه
         unset($_POST['tr_phone_no']); 
         unset($_POST['conf_password']);
-        $_POST['admin']=0;
+        $_POST['role']='teacher';
         $_POST['password']=password_hash($_POST['password'], PASSWORD_DEFAULT);//password عمل تشفير لل
         
         $full_name=$_POST['full_name'];
         $password=$_POST['password'];
         $u_img=$_POST['u_img'];
-        $admin=$_POST['admin'];
+        $role=$_POST['role'];
 
-         $sql_insert1="INSERT INTO user(full_name,password,u_img,admin) VALUES ('$full_name','$password','$u_img','$admin')";
+         $sql_insert1="INSERT INTO user(full_name,password,u_img,role) VALUES ('$full_name','$password','$u_img','$role')";
          $conn->query($sql_insert1); 
          $last_id = $conn->insert_id;
 
-         $_SESSION['user_id']=$last_id['user_id'];
-         $_SESSION['full_name']=$last_id['full_name'];
+
      
     /**************for teacher table **************/
         unset($_POST['add_teacher'],$_POST['full_name'],$_POST['password'],$_POST['conf_password'],$_POST['u_img']);
@@ -74,7 +74,7 @@ $conf_password="";
 
     /*succes mmessage*/
         $_SESSION['message']='Teacher Added successfully';
-        header('location: ' . BASE_URL .'/UI/control_panel/create_group.php');// يتم إستخدام هذه الدالة  من أجل نقل أو تحويل المستخدم للمكان الذي نُريده
+        header('location: ' . BASE_URL .'/UI/control_panel/create_group.php');
         $conn->close();
         exit();
     }

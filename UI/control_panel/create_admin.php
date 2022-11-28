@@ -7,7 +7,7 @@ include(MAIN_PATH."/controls/admins.php");
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1">
         <title>Control_Panel_add_Admin</title>
-        <link rel="stylesheet" href="../../css/create_g_tr_admin.css">
+        <link rel="stylesheet" href="../../css/create_group_teacher_admin.css">
         <!--icon8-->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     </head>
@@ -35,11 +35,11 @@ include(MAIN_PATH."/controls/admins.php");
       <form class="g_tr_admin-form" action="create_admin.php" method="POST" name="create_admin_form" enctype="multipart/form-data" onsubmit="return check_Enter(this)">
             
             <div  class="img_title admin">
-                <h2>Add New Admin</h2>
+                <h2>Add New Admin Account</h2>
 
                 <!-- For circular image -->
-                <div class="profile-pic-div">
-                    <img src="../../sources/image/create_add_photo.png" id="photo" height="200" width="200">
+                <div class="profile-pic-div admin">
+                    <img src="../../sources/image/blue_rectangle_with_user.JPG" id="photo" height="200" width="200">
                     <input type="file" id="file" name="u_img">
                     <label for="file" id="uploadBtn">Choose Photo</label>
                 </div>

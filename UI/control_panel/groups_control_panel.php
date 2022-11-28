@@ -10,7 +10,7 @@ $groups=selectAllGroupInfo();
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1">
         <title>Control_Panel_Groups</title>
-        <link rel="stylesheet" href="../../css/group_tr_stu_file_control_panel.css">
+        <link rel="stylesheet" href="../../css/controlpanel_group_teacher_student_file.css">
         <!--icon8-->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     </head>
@@ -83,7 +83,7 @@ $groups=selectAllGroupInfo();
                     </div>
                     <div class="group-card-num">
                         <a onclick="return confirmDelete()" href="groups_control_panel.php?deleteID=<?php echo $group['g_no']; ?>"><i class="las la-trash-alt ticon delet" style="margin-left: 0px;padding:0px; margin-top:20px;"></i></a>
-                        <a  href="edit-groups.php?name-g=<?php echo $group['g_name'] ?>&name-t=<?php echo $group['full_name'] ?>&id=<?php echo $group['g_no']?>"><i class="las la-trash-alt ticon edit" style="margin-left: 2px;padding:0px; margin-top:5px;"></i></a>
+                        <a  href="edit-groups.php?name-g=<?php echo $group['g_name'] ?>&name-t=<?php echo $group['full_name'] ?>&id=<?php echo $group['g_no']?>"><i class="las la-pen ticon edit" style="margin-left: 2px;padding:0px; margin-top:5px;"></i></a>
                         <div class="group-card-icon">
                             <span class="las la-user-friends"></span>
                         </div>

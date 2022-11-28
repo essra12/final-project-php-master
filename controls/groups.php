@@ -4,7 +4,7 @@ include(MAIN_PATH. "/database/db.php");
 $table="groups";
 $errors = array();
 
-/*Insert Group Data*/
+/*************************Insert Group Data************************/
  $g_name=""; 
  $tr_id="";
 if(isset($_POST['create_group'])){
@@ -29,7 +29,7 @@ if(isset($_POST['create_group'])){
     } 
 }
 
-/***********************Delete Group***********************/
+/***************************Delete Group****************************/
 if(isset($_GET['deleteID']))
 {
   $deleteGroup=deleteGroup($_GET['deleteID']);

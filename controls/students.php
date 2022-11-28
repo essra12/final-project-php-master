@@ -57,20 +57,15 @@ if(isset($_POST['Add_student'])){
         $stu_id=$_POST['stu_id'];
         unset($_POST['stu_id']);
         unset($_POST['conf_password']);
-        $_POST['admin']=0;
         $_POST['password']=password_hash($_POST['password'], PASSWORD_DEFAULT);//password عمل تشفير لل
 
         $full_name=$_POST['full_name'];
         $password=$_POST['password'];
         $u_img= $_POST['u_img'];
-        $admin=$_POST['admin'];
 
-        $sql1="INSERT INTO user(full_name,password,u_img,admin) VALUES ('$full_name','$password','$u_img','$admin')";
+        $sql1="INSERT INTO user(full_name,password,u_img,role) VALUES ('$full_name','$password','$u_img','')";
         $conn->query($sql1); 
         $last_id = $conn->insert_id;
-
-/*         $_SESSION['user_id']=$last_id['user_id'];
-        $_SESSION['full_name']=$last_id['full_name'];  */
          
 
     /**************for student table **************/

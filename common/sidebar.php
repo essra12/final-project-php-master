@@ -74,8 +74,8 @@ if ($result->num_rows == 1) {
               
                 <li>
                 <a href="..\..\logout.php">
-                        <span class="las la-sign-out-alt"></span>
-                        <span>LogOut</span>
+                        <span class="las la-sign-out-alt" style="color:#FFBA5F;"></span>
+                        <span style="color:#FFBA5F;">LogOut</span>
                     </a>
 
             </ul>
