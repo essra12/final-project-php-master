@@ -41,7 +41,7 @@ if(isset($_POST['add_admin'])){
 
   if(count($errors)==0){  
     unset($_POST['conf_password'],$_POST['add_admin']);
-    $_POST['admin']=1;
+    $_POST['role']='admin';
     $_POST['password']=password_hash($_POST['password'], PASSWORD_DEFAULT);//password عمل تشفير لل
     
     $post_id = insertData($table,$_POST);

@@ -13,7 +13,6 @@ $groups=selectAllfilesInfo();
     <head>
         <meta charset="UTF-8">
        <link rel="stylesheet" href="../../css/assignments-student.css"> 
-       <link rel="stylesheet" href="../../css/matterials_and_assin.css">
         <script src="https://kit.fontawesome.com/e1ca29be31.js" crossorigin="anonymous"></script>
     </head>
 <style> 
@@ -86,8 +85,6 @@ $groups=selectAllfilesInfo();
 
 </div>
 
-
-
 <div class="div-card">
 
         <div class="div-dawenload ">
@@ -101,7 +98,6 @@ $groups=selectAllfilesInfo();
         </div>
 
 </div>
-
 
 </main>
 </form>

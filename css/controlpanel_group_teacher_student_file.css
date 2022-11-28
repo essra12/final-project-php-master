@@ -3,6 +3,7 @@
     --darkblue:#2A3D6C ;
     --vdarkblue:#222242 ;
     --orange:#FFBA5F;
+    --lightorange:#fad5a4;
     --shadow1:rgba(17,17,26,0.1) 2px 2px 16px; 
     --shadow2:0 0 0.375rem 0.25rem rgb(0 0 0 / 15%);
     --lightblue:#A4D2F0;
@@ -11,7 +12,6 @@
     --darkgreen:#53744A;
     --red:#D92A2A;
 }
-
 *{
     padding: 0;
     margin: 0;
@@ -20,7 +20,6 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
-
 body{
     overflow-x: hidden;
 }
@@ -265,7 +264,7 @@ main{
     box-shadow: var(--shadow1);
     padding: 0.5rem .5rem 0rem;
     border-radius: 15px;
-    background: var(--lightgreen);
+    background: var(--lightorange);
     display: flex;
    /*  justify-content: center; */
     margin-top: 2rem;
@@ -276,7 +275,7 @@ main{
     cursor: pointer;
     margin-top: 20px;
     margin-bottom: 20px;
-    background-color: #b6e4b0; 
+    background-color: var(--orange); 
 }
 .group-card-info{
     width: 90%;
@@ -285,7 +284,7 @@ main{
 }
 .group-card-info h3{
     font-size: 18px;
-    color: var(--darkblue);
+    color: var(--vdarkblue);
 }
 
 .group-card-info p{
@@ -308,7 +307,8 @@ main{
     border-radius: 50%;
     display: grid;
     place-items: center;
-    background: var(--orange);
+    background: var(--vdarkblue);
+    color: #fff;
     margin-left: .7rem;
     position: absolute;
     bottom: 15px;
@@ -324,6 +324,7 @@ main{
     position: absolute;
     bottom: 15px;
     right: 36px;
+    color: var(--vdarkblue);
 }
 
 .overlay{
@@ -486,10 +487,10 @@ table th {
     margin-left: 10px;
 }
 .ticon.edit{
-    color: var(--darkgreen);
+    color: var(--darkblue);
 }
 .ticon.delet{
-    color: #fdab40;
+    color: var(--red);
 }
  .ticon:hover{
     cursor: pointer;
@@ -497,11 +498,11 @@ table th {
     font-weight: bolder;
  }
  .ticon.edit:hover{
-    color: #7aea5b;
+    color: var(--vdarkblue);
  }
 
  .ticon.delet:hover{
-    color: var(--red);
+    color:#9b1d1d;
  }
 
  /* just for file_control_panel*/
