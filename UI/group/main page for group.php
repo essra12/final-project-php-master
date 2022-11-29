@@ -71,7 +71,7 @@ $groupsInfo=selectGroupName();
           <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
           
           <div class="card__header-text">
-            <h3 onclick="submit()" class="card__title"><?php echo $Info['g_name'] ?></h3>            
+            <h3  class="card__title"><?php echo $Info['g_name'] ?></h3>            
           </div>
         </div>
       </div>

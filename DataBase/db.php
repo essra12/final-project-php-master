@@ -23,9 +23,9 @@ function executeQuery($sql,$data)
 }
 
 /* SELECT All FUNCTIONS */
-function selectAll($table,$condition=[]) //اختياري اي يمكن عدم تمرير قيمة له  condition الاقواس لجعل الباراميتر  
+function selectAll($table,$condition=[])  
 {
-    global $conn; //لازم يكون معرف في الدالة لانه بيستخدمه
+    global $conn; 
     $sql = "SELECT * FROM $table";
     if(empty($condition)){
         $pre = $conn->prepare($sql);
@@ -111,6 +111,18 @@ function selectAllGroupInfo(){
 
     global $conn; 
     $sql = "SELECT *,teacher.user_id,user.full_name FROM groups,user,teacher WHERE groups.tr_id=teacher.tr_id AND teacher.user_id=user.user_id;";
+    global $conn;
+    $pre=$conn->prepare($sql);
+    $pre->execute();
+    $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
+
+/* SELECT Groups Info FUNCTIONS */
+function selectAllFileInfo(){ 
+
+    global $conn; 
+    $sql = "SELECT file.*,post.title FROM `file`, `post` WHERE file.p_no=post.p_no;";
     global $conn;
     $pre=$conn->prepare($sql);
     $pre->execute();

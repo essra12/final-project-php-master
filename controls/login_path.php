@@ -25,7 +25,7 @@ if (empty($password)) { array_push($errors, "Password is required"); }
 
 // Checking for the errors
 if (count($errors) == 0) {
-$query = "SELECT user_id,full_name,password,u_img,admin  FROM `user` WHERE full_name='".$fullname."'";
+$query = "SELECT user_id,full_name,password,u_img,role  FROM `user` WHERE full_name='".$fullname."'";
 $results = mysqli_query($conn, $query);
 
 
@@ -36,7 +36,7 @@ if (mysqli_num_rows($results) == 1)
    while ($row =mysqli_fetch_assoc($results))
   {
     if($fullname && password_verify($password,$row['password'])){
-    if($row["admin"]=="1")
+    if($row["role"]=="admin")
     {
       $_SESSION['full_name'] = $fullname;
       $_SESSION['user_id'] =$row['user_id'];
@@ -45,7 +45,16 @@ if (mysqli_num_rows($results) == 1)
       $conn->close();
       exit();
      }
-    else {
+    else  if($row["role"]=="teacher")
+    {
+      $_SESSION['full_name'] = $fullname;
+      $_SESSION['user_id'] =$row['user_id'];
+      
+      header('Location: UI/group/main page for group.php');
+      $conn->close();
+      exit();
+     }
+     else{
       $_SESSION['full_name'] = $fullname;
       $_SESSION['user_id'] =$row['user_id'];
       /* $_SESSION['u_img'] =$row['u_img']; */
