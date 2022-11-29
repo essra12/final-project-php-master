@@ -22,11 +22,12 @@ $search="";
              exit();            
     }
 
-    else 
+    elseif(!$exisiting_group_search) 
       {
         array_push($errors," This group is not exists");
-                    
-}           
+    
+     } 
+               
 }
 /*******************************************************************************************/
 /***************to creat cards with using group name ***************************************/

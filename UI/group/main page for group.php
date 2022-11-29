@@ -37,7 +37,7 @@ $groupsInfo=selectGroupName();
             <h1> Hello , <?php echo $username;?></h1>
             </div>
             <div class="search">
-            <input type="text" placeholder=" Enter Group Code" name="search" >
+            <input type="text" placeholder=" Enter Group Code" id="search" name="search" >
             <button type="submit" name="submit">Join</button>
             </div>
                <!--  Errors -->
@@ -93,6 +93,14 @@ $groupsInfo=selectGroupName();
            /*  var date = dt.getDate()+'-'+name+'-'+dt.getFullYear(); */
             var date =name+'   '+dt.getDate()+','+dt.getFullYear();
             document.getElementById('date').innerHTML=date;
+
+            function check_Enter() {
+  const search = document.getElementById("search").value;
+  
+  if(search==""){
+  alert(" you should Enter Group Code");
+  return false
+  }}
     </script>
       
 </body>
