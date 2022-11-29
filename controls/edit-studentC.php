@@ -18,7 +18,6 @@ if($_SERVER['REQUEST_METHOD']=='POST')
 { 
     
    /*---------------------- user Image--------------------------------- */
-   /* user Image */
    if (!empty($_FILES['u_img']['name'])) {
     $imgName= time() .'_' . $_FILES['u_img']['name'];// تُرجع الدالة الوقت الحالي بعدد الثواني منذ ذلك الحين time() ،  HTTP POST عبارة عن مصفوفة ارتباطية تحتوي على عناصر تم تحميلها عبر طريقة $_FILES
     

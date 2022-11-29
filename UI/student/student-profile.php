@@ -10,7 +10,7 @@ include("../../Database/db.php");
 <head>
     <title>student-profile</title>
     <meta name="descreption " content=" " />
-    <link rel="stylesheet" href="..\..\CSS\profile.css" />
+    <link rel="stylesheet" href="..\..\CSS\Profiless.css" />
     <script src="https://kit.fontawesome.com/e1ca29be31.js" crossorigin="anonymous"></script>
     </head>
 
@@ -23,23 +23,23 @@ include("../../Database/db.php");
 
 
 
-</style>
     <html>
         <body>
             <div class="div-photo">
-            <form method="get" action="edit profile.php">
+            <form method="get" action="edit profile.php"  enctype="multipart/form-data">
+              <?php
+             
+                        global $conn;
+                        $name=$_SESSION['full_name'];
+                        $sql="SELECT USER.* ,student.stu_id,student.stu_specialization 
+                        FROM user,student
+                        WHERE user.user_id=student.user_id and user.full_name='".$name."';";
+                        $result= mysqli_query($conn,$sql);
+                        $row =mysqli_fetch_row($result);
+                        $img=$row[3];
 
-                <img class="photo" src="../../sources/image/user-weman.png" /><br> 
-
-                <!-- For circular image 
-                <div class="profile-pic-div"  >
-                <img src="../../sources/image/create_add_photo.png" id="photo" height="120" width="120" >
-                <input type="file" id="file" name="u_img"> 
-                <label for="file" id="uploadBtn">Choose Photo</label>
-            </div>
--->
-
-              <!--  <label class="lable-edit-phto">Edit Photo</label> -->
+              echo " <img class='photo' src='../../sources/image/$img' /> ";
+?>
             </div>
             <div class="div-data">
                 
@@ -65,12 +65,12 @@ include("../../Database/db.php");
                         $id=$row[5];
                         $name=$row[1];
                         $spe=$row[6];
+                        $img=$row[3];
                      /*   $img=$row[3];*/
                      
                         /** to encryption password  */
 
                         echo "<lable class='l1'>". $id. "</lable>"."<lable class='l2'>" .$name ."</lable>" . "<lable class='l3'>" .$spe ."</lable>" ;
-
                             $_GET['id']=$id;           
                             $_GET['name']=$name;
                             $_GET['spe']=$spe;
@@ -90,8 +90,5 @@ include("../../Database/db.php");
 <input class="bt2" name="edit" type="button" value="Logout"/></a>
 </form>
             </div>
-
-              
-</script>
-        </body>
+     </body>
     </html>
