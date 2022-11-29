@@ -9,13 +9,38 @@ $name= $_SESSION['name'];
 $phon=$_SESSION['phone'];
 $password=$_SESSION['pass'];
 
-/** حفظ القيم المدخلة في المتغيرات */
 $error ="";
 if($_SERVER['REQUEST_METHOD']=='POST')
-{   $username = $_POST['name'];
+{ 
+    
+       /* user Image */
+   if (!empty($_FILES['u_img']['name'])) {
+    $imgName= time() .'_' . $_FILES['u_img']['name'];// تُرجع الدالة الوقت الحالي بعدد الثواني منذ ذلك الحين time() ،  HTTP POST عبارة عن مصفوفة ارتباطية تحتوي على عناصر تم تحميلها عبر طريقة $_FILES
+    
+    $imgPath= "../../sources/image/" .$imgName;
+    
+    $r= move_uploaded_file($_FILES['u_img']['tmp_name'],$imgPath); // تعمل الدالة  على نقل الملف الذي تم تحميله إلى وجهة جديدة.
+
+    if ($r) {
+        $_POST['u_img']=$imgName;
+    } 
+    else {
+        array_push($errors,"There is an error uploading the image.");
+    }
+}
+else if (empty($_FILES['u_img']['name'])) {
+    $_POST['u_img']='blue_rectangle_with_user.JPG';
+}
+
+/**************/
+    
+    
+    /** حفظ القيم المدخلة في المتغيرات */
+    $username = $_POST['name'];
     $phone = $_POST['phone'];
     $userpass1 =sha1( $_POST['pass']);/** password  encryption */
     $userpass2 = sha1($_POST['cof-pass']);/** password  encryption */
+    $img=$_POST['u_img'];
 
    /** empty التحقق من حقول الادخال باستحدام  */
      if(empty($phon)) 
@@ -41,7 +66,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     } 
     {
       
-        $sqln="UPDATE user,teacher set   user.full_name='$username', user.password='$userpass1',teacher.tr_phone_no=$phone
+        $sqln="UPDATE user,teacher set   user.full_name='$username', user.password='$userpass1',teacher.tr_phone_no=$phone,user.u_img='$img'
         WHERE user.user_id=teacher.user_id and teacher.tr_phone_no=$phon ;";
         if(mysqli_query($conn,$sqln)){
         echo '<script type="text/javascript">alert("Record updated successfully .")</script>';
@@ -53,28 +78,5 @@ if($_SERVER['REQUEST_METHOD']=='POST')
         echo "Error updating record: " . mysqli_error($conn);
         }
         }}
-
-        /* user Image */
-  if (!empty($_FILES['u_img']['name'])) {
-    $imgName= time() .'_' . $_FILES['u_img']['name'];// تُرجع الدالة الوقت الحالي بعدد الثواني منذ ذلك الحين time() ،  HTTP POST عبارة عن مصفوفة ارتباطية تحتوي على عناصر تم تحميلها عبر طريقة $_FILES
-    
-    $imgPath=MAIN_PATH. "/sources/image/" .$imgName;
-    
-    $r= move_uploaded_file($_FILES['u_img']['tmp_name'],$imgPath); // تعمل الدالة  على نقل الملف الذي تم تحميله إلى وجهة جديدة.
-
-    if ($r) {
-        $_POST['u_img']=$imgName;
-    } 
-    else {
-        array_push($errors,"There is an error uploading the image.");
-    }
-  }
-  else if (empty($_FILES['u_img']['name'])) {
-    $_POST['u_img']='create_add_photo.png';
-   }
-
-  /*****************/
-
-
 ?>
 
