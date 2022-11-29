@@ -9,7 +9,7 @@ include(MAIN_PATH."/controls/inside_group.php");
 <head>
     <title>Group</title>
     <meta name="descreption " content=" " />
-    <link rel="stylesheet" href="../../css/in.css">
+    <link rel="stylesheet" href="../../css/inside__.css">
     <!--icon8-->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 	<!-- to add a library -->
