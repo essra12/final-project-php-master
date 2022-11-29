@@ -5,7 +5,7 @@ include(MAIN_PATH."/controls/students.php");
 
 <!DOCTYPE html>
 <head>
-    <title>singup</title>
+    <title>Singup</title>
     <meta name="descreption " content=" " />
     <link rel="stylesheet" href="../../CSS/login_and_singup.css"/>
     <!--icon8-->
