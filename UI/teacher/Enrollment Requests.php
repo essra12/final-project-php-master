@@ -7,8 +7,7 @@ $students=selectAllStudentInfo();
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="../../css/Enrollment_Requserts.css">
-        <link rel="stylesheet" href="../../css/matterials_and_assin.css">
+        <link rel="stylesheet" href="../../css/Enrollment__Requserts.css">
         <script src="https://kit.fontawesome.com/e1ca29be31.js" crossorigin="anonymous"></script>
     </head>
 <style>
