@@ -10,8 +10,8 @@ $admins=selectAll($table,$condition);
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1">
-        <title>Control_Panel_teacher</title>
-        <link rel="stylesheet" href="../../css/controlpanel_group_teacher_student_file.css">
+        <title>Control Panel (Admins)</title>
+        <link rel="stylesheet" href="../../css/control_panel_group_teacher_student_file.css">
         <!--icon8-->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">   
     </head>

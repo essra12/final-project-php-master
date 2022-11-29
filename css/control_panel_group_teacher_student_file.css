@@ -3,7 +3,7 @@
     --darkblue:#2A3D6C ;
     --vdarkblue:#222242 ;
     --orange:#FFBA5F;
-    --lightorange:#fad5a4;
+    --lightorange:#fcc680;
     --shadow1:rgba(17,17,26,0.1) 2px 2px 16px; 
     --shadow2:0 0 0.375rem 0.25rem rgb(0 0 0 / 15%);
     --lightblue:#A4D2F0;
@@ -217,6 +217,7 @@ header{
     float: left; 
     padding:25px;
 }
+
 .header-box-content{
     text-align: center;
 }
@@ -270,6 +271,9 @@ main{
     margin-top: 2rem;
     transition: background-color 0.5s;
 }
+.group-card a{
+    width: 85%;
+   }
 
 .group-card:hover{
     cursor: pointer;
@@ -354,6 +358,18 @@ main{
         grid-template-columns: repeat(2,1fr);
     } 
 }
+@media only screen and (max-width:1370px) {
+
+    .header-box img{
+       margin-top: 0rem; 
+       margin-right: .1rem;
+       width: 400px;
+   } 
+     .group-cards{
+       grid-template-columns: repeat(2,1fr);
+   } 
+
+}
 
 @media only screen and (max-width:970px) {
  
@@ -373,7 +389,7 @@ main{
          grid-template-columns: 100%;
     } 
 }
-@media only screen and (max-width:1257px) {
+@media only screen and (max-width:1280px) {
     .sidebar{
         left: -290px;
         z-index: 30;
@@ -395,7 +411,7 @@ main{
     }
 }
 
-/***************************************************** TEACHER/Student/File_CONTROL_PANAL Style ***********************************************************/
+/***************************************************** Teacher/Student/File_Control_Panel Style ***********************************************************/
 
 #b-vlightblue{
     background: var(--vlightblue);
@@ -571,318 +587,32 @@ table th {
 	}
 }
    
+ @media only screen and (max-width:1401px) {
+
+    .header-box.tr img{
+       margin-top: 0rem; 
+       margin-right: .1rem;
+       width: 400px;
+   } 
+     .group-cards{
+       grid-template-columns: repeat(2,1fr);
+   } 
+
+}
+@media only screen and (max-width:994px) {
+ 
+    .header-box.tr img{
+         display: none; 
+    }
+    .header-box.tr .header-box-content{
+         width: 100%;
+    }   
+    .header-box.tr .header-box-content-table{
+        width: 100%;
+}    
+}
 
 
 
-
-/**************************************************** Add admin style *********************************************************/
-
-
-        .create-a-div{
-            background-color: white;
-            width: 50%;
-        height: 90vh;
-        border-radius: 15px;
-        display: inline-block;
-        position: absolute;
-        left: 70%;
-        top: 5%;
-        transform: translate(-70%); 
-        text-align: center;
-        }
-        .lable-create{
-        
-        position: absolute;
-        top: 7%;
-        left: 50%;
-        transform: translate(-50%);
-        font-size: 30px;
-        
-        }
-        .img-greate{
-        
-            position: absolute;
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%);
-        font-size: 30px; 
-        height: 15%;
-        width: 15%;
-        }
-        .img-greate:hover{
-        
-          cursor: pointer;
-        
-        }
-        #user-iocn{
-            position:absolute;
-            top: 46%;
-            left: 33%;
-        }
-        .input-name{
-            position:absolute;
-            top: 45%;
-            left: 30%;
-            width: 40%;
-            margin-left: 1%;
-            border-radius: 25px; 
-            padding-left: 9%;
-            height: 5%; 
-            border-color: #222242;
-        
-        }
-        #pass-iocn{
-            position: absolute;
-            top: 56%;
-            left: 33%;
-           
-        }
-        .input-pass{
-            position:absolute;
-            top: 55%;
-            left: 30%;
-            width: 40%;
-            margin-left: 1%;
-            border-radius: 25px; 
-            padding-left: 9%;
-            height: 5%;
-            border-color: #222242;
-        
-        
-        }
-        .input-pass2{
-            position:absolute;
-            top: 65%;
-            left: 30%;
-            border-radius: 25px; 
-            padding-left: 9%;
-            height: 5%;
-            width: 40%;
-            margin-left: 1%;
-            border-color: #222242;
-        }
-        #pass2-iocn{
-            position: absolute;
-            top: 66%;
-            left: 33%;
-           
-        }
-        
-        .check-box-admiin{
-        
-            position:absolute;
-            top: 75%;
-            left: 33%;
-            width: 3%;
-            height: 3%;  
-        }
-        .lb{
-            position:absolute;
-            top: 75%;
-            left: 38%; 
-            color: #6f6f6f;
-        }
-        .bt-save{
-            position:absolute;
-            top: 85%;
-            left: 30%;
-            width: 47%;
-            background-color: #222242;
-            height: 7%;
-            color: white;
-            border-radius: 25px;
-        }
-        .bt-save:hover{
-            box-shadow: 4px 4px 4px rgb(135, 134, 134); 
-        
-        }
-        .div-admin-footer{
-        background-color: #bababa;
-        width: 70%;
-        height: 15vh;
-        position: absolute;
-        bottom: 2%;
-        left: 15%;
-        border-radius: 15px;
-        }
-        .img-ad-footer{
-            width: 40%;
-            height: 20%;
-            position: absolute;
-            bottom: 8%;
-            left: 30%;
-           
-        }
-        
-        .bt-admin{
-        position: absolute;
-        left:  50%;
-        transform: translate(-50%);
-        bottom: 5%;
-        border-radius: 15px;
-        background-color: #A4D2F0;
-        border: none;
-        height: 30%;
-        width: 40%;
-        text-align: center;
-        }
-        
-        @media(max-width:800px)
-        {
-        
-        .create-a-div{
-            width: 70%;
-        }
-        
-        .lable-create{
-            font-size: 25px;
-          
-        }
-        .img-greate{
-            padding-top: 5%;
-        }
-        .input-name,.input-pass,.input-pass2{
-            width: 50%;
-        }
-        .bt-save{
-            width: 50%;
-           
-        }
-        }
-        
-        
-        
-        /**********************************************create group style *********************************************************/
-        .create-g-div{
-        background-color: white;
-        width: 50%;
-        height: 90vh;
-        border-radius: 15px;
-        display: inline-block;
-        position: absolute;
-        left: 70%;
-        top: 5%;
-        transform: translate(-70%); 
-        text-align: center;
-        }
-        .lable-create{
-        
-        position: absolute;
-        top: 10%;
-        left: 50%;
-        transform: translate(-50%);
-        font-size: 30px;
-        
-        }
-        
-        .img-greate{
-        
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%);
-        font-size: 30px; 
-        width: 25%;
-        height: 20%;
-        
-        }
-        
-        #user-iocn{
-            position:absolute;
-            top: 54.5%;
-            left: 33%;
-        }
-        
-        .input-name{
-            position:absolute;
-            top: 53%;
-            left: 27%;
-            border-radius: 25px  ; 
-            padding-left: 9%;
-            height: 5%;   
-            width: 47%;
-            margin-left: 1%;
-        }
-        
-        
-        #user-iocn1{
-            position:absolute;
-            top: 64%;
-            left: 33%;
-        }
-        
-        .select-t{
-            position:absolute;
-            top: 63%;
-            left: 27%;
-            border-radius: 25px; 
-            padding-left: 9%;
-            height: 5%;   
-            width: 47%;
-            margin-left: 1%;
-            border-color: #222242;
-        
-        }
-        .bt-save{
-            position:absolute;
-            top: 73%;
-            left: 27%;
-            width: 50%;
-            background-color: #222242;
-            height: 7%;
-            color: white;
-            border-radius: 25px;
-        }
-        .bt-save:hover{
-            box-shadow: 4px 4px 4px rgb(135, 134, 134); 
-        
-        }
-        .div-admin-footer{
-        background-color: #bababa;
-        width: 70%;
-        height: 15vh;
-        position: absolute;
-        bottom: 2%;
-        left: 15%;
-        border-radius: 15px;
-        }
-        .img-ad-footer{
-            width: 40%;
-            height: 20%;
-            position: absolute;
-            bottom: 8%;
-            left: 30%;
-           
-        }
-        
-        .bt-admin{
-        position: absolute;
-        left:  50%;
-        transform: translate(-50%);
-        bottom: 5%;
-        border-radius: 15px;
-        background-color: #A4D2F0;
-        border: none;
-        height: 30%;
-        width: 40%;
-        text-align: center;
-        }
-        /**media when  max-width:830px */
-        
-        @media(max-width:830px)
-        {
-        
-        
-        .img-greate{
-            width: 29%;
-           
-        }
-        .lable-create{
-            font-size: 25px;
-        }
-        .create-g-div{
-            width: 70%;
-        }
-        }
         
         

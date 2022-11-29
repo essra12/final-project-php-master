@@ -82,7 +82,8 @@ include("../../Database/db.php");
                            $_SESSION['pass']=$_GET['password'];
                        
              ?>
-<a href="edit profile.php" >
+             
+<a href="edit profile.php" > 
 <input name="bts" class="bt1"  type="button" value="Edit"/></a>
                 
 <a href="..\..\logout.php">

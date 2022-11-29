@@ -1,13 +1,15 @@
 <?php 
 include("../../path.php"); 
+include(MAIN_PATH."/DataBase/db.php"); 
+$files=selectAllFileInfo();
 ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1">
-        <title>Control_Panel_file</title>
-        <link rel="stylesheet" href="../../css/controlpanel_group_teacher_student_file.css">
+        <title>Control Panel (Files)</title>
+        <link rel="stylesheet" href="../../css/control_panel_group_teacher_student_file.css">
         <!--icon8-->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     </head>
@@ -46,61 +48,18 @@ include("../../path.php");
                 <tr>
                     <th scope="col">File Id</th>
                     <th scope="col">File Name</th>
-                    <th scope="col">File Type</th>
                     <th scope="col" width="70px">Delete</th>
                 </tr>
             </thead>
 
             <tbody>
+            <?php foreach($files as $key => $file):?>
                 <tr>
-                    <td data-label="file-id">1222</td>
-                    <td data-label="file-name">MMM MMM</td>
-                    <td data-label="file_type">progrmming</td>
+                    <td data-label="file-id"><?php echo $file['f_no'] ?></td>
+                    <td data-label="file-name"><?php echo $file['f_name'] ?></td>
                     <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
                 </tr>
-                <tr>
-                    <td data-label="file-id">1333</td>
-                    <td data-label="file-name">YYY YYY</td>
-                    <td data-label="file_type">Network</td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="file-id">1222</td>
-                    <td data-label="file-name">MMM MMM</td>
-                    <td data-label="file_type">progrmming</td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="file-id">1222</td>
-                    <td data-label="file-name">MMM MMM</td>
-                    <td data-label="file_type">progrmming</td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="file-id">1222</td>
-                    <td data-label="file-name">MMM MMM</td>
-                    <td data-label="file_type">progrmming</td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="file-id">1222</td>
-                    <td data-label="file-name">MMM MMM</td>
-                    <td data-label="file_type">progrmming</td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="file-id">1222</td>
-                    <td data-label="file-name">MMM MMM</td>
-                    <td data-label="file_type">progrmming</td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-                <tr>
-                    <td data-label="file-id">1222</td>
-                    <td data-label="file-name">MMM MMM</td>
-                    <td data-label="file_type">progrmming</td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
-                </tr>
-
+            <?php endforeach; ?> 
             </tbody>
         </table>
     </div>
