@@ -1,6 +1,7 @@
 <?php
 /* include("../path.php");  */
 include(MAIN_PATH. "/database/db.php");
+include(MAIN_PATH. "/common/validity.php");
 $table="user";
 $errors = array();
 global $conn;
