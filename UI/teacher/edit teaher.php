@@ -16,7 +16,7 @@ include("../../controls/edit-teacher.php");
 <body >
 
   <div class="login-container">
-      <p class="signup_text"><b>Edit Student</p>
+      <p class="signup_text"><b>Edit Teacher</p>
     <form class="login-form"  method="POST" name="signup_form" enctype="multipart/form-data"  onsubmit="return check_Enter(this)">
 
   <!-- For circular image -->

@@ -1,12 +1,12 @@
 <?php 
 include("../../path.php"); 
 include(MAIN_PATH."/controls/materials_and_Assignments.php");
+
 include(MAIN_PATH."/controls/assignments.php");
 include(MAIN_PATH."/DataBase/Connection.php");
 
 /* SELECT files Info FUNCTIONS */
-
-$groups=selectAllfilesInfo();
+$files=selectAllfilesInfo();
 ?>
 
 <html lang="en">
@@ -35,9 +35,9 @@ $groups=selectAllfilesInfo();
 
 <main>
 
-<!--
 
-<?php  /*foreach($groups as $key => $group):  ?>
+
+<?php foreach($files as $key => $group):  ?>
                                                 
         <div class="div-card">
                <div class="div-dawenload ">
@@ -51,54 +51,25 @@ $groups=selectAllfilesInfo();
                </div>
          </div>  
   
-<?php   endforeach;   */?> 
+<?php   endforeach;   ?> 
+
+
+
+<!--
+<div class="div-card">
+
+        <div class="div-dawenload ">
+        <label style="font-weight: bold;">TITEL</label>
+       <a> <i id="files" class="fa-sharp fa-solid fa-file-arrow-down" style="margin-left: 70%;"></i> </a>
+        </div>
+
+        <div class="div-files">
+      <a>  <i id="files" class="fa-solid fa-file"></i></a>
+               <label > the descreption for this files here .....</label>
+        </div>
+
+</div>
 -->
-
-
-
-<div class="div-card">
-
-        <div class="div-dawenload ">
-        <label style="font-weight: bold;">TITEL</label>
-       <a> <i id="files" class="fa-sharp fa-solid fa-file-arrow-down" style="margin-left: 70%;"></i> </a>
-        </div>
-
-        <div class="div-files">
-      <a>  <i id="files" class="fa-solid fa-file"></i></a>
-               <label > the descreption for this files here .....</label>
-        </div>
-
-</div>
-
-
-<div class="div-card">
-
-        <div class="div-dawenload ">
-        <label style="font-weight: bold;">TITEL</label>
-       <a> <i id="files" class="fa-sharp fa-solid fa-file-arrow-down" style="margin-left: 70%;"></i> </a>
-        </div>
-
-        <div class="div-files">
-      <a>  <i id="files" class="fa-solid fa-file"></i></a>
-               <label > the descreption for this files here .....</label>
-        </div>
-
-</div>
-
-<div class="div-card">
-
-        <div class="div-dawenload ">
-        <label style="font-weight: bold;">TITEL</label>
-       <a> <i id="files" class="fa-sharp fa-solid fa-file-arrow-down" style="margin-left: 70%;"></i> </a>
-        </div>
-
-        <div class="div-files">
-      <a>  <i id="files" class="fa-solid fa-file"></i></a>
-               <label > the descreption for this files here .....</label>
-        </div>
-
-</div>
-
 </main>
 </form>
 </body>

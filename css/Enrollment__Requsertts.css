@@ -92,8 +92,8 @@ div{
     background-color: white;
 }
 .divC2{
-    overflow: auto;
-    height: 30vh;
+    
+    height: 100vh;
     margin-left: 0;
 }
 .divC2:hover{

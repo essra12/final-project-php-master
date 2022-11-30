@@ -1,6 +1,12 @@
 <?php 
 include("../../path.php"); 
 include(MAIN_PATH."/controls/materials_and_Assignments.php");
+
+include(MAIN_PATH."/controls/assignments.php");
+include(MAIN_PATH."/DataBase/Connection.php");
+
+/* SELECT files Info FUNCTIONS */
+$files=selectAllfilesInfo();
 ?>
 
 <html lang="en">
@@ -20,6 +26,23 @@ include(MAIN_PATH."/controls/materials_and_Assignments.php");
 <h1>Assignments</h1>
 
 <main>
+
+<?php foreach($files as $key => $group):  ?>
+                                                
+                              <div class="div-card">
+                                   <div class="div-dawenload ">
+                                   <label style="font-weight: bold;"><?php  echo$group['title'] ; ?></label>
+                                   <a> <i id="files" class="fa-sharp fa-solid fa-file-arrow-down" style="margin-left: 70%;"></i> </a>
+                                   </div>
+                                        
+                                 <div class="div-files">
+                                  <a>  <i id="files" class="fa-solid fa-file"></i></a>
+                                 <label class="ld" ><?php echo$group['description']; ?></label>
+                                 </div>
+                            </div>  
+                                          
+<?php   endforeach;   ?> 
+<!--
 <div class="div-card">
 
         <div class="div-dawenload ">
@@ -64,7 +87,7 @@ include(MAIN_PATH."/controls/materials_and_Assignments.php");
 </div>
 
 
-
+-->
 
 
 
