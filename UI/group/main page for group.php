@@ -14,9 +14,8 @@ if ($result->num_rows == 1) {
     }
 }
 //----------------------
-//------foreach loop---------
-$groupsInfo=selectGroupName();
 ?>
+
 <!DOCTYPE html>
 <head>
     <title>Main page </title>
@@ -58,20 +57,27 @@ $groupsInfo=selectGroupName();
              <div class="photo-div">
                 <a href="..\student\student-profile.php"><img class="img-user" src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " style="border-radius: 100%; width: 150px; height:150px" /></a>
             </div>
+            <!-- ************************************************************************************* -->
+            <!-- ****************image section for teacher************************* -->
+            <?php if($role=="teacher"):?>
+                 <div class="photo-div">
+                <a href="..\teacher\profile teacher.php"><img class="img-user" src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " style="border-radius: 100%; width: 150px; height:150px" /></a>
+            </div>
+            <?php endif;?>
         </div>
         <h1  style=" padding:3% 18% 0% 18%;"> Groups </h1>
            
          <!-- ************************************************************************************* -->
 
 
-<!-- cards section-->
- <!-----------------Dynamically Create Card-----------------> 
- <main>
-
-    
+ <!-- cards section-->
+ <!-----------------Dynamically Create Card------------------------------->
+ <!-------------------for student  section--------------------------------> 
+ <?php if($role==""):?>
+  <!------foreach loop--------->
+  <?php $groupsInfo=selectGroupName();?>
+ <main>  
  <div class="container">
-            
-     
   <div class="cards">
   <?php foreach($groupsInfo as $key => $Info):?>
     <div href="" class="card">
@@ -91,7 +97,34 @@ $groupsInfo=selectGroupName();
    </div>
  </div>
 </main>
-
+<?php endif;?>
+<!-------------------------------------------------------------------->
+<!-------------------for Teacher  section----------------------------->
+<?php if($role=="teacher"):?>
+  <?php $groupsInfoForTeacher=selectGroupNameForTeacher()?>
+  <main>
+<div class="container">      
+ <div class="cards">
+ <?php foreach($groupsInfoForTeacher as $key => $Info):?>
+   <div href="" class="card">
+     <img src="../../sources/image/background.png" class="card__image" alt="" />
+     <div class="card__overlay">
+       <div class="card__header">
+         <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+         
+         <div class="card__header-text">
+           <a href="inside_group.php?data=<?= $Info['g_name']?>&number=<?= $Info['g_no']?>"  style=" color:#000;
+         text-decoration:none;"><h3 class="card__title"><?php echo $Info['g_name'] ?></h3> </a>        
+         </div>
+       </div>
+     </div>
+ </div>  
+ <?php endforeach; ?>    
+  </div>
+</div>
+</main>
+<?php endif;?>
+<!-------------------------------------------------------------------->
 
 
     

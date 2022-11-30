@@ -31,7 +31,7 @@ $search="";
                
 } }
 /*******************************************************************************************/
-/***************to creat cards with using group name ***************************************/
+/*******to creat cards with using group name for student section **************************/
 /*******************************************************************************************/
 function selectGroupName(){ 
   global $conn; 
@@ -53,4 +53,25 @@ if ($result->num_rows > 0) {
   
 }
 /*******************************************************************************************/
-/****************************************************************************************/
+/*******to creat cards with using group name for teacher section **************************/
+/*******************************************************************************************/
+
+function selectGroupNameForTeacher(){ 
+  global $conn; 
+  $username=$_SESSION['full_name'];
+  $query="SELECT tr_id FROM teacher,user WHERE teacher.user_id=user.user_id and user.full_name='".$username."'";
+$result = $conn->query($query);
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    $id=$row['tr_id'];
+  }
+} 
+  /*******************************************************/
+  $sql = "SELECT * FROM groups WHERE  groups.tr_id='".$id."'";
+  $pre=$conn->prepare($sql);
+  $pre->execute();
+  $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
+  return $records;
+  
+}
