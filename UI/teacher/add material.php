@@ -29,7 +29,7 @@ include(MAIN_PATH."/controls/add_material_and_assignment.php");
     <?php if(count($errors_for_material)> 0): ?>
       <div class="msg error" style="color: #D92A2A; margin-bottom: 20px;"> 
         <?php foreach($errors_for_material as $errors_for_material): ?>
-        <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php echo($error); ?></li>
+        <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php echo($errors_for_material); ?></li>
         <?php endforeach; ?>
       </div> 
     <?php endif; ?> 
