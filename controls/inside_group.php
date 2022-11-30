@@ -4,7 +4,7 @@ include(MAIN_PATH. "/database/db.php");
 if(isset($_GET["data"]))
 {
 	$data = $_GET["data"];
-    $group_no = $_GET["number"];
+   $group_no = $_GET["number"];
 
 }
 
