@@ -49,7 +49,7 @@ if (mysqli_num_rows($results) == 1)
     {
       $_SESSION['full_name'] = $fullname;
       $_SESSION['user_id'] =$row['user_id'];
-      
+      $_SESSION['role']=$row['role'];
       header('Location: UI/group/main page for group.php');
       $conn->close();
       exit();
@@ -57,6 +57,7 @@ if (mysqli_num_rows($results) == 1)
      else{
       $_SESSION['full_name'] = $fullname;
       $_SESSION['user_id'] =$row['user_id'];
+      $_SESSION['role']=$row['role'];
       /* $_SESSION['u_img'] =$row['u_img']; */
       // page after logging in
       header('Location: UI/group/main page for group.php');

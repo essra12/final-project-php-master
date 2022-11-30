@@ -8,10 +8,11 @@ $username=$_SESSION['full_name'];
 //----user id for get image -----
 $user_id=$_SESSION['user_id'];
 //-------------------------------
+function search(){ 
 $search="";
 
 
- if(isset($_POST['search'])){
+  if(isset($_POST['search'])){
 
     $exisiting_group_search = selectOne($table1,['g_no'=>$_POST['search']]);
     if($exisiting_group_search)
@@ -22,12 +23,13 @@ $search="";
              exit();            
     }
 
-    else 
+    elseif(!$exisiting_group_search) 
       {
         array_push($errors," This group is not exists");
-                    
-}           
-}
+    
+     } 
+               
+} }
 /*******************************************************************************************/
 /***************to creat cards with using group name ***************************************/
 /*******************************************************************************************/
@@ -51,5 +53,4 @@ if ($result->num_rows > 0) {
   
 }
 /*******************************************************************************************/
-/***************clicking action on the card ***************************************/
 /****************************************************************************************/

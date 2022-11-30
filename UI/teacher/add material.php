@@ -12,7 +12,7 @@ include(MAIN_PATH."/controls/add_material_and_assignment.php");
      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="../../css/add_material_and_assignment.css" />
+    <link rel="stylesheet" href="../../css/add_material_assignment_join.css" />
      <!--icon8-->
      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
   </head>
@@ -29,7 +29,7 @@ include(MAIN_PATH."/controls/add_material_and_assignment.php");
     <?php if(count($errors_for_material)> 0): ?>
       <div class="msg error" style="color: #D92A2A; margin-bottom: 20px;"> 
         <?php foreach($errors_for_material as $errors_for_material): ?>
-        <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php echo($error); ?></li>
+        <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php echo($errors_for_material); ?></li>
         <?php endforeach; ?>
       </div> 
     <?php endif; ?> 

@@ -5,15 +5,6 @@ include(MAIN_PATH."/controls/add_material_and_assignment.php");
 $username=$_SESSION['full_name'];
 $user_id=$_SESSION['user_id'];
 
-/* $sql="SELECT student.stu_id,user.full_name FROM student,user WHERE student.user_id=user.user_id AND user.user_id='$user_id';";
-$result = $conn->query($sql);
-if ($result->num_rows == 1) {
-    while($row = $result->fetch_assoc()) {
-      $username=$row["full_name"];
-      $user_id=$_SESSION['user_id'];
-    }
-} */
-
 ?>
 <html>
     <head>
@@ -29,7 +20,7 @@ if ($result->num_rows == 1) {
      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="../../css/add_material_and_assignment.css" />
+    <link rel="stylesheet" href="../../css/add_material_assignment_join.css" />
      <!--icon8-->
      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     </head>
@@ -47,7 +38,7 @@ if ($result->num_rows == 1) {
     <?php if(count($errors_for_assignment)> 0): ?>
       <div class="msg error" style="color: #D92A2A; margin-bottom: 20px;"> 
         <?php foreach($errors_for_assignment as $errors_for_assignment): ?>
-        <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php echo($error); ?></li>
+        <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php echo($errors_for_assignment); ?></li>
         <?php endforeach; ?>
       </div> 
     <?php endif; ?> 

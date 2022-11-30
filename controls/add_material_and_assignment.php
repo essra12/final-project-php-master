@@ -11,7 +11,7 @@ $description="";
 /* $user_id=$_SESSION['user_id']; */
 
 /*****************************************************************************/
-/*****************************Insert  material**********************************/
+/*****************************Insert  material*******************************/
 
 /*****to find g_no *******/
  function selectGroupNo(){ 
@@ -35,6 +35,7 @@ $description="";
          $g_no=$row["g_no"];
        }
    }
+   return $g_no;
  } 
  /***********************/
 
@@ -42,6 +43,9 @@ if(isset($_POST['add_material'])){
    unset($_POST['add_material']);
 
    /******for Post Table*********/
+
+   selectGroupNo();
+
     $title=htmlentities($_POST['title']);
     $description=htmlentities($_POST['description']);
     //////////
@@ -133,6 +137,7 @@ function selectStu_group(){
           $stu_group=$row["stu_group"];
         }
     }
+     return $stu_group; 
 
   } 
 /***************************/
@@ -144,8 +149,9 @@ if(isset($_POST['add_assignment'])){
    $title=htmlentities($_POST['title']);
    $description=htmlentities($_POST['description']);
 
+
    //////////
-   $stu_group=2;
+   $stu_group=selectStu_group();
    /////////
 
    $sql_insert_post = "INSERT INTO `post`(`title`, `description`, `stu_group`, `g_no`) VALUES ('$title','$description','$stu_group',null);";
