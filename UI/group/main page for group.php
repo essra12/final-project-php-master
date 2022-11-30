@@ -20,12 +20,14 @@ $groupsInfo=selectGroupName();
 <head>
     <title>Main page </title>
     <meta name="descreption " content=" " />
-    <link rel="stylesheet" href="../../css/main_page.css">
+    <link rel="stylesheet" href="../../css/main_page_.css">
     <!--icon8-->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
      <!--icon8-->
      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+         
     </head>
+   
 <html>
 <body>
        <!-- header div-->
@@ -50,6 +52,7 @@ $groupsInfo=selectGroupName();
                 <a href="..\student\student-profile.php"><img class="img-user" src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " style="border-radius: 100%; width: 150px; height:150px" /></a>
             </div>
         </div>
+        <h1  style=" padding:3% 18% 0% 18%;"> Groups </h1>
            
          <!-- ************************************************************************************* -->
 
@@ -72,7 +75,7 @@ $groupsInfo=selectGroupName();
           
           <div class="card__header-text">
             <a href="inside_group.php?data=<?= $Info['g_name']?>&number=<?= $Info['g_no']?>"  style=" color:#000;
-          text-decoration:none;"><h3 class="card__title"><?php echo $Info['g_name'] ?></h3> </a>           
+          text-decoration:none;"><h3 class="card__title"><?php echo $Info['g_name'] ?></h3> </a>        
           </div>
         </div>
       </div>
