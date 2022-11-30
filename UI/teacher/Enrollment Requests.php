@@ -12,7 +12,7 @@ $students=selectAllStudentInfo();
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="../../css/Enrollment__Requserts.css">
+        <link rel="stylesheet" href="../../css/Enrollment__Requsertts.css">
         <script src="https://kit.fontawesome.com/e1ca29be31.js" crossorigin="anonymous"></script>
     </head>
 <style>
@@ -20,14 +20,8 @@ $students=selectAllStudentInfo();
     font-size: 42px;
   }
 @media  (max-width:540px) {
-    #true1{
-        margin-left: 80%;
-        margin-right: 2%;
-       }
        #croos1{
         margin-right: 0%; 
-    
-        
     }
 h1{
     font-size: 30px;
@@ -35,7 +29,10 @@ h1{
    hr{
     margin-right: 10%;
    }
-
+.divC2{
+    height: 72vh;
+    overflow: auto;
+}
     </style>
 <body >
     
