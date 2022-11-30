@@ -1,7 +1,12 @@
 <?php 
 include("../../path.php");  
 include(MAIN_PATH."/controls/students.php"); 
+$studentgroup= selectStudentG();
+
+/*
 $students=selectAllStudentInfo(); 
+*/
+
 ?>
 
 <html lang="en">
@@ -27,7 +32,9 @@ $students=selectAllStudentInfo();
 h1{
     font-size: 30px;
 }}
-   
+   hr{
+    margin-right: 10%;
+   }
 
     </style>
 <body >
@@ -38,27 +45,32 @@ h1{
   
 
     <form method="POST">
-<!-- Enrollment Requests -->
+<!-- Enrollment Requests
 <h1 >Enrollment Requests</h1>
 <hr >
+ -->
+<!--
 <div class="divC">
-   <?php foreach($students as $key => $student):?> <!--هذا المتغير عبارة عن سجل واحد من الجدول $student  -->
+
+   <?php /* foreach($students as $key => $student):?> <!--هذا المتغير عبارة عن سجل واحد من الجدول $student  -->
                 <div class="ab">
                <label data-label="stu-name"><?php echo $student['full_name'] ?> </label>
                <a  name="Add_student"><i id="true1" class="fa-solid fa-circle-check"></i></a>
                <a> <i id="croos1" class="fa-solid fa-circle-xmark"></i></a>
                 </div>
-    <?php endforeach; ?> 
+    <?php endforeach; */ ?> 
 
     </div>
-<!--  Students -->
+
+<--  -->
     <h1>Students</h1>
     <hr >
+    
     <div class="divC2">
-    <?php foreach($students as $key => $student):?> <!--هذا المتغير عبارة عن سجل واحد من الجدول $student  -->
+    <?php foreach($studentgroup as $key => $student):?> <!--هذا المتغير عبارة عن سجل واحد من الجدول $student  -->
     <div class="ab2">
         <label data-label="stu-name"><img src="<?php echo BASE_URL . '/sources/image/' . $student['u_img']; ?>" class="tab-img" style=" margin-right:10px;  width: 25px; height: 25px; border-radius:100%;"><?php echo $student['full_name'] ?> </label>
-        <a  onclick="return confirmDelete()"href="student accounts for teacher.php?deleteSTID=<?php echo $student['user_id']; ?>">   <i id="croos2" class="fa-solid fa-circle-xmark" ></i></a>
+        <a  onclick="return confirmDelete()"href="Enrollment Requests.php?deleteSTID=<?php echo $student['stu_id']; ?>">   <i id="croos2" class="fa-solid fa-circle-xmark" ></i></a>  
         </div>
     <?php endforeach; ?> 
     </div>

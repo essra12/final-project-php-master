@@ -108,16 +108,37 @@ if(isset($_POST['Add_student'])){
    exit();
  } 
 
+
+ /*********************************************   insert stdent group  in  Enrollment Requests page  ***************************************************************** */
+ 
+ 
+function selectStudentG(){ 
+
+    global $conn;
+    $sql = "SELECT  user.full_name,user.u_img ,user.user_id , student_group.stu_id,student_group.stu_group FROM `student_group`,user,student WHERE student_group.stu_id=student.stu_id and user.user_id=student.user_id;";
+    $pre=$conn->prepare($sql);
+    $pre->execute();
+    $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
+
  
  /********************************************Delete Student in  Enrollment Requests page **********************************************/
+
+
+ function deleteStudentgroup($id)
+{
+    global $conn;
+    $sql1="DELETE FROM student_group WHERE stu_id=?";
+    $st=executeQuery($sql1,['stu_id'=>$id]);
+    return $st->affected_rows;
+} 
+
  if(isset($_GET['deleteSTID']))
  {
-   $deleteStudent=deleteStudent($_GET['deleteSTID']);
+   $deleteStudent=deleteStudentgroup($_GET['deleteSTID']);
    $_SESSION['message']="Student deleted successfully";
-   header('location: '.BASE_URL.'/UI/control_panel/student accounts for teacher.php');
+   header('location: '.BASE_URL.'/UI/teacher/Enrollment Requests.php');
    $conn->close();
    exit();
  } 
-
- 
-

@@ -14,7 +14,11 @@ $groups=selectAllGroupInfo();
         <!--icon8-->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     </head>
-
+<style>
+   .aa:hover{
+        color:#5a9d48;
+    }
+    </style>
 <body  class="b-white">
 
 <!-- menu -->
@@ -44,7 +48,7 @@ $groups=selectAllGroupInfo();
             <a href="<?php echo BASE_URL . '/UI/control_panel/create_group.php' ?>">
                 <button class="btn-create">+</button>
             </a>
-            <h4 style="margin-top: 20px;"><a href="<?php echo BASE_URL . '/UI/control_panel/teacher_with_group_control_panel.php' ?>" style="color: #222242 ;" class="show_tr_g">Show all teachers with their groups</a></h5>
+           <h4 style="margin-top: 20px;"><a href="<?php echo BASE_URL . '/UI/control_panel/teacher_with_group_control_panel.php' ?>" style="color: #222242 ;" class="show_tr_g">Show all teachers with their groups</a></h4>
         </div>
         <img  src="../../sources/image/groups_image_3d.png" >
     </div>
