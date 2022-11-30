@@ -3,6 +3,7 @@
 include("../../path.php"); 
 include(MAIN_PATH."/controls/main_group_page.php");
 $user_id=$_SESSION['user_id'];
+$role=$_SESSION['role'];
 
 //------for get image---------
 $sql="SELECT u_img FROM user Where user_id='$user_id';";
@@ -38,10 +39,16 @@ $groupsInfo=selectGroupName();
             <div class="full_name">
             <h1> Hello , <?php echo $username;?></h1>
             </div>
+
+           <?php if($role==""):?>
+            
             <div class="search">
             <input type="text" placeholder=" Enter Group Code" id="search" name="search" >
             <button type="submit" name="submit">Join</button>
             </div>
+            <?php search()?> 
+            <?php endif;?>
+
                <!--  Errors -->
                <?php include("../../controls/errors.php")?>
             <!--********************-->

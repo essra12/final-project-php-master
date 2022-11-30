@@ -8,10 +8,11 @@ $username=$_SESSION['full_name'];
 //----user id for get image -----
 $user_id=$_SESSION['user_id'];
 //-------------------------------
+function search(){ 
 $search="";
 
 
- if(isset($_POST['search'])){
+  if(isset($_POST['search'])){
 
     $exisiting_group_search = selectOne($table1,['g_no'=>$_POST['search']]);
     if($exisiting_group_search)
@@ -28,7 +29,7 @@ $search="";
     
      } 
                
-}
+} }
 /*******************************************************************************************/
 /***************to creat cards with using group name ***************************************/
 /*******************************************************************************************/
