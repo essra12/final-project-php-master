@@ -210,6 +210,22 @@ button[type="submit"]:hover {
    cursor: pointer;
 }
 
+ /****Button*****/
+ .main-container .btn_post{
+    margin:3rem 0rem 0rem 0rem;
+    text-align: right;        
+    }
+    
+    .main-container .btn_post button{
+    border       : 2px double #222242;
+    padding      : 10px 24px;
+    color        : #fff;
+    border-radius: 25px;
+    background: #222242;
+    width: 150px;
+    text-transform  : uppercase;
+    font-size       : 14px;
+    }
 
   
 
