@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 * {
     box-sizing: border-box;
     margin    : 0;
     padding   : 0;
+    font-family: "Poppins", sans-serif;
   }
-  
+ 
 
  /*****************************************************Navigation Bar style**********************************************************/
 
@@ -21,6 +23,7 @@
   .brand-title {
     font-size: 1.5rem;
     margin: .5rem;
+   
   }
   
   .navbar-links {
@@ -61,7 +64,8 @@
     margin: 50px 12rem 0px;
     position: relative;
      border-radius : 15px 15px 15px 15px;
-     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+     background-color: #fff;
+       box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
      
   }
 
