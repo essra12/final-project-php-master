@@ -213,7 +213,7 @@ button[type="submit"]:hover {
  /****Button*****/
  .main-container .btn_post{
     margin:3rem 0rem 0rem 0rem;
-    text-align: right;        
+        
     }
     
     .main-container .btn_post button{

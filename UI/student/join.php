@@ -16,7 +16,7 @@ include(MAIN_PATH."/controls/add_material_and_assignment.php");
      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="../../css/add_material_assignment.css_join.css" />
+    <link rel="stylesheet" href="../../css/add_material_assignment_join.css" />
      <!--icon8-->
      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
@@ -81,7 +81,7 @@ include(MAIN_PATH."/controls/add_material_and_assignment.php");
 
             <!-- Button -->
             <div class="btn_post">
-                <button type="submit" name="conf_join" >POST</button>
+                <button type="submit" name="conf_join" style="  text-align: right;  " >POST</button>
             </div>
             <!----------->
             
