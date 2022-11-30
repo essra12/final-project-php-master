@@ -69,6 +69,7 @@ include(MAIN_PATH."/controls/inside_group.php");
 
 
 <!-- java script for current date -->
+<!---js section for image slider--->
     <script>
      const carousel = document.querySelector(".carousel"),
 firstImg = carousel.querySelectorAll("img")[0],

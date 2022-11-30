@@ -57,6 +57,13 @@ if ($result->num_rows == 1) {
              <div class="photo-div">
                 <a href="..\student\student-profile.php"><img class="img-user" src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " style="border-radius: 100%; width: 150px; height:150px" /></a>
             </div>
+            <!-- ************************************************************************************* -->
+            <!-- ****************image section for teacher************************* -->
+            <?php if($role=="teacher"):?>
+                 <div class="photo-div">
+                <a href="..\teacher\profile teacher.php"><img class="img-user" src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " style="border-radius: 100%; width: 150px; height:150px" /></a>
+            </div>
+            <?php endif;?>
         </div>
         <h1  style=" padding:3% 18% 0% 18%;"> Groups </h1>
            
