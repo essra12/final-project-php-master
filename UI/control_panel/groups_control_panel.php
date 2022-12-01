@@ -91,7 +91,23 @@ $groups=selectAllGroupInfo();
                         <div class="group-card-icon">
                             <span class="las la-user-friends"></span>
                         </div>
-                        <span class="members-num">33</span> 
+
+                        <!----------------------------------------------->
+                        <span class="members-num">
+                            <?php
+                                $g_no=$group['g_no'];
+                                $sql="SELECT COUNT(*) FROM student_group,groups WHERE student_group.g_no=groups.g_no AND student_group.g_no='$g_no' ;";
+                                $result = $conn->query($sql);
+                                if ($result->num_rows == 1) {
+                                    while($row = $result->fetch_assoc()) {
+                                    $students=$row['COUNT(*)']; 
+                                    }
+                                }
+                                echo $students;
+                            ?>
+                        </span> 
+
+                        <!----------------------------------------------->
                     </div>
                 </a>
                 </div>

@@ -118,6 +118,7 @@ function selectAllGroupInfo(){
     return $records;
 }
 
+
 /* SELECT Groups Info FUNCTIONS */
 function selectAllFileInfo(){ 
 
