@@ -2,7 +2,14 @@
 include("../../path.php");  
 include(MAIN_PATH."/controls/students.php"); 
 $studentgroup= selectStudentG();
-
+/*
+global $conn;
+$sql3="SELECT * FROM `file`; ";
+$result= mysqli_query($conn,$sql3);
+$row =mysqli_fetch_row($result);
+ $img=$row[2];
+ echo $img;   */
+ 
 /*
 $students=selectAllStudentInfo(); 
 */
@@ -67,8 +74,8 @@ h1{
     <?php foreach($studentgroup as $key => $student):?> <!--هذا المتغير عبارة عن سجل واحد من الجدول $student  -->
     <div class="ab2">
         <label data-label="stu-name"><img src="<?php echo BASE_URL . '/sources/image/' . $student['u_img']; ?>" class="tab-img" style=" margin-right:10px;  width: 25px; height: 25px; border-radius:100%;"><?php echo $student['full_name'] ?> </label>
-        <a  onclick="return confirmDelete()"href="Enrollment Requests.php?deleteSTID=<?php echo $student['stu_id']; ?>">   <i id="croos2" class="fa-solid fa-circle-xmark" ></i></a>  
-        </div>
+        <a  onclick="return confirmDelete()"href="Enrollment Requests.php?deleteSTID=<?php echo $student['stu_group']; ?>&deleteSTID2=<?php echo $student['p_no']; ?>">   <i id="croos2" class="fa-solid fa-circle-xmark" ></i></a>  
+    </div>
     <?php endforeach; ?> 
     </div>
   <!--          
