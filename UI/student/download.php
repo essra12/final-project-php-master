@@ -7,7 +7,7 @@ include("../../path.php");
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1">
         <title>Add Material</title>
-        <link rel="stylesheet" href="../../css/add_material_assignment_join.css">
+        <link rel="stylesheet" href="../../css/add_material_assignment_join_page.css">
         <!--icon8-->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     </head>

@@ -35,7 +35,8 @@ include(MAIN_PATH."/controls/inside_group.php");
              <h3>Teacher Name: <?php echo  $teacher_name ?></h3>
 			 <h3>Group Code:    <?php echo $group_no ?></h3>
 			</div>
-			<a href="<?php echo BASE_URL . '/UI/student/add asignment.php' ?>">
+			<!-- <a href="<?php /* echo BASE_URL . '/UI/student/add asignment.php'  */?>"> -->
+            <a href="../student/add asignment.php?g_no=<?= $group_no?>">
                 <button class="btn-create">+</button>
             </a>
          
