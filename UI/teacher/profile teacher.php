@@ -23,9 +23,11 @@ include("../../Database/db.php");
 <!-- select image for teacher -->
             <?php
              global $conn;
+             $id=$_SESSION['user_id'];/** من صفحة تسجيل الدخول  stud_id*/
+
                         $sqln="SELECT user.* ,teacher.tr_phone_no ,teacher.tr_id 	
                         from user ,teacher 
-                        WHERE user.user_id=teacher.user_id;";
+                        WHERE user.user_id=teacher.user_id  and user.user_id='".$id."';";
                         /** وتخزينها في متغيرات DB  احضار بيانات من  */                      
                         $result= mysqli_query($conn,$sqln);
                         $row =mysqli_fetch_row($result);
@@ -42,9 +44,10 @@ include("../../Database/db.php");
 <!-- select data for taecher  -->
              <?php
                         global $conn;
+                        $id=$_SESSION['user_id'];/** من صفحة تسجيل الدخول  stud_id*/
                         $sqln="SELECT user.* ,teacher.tr_phone_no ,teacher.tr_id 	
                         from user ,teacher 
-                        WHERE user.user_id=teacher.user_id;";
+                        WHERE user.user_id=teacher.user_id and user.user_id='".$id."';";
                         /** وتخزينها في متغيرات DB  احضار بيانات من  */                      
                         $result= mysqli_query($conn,$sqln);
                         $row =mysqli_fetch_row($result);
