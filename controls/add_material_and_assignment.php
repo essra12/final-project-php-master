@@ -122,11 +122,13 @@ function selectStu_group(){
  
     $user_id=$_SESSION['user_id'];
  
+ 
     $sql_select_stu_id = "SELECT  stu_id FROM `student` WHERE student.user_id ='$user_id';";
     $result = $conn->query($sql_select_stu_id);
     if ($result->num_rows == 1) {
         while($row = $result->fetch_assoc()) {
           $stu_id=$row["stu_id"];
+          
         }
     }
 
@@ -135,7 +137,7 @@ function selectStu_group(){
     if ($result->num_rows == 1) {
         while($row = $result->fetch_assoc()) {
           $stu_group=$row["stu_group"];
-        }
+           }
     }
      return $stu_group; 
 
