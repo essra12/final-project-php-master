@@ -2,7 +2,6 @@
 include("../../path.php");  
 include(MAIN_PATH."/controls/add_material_and_assignment.php");
 
-$username=$_SESSION['full_name'];
 $user_id=$_SESSION['user_id'];
 
 ?>
@@ -20,7 +19,7 @@ $user_id=$_SESSION['user_id'];
      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="../../css/add_material_assignment_join.css" />
+    <link rel="stylesheet" href="../../css/add_material_assignment_join_page.css" />
      <!--icon8-->
      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     </head>
@@ -28,13 +27,14 @@ $user_id=$_SESSION['user_id'];
 
     <body>
         
-      <!--Navigation Bar -->  
-      <?php include(MAIN_PATH."/common/navigation.php"); ?> 
-      <!------------------->
+    <!--Navigation Bar -->  
+    <?php include(MAIN_PATH."/common/navigation.php"); ?> 
+    <!------------------->
 
-      <!--------main-container----------->
-      <div class="main-container">
-        <!-- For Errors message-->
+    <!--------main-container----------->
+    <div class="main-container">
+
+    <!-- For Errors message-->
     <?php if(count($errors_for_assignment)> 0): ?>
       <div class="msg error" style="color: #D92A2A; margin-bottom: 20px;"> 
         <?php foreach($errors_for_assignment as $errors_for_assignment): ?>
@@ -63,14 +63,14 @@ $user_id=$_SESSION['user_id'];
             
           <!-- name field -->
           <div class="inputs name">
-            <label style="color: #222242;">Name</label>
-            <input type="text" name="full_name" maxlength="25" disabled="disabled" style=" border: none;" value=<?php echo $username?> >
+            <label style="color: #222242;">Student Name</label>
+            <input type="text" name="full_name" maxlength="25" disabled="disabled" style=" border: none;" value=<?php echo $_SESSION['full_name']?> >
           </div>
           <!------------------>
 
           <!-- Id field -->
           <div class="inputs id">
-            <label style="color: #222242;">ID</label>
+            <label style="color: #222242;">Student ID</label>
             <input type="text" name="stu_id" maxlength="11" disabled="disabled" style=" border: none;" value=<?php echo $user_id?>>
           </div>
           <!------------------>

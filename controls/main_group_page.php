@@ -10,18 +10,22 @@ $user_id=$_SESSION['user_id'];
 //-------------------------------
 function search(){ 
 $search="";
-
+/////
+global $table1;
+global $errors;
+////
 
   if(isset($_POST['search'])){
 
     $exisiting_group_search = selectOne($table1,['g_no'=>$_POST['search']]);
     if($exisiting_group_search)
-        { 
-           
-             header('Location: inside_group.php'); 
+        {    /////
+             $_SESSION['search_g_no']=$_POST['search'];
+             ////
+             header('location: ' . BASE_URL .'/UI/student/join.php'); 
              $conn->close();
              exit();            
-    }
+        }
 
     elseif(!$exisiting_group_search) 
       {

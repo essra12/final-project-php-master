@@ -1,6 +1,7 @@
 <?php
 include(MAIN_PATH. "/database/db.php");
 include(MAIN_PATH. "/common/validity.php");
+
 global $conn;
 $errors_for_material=array();
 $errors_for_assignment=array();
@@ -116,9 +117,17 @@ if(isset($_POST['add_material'])){
 /*****************************************************************************/
 /*****************************add assignment**********************************/
 
+
+
 /****to find stu_group*****/
 function selectStu_group(){ 
     global $conn; 
+    /****to get g_no****/
+    if(isset($_GET["g_no"]))
+    {
+      $g_number = $_GET["g_no"];
+    }
+    /******************/
  
     $user_id=$_SESSION['user_id'];
  
@@ -132,7 +141,7 @@ function selectStu_group(){
         }
     }
 
-    $sql_select_stu_group = "SELECT  stu_group FROM `student_group` WHERE student_group.stu_id ='$stu_id';";
+    $sql_select_stu_group = "SELECT DISTINCT stu_group FROM `student_group`,groups WHERE student_group.stu_id ='$stu_id' AND student_group.g_no ='$g_number';";
     $result = $conn->query($sql_select_stu_group);
     if ($result->num_rows == 1) {
         while($row = $result->fetch_assoc()) {
@@ -151,10 +160,9 @@ if(isset($_POST['add_assignment'])){
    $title=htmlentities($_POST['title']);
    $description=htmlentities($_POST['description']);
 
-
-   //////////
+   // to get stu_group
    $stu_group=selectStu_group();
-   /////////
+   ///////////////////
 
    $sql_insert_post = "INSERT INTO `post`(`title`, `description`, `stu_group`, `g_no`) VALUES ('$title','$description','$stu_group',null);";
    if(mysqli_query($conn, $sql_insert_post)){
