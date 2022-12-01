@@ -1,8 +1,10 @@
 <?php 
 include("../../path.php"); 
 include(MAIN_PATH."/controls/inside_group.php");
-
-
+/////////////////////
+$user_id=$_SESSION['user_id'];
+$role=$_SESSION['role'];
+////////////////////
 ?>
 
 <!DOCTYPE html>
@@ -14,14 +16,45 @@ include(MAIN_PATH."/controls/inside_group.php");
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 	<!-- to add a library -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    
     <style>
-      body{
-        background-color: #a4d2f096; 
-        
-      }
-      .header-div{background-color: #fff;}
+        body{background-color: #a4d2f096;}
+        .header-div{background-color: #fff;}
+
+        .dropdown{
+            display:inline-block;
+            position:relative;
+        }
+        .dropdown div{
+            background-color:#fff;
+            box-shadow:0 4px 8px rgba(0,0,0,0.2);
+            z-index:1;
+            visibility:hidden;
+            position:absolute;
+            min-width:100%;
+            opacity:0;
+            transition:.3s;
+        }
+        .dropdown:hover div{
+            visibility:visible;
+            opacity:1;
+        }
+        .dropdown div a{
+            display:block;
+            text-decoration:none;
+            padding:8px;
+            color:#000;
+            transition:.1s;
+            white-space:nowrap;
+            margin-left:0px;
+        }
+        .dropdown div a:hover{
+            background-color:#222242;
+            color:#fff;
+        }
     </style>
-    </head>
+
+    </head>    
 <html>
 <body>
  <!--------------------navigation_bar ----------------------->  
@@ -35,11 +68,24 @@ include(MAIN_PATH."/controls/inside_group.php");
              <h3>Teacher Name: <?php echo  $teacher_name ?></h3>
 			 <h3>Group Code:    <?php echo $group_no ?></h3>
 			</div>
-			<!-- <a href="<?php /* echo BASE_URL . '/UI/student/add asignment.php'  */?>"> -->
+            
+            <!-------------------- (+) button------------------------------->
+            <?php if($role==""):?>
             <a href="../student/add asignment.php?g_no=<?= $group_no?>">
                 <button class="btn-create">+</button>
             </a>
-         
+            <?php endif;?>
+            
+            <?php if($role=="teacher"):?>
+                <div class="dropdown">
+                    <button class="btn-create">+</button>
+                    <div>
+                        <a href="../teacher/add material.php?g_no=<?= $group_no?>">Material</a>
+                        <a href="#">Notification</a>
+                    </div>
+                </div>
+            <?php endif;?>    
+            <!------------------------------------------------------------->
         </div>
            
          <!-- ************************************************************************************* -->

@@ -8,8 +8,6 @@ $errors_for_assignment=array();
 $title="";
 $description="";
 
-/** seesion احضار البيانات باستخدام  */
-/* $user_id=$_SESSION['user_id']; */
 
 /*****************************************************************************/
 /*****************************Insert  material*******************************/
@@ -18,7 +16,7 @@ $description="";
  function selectGroupNo(){ 
    global $conn; 
 
-   $user_id=$_SESSION['user_id'];
+/*    $user_id=$_SESSION['user_id'];
 
    $sql_select_tr_id = "SELECT  teacher.tr_id , user.full_name FROM `teacher`,user WHERE teacher.user_id=user.user_id AND teacher.user_id = '$user_id';";
    $result = $conn->query($sql_select_tr_id);
@@ -36,7 +34,12 @@ $description="";
          $g_no=$row["g_no"];
        }
    }
-   return $g_no;
+   return $g_no; */
+   
+   if(isset($_GET["g_no"]))
+   {
+     $g_number = $_GET["g_no"];
+   }
  } 
  /***********************/
 
