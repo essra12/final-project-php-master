@@ -41,7 +41,7 @@ if ($result->num_rows == 1) {
              <h5 id="date" style="font-size:24px; padding-bottom: 10px; padding-left:14px;">  </h5>
             <form class="example"  method="POST" action="" onsubmit="return check_Enter(this)">
             <div class="full_name">
-            <h1> Hello , <?php echo $username;?></h1>
+            <h1> Hello , <?php echo $full_name;?></h1>
             </div>
 
            <?php if($role==""):?>
