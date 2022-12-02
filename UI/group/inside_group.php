@@ -11,7 +11,7 @@ $role=$_SESSION['role'];
 <head>
     <title>Group</title>
     <meta name="descreption " content=" " />
-    <link rel="stylesheet" href="../../css/inside__.css">
+    <link rel="stylesheet" href="../../css/inside_group.css">
     <!--icon8-->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 	<!-- to add a library -->
@@ -52,6 +52,7 @@ $role=$_SESSION['role'];
             background-color:#222242;
             color:#fff;
         }
+
     </style>
 
     </head>    
@@ -91,26 +92,28 @@ $role=$_SESSION['role'];
          <!-- ************************************************************************************* -->
 		 <main>
 		 <div class="wrapper">
-      <i id="left" class="fa-solid fa-angle-left"></i>
-      <div class="carousel">
-        
-		<a href="<?php echo BASE_URL . '/UI/student/materials.php' ?>">
-		<img src="../../sources/image/4.jpg" alt="img" draggable="false">
+        <i id="left" class="fa-solid fa-angle-left"></i>
+       <div class="carousel">
+
+	   <a href="<?php echo BASE_URL . '/UI/student/materials.php' ?>">
+		<img id="img1" onmouseover="setNewImage1(this)" onmouseout="setOldImage()" src="../../sources/image/4.jpg" alt="img" draggable="false">
         </a>
-		<a href="<?php echo BASE_URL . '/UI/student/Assignments for student.php' ?>">
-		<img src="../../sources/image/2.jpg" alt="img" draggable="false">
-        </a>
-		<a href="<?php echo BASE_URL . '/UI/student/add asignment.php' ?>">
-		<img src="../../sources/image/3.jpg" alt="img" draggable="false">
+    	<a href="<?php echo BASE_URL . '/UI/student/Assignments for student.php' ?>">
+		<img id="img2" onmouseover="setNewImage2(this)" onmouseout="setOldImage()" src="../../sources/image/2.jpg" alt="img" draggable="false">
         </a>
 		<a href="<?php echo BASE_URL . '/UI/student/add asignment.php' ?>">
-		<img src="../../sources/image/5.jpg" alt="img" draggable="false">
+		<img id="img3" onmouseover="setNewImage3(this)" onmouseout="setOldImage()" src="../../sources/image/3.jpg" alt="img" draggable="false">
+        </a>
+		<a href="<?php echo BASE_URL . '/UI/student/add asignment.php' ?>">
+		<img id="img4" onmouseover="setNewImage4(this)" onmouseout="setOldImage()" src="../../sources/image/5.jpg" alt="img" draggable="false">
         </a>
              
       </div>
       <i id="right" class="fa-solid fa-angle-right"></i>
     </div>
-    <main>     
+    <main>    
+        
+
 
 
 
@@ -178,7 +181,18 @@ document.addEventListener("mousemove", dragging);
 carousel.addEventListener("touchmove", dragging);
 document.addEventListener("mouseup", dragStop);
 carousel.addEventListener("touchend", dragStop);
- 
+ //-------------------------------------------------------------------------------
+ function setNewImage1(){  document.getElementById("img1").src="../../sources/image/img4.png";} 
+ function setNewImage2(){document.getElementById("img2").src="../../sources/image/img2.png";}
+ function setNewImage3(){document.getElementById("img3").src="../../sources/image/img3.png";}
+ function setNewImage4(){document.getElementById("img4").src="../../sources/image/img5.png";}
+
+ function setOldImage(){
+    document.getElementById("img1").src="../../sources/image/4.jpg";
+    document.getElementById("img2").src="../../sources/image/2.jpg";
+    document.getElementById("img3").src="../../sources/image/3.jpg";
+    document.getElementById("img4").src="../../sources/image/5.jpg";
+ }
     </script>
       
 </body>
