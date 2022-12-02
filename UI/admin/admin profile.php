@@ -1,6 +1,8 @@
 
 <?php
 include("../../Database/db.php");
+$id=$_SESSION['user_id'];/** من صفحة تسجيل الدخول  stud_id*/
+
 ?>
 <!DOCTYPE html>
 <head>
@@ -30,7 +32,7 @@ width: 50%;
             <div class="div-photo">
 <?php
             global $conn;
-                      $sqln="  SELECT  `u_img` FROM `user` WHERE `role`='admin';";
+                      $sqln="  SELECT  `u_img` FROM `user` WHERE `role`='admin' and user.user_id='".$id."';";
                         $result= mysqli_query($conn,$sqln);
                         $row =mysqli_fetch_row($result);
                         $img=$row[0];
@@ -48,7 +50,7 @@ width: 50%;
              <?php
 
                         global $conn;
-                      $sqln="  SELECT  `full_name` FROM `user` WHERE `role`='admin';";
+                      $sqln="  SELECT  `full_name` FROM `user` WHERE `role`='admin'and user.user_id='".$id."';";
                         $result= mysqli_query($conn,$sqln);
                         $row =mysqli_fetch_row($result);
                         $name=$row[0];

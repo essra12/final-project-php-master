@@ -83,7 +83,7 @@ else if (empty($_FILES['u_img']['name'])) {
         ?>
         <script type="text/javascript">
             
-        window.location.href="student-profile.php" </script>
+        window.location.href="../group/main page for group.php" </script>
         <?php 
         } else {
         echo "Error updating record: " . mysqli_error($conn);

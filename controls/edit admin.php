@@ -57,14 +57,14 @@ else if (empty($_FILES['u_img']['name'])) {
         echo '<script type="text/javascript">alert("Record updated successfully .")</script>';
         ?>
         <script type="text/javascript">
-        window.location.href="admin profile.php" </script>
+        window.location.href="../control_panel/groups_control_panel.php" </script>
         <?php 
         } else {
         echo "Error updating record: " . mysqli_error($conn);
         }
         }
 }
-
+/** UI/control_panel/groups_control_panel.php */
 
 
 ?>
