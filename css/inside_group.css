@@ -175,9 +175,6 @@ main{
   width: calc(100% / 3);
   border-radius : 15px;
 }
-a:hover{
-    background-color: #22224259;
-}
 
 @media screen and (max-width: 900px) {
   .carousel img{
