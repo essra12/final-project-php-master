@@ -34,14 +34,14 @@ include("../../controls/edit-studentC.php");
         </div>
           
         <div class="form-field-signup">
-        <input id="spe" type="password"  name="pass" placeholder="password"   maxlength="25" value="" />
+        <input id="cof-pass" type="password"  name="pass" placeholder="password"   maxlength="25" value="<?php  echo $pass  ?>" />
        </div>
 
           <div class="form-field-signup">
-            <input id="pass" type="password" name="cof-pass" placeholder="Confirm Password"  value="" maxlength="25" />  
+            <input id="pass" type="password" name="cof-pass" placeholder="Confirm Password"  value="<?php  echo $pass  ?>" maxlength="25" />  
          </div>
          <div class="form-field-signup">
-          <input id="cof-pass" type="text" name="spe" placeholder="Specialization" value="<?php  echo $spe  ?>"maxlength="25"/>  
+          <input id="spe" type="text" name="spe" placeholder="Specialization" value="<?php  echo $spe  ?>"maxlength="25"/>  
          </div>
 
          <div class="error" style="color: red; margin-left:30px;" > 
@@ -93,7 +93,39 @@ include("../../controls/edit-studentC.php");
             reader.readAsDataURL(choosedFile);
         }
     });
+
+
+    function check_Enter() {
+    const userID = document.getElementById("id").value;
+    const full_name = document.getElementById("name").value;
+    const spe = document.getElementById("spe").value;
+    const pass = document.getElementById("pass").value;
+    const conf_pass = document.getElementById("cof-pass").value;
+    
+    if(userID==""){
+        alert(" pleas enter UserID");
+        return false;
+    }
+    if(full_name==""){
+        alert(" pleas enter Full name");
+        return false;
+    }
+    if(pass==""){
+        alert(" pleas enter Password");
+        return false;
+    }
+    if(conf_pass==""){
+        alert(" pleas enter Password again");
+        return false;
+    }
+    if(conf_pass!=pass){
+        alert(" the password is not equal ");
+        return false;
+    }
+    }
 </script>
+
+
 </body>
 </html>
 </head>

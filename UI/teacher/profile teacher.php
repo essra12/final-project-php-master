@@ -45,6 +45,7 @@ include("../../Database/db.php");
              <?php
                         global $conn;
                         $id=$_SESSION['user_id'];/** من صفحة تسجيل الدخول  stud_id*/
+                        $id3=$_SESSION['passT'];/** login path كلمة السر غسر مشفرة تم احضارها من  */
                         $sqln="SELECT user.* ,teacher.tr_phone_no ,teacher.tr_id 	
                         from user ,teacher 
                         WHERE user.user_id=teacher.user_id and user.user_id='".$id."';";
@@ -61,10 +62,14 @@ include("../../Database/db.php");
                             $_GET['name']=$name;
                             $_GET['phone']=$phone;
                             $_GET['password']=$pass;
+                            $_GET['password1']=$id3;/**كلمة مرور غير مشفرة  */
+
 
                            $_SESSION['name']=$_GET['name'];
                            $_SESSION['phone']=$_GET['phone'];
-                           $_SESSION['pass']=$_GET['password'];                  
+                           $_SESSION['pass']=$_GET['password'];   
+                           $_SESSION['pass2']= $_GET['password1'];
+               
                   ?>   
                        
                 <a href="edit teaher.php" >

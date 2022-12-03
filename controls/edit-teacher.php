@@ -8,6 +8,8 @@ session_start();
 $name= $_SESSION['name'];
 $phon=$_SESSION['phone'];
 $password=$_SESSION['pass'];
+$pass=$_SESSION['pass2'];/**كلمة مرور غير مشفرة */
+
 
 $error ="";
 if($_SERVER['REQUEST_METHOD']=='POST')
@@ -38,12 +40,12 @@ else if (empty($_FILES['u_img']['name'])) {
     /** حفظ القيم المدخلة في المتغيرات */
     $username = $_POST['name'];
     $phone = $_POST['phone'];
-    $userpass1 =sha1( $_POST['pass']);/** password  encryption */
-    $userpass2 = sha1($_POST['cof-pass']);/** password  encryption */
+    $userpass1=password_hash($_POST['pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
+    $userpass2=password_hash($_POST['cof-pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
     $img=$_POST['u_img'];
 
    /** empty التحقق من حقول الادخال باستحدام  */
-     if(empty($phon)) 
+    /* if(empty($phon)) 
     {
         $error="* please enter your phone number  "; 
     } else  if(empty($userpass1)) 
@@ -58,8 +60,8 @@ else if (empty($_FILES['u_img']['name'])) {
     }else  if($userpass1 != $userpass2) 
     {
         $error="* Password is not matching  "; 
-    }
-    else  if(empty($username)) 
+    }*/
+      if(empty($username)) 
     {
         $error="* please enter your name   ";
        
@@ -72,7 +74,7 @@ else if (empty($_FILES['u_img']['name'])) {
         echo '<script type="text/javascript">alert("Record updated successfully .")</script>';
         ?>
         <script type="text/javascript">
-        window.location.href="profile teacher.php" </script>
+        window.location.href="../group/main page for group.php" </script>
         <?php 
         } else {
         echo "Error updating record: " . mysqli_error($conn);

@@ -27,24 +27,24 @@ include("../../controls/edit-teacher.php");
   </div>
             <!-- inputs  --> 
             <div class="form-field-signup">
-            <input id="username" name="name" type="text"  placeholder="Full Name"  value="<?php  echo $name  ?>"  maxlength="30" />
+            <input id="name" name="name" type="text"  placeholder="Full Name"  value="<?php  echo $name  ?>"  maxlength="30" />
         </div>
 
         <div class="form-field-signup">
-        <input  id="phone" name="phone" type="text"  placeholder="Phone"  value="<?php  echo $phon  ?> "  maxlength="10" />
+        <input  id="phone" name="phone" type="text"  placeholder="Phone" onkeypress="return onlyNumberKey(event)"  value="<?php  echo $phon  ?> "  maxlength="10" />
        </div>
           
           <div class="form-field-signup">
-            <input id="pass" name="pass" type="password" placeholder="Password"  value="" maxlength="25" />  
+            <input id="pass" name="pass" type="password" placeholder="Password"  value="<?php  echo $pass  ?>"  maxlength="25" />  
          </div>
          <div class="form-field-signup">
-          <input id="pass2" name="cof-pass" type="password" placeholder="Confrim Password" value="" maxlength="25"/>  
+          <input id="cof-pass" name="cof-pass" type="password" placeholder="Confrim Password" value="<?php  echo $pass  ?>" maxlength="25"/>  
          </div> 
          
          <div class="error" style="color: red; margin-left:20px;" > 
                    <?php echo $error ?>
                 </div>
-        <button type="submit" name="bts" onclick="check_Enter()" > Save</button>
+        <button type="submit" name="bts"  onclick=""> Save</button>
     </form>
     </div>
 
@@ -90,7 +90,53 @@ include("../../controls/edit-teacher.php");
             reader.readAsDataURL(choosedFile);
         }
     });
+
+    /**    ---------------------------------------- check enter ---------------------------------------- */
+    
+    function check_Enter(){
+    const full_name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const pass = document.getElementById("pass").value;
+    const conf_pass = document.getElementById("cof-pass").value;
+    
+    if(full_name==""){
+        alert(" pleas enter full name");
+        return false;
+    }
+    if(phone==""){
+        alert(" pleas enter number phone");
+        return false;
+    }
+    if(phone<10){
+        alert(" pleas enter the Full Number");
+        return false;
+    }
+    if(pass==""){
+        alert(" pleas enter Password");
+        return false;
+    }
+    if(conf_pass==""){
+        alert(" pleas enter Password again");
+        return false;
+    }
+    if(conf_pass!=pass){
+        alert(" the password is not equal ");
+        return false;
+    }
+    }
+
+    function onlyNumberKey(evt) {
+  // Only ASCII character in that range allowed
+  var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+  if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)){
+    alert(" pleas enter Just Number");
+    return false;
+  }
+  return true;
+}
+
 </script>
+
 </body>
 </html>
 </head>

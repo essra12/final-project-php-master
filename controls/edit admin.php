@@ -6,7 +6,8 @@ global $conn;
 session_start();
 $name= $_SESSION['name'];
 $password=$_SESSION['pass'];
-
+$pass=$_SESSION['pass2'];/**كلمة مرور غير مشفرة */
+$img=$_SESSION['img1'];
 
 $error ="";
 if($_SERVER['REQUEST_METHOD']=='POST')
@@ -35,16 +36,11 @@ else if (empty($_FILES['u_img']['name'])) {
 /**************/
 
     $username = $_POST['name'];
-    $userpass1 =sha1( $_POST['pass']);/** password  encryption */
-    $userpass2 = sha1($_POST['cof-pass']);/** password  encryption */
+    $userpass1=password_hash($_POST['pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
+    $userpass2=password_hash($_POST['cof-pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
     $img=$_POST['u_img'];
 
-    if($userpass1 != $userpass2) 
-    {
-        $error="* Password is not matching  "; 
-
-    }
-    else  if(empty($username)){
+     if(empty($username)){
         
         $error="   *  please enter your name ";
  

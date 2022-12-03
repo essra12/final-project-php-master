@@ -5,14 +5,13 @@ global $conn;
 
 
 session_start();
-/** seesion احضار البيانات باستخدام  */
+/**  _SESSION باستخدام  profile page  احضار البيانات  من */
 $id= $_SESSION['id'];
 $name=$_SESSION['name'];
 $spe=$_SESSION['spe'];
 $password=$_SESSION['pass'];
+$pass=$_SESSION['pass2'];/**كلمة مرور غير مشفرة */
 
-
-/** حفظ القيم المدخلة في المتغيرات */
 $error ="";
 if($_SERVER['REQUEST_METHOD']=='POST')
 { 
@@ -37,29 +36,41 @@ else if (empty($_FILES['u_img']['name'])) {
 }
 
 /**************/
-/** ---------------------------------------------------------------------- */
+/** /** حفظ القيم المدخلة في المتغيرات */
+ 
     
     
-    $userID= $_POST['id'];
+    $userID= $_POST['id'];/** edit profile  في  id القيمة المدخلة في حقل  */
     $username = $_POST['name'];
     $specialization=$_POST['spe'];
+    $userp1 =$_POST['pass'];/**edit profile page  داخل  password  القيمة المدخلة في حقل  */
+    $userp2 = $_POST['cof-pass'];/**edit profile page  داخل  confirm_password  القيمة المدخلة في حقل  */
+    
+    $userpass1=password_hash($_POST['pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
+    $userpass2=password_hash($_POST['cof-pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
+  
+
+  /*
     $userpass1 =sha1( $_POST['pass']);/** password  encryption */
-    $userpass2 = sha1($_POST['cof-pass']);/** password  encryption */
+  /*  $userpass2 = sha1($_POST['cof-pass']);/** password  encryption */
+    
     $img=$_POST['u_img'];
 
    /** empty التحقق من حقول الادخال باستحدام  */
     
-      if(empty($userpass1)) 
+    /*  if(empty($userp1)) 
     {   
         $error="* please enter your password "; 
-    } else if(empty($userpass2)) 
+    } else if(empty($userp2)) 
     {   
         $error="* please enter  password again "; 
-    }
-    else  if($userpass1 != $userpass2) 
+    }*/
+    /*else  if($userp1 != $userp2) 
     {
         $error="* Password is not matching  "; 
     }
+    */
+    /*
    else  if(empty($userID)) 
     {   
         $error="* please enter your  ID "; 
@@ -67,8 +78,8 @@ else if (empty($_FILES['u_img']['name'])) {
     else if(empty($username)) 
     {   
         $error="* please enter your  name "; 
-    } 
-     else if(empty($specialization)) 
+    } */
+      if(empty($specialization)) 
     {   
         $error="* please enter  specialization "; 
     }

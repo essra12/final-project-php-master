@@ -2,7 +2,7 @@
 <?php
 include("../../Database/db.php");
 $id=$_SESSION['user_id'];/** من صفحة تسجيل الدخول  stud_id*/
-
+$id3=$_SESSION['pass2'];/** login path كلمة السر غسر مشفرة تم احضارها من  */
 ?>
 <!DOCTYPE html>
 <head>
@@ -64,9 +64,13 @@ width: 50%;
                           
                         $_GET['name']=$name;
                         $_GET['password']=$pass;
+                        $_GET['password1']=$id3;/**كلمة مرور غير مشفرة  */
+                        $_GET['img']= $img;
 
                            $_SESSION['name']=$_GET['name'];
                            $_SESSION['pass']=$_GET['password'];  
+                           $_SESSION['pass2']= $_GET['password1'];
+                           $_SESSION['img1']=$_GET['img'];
 
              ?>
                 <a href="edit admin.php" >
