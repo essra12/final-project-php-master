@@ -9,6 +9,7 @@ $name= $_SESSION['name'];
 $phon=$_SESSION['phone'];
 $password=$_SESSION['pass'];
 $pass=$_SESSION['pass2'];/**كلمة مرور غير مشفرة */
+$img1=$_SESSION['img1'];/**-----------profile admin  احضار الصورة من ----------- */
 
 
 $error ="";
@@ -31,7 +32,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     }
 }
 else if (empty($_FILES['u_img']['name'])) {
-    $_POST['u_img']='blue_rectangle_with_user.JPG';
+    $_POST['u_img']=$img1;/** profile admin  وضع الصورة التي تم احضارها من   */
 }
 
 /**************/

@@ -74,6 +74,7 @@ include("../../Database/db.php");
                             $_GET['spe']=$spe;
                             $_GET['password']=$pass;/**كلمة مرور مشفرة */
                             $_GET['password1']=$id3;/**كلمة مرور غير مشفرة  */
+                            $_GET['img']= $img;
 
                              
                            $_SESSION['id']=$_GET['id'];
@@ -81,6 +82,8 @@ include("../../Database/db.php");
                            $_SESSION['spe']=$_GET['spe'];
                            $_SESSION['pass']=$_GET['password']; 
                            $_SESSION['pass2']= $_GET['password1'];
+                           $_SESSION['img1']=$_GET['img'];
+
                            
                            ?>
              

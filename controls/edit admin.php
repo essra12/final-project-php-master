@@ -7,8 +7,7 @@ session_start();
 $name= $_SESSION['name'];
 $password=$_SESSION['pass'];
 $pass=$_SESSION['pass2'];/**كلمة مرور غير مشفرة */
-$img=$_SESSION['img1'];
-
+$img1=$_SESSION['img1'];/**-----------profile admin  احضار الصورة من ----------- */
 $error ="";
 if($_SERVER['REQUEST_METHOD']=='POST')
 {
@@ -30,7 +29,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     }
 }
 else if (empty($_FILES['u_img']['name'])) {
-    $_POST['u_img']='blue_rectangle_with_user.JPG';
+    $_POST['u_img']=$img1;/** profile admin  وضع الصورة التي تم احضارها من   */
 }
 
 /**************/
@@ -40,7 +39,7 @@ else if (empty($_FILES['u_img']['name'])) {
     $userpass2=password_hash($_POST['cof-pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
     $img=$_POST['u_img'];
 
-     if(empty($username)){
+    if(empty($username)){
         
         $error="   *  please enter your name ";
  

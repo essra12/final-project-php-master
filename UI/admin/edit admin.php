@@ -2,6 +2,8 @@
 <?php
 include("../../Database/Connection.php");  
 include("../../controls/edit admin.php");
+$img1=$_SESSION['img1'];/** profile admin  صورة تم احضارها من */
+
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +25,7 @@ include("../../controls/edit admin.php");
   <!-- For circular image -->
   
   <div class="profile-pic-div"  >
-             <?php echo"  <img src='../../sources/image/$img' id='photo' height='120' width='120' > ' "?>
+             <?php echo"  <img src='../../sources/image/$img1' id='photo' height='120' width='120' > ' "?>
                 <input type="file" id="file" name="u_img">
                 <label for="file" id="uploadBtn">Choose Photo</label> 
   </div>

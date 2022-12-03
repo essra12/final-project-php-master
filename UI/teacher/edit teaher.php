@@ -21,7 +21,7 @@ include("../../controls/edit-teacher.php");
 
   <!-- For circular image -->
   <div class="profile-pic-div"  >
-                <img src="../../sources/image/blue_rectangle_with_user.JPG" id="photo" height="120" width="120" >
+                 <?php echo"  <img src='../../sources/image/$img1' id='photo' height='120' width='120' > ' "?>
                 <input type="file" id="file" name="u_img">
                 <label for="file" id="uploadBtn">Choose Photo</label>
   </div>

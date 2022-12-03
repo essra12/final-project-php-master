@@ -63,12 +63,15 @@ include("../../Database/db.php");
                             $_GET['phone']=$phone;
                             $_GET['password']=$pass;
                             $_GET['password1']=$id3;/**كلمة مرور غير مشفرة  */
+                            $_GET['img']= $img;
+
 
 
                            $_SESSION['name']=$_GET['name'];
                            $_SESSION['phone']=$_GET['phone'];
                            $_SESSION['pass']=$_GET['password'];   
                            $_SESSION['pass2']= $_GET['password1'];
+                           $_SESSION['img1']=$_GET['img'];
                
                   ?>   
                        
