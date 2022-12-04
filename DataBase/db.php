@@ -99,7 +99,6 @@ function selectAllteacher(){
 
     global $conn;
     $sql = "Select teacher.tr_id,user.user_id,user.full_name,user.u_img,teacher.tr_phone_no from teacher,user WHERE user.user_id=teacher.user_id;";
-    global $conn;
     $pre=$conn->prepare($sql);
     $pre->execute();
     $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -111,7 +110,6 @@ function selectAllGroupInfo(){
 
     global $conn; 
     $sql = "SELECT *,teacher.user_id,user.full_name FROM groups,user,teacher WHERE groups.tr_id=teacher.tr_id AND teacher.user_id=user.user_id;";
-    global $conn;
     $pre=$conn->prepare($sql);
     $pre->execute();
     $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -124,7 +122,6 @@ function selectAllFileInfo(){
 
     global $conn; 
     $sql = "SELECT file.*,post.title FROM `file`, `post` WHERE file.p_no=post.p_no;";
-    global $conn;
     $pre=$conn->prepare($sql);
     $pre->execute();
     $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -183,20 +180,7 @@ function deleteGroup($id)
 }
 
 
-/*  function insertGroup(){
-    $sql="INSERT INTO `groups`(`g_no`, `tr_id`, `g_name`, `g_img`) VALUES (?,?,?,?);";
- } */
 
-
-
-
-
-
-
-
-
-
- 
 
 
  /**  -------------------------------  -------------------------------------------------------      ------------------ -------------------     */

@@ -77,7 +77,7 @@ $groups=selectAllGroupInfo();
             
 
                 <div class="group-card">
-                <a href="">
+                <a href="students_in_group_control_panel.php?g_no=<?= $group['g_no']?>">
                     <div class="group-card-info">
                         <h3><?php echo $group['g_name'] ?></h3>
                         <p>Group ID:<?php echo $group['g_no'] ?></p>

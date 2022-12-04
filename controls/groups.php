@@ -39,3 +39,18 @@ if(isset($_GET['deleteID']))
   $conn->close();
   exit();
 }
+
+/******************Select All Student Inside Group******************/
+
+function selectAllStudentInGroup(){ 
+    global $conn; 
+    if(isset($_GET['g_no'])){
+        $sql = "SELECT user.full_name,user.u_img,student.stu_id FROM user,student, student_group WHERE user.user_id=student.user_id AND student.stu_id=student_group.stu_id AND student_group.g_no ='$_GET[g_no]';";
+        $pre=$conn->prepare($sql);
+        $pre->execute();
+        $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $records;
+    }
+
+    
+}
