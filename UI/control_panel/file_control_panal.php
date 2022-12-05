@@ -1,6 +1,6 @@
 <?php 
 include("../../path.php"); 
-include(MAIN_PATH."/DataBase/db.php"); 
+include(MAIN_PATH."/controls/delete_files_from_controll_panel.php"); 
 $files=selectAllFileInfo();
 ?>
 <!DOCTYPE html>
@@ -39,8 +39,21 @@ $files=selectAllFileInfo();
         </div>
         <img class="file_image_3d" src="../../sources/image/file_image_3d.png" >
     </div>
+    <!--------------------->
 
-<!--  table for teacher  -->
+     <!-- For Succes message -->
+     <?php if (isset($_SESSION['message'])): ?>
+                <div class="msg success" style="color: #5a9d48; margin-Top: 20px;">
+                    <li><i class="las la-check-circle" style="color: #5a9d48 ;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;<?php echo $_SESSION['message']; ?></li>
+                    <?php
+                    /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */
+                    unset($_SESSION['message']);
+                    ?>
+                </div>
+              <?php endif; ?>
+    <!------------------------->
+
+    <!--table for teacher  -->
 
     <div class="table-box">
         <table class="table">
@@ -57,17 +70,19 @@ $files=selectAllFileInfo();
                 <tr>
                     <td data-label="file-id"><?php echo $file['f_no'] ?></td>
                     <td data-label="file-name"><?php echo $file['f_name'] ?></td>
-                    <td data-label="delete"><i class="las la-trash-alt ticon delet"></i></td>
+                    <td data-label="delete"><a  onclick="return confirmDelete()" href="file_control_panal.php?deletef_no=<?php echo $file['f_no']; ?>"><i class="las la-trash-alt ticon delet"></i></a></td>
                 </tr>
             <?php endforeach; ?> 
             </tbody>
         </table>
     </div>
+    <!------------------------->
 
 </div>
 
 <script>
-    /* for sidebar items */
+    
+    /*******for sidebar (highlights items after click it)******/
     const activePage = window.location.pathname;
     const navLinks = document.querySelectorAll('.sidebar-menu a').forEach(link => {
     if(link.href.includes(`${activePage}`)){
@@ -75,6 +90,18 @@ $files=selectAllFileInfo();
         console.log(link);
     }
     })
+
+    /*******************for delet confirm***********************/
+
+   function confirmDelete() {
+        if (confirm("Are you sure you want to delete ?")) {
+            return true;
+        } 
+        else {
+            return false;
+        }
+    }
+
 </script>
 
 </body>

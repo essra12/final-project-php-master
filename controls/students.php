@@ -15,7 +15,7 @@ $conf_password="";
 
 
 
-/********************************Insert Student Data (signUp)********************************/
+/********************************Add Student  (signUp)********************************/
 if(isset($_POST['Add_student'])){
     $exisiting_teacher = selectOne($table2,['stu_id'=>$_POST['stu_id']]);
     if($exisiting_teacher)
@@ -100,7 +100,7 @@ if(isset($_POST['Add_student'])){
 
 
 
- /********************************************Delete Student**********************************************/
+ /********************************************Delete Student from control panel**********************************************/
  if(isset($_GET['deleteID']))
  {
    $deleteStudent=deleteStudent($_GET['deleteID']);
@@ -111,7 +111,7 @@ if(isset($_POST['Add_student'])){
  } 
 
 
- /*********************************************   insert stdent group  in  Enrollment Requests page  ***************************************************************** */
+ /*********************************************   select stdents in  Enrollment Requests page  ***************************************************************** */
  
  
 function selectStudentG(){ 
