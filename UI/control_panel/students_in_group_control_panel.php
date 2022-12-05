@@ -1,14 +1,14 @@
 <?php 
 include("../../path.php"); 
-include(MAIN_PATH."/controls/teachers.php"); 
-$teachers=selectAllTeacherInfo();  
+include(MAIN_PATH."/controls/groups.php"); 
+$students=selectAllStudentInGroup();  
 ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1">
-        <title>Control Panel (teachers with their groups)</title>
+        <title>Control Panel (students in group)</title>
         <link rel="stylesheet" href="../../css/control_panel_group_teacher_student_file.css">
         <!--icon8-->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
@@ -36,7 +36,7 @@ $teachers=selectAllTeacherInfo();
     <div class="header-box">
 
         <div class="header-box-content-table">
-            <h2>Teachers Inside Groups</h2><br>
+            <h2>Students Inside Group</h2><br>
         </div>
         <img src="../../sources/image/teacher_image_3d.png" >
     </div>
@@ -60,22 +60,18 @@ $teachers=selectAllTeacherInfo();
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Teacher Id</th>
-                    <th scope="col">Teacher Name</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Group Name</th>
-                    <th scope="col" width="70px">Delete</th>
+                    <th scope="col">Student Id</th>
+                    <th scope="col">Student Name</th>
+                    <!-- <th scope="col" width="70px">Delete</th> -->
                 </tr>
             </thead>
 
             <tbody>
-            <?php foreach($teachers as $key => $teacher):?> <!--هذا المتغير عبارة عن سجل واحد من الجدول $teacher  -->
+            <?php foreach($students as $key => $student):?> <!--هذا المتغير عبارة عن سجل واحد من الجدول $teacher  -->
                 <tr>
-                    <td data-label="tr-id"><?php echo $teacher['tr_id'] ?></td>
-                    <td data-label="tr-name"><img src="<?php echo BASE_URL . '/sources/image/' . $teacher['u_img']; ?>" class="tab-img" style="width: 30px; height: 30px;border-radius:100%;"><?php echo $teacher['full_name'] ?></td>
-                    <td data-label="tr-phone"><?php echo $teacher['tr_phone_no'] ?></td>
-                    <td data-label="g-name"><?php echo $teacher['g_name'] ?></td>
-                    <td data-label="delete"><a onclick="return confirmDelete()" href="teacher_control_panel.php?delete_tr_id=<?php echo $teacher['tr_id']; ?>&deleteID=<?php echo $teacher['user_id']; ?>"><i class="las la-trash-alt ticon delet"></i></a></td>
+                    <td data-label="stu-id"><?php echo $student['stu_id'] ?></td>
+                    <td data-label="stu-name"><img src="<?php echo BASE_URL . '/sources/image/' . $student['u_img']; ?>" class="tab-img" style="width: 30px; height: 30px;border-radius:100%;"><?php echo $student['full_name'] ?></td>
+                    <!-- <td data-label="delete"><a onclick="return confirmDelete()" href="teacher_control_panel.php?delete_tr_id=<?php /* echo $teacher['tr_id']; */ ?>&deleteID=<?php /* echo $teacher['user_id']; */ ?>"><i class="las la-trash-alt ticon delet"></i></a></td> -->
                 </tr>
             <?php endforeach; ?> 
 
