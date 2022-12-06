@@ -8,8 +8,10 @@ $id3=$_SESSION['pass2'];/** login path كلمة السر غسر مشفرة تم 
 <head>
     <title>admin-profile</title>
     <meta name="descreption " content=" " />
-    <link rel="stylesheet" href="..\..\CSS\Profiless.css" />
+    <link rel="stylesheet" href="..\..\css\profiles.css" />
     <script src="https://kit.fontawesome.com/e1ca29be31.js" crossorigin="anonymous"></script>
+     <!--icons-->
+     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     </head>
 
     <!--  style for profile student -->
@@ -54,7 +56,12 @@ width: 50%;
             
             <div class="div-data"> 
                 <form method="get" action="edit profile.php">
+<<<<<<< HEAD
                 <i id="img33"  class="fa-regular fa-user"></i>
+=======
+                <i id="img33"  class="las la-user"></i>
+                <input  class="l33" type="text" value=""  disabled/>
+>>>>>>> d7660ce809aeb7508f9c7b1f0bc71f387dd35073
              <?php
 
                         global $conn;

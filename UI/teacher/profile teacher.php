@@ -7,6 +7,8 @@ include("../../Database/db.php");
     <title>teacher-profile</title>
     <meta name="descreption " content=" " />
     <link rel="stylesheet" href="..\..\CSS\Profiless.css" />
+     <!--icons-->
+     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <script src="https://kit.fontawesome.com/e1ca29be31.js" crossorigin="anonymous"></script>
     </head>
 
@@ -38,9 +40,9 @@ include("../../Database/db.php");
             <!-- icons -->
             </div>
             <div class="div-data">
-                <i id="img1" class="fa-solid fa-id-card"></i>
-                <i id="img3" class="fa-sharp fa-solid fa-phone"></i>
-                <i id="img2"  class="fa-regular fa-user"></i>
+                <i id="img1" class="las la-id-card"></i>
+                <i id="img3" class="las la-phone"></i>
+                <i id="img2"  class="las la-user-tie"></i>
 <!-- select data for taecher  -->
              <?php
                         global $conn;
