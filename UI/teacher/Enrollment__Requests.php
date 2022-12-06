@@ -4,6 +4,9 @@ include(MAIN_PATH."/controls/Enrollment-reqest.php");
 $studentgroup= selectStudentG();/** post  */
 $STG=selectstudentallG();/**  student group */
 $testpost=testpost();/** just student group  عرض الطلبة الذين لم يسبق لهم اضافة ملفات   */
+
+$groupNO=$_SESSION['g-no'];
+echo $groupNO;
 ?>
 <html lang="en">
     <head>

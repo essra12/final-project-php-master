@@ -14,6 +14,13 @@ $id3=$_SESSION['pass2'];/** login path كلمة السر غسر مشفرة تم 
 
     <!--  style for profile student -->
 <style>
+    .l3{
+        
+    position: absolute;
+    left: 40%;
+    top: 38%;
+    font-size: 22px;
+    }
      @media(max-width:740px)
         {
     .l33{
@@ -26,6 +33,7 @@ width: 50%;
     .l33{
 width: 50%;
     }}
+  
 </style>
     <html>
         <body>
@@ -43,10 +51,10 @@ width: 50%;
             <!------------------------>
 
             </div>
+            
             <div class="div-data"> 
                 <form method="get" action="edit profile.php">
                 <i id="img33"  class="fa-regular fa-user"></i>
-                <input  class="l33" type="text" value=""  disabled/>
              <?php
 
                         global $conn;
@@ -57,7 +65,8 @@ width: 50%;
 
 
                    /* <echo"<input  class='l33' type='text' value='$name'/>   ";*/
-                        echo"<input  class='l33' type='text' value='$name'  disabled/> ";
+                        echo"<lable  class='l3'>.$name.</lable>  ";
+                        
                         
 
 
