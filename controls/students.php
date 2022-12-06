@@ -110,6 +110,8 @@ if(isset($_POST['Add_student'])){
    exit();
  } 
 
+<<<<<<< HEAD
+=======
 
  /*********************************************   select stdents in  Enrollment Requests page  ***************************************************************** */
  
@@ -175,3 +177,4 @@ function deleteStudentgroup($id,$id1)
    $conn->close();
    exit();
  } 
+>>>>>>> fe084f05debfa26ca1e470412bee0f7389dd6937

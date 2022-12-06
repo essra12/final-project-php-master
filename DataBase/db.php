@@ -49,7 +49,6 @@ function selectAll($table,$condition=[])
     }
 }
 
-/* SELECT ONE RECORD */
 function selectOne($table,$condition) 
 {
     global $conn; 
@@ -68,7 +67,8 @@ function selectOne($table,$condition)
     $pre = executeQuery($sql,$condition);
     $records=$pre->get_result()->fetch_assoc();
     return $records;
-}
+}/* SELECT ONE RECORD */
+
 
 /* SELECT All Student Info FUNCTIONS */
 function selectAllStudentInfo(){ 
