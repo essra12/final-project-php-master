@@ -19,10 +19,18 @@ $files=selectAllfilesInfo();
 .ld{
     margin-left: 3%;
 }
+
 .div-files{
     height: auto;
     padding: 2%;
+    margin-top: 5%;
 }
+  /**
+  .div-files{
+    margin-top: 5%;
+height: 13vh;
+  }
+  */
 </style>
 
 <body >
