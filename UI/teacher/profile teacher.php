@@ -6,7 +6,7 @@ include("../../Database/db.php");
 <head>
     <title>teacher-profile</title>
     <meta name="descreption " content=" " />
-    <link rel="stylesheet" href="..\..\CSS\Profiless.css" />
+    <link rel="stylesheet" href="..\..\CSS\profiless.css" />
      <!--icons-->
      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <script src="https://kit.fontawesome.com/e1ca29be31.js" crossorigin="anonymous"></script>
@@ -40,9 +40,11 @@ include("../../Database/db.php");
             <!-- icons -->
             </div>
             <div class="div-data">
-                <i id="img1" class="las la-id-card"></i>
-                <i id="img3" class="las la-phone"></i>
-                <i id="img2"  class="las la-user-tie"></i>
+            
+
+                <i id="img1" style="font-size: 27px;" class="las la-id-card"></i>
+                <i id="img2" style="font-size: 27px;" class="las la-user"></i>
+                <i id="img3" style="font-size: 27px;" class="las la-phone"></i>
 <!-- select data for taecher  -->
              <?php
                         global $conn;
@@ -80,7 +82,7 @@ include("../../Database/db.php");
                 <a href="edit teaher.php" >
                 <input name="bts" class="bt1"  type="button" value="Edit"/></a>
                 <a href="..\..\logout.php">
-                <input class="bt2" name="edit" type="button" value="Logout"/></a>
+                <input class="bt2"  name="edit" type="button" value="Logout"/></a>
                 </form>
             </div>
            </body>

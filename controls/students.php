@@ -80,7 +80,7 @@ if(isset($_POST['Add_student'])){
         $_SESSION['full_name'] = $full_name;
         $_SESSION['user_id']=$last_id;
         $_SESSION['roie']='';
-
+        $_SESSION['password']=$password;
        
 
     /*When succes add*/
