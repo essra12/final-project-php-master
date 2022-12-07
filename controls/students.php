@@ -20,7 +20,7 @@ if(isset($_POST['Add_student'])){
     $exisiting_teacher = selectOne($table2,['stu_id'=>$_POST['stu_id']]);
     if($exisiting_teacher)
     {
-        array_push($errors,"Student alredy exists");
+        array_push($errors,"This Student alredy exists");
     }
 
     
@@ -109,72 +109,3 @@ if(isset($_POST['Add_student'])){
    $conn->close();
    exit();
  } 
-
-<<<<<<< HEAD
-=======
-
- /*********************************************   select stdents in  Enrollment Requests page  ***************************************************************** */
- 
- 
-function selectStudentG(){ 
-
-    global $conn;
-   $sql="SELECT  user.full_name,user.u_img ,user.user_id , student_group.stu_id,student_group.stu_group ,file.p_no FROM `student_group`,user,student,file WHERE student_group.stu_id=student.stu_id and user.user_id=student.user_id;";
-  /*  $sql = "SELECT  user.full_name,user.u_img ,user.user_id , student_group.stu_id,student_group.stu_group FROM `student_group`,user,student WHERE student_group.stu_id=student.stu_id and user.user_id=student.user_id;";
-  */ 
-  $pre=$conn->prepare($sql);
-    $pre->execute();
-    $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
-    return $records;
-}
-
-
- /********************************************Delete Student in  Enrollment Requests page **********************************************/
-
-
- 
-/*
-function deleteStudentgroup2($id)
-{
-    global $conn;
-    $sql="  DELETE FROM `file` WHERE file.p_no=?;";
-    $st=executeQuery($sql,['p_no'=>$id]);
-    return $st->affected_rows;
-} 
-
- if(isset($_GET['deleteSTID2']))
- {
-   $deleteStudent=deleteStudentgroup($_GET['deleteSTID2']);
-   $_SESSION['message']="Student deleted successfully";
-   header('location: '.BASE_URL.'/UI/teacher/Enrollment Requests.php');
-   $conn->close();
-   exit();
- } 
-  sql="  DELETE FROM `file`;";
-} 
-*/
-
-
-
-/**----------------------------------- delete sudent group -------------------------------- */
-function deleteStudentgroup($id,$id1)
-{
-    global $conn;
-    $sql="  DELETE FROM `file` WHERE file.p_no=?;";
-    $st=executeQuery($sql,['p_no'=>$id1]);
-    $sql1="DELETE FROM `post` WHERE post.stu_group=?;";
-    $st=executeQuery($sql1,['stu_group'=>$id]);
-    $sql2="DELETE FROM `student_group` WHERE student_group.stu_group=?";
-    $st=executeQuery($sql2,['stu_group'=>$id]);
-    return $st->affected_rows;
-} 
-
- if(isset($_GET['deleteSTID'])&&isset($_GET['deleteSTID2']))
- {
-   $deleteStudent=deleteStudentgroup($_GET['deleteSTID'],$_GET['deleteSTID2']);
-   $_SESSION['message']="Student deleted successfully";
-   header('location: '.BASE_URL.'/UI/teacher/Enrollment Requests.php');
-   $conn->close();
-   exit();
- } 
->>>>>>> fe084f05debfa26ca1e470412bee0f7389dd6937

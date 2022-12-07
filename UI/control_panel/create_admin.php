@@ -99,20 +99,30 @@ include(MAIN_PATH."/controls/admins.php");
     const full_name = document.getElementById("full_name").value;
     const pass = document.getElementById("pass").value;
     const conf_pass = document.getElementById("conf_pass").value;
+
     if(full_name==""){
-        alert(" pleas enter Full name");
+        alert(" Please enter Full name");
         return false;
     }
+    const regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+    if(!regName.test(full_name)){
+        alert('the name is incorrect, Please rewrite your full name (first and last name).');
+        document.getElementById('full_name').focus();
+        return false;
+    }
+
     if(pass==""){
-        alert(" pleas enter Password");
+        alert(" Please enter Password");
         return false;
     }
+
     if(conf_pass==""){
-        alert(" pleas enter Password again");
+        alert(" Please enter Password again");
         return false;
     }
+    
     if(conf_pass!=pass){
-        alert(" the password is not equal ");
+        alert(" the password is not equal,Please enter the correct value");
         return false;
     }
     }

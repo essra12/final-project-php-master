@@ -21,9 +21,9 @@ include("../../controls/edit-teacher.php");
 
   <!-- For circular image -->
   <div class="profile-pic-div"  >
-                 <?php echo"  <img src='../../sources/image/$img1' id='photo' height='120' width='120' > ' "?>
-                <input type="file" id="file" name="u_img">
-                <label for="file" id="uploadBtn">Choose Photo</label>
+        <?php echo"  <img src='../../sources/image/$img1' id='photo' height='120' width='120' > ' "?>
+        <input type="file" id="file" name="u_img">
+        <label for="file" id="uploadBtn">Choose Photo</label>
   </div>
             <!-- inputs  --> 
             <div class="form-field-signup">
@@ -100,23 +100,28 @@ include("../../controls/edit-teacher.php");
     const conf_pass = document.getElementById("cof-pass").value;
     
     if(full_name==""){
-        alert(" pleas enter full name");
+        alert(" Please enter full name");
+        return false;
+    }
+    const regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+    if(!regName.test(full_name)){
+        alert('the name is incorrect, Please rewrite your full name (first and last name).');
         return false;
     }
     if(phone==""){
-        alert(" pleas enter number phone");
+        alert(" Please enter number phone");
         return false;
     }
     if(phone<10){
-        alert(" pleas enter the Full Number");
+        alert(" Please enter the Full Number");
         return false;
     }
     if(pass==""){
-        alert(" pleas enter Password");
+        alert(" Please enter Password");
         return false;
     }
     if(conf_pass==""){
-        alert(" pleas enter Password again");
+        alert(" Please enter Password again");
         return false;
     }
     if(conf_pass!=pass){
