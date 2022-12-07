@@ -8,7 +8,7 @@ $id3=$_SESSION['pass2'];/** login path كلمة السر غسر مشفرة تم 
 <head>
     <title>admin-profile</title>
     <meta name="descreption " content=" " />
-    <link rel="stylesheet" href="..\..\css\profiles.css" />
+    <link rel="stylesheet" href="..\..\css\profiless.css" />
     <script src="https://kit.fontawesome.com/e1ca29be31.js" crossorigin="anonymous"></script>
      <!--icons-->
      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
@@ -16,6 +16,13 @@ $id3=$_SESSION['pass2'];/** login path كلمة السر غسر مشفرة تم 
 
     <!--  style for profile student -->
 <style>
+    .l3{
+        
+    position: absolute;
+    left: 40%;
+    top: 38%;
+    font-size: 22px;
+    }
      @media(max-width:740px)
         {
     .l33{
@@ -28,6 +35,7 @@ width: 50%;
     .l33{
 width: 50%;
     }}
+  
 </style>
     <html>
         <body>
@@ -45,10 +53,10 @@ width: 50%;
             <!------------------------>
 
             </div>
+            
             <div class="div-data"> 
                 <form method="get" action="edit profile.php">
-                <i id="img33"  class="las la-user"></i>
-                <input  class="l33" type="text" value=""  disabled/>
+                <i id="img33"  style="font-size: 35px;" class="las la-user"></i>
              <?php
 
                         global $conn;
@@ -59,7 +67,8 @@ width: 50%;
 
 
                    /* <echo"<input  class='l33' type='text' value='$name'/>   ";*/
-                        echo"<input  class='l33' type='text' value='$name'  disabled/> ";
+                        echo"<lable  class='l3'>.$name.</lable>  ";
+                        
                         
 
 
