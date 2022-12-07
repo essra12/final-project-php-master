@@ -13,8 +13,24 @@ include("../../controls/edit-teacher.php");
     <link rel="stylesheet" href="../../CSS/editing.css"/>
     <title>Edit Profile</title>
    <html>
-<body >
 
+<body >
+<style>
+    form .form-field-signup:nth-child(3)::before {
+    background-image: url(https://img.icons8.com/small/512/phone.png);
+    width: 24px;
+    height: 24px;
+    top:0.4em;
+    left: 6%;
+    }
+    form .form-field-signup:nth-child(2)::before {
+    background-image: url(https://img.icons8.com/small/512/user.png);
+    width: 24px;
+    height: 24px;
+    top:0.4em;
+    left: 6%;
+    }
+</style>
   <div class="login-container">
       <p class="signup_text"><b>Edit Teacher</p>
     <form class="login-form"  method="POST" name="signup_form" enctype="multipart/form-data"  onsubmit="return check_Enter(this)">
@@ -44,6 +60,16 @@ include("../../controls/edit-teacher.php");
          <div class="error" style="color: red; margin-left:20px;" > 
                    <?php echo $error ?>
                 </div>
+
+                  <!-- For Errors -->
+         <?php if(count($errors)> 0): ?>
+                <div class="msg error" style="color: #D92A2A; margin-bottom: 20px;"> 
+                    <?php foreach($errors as $error): ?>
+                    <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php echo($error); ?></li>
+                    <?php endforeach; ?>
+                </div> 
+            <?php endif; ?> 
+            <!----------------->
         <button type="submit" name="bts"  onclick=""> Save</button>
     </form>
     </div>
