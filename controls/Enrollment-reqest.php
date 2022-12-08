@@ -17,6 +17,7 @@ $groupNO=$_SESSION['g-no'];
     return $records;
 }
 /**---(TWO)--------------------------- selct all student-group   if post != "" ---------------------- */
+/** عرض كل الطلبة يلي مدايرين post */
 function selectStudentG(){ 
     global $conn;
     $groupNO=$_SESSION['g-no'];
@@ -31,7 +32,7 @@ function selectStudentG(){
 }
 /**---(TWO)--------------------------- selct  student-group ,post, file    if post != "" ---------------------- */
 
-function selectstudentallG(){
+function selectstudentallG(){/** هاك تكرار في الجملة يجب حلة   post  يجب عرض الطلبة الذين لم يقوموا بوضع اي واجب   */
     global $conn;
     $groupNO=$_SESSION['g-no'];
     $sql="  SELECT  user.full_name,user.u_img ,user.user_id , student_group.stu_id,student_group.stu_group FROM `student_group`,user,student,post WHERE student_group.stu_id=student.stu_id and user.user_id=student.user_id and student_group.stu_group!=post.stu_group and student_group.g_no='$groupNO'; 

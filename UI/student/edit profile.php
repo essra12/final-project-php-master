@@ -47,6 +47,18 @@ include("../../controls/edit-studentC.php");
          <div class="error" style="color: red; margin-left:30px;" > 
                    <?php echo $error ?>
                 </div> 
+
+
+                  <!-- For Errors -->
+            <?php if(count($errors)> 0): ?>
+                    <div class="msg error" style="color: #D92A2A; margin-bottom: 20px;"> 
+                     <?php foreach($errors as $error): ?>
+                        <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php echo($error); ?></li>
+                     <?php endforeach; ?>
+                    </div> 
+            <?php endif; ?> 
+            <!----------------->
+            
         <button type="submit" name="bts" onclick=""> Save</button>
     </form>
     </div>

@@ -51,7 +51,7 @@ $sql="SELECT * FROM `post`;";
 $result = $conn->query($sql);
 if ($result->num_rows == 0) {
         /** الطلبة الذين لم يضيفوا  ملفات post  */
-   /* echo"none";*/
+    echo"none";
 
     foreach($testpost as $key => $student):?> <!--هذا المتغير عبارة عن سجل واحد من الجدول $student  -->
         <div class="ab2">
@@ -59,8 +59,9 @@ if ($result->num_rows == 0) {
             <a  onclick="return confirmDelete()"href="Enrollment__Requests.php?deleteSTID88=<?php echo $student['stu_group']; ?>">   <i id="croos2" class="fa-solid fa-circle-xmark" ></i></a>  
         </div>
         <?php endforeach ; 
-}else {
-  /*  echo"yseeeeeeeeeeeeee";*/
+}
+else {
+    echo"yseeeeeeeeeeeeee";
     /** الطلبة الذين قاموا باضافة ملفات post  */
  foreach($studentgroup as $key => $student):?> <!--هذا المتغير عبارة عن سجل واحد من الجدول $student  -->
     <div class="ab2">

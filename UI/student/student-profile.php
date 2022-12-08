@@ -16,7 +16,9 @@ include("../../controls/profiles.php");
     </head>
     <!--  style for profile student -->
 <style>
-
+.photo{
+    border-radius: 100px;
+}
 </style>
     <html>
         <body>
