@@ -137,11 +137,11 @@ $gid=$_GET['id'];
     const NAME = document.getElementById("name").value;
     var tr_id = document.groups.tr_id.value;
     if(NAME==""){
-        alert(" pleas enter Group-name");
+        alert(" Please enter Group-name");
         return false;
     }
     if(tr_id==""){
-        alert(" pleas Choese Teacher Name");
+        alert(" Please Choese Teacher Name");
         return false;
     }
     }

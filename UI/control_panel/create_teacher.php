@@ -103,40 +103,46 @@ include(MAIN_PATH."/controls/teachers.php");
     const pass = document.getElementById("pass").value;
     const conf_pass = document.getElementById("conf_pass").value;
     if(full_name==""){
-        alert(" pleas enter Full name");
+        alert(" Please enter Full name");
+        return false;
+    }
+    const regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+    if(!regName.test(full_name)){
+        alert('the name is incorrect, Please rewrite your full name (first and last name).');
+        document.getElementById('full_name').focus();
         return false;
     }
     if(tr_phon_no==""){
-        alert(" pleas enter Phone Number");
+        alert(" Please enter Phone Number");
         return false;
     }
     if(tr_phon_no.length<10){
-        alert(" pleas enter the Full Number");
+        alert(" Please enter the Full Number");
         return false;
     }
     if(pass==""){
-        alert(" pleas enter Password");
+        alert(" Please enter Password");
         return false;
     }
     if(conf_pass==""){
-        alert(" pleas enter Password again");
+        alert(" Please enter Password again");
         return false;
     }
     if(conf_pass!=pass){
-        alert(" the password is not equal ");
+        alert(" the password is not equal,Please enter the correct value ");
         return false;
     }
     }
 
     function onlyNumberKey(evt) {
-  // Only ASCII character in that range allowed
-  var ASCIICode = (evt.which) ? evt.which : evt.keyCode
-  if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)){
-    alert(" pleas enter Just Number");
-    return false;
-  }
-  return true;
-}
+        // Only ASCII character in that range allowed
+        var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)){
+            alert(" pleas enter Just Number");
+            return false;
+        }
+        return true;
+    }
 
     /********************************************* for sidebar items  *********************************/
     const activePage = window.location.pathname;

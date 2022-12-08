@@ -44,10 +44,11 @@ if ($result->num_rows == 1) {
             <h1> Hello , <?php echo $full_name;?></h1>
             </div>
 
+            <!--------------join------------------>
            <?php if($role==""):?>
             
             <div class="search">
-            <input type="text" placeholder=" Enter Group Code" id="search" name="search" >
+            <input type="text" placeholder=" Enter Group Code" id="search" name="search" onkeypress="return onlyNumberKey(event)" >
             <button type="submit" name="submit">Join</button>
             </div>
             <?php search()?> 
@@ -57,6 +58,7 @@ if ($result->num_rows == 1) {
                <?php include("../../controls/errors.php")?>
             <!--********************-->
             </form> 
+            <!-------------------------------------->
            
 
              <div class="photo-div">
@@ -162,6 +164,18 @@ if ($result->num_rows == 1) {
   alert(" you should Enter Group Code");
   return false
   }}
+
+  /* when do not enter number */
+  function onlyNumberKey(evt) {
+        // Only ASCII character in that range allowed
+        var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)){
+            alert(" pleas enter Just Number");
+            return false;
+        }
+        return true;
+    }
+
     </script>
       
 </body>

@@ -55,7 +55,7 @@ $img1=$_SESSION['img1'];/** profile admin  صورة تم احضارها من */
 
   <!--   ********************************************* circular image *********************************    -->
   <script>
-                 const imgDiv = document.querySelector('.profile-pic-div');
+    const imgDiv = document.querySelector('.profile-pic-div');
     const img = document.querySelector('#photo');
     const file = document.querySelector('#file');
     const uploadBtn = document.querySelector('#uploadBtn');
@@ -99,15 +99,22 @@ $img1=$_SESSION['img1'];/** profile admin  صورة تم احضارها من */
     const conf_pass = document.getElementById("cof-pass").value;
     
     if(full_name==""){
-        alert(" pleas enter full name");
+        alert(" Please enter full name");
         return false;
     }
+    const regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+    if(!regName.test(full_name)){
+        alert('the name is incorrect, Please rewrite your full name (first and last name).');
+        document.getElementById('full_name').focus();
+        return false;
+    }
+
     if(pass==""){
-        alert(" pleas enter Password");
+        alert(" Please enter Password");
         return false;
     }
     if(conf_pass==""){
-        alert(" pleas enter Password again");
+        alert(" Please enter Password again");
         return false;
     }
     if(conf_pass!=pass){

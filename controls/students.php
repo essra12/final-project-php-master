@@ -20,7 +20,7 @@ if(isset($_POST['Add_student'])){
     $exisiting_teacher = selectOne($table2,['stu_id'=>$_POST['stu_id']]);
     if($exisiting_teacher)
     {
-        array_push($errors,"Student alredy exists");
+        array_push($errors,"This Student alredy exists");
     }
 
     
@@ -109,4 +109,3 @@ if(isset($_POST['Add_student'])){
    $conn->close();
    exit();
  } 
-

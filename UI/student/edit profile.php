@@ -94,7 +94,7 @@ include("../../controls/edit-studentC.php");
         }
     });
 
-
+/*************************check fields****************************/
     function check_Enter() {
     const userID = document.getElementById("id").value;
     const full_name = document.getElementById("name").value;
@@ -103,19 +103,24 @@ include("../../controls/edit-studentC.php");
     const conf_pass = document.getElementById("cof-pass").value;
     
     if(userID==""){
-        alert(" pleas enter UserID");
+        alert(" Please enter UserID");
         return false;
     }
     if(full_name==""){
-        alert(" pleas enter Full name");
+        alert(" Please enter Full name");
+        return false;
+    }
+    const regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+    if(!regName.test(full_name)){
+        alert('the name is incorrect, Please rewrite your full name (first and last name).');
         return false;
     }
     if(pass==""){
-        alert(" pleas enter Password");
+        alert(" Please enter Password");
         return false;
     }
     if(conf_pass==""){
-        alert(" pleas enter Password again");
+        alert(" Please enter Password again");
         return false;
     }
     if(conf_pass!=pass){
