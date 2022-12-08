@@ -1,7 +1,6 @@
 <?php 
 include("../../path.php"); 
 include(MAIN_PATH."/controls/materials_and_Assignments.php");
-
 include(MAIN_PATH."/controls/assignments.php");
 include(MAIN_PATH."/DataBase/Connection.php");
 
@@ -16,7 +15,23 @@ $files=selectAllfilesInfo();
         <script src="https://kit.fontawesome.com/e1ca29be31.js" crossorigin="anonymous"></script>
         
     </head>
+<style>
+.ld{
+    margin-left: 3%;
+}
 
+.div-files{
+    height: auto;
+    padding: 2%;
+    margin-top: 5%;
+}
+  /**
+  .div-files{
+    margin-top: 5%;
+height: 13vh;
+  }
+  */
+</style>
 <body >
 <!--------------------navigation_bar ----------------------->  
 <?php include(MAIN_PATH."/common/navigation.php"); ?> 

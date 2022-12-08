@@ -4,9 +4,10 @@ include(MAIN_PATH."/controls/Enrollment-reqest.php");
 $studentgroup= selectStudentG();/** post  */
 $STG=selectstudentallG();/**  student group */
 $testpost=testpost();/** just student group  عرض الطلبة الذين لم يسبق لهم اضافة ملفات   */
-
+/*
 $groupNO=$_SESSION['g-no'];
 echo $groupNO;
+*/
 ?>
 <html lang="en">
     <head>
@@ -51,6 +52,7 @@ $result = $conn->query($sql);
 if ($result->num_rows == 0) {
         /** الطلبة الذين لم يضيفوا  ملفات post  */
    /* echo"none";*/
+
     foreach($testpost as $key => $student):?> <!--هذا المتغير عبارة عن سجل واحد من الجدول $student  -->
         <div class="ab2">
             <label data-label="stu-name"><img src="<?php echo BASE_URL . '/sources/image/' . $student['u_img']; ?>" class="tab-img" style=" margin-right:10px;  width: 25px; height: 25px; border-radius:100%;"><?php echo $student['full_name'] ?> </label>

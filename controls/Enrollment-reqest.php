@@ -4,11 +4,13 @@
 include(MAIN_PATH. "/database/db.php");
 include(MAIN_PATH. "/common/validity.php");
 global $conn;
+$groupNO=$_SESSION['g-no'];
  /*********************************************   insert stdent group  in  Enrollment Requests page  ***************************************************************** */
  /**   (ONE)------------------- selct all student-group --> if post="" ----------------------------- */
  function testpost(){
     global $conn;
-    $sql3=" SELECT  user.full_name,user.u_img ,user.user_id , student_group.stu_id,student_group.stu_group FROM `student_group`,user,student WHERE student_group.stu_id=student.stu_id and user.user_id=student.user_id;";
+    $groupNO=$_SESSION['g-no'];
+    $sql3=" SELECT  user.full_name,user.u_img ,user.user_id , student_group.stu_id,student_group.stu_group FROM `student_group`,user,student WHERE student_group.stu_id=student.stu_id and user.user_id=student.user_id  and student_group.g_no='$groupNO';; ";
     $pre=$conn->prepare($sql3);
     $pre->execute();
     $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -17,8 +19,8 @@ global $conn;
 /**---(TWO)--------------------------- selct all student-group   if post != "" ---------------------- */
 function selectStudentG(){ 
     global $conn;
-   $sql="SELECT  user.full_name,user.u_img ,user.user_id , student_group.stu_id,student_group.stu_group ,file.p_no FROM `student_group`,user,student,file,post WHERE student_group.stu_id=student.stu_id and user.user_id=student.user_id and student_group.stu_group=post.stu_group and post.p_no=file.p_no;
-   ";
+    $groupNO=$_SESSION['g-no'];
+   $sql="SELECT  user.full_name,user.u_img ,user.user_id , student_group.stu_id,student_group.stu_group ,file.p_no FROM `student_group`,user,student,file,post WHERE student_group.stu_id=student.stu_id and user.user_id=student.user_id and student_group.stu_group=post.stu_group and post.p_no=file.p_no and student_group.g_no='$groupNO';";
   /*  $sql = "SELECT  user.full_name,user.u_img ,user.user_id , student_group.stu_id,student_group.stu_group FROM `student_group`,user,student WHERE student_group.stu_id=student.stu_id and user.user_id=student.user_id;";
   SELECT  user.full_name,user.u_img ,user.user_id , student_group.stu_id,student_group.stu_group ,file.p_no FROM `student_group`,user,student,file,post WHERE student_group.stu_id=student.stu_id and user.user_id=student.user_id and student_group.stu_group=post.stu_group and post.p_no=file.p_no;
   */ 
@@ -31,7 +33,8 @@ function selectStudentG(){
 
 function selectstudentallG(){
     global $conn;
-    $sql="  SELECT  user.full_name,user.u_img ,user.user_id , student_group.stu_id,student_group.stu_group FROM `student_group`,user,student,post WHERE student_group.stu_id=student.stu_id and user.user_id=student.user_id and student_group.stu_group!=post.stu_group;
+    $groupNO=$_SESSION['g-no'];
+    $sql="  SELECT  user.full_name,user.u_img ,user.user_id , student_group.stu_id,student_group.stu_group FROM `student_group`,user,student,post WHERE student_group.stu_id=student.stu_id and user.user_id=student.user_id and student_group.stu_group!=post.stu_group and student_group.g_no='$groupNO'; 
     ";
    /* $sql="  SELECT  user.full_name,user.u_img ,user.user_id , student_group.stu_id,student_group.stu_group,post.stu_group FROM `student_group`,user,student ,post,file WHERE student_group.stu_id=student.stu_id and user.user_id=student.user_id and student_group.stu_group!= post.stu_group;
     ";*/

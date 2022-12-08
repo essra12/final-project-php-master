@@ -1,6 +1,7 @@
 <?php
 include(MAIN_PATH."/DataBase/Connection.php");
 global $conn;
+$groupNO=$_SESSION['g-no'];
 function selectAllfilesInfo(){ 
 /*
     global $conn; 
@@ -11,7 +12,8 @@ function selectAllfilesInfo(){
 
     
 global $conn; 
-$sql="SELECT  `title`, `description` FROM `post`,groups WHERE groups.g_no=post.g_no;";
+$groupNO=$_SESSION['g-no'];
+$sql="SELECT  `title`, `description` FROM `post`,groups WHERE groups.g_no=post.g_no  and post.g_no='$groupNO';";
     global $conn;
     $pre=$conn->prepare($sql);
     $pre->execute();
