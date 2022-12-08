@@ -78,6 +78,7 @@ if(isset($_GET['deleteID']))
     /*************************/
 
     /**delete from post table**/
+    // to delete from post table by p_no  for tr
     for($i=0;$i<count($array_p_no_fot_tr);$i++){
         //delete from post table by tr p_no
         $deletefile_by_p_no_for_tr=deletePostBy_p_no($array_p_no_fot_tr[$i]);
@@ -85,7 +86,7 @@ if(isset($_GET['deleteID']))
     // to delete from post table by p_no  for stu
     for($i=0;$i<count($array_p_no_fot_stu);$i++){
         //delete from post table by tr p_no
-        $deletefile_by_p_no_for_stu=deletePostBy_p_no($array_p_no_fot_stu[$i]);
+        $deletepost_by_p_no_for_stu=deletePostBy_p_no($array_p_no_fot_stu[$i]);
     }
 
     /**delete from student_group table**/
@@ -98,6 +99,7 @@ if(isset($_GET['deleteID']))
     /**delete from group table**/
      $deleteGroup=deleteGroup($g_no); 
 
+    /*for successfully message */ 
     $_SESSION['message']="Group deleted successfully";
     header('location: '.BASE_URL.'/UI/control_panel/groups_control_panel.php');
     $conn->close();
@@ -106,18 +108,3 @@ if(isset($_GET['deleteID']))
 }
 
 
-/*******************************************************************/
-/******************Select All Student Inside Group******************/
-
-function selectAllStudentInGroup(){ 
-    global $conn; 
-    if(isset($_GET['g_no'])){
-        $sql = "SELECT user.full_name,user.u_img,student.stu_id FROM user,student, student_group WHERE user.user_id=student.user_id AND student.stu_id=student_group.stu_id AND student_group.g_no ='$_GET[g_no]';";
-        $pre=$conn->prepare($sql);
-        $pre->execute();
-        $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $records;
-    }
-
-    
-}

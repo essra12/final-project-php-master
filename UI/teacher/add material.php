@@ -63,7 +63,7 @@ include(MAIN_PATH."/controls/add_material_and_assignment.php");
         <!-- description field -->
         <div class="inputs description">
           <label style="color: #222242;">Description<span style="font-size: 20px;">(optional)</span></label>
-          <textarea type="text" name="description" id="description" maxlength="250" style="font-size: 20px;" value="<?php echo $description;?>"></textarea>
+          <textarea type="text" name="description" id="description" maxlength="250" style="font-size: 20px;" ><?php echo $description;?></textarea>
         </div>
         <!------------------>
 

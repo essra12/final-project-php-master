@@ -117,7 +117,7 @@ function selectAllGroupInfo(){
 }
 
 
-/* SELECT Groups Info FUNCTIONS */
+/* SELECT File Info FUNCTIONS */
 function selectAllFileInfo(){ 
 
     global $conn; 
@@ -160,7 +160,7 @@ function deleteAdmin($table, $id)
  
 
 /* DELETE Student FUNCTION */
- function deleteStudent($id)
+ function deleteStudentUser($id)
 {
     global $conn;
     $sql1="DELETE FROM student WHERE user_id=?";
@@ -169,6 +169,14 @@ function deleteAdmin($table, $id)
     $st=executeQuery($sql2,['user_id'=>$id]);
     return $st->affected_rows;
 } 
+
+function deleteStudentGroup($id)
+{
+    global $conn;
+    $sql1="DELETE FROM student_group WHERE stu_id=?";
+    $st=executeQuery($sql1,['stu_id'=>$id]);
+    return $st->affected_rows;
+}
 
 /* DELETE Group FUNCTION */
 function deleteGroup($id)
