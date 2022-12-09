@@ -22,7 +22,7 @@ $groups=selectAllGroupInfo();
 <body  class="b-white">
 
 <!-- menu -->
-<?php include(MAIN_PATH."/common/sidebar.php"); ?> 
+<?php include(MAIN_PATH."/common/sidebar.php");  ?> 
 <!-------------------->
 
 <!-- header card -->

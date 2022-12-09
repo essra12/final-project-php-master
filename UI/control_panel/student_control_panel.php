@@ -74,7 +74,7 @@ $students=selectAllStudentInfo();
                                 <td data-label="stu-id"><?php echo $student['stu_id'] ?></td>
                                 <td data-label="stu-name"><img src="<?php echo BASE_URL . '/sources/image/' . $student['u_img']; ?>" class="tab-img" style="  width: 30px; height: 30px;border-radius:100%;"><?php echo $student['full_name'] ?></td>
                                 <td data-label="stu_specialization"><?php echo $student['stu_specialization'] ?></td>
-                                <td data-label="delete"><a onclick="return confirmDelete()" href="student_control_panel.php?deleteID=<?php echo $student['user_id']; ?>"><i class="las la-trash-alt ticon delet"></a></i></td>
+                                <td data-label="delete"><a onclick="return confirmDelete()" href="student_control_panel.php?deleteID=<?php echo $student['user_id']; ?>&deletestu_id=<?php echo $student['stu_id']; ?>"><i class="las la-trash-alt ticon delet"></a></i></td>
                             </tr>
             <?php endforeach; ?> 
               

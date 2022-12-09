@@ -98,14 +98,88 @@ if(isset($_POST['Add_student'])){
     } 
 }
 
+/*****************************************************************************************************************************/
+/***********************************************Select All Student Inside Group***********************************************/
 
+function selectAllStudentInGroup(){ 
+    global $conn; 
+    if(isset($_GET['g_no'])){
+        $sql = "SELECT user.full_name,user.u_img,student.stu_id FROM user,student, student_group WHERE user.user_id=student.user_id AND student.stu_id=student_group.stu_id AND student_group.g_no ='$_GET[g_no]';";
+        $pre=$conn->prepare($sql);
+        $pre->execute();
+        $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $records;
+    }
 
+    
+}
+/****************************************************************************************************************************/
  /********************************************Delete Student from control panel**********************************************/
- if(isset($_GET['deleteID']))
+/*  if(isset($_GET['deleteID']))
  {
    $deleteStudent=deleteStudent($_GET['deleteID']);
    $_SESSION['message']="Student deleted successfully";
    header('location: '.BASE_URL.'/UI/control_panel/student_control_panel.php');
    $conn->close();
    exit();
- } 
+ }  */
+
+ if(isset($_GET['deleteID'])&& isset($_GET['deletestu_id']))
+ {
+
+    $user_id_delete=$_GET['deleteID'];
+    $stu_id_delete=$_GET['deletestu_id'];
+
+    //to get g_no 
+    $array_g_no=array();
+    $select_g_no="SELECT DISTINCT  groups.g_no FROM groups,student_group,student WHERE student_group.g_no=groups.g_no AND student.stu_id=student_group.stu_id AND student.stu_id='$stu_id_delete';";
+    $result = $conn->query($select_g_no);
+    if($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+        $g_no=$row['g_no'];
+        array_push($array_g_no,$g_no);
+      }
+    }//
+
+    //to get p_no 
+    $array_p_no=array();
+    foreach($array_g_no as $g_no){
+        $group_number=$g_no;
+        $select_p_no="SELECT DISTINCT post.p_no FROM post,student_group,groups WHERE student_group.g_no=groups.g_no AND student_group.stu_group=post.stu_group AND groups.g_no='$group_number';";
+        $result = $conn->query($select_p_no);
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+              $p_no=$row['p_no'];
+              array_push($array_p_no,$p_no);
+            } 
+          }
+    }
+
+    /**delete from file table**/
+    if(count($array_p_no)>0){
+        for($i=0;$i<count($array_p_no);$i++){
+            //delete from file table by p_no
+            $deletefile_by_p_no=deleteFileBy_p_no($array_p_no[$i]);
+        }
+    }
+
+    /**delete from post table**/
+    for($i=0;$i<count($array_p_no);$i++){
+        //delete from post table by p_no
+        $deletepost_by_p_no=deletePostBy_p_no($array_p_no[$i]);
+    }
+
+    /**delete from post table**/
+    $deleteStudent=deleteStudentGroup($stu_id_delete);
+
+
+    /**delete from student/user tables**/
+    $deleteStudent=deleteStudentUser($user_id_delete);
+
+    /*for successfully message */ 
+    $_SESSION['message']="Student deleted successfully";
+    header('location: '.BASE_URL.'/UI/control_panel/student_control_panel.php');
+    $conn->close();
+    exit();
+
+ }

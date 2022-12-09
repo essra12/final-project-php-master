@@ -1,6 +1,6 @@
 <?php 
 include("../../path.php"); 
-include(MAIN_PATH."/controls/groups.php"); 
+include(MAIN_PATH."/controls/students.php"); 
 $students=selectAllStudentInGroup();  
 ?>
 <!DOCTYPE html>
