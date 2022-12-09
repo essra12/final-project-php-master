@@ -1,7 +1,7 @@
 
  <?php
 /* include("../path.php");  */ 
-include(MAIN_PATH. "/database/db.php");
+include("../../database/db.php");
 include(MAIN_PATH. "/common/validity.php");
 global $conn;
 $groupNO=$_SESSION['g-no'];
@@ -72,7 +72,7 @@ function test($id8)
  } 
  /**--(TWO)---------------------------- delete all post ,file,stu_group -------------------------------- */
 
-function deleteStudentgroup($id,$id1)
+function deleteStudentgroupp($id,$id1)
 {
     global $conn;
     $sql="  DELETE FROM `file` WHERE file.p_no=?;";
@@ -86,7 +86,7 @@ function deleteStudentgroup($id,$id1)
 
  if(isset($_GET['deleteSTID'])&&isset($_GET['deleteSTID2']))
  {
-   $deleteStudent=deleteStudentgroup($_GET['deleteSTID'],$_GET['deleteSTID2']);
+   $deleteStudent=deleteStudentgroupp($_GET['deleteSTID'],$_GET['deleteSTID2']);
    $_SESSION['message']="Student deleted successfully";
    header('location: '.BASE_URL.'/UI/teacher/Enrollment__Requests.php');
    $conn->close();

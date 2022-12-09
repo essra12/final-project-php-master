@@ -25,6 +25,9 @@ $files=selectstudentpost();
     padding: 2%;
     margin-top: 5%;
 }
+.div-card{
+  background-color: #A4D2F0;;
+}
   /**
   .div-files{
     margin-top: 5%;
