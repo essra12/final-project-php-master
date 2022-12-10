@@ -25,11 +25,7 @@ fileInput.addEventListener("change", () => {
 function check_Enter() {
 const title = document.getElementById("title").value;
 if(title==""){
-<<<<<<< HEAD
     alert(" please enter Title");
-=======
-    alert(" Please enter Title");
->>>>>>> a8aa02091c253731b399fff3f3d1788e9ed2b620
     return false;
 }
 }
