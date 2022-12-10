@@ -1,7 +1,6 @@
 <?php 
 include("../../Database/Connection.php");
-  
-include("../../controls/edit-teacher.php");
+include("../../controls/Edit-TeacherPH.php");
    /*include("../../controls/testeditST.php");*/
 
 ?>

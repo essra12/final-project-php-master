@@ -16,6 +16,22 @@ $img1=$_SESSION['img1'];/** profile admin  صورة تم احضارها من */
     <link rel="stylesheet" href="../../CSS/editing.css"/>
     <title>Edit Profile</title>
    <html>
+    <style> 
+      form .form-field-signup:nth-child(3)::before {
+    background-image: url(https://img.icons8.com/material-outlined/512/lock.png);
+    width: 24px;
+    height: 24px;
+    top:0.4em;
+    left: 6%;
+    }
+    form .form-field-signup:nth-child(2)::before {
+    background-image: url(https://img.icons8.com/small/512/user.png);
+    width: 24px;
+    height: 24px;
+    top:0.4em;
+    left: 6%;
+    }
+    </style>
 <body >
 
   <div class="login-container">

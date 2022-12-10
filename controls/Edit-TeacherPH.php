@@ -17,17 +17,16 @@ $img1=$_SESSION['img1'];/**-----------profile admin  احضار الصورة م�
 $error ="";
 if($_SERVER['REQUEST_METHOD']=='POST')
 { 
-
-    if($_POST['phone']!=$phon)
-    {
+    
+    if($phon!=$_POST['phone']){
+        
         $exisiting_teachera = selectOne($table2,['tr_phone_no'=>$_POST['phone']]);
         if($exisiting_teachera)
         {
-            array_push($errors,"This Teacher jj alredy exists");
+            array_push($errors,"This Teacher  alredy exists");
+            
         }else{
 
-
-    
 
        /* user Image */
    if (!empty($_FILES['u_img']['name'])) {
@@ -74,10 +73,11 @@ if(count($errors)==0){
         <?php 
         } else {
         echo "Error updating record: " . mysqli_error($conn);
-        }}
-        }}
-
-        } else {
+        }
+    }}
+    }}
+    
+    else {
 
 
 

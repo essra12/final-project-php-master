@@ -1,6 +1,7 @@
 <?php 
 include("../../Database/db.php");
 include("../../controls/profiles.php");
+ $id=$_SESSION['id'];
 
 ?>
 
@@ -27,6 +28,7 @@ include("../../controls/profiles.php");
             <form method="get" action="edit profile.php" enctype="multipart/form-data">
               <?php
                       stprofileimg();
+
                       ?>
 </div>
    <!--------------------------------------------  information for student  (Part 2) ------------------------------------>          

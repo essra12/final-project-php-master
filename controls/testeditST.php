@@ -1,132 +1,60 @@
 <?php
 include("../../database/db.php");
+include(MAIN_PATH."/common/validity.php");
 global $conn;
+$groupNO=$_SESSION['g-no'];
 $errors = array();
-$table2='teacher';
 
 
-/** seesion احضار البيانات باستخدام  */
-/*session_start();*/
-$name= $_SESSION['name'];
-$phon=$_SESSION['phone'];
-$password=$_SESSION['pass'];
-$pass=$_SESSION['pass2'];/**كلمة مرور غير مشفرة */
-$img1=$_SESSION['img1'];/**-----------profile admin  احضار الصورة من ----------- */
+
+function testposttest(){
+    global $conn;
+    $groupNO=$_SESSION['g-no'];
+    $sql=" SELECT  user.full_name,user.u_img ,user.user_id ,student_group.g_no, student.stu_id ,student_group.stu_id,student_group.stu_group FROM `student_group`,user,student WHERE student_group.stu_id=student.stu_id and user.user_id=student.user_id  and student_group.g_no=14
+;    ";
+    $pre=$conn->prepare($sql);
+    $pre->execute();
+    $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
+
+if(isset($_GET['deleteSTID'])&&$_GET['deletestuid']&&$_GET['group'])
+{
+    $g_no=$_GET['deleteSTID'];
+$stid=$_GET['deletestuid'];
+$stgroup=$_GET['group'];
+
+    //to get p_no for stu
+    function reterengno(){
+        global $conn;
+        $g_no=$_GET['deleteSTID'];
+   $stid=$_GET['deletestuid'];
+  $stgroup=$_GET['group'];
+
+    $array_p_no_fot_stu=array();
+   /* $select_p_no_for_stu=" SELECT DISTINCT post.p_no FROM post,student_group,groups WHERE student_group.g_no=groups.g_no AND student_group.stu_group=post.stu_group AND groups.g_no='$g_no' and  student_group.stu_id='$stid';";*/
+   $select_p_no_for_stu=" SELECT DISTINCT post.p_no FROM post,student_group,student WHERE student_group.stu_id=student.stu_id AND student_group.stu_group=post.stu_group AND post.g_no='$g_no' and  student_group.stu_id='$stid'"; 
+   $result = $conn->query($select_p_no_for_stu);
+    if($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+        $p_no=$row['p_no'];
+        array_push($array_p_no_fot_stu,$p_no);
+        return $p_no;
+      }}}
+    //
+
+   $pno=reterengno();
+ 
+
+$sql="  DELETE FROM `file` WHERE file.p_no=?;";
+    $st=executeQuery($sql,['p_no'=> $pno]);
+    $sql1="DELETE FROM `post` WHERE post.stu_group=?;";
+    $st=executeQuery($sql1,['stu_group'=>$stgroup]);
+    $sql2="DELETE FROM `student_group` WHERE student_group.stu_group=?";
+    $st=executeQuery($sql2,['stu_group'=>$stgroup]);
+    return $st->affected_rows;
 
 
-$error ="";
-if($_SERVER['REQUEST_METHOD']=='POST')
-{ 
+}
 
-    if($phon!=$_POST['phone']){
-    $exisiting_teacher = selectOne($table2,['tr_phone_no'=>$_POST['phone']]);
-    if($exisiting_teacher)
-    {
-        array_push($errors,"This Teacher alredy exists");
-    }
-        else{
-            if (!empty($_FILES['u_img']['name'])) {
-                $imgName= time() .'_' . $_FILES['u_img']['name'];// تُرجع الدالة الوقت الحالي بعدد الثواني منذ ذلك الحين time() ،  HTTP POST عبارة عن مصفوفة ارتباطية تحتوي على عناصر تم تحميلها عبر طريقة $_FILES
-                
-                $imgPath= "../../sources/image/" .$imgName;
-                
-                $r= move_uploaded_file($_FILES['u_img']['tmp_name'],$imgPath); // تعمل الدالة  على نقل الملف الذي تم تحميله إلى وجهة جديدة.
-            
-                if ($r) {
-                    $_POST['u_img']=$imgName;
-                } 
-                else {
-                    array_push($errors,"There is an error uploading the image.");
-                }
-            }
-            else if (empty($_FILES['u_img']['name'])) {
-                $_POST['u_img']=$img1;/** profile admin  وضع الصورة التي تم احضارها من   */
-            }
-            
-            /**************/
-                
-            if(count($errors)==0){
-                /** حفظ القيم المدخلة في المتغيرات */
-                $username = $_POST['name'];
-                $phone = $_POST['phone'];
-                $userpass1=password_hash($_POST['pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
-                $userpass2=password_hash($_POST['cof-pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
-                $img=$_POST['u_img'];
-            
-               /** empty التحقق من حقول الادخال باستحدام  */
-                
-                  if(empty($username)) 
-                {
-                    $error="* please enter your name   ";
-                   
-                }
-                else 
-                {
-                    $sqln="UPDATE user,teacher set   user.full_name='$username', user.password='$userpass1',teacher.tr_phone_no=$phone,user.u_img='$img'
-                    WHERE user.user_id=teacher.user_id and teacher.tr_phone_no=$phon ;";
-                    if(mysqli_query($conn,$sqln)){
-                    echo '<script type="text/javascript">alert("Record updated 22222 successfully .")</script>';
-                    ?>
-                    <script type="text/javascript">
-                    window.location.href="../group/main page for group.php" </script>
-                    <?php 
-                    } else {
-                    echo "Error updating record: " . mysqli_error($conn);
-                    }
-                }}
-                }}
-
-                else
-                {
-                    if (!empty($_FILES['u_img']['name'])) {
-                        $imgName= time() .'_' . $_FILES['u_img']['name'];// تُرجع الدالة الوقت الحالي بعدد الثواني منذ ذلك الحين time() ،  HTTP POST عبارة عن مصفوفة ارتباطية تحتوي على عناصر تم تحميلها عبر طريقة $_FILES
-                        
-                        $imgPath= "../../sources/image/" .$imgName;
-                        
-                        $r= move_uploaded_file($_FILES['u_img']['tmp_name'],$imgPath); // تعمل الدالة  على نقل الملف الذي تم تحميله إلى وجهة جديدة.
-                    
-                        if ($r) {
-                            $_POST['u_img']=$imgName;
-                        } 
-                        else {
-                            array_push($errors,"There is an error uploading the image.");
-                        }
-                    }
-                    else if (empty($_FILES['u_img']['name'])) {
-                        $_POST['u_img']=$img1;/** profile admin  وضع الصورة التي تم احضارها من   */
-                    }
-                    
-                    /**************/
-                        
-                    if(count($errors)==0){
-                        /** حفظ القيم المدخلة في المتغيرات */
-                        $username = $_POST['name'];
-                        $phone = $_POST['phone'];
-                        $userpass1=password_hash($_POST['pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
-                        $userpass2=password_hash($_POST['cof-pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
-                        $img=$_POST['u_img'];
-                    
-                       /** empty التحقق من حقول الادخال باستحدام  */
-                        
-                          if(empty($username)) 
-                        {
-                            $error="* please enter your name   "; 
-                        }
-                        else 
-                        {
-                            $sqln="UPDATE user,teacher set   user.full_name='$username', user.password='$userpass1',teacher.tr_phone_no=$phone,user.u_img='$img'
-                            WHERE user.user_id=teacher.user_id and teacher.tr_phone_no=$phon ;";
-                            if(mysqli_query($conn,$sqln)){
-                            echo '<script type="text/javascript">alert("Record updated successfully .")</script>';
-                            ?>
-                            <script type="text/javascript">
-                            window.location.href="../group/main page for group.php" </script>
-                            <?php 
-                            } else {
-                            echo "Error updating record: " . mysqli_error($conn);
-                            }}}
-                        }}
-    
-      
-?>
 
