@@ -12,7 +12,7 @@ $gid=$_GET['id'];
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1">
         <title>Edite Group</title>
-        <link rel="stylesheet" href="../../css/create_group_teacher_admin.css">
+        <link rel="stylesheet" href="../../css/add_group_teacher_admin.css">
         <!--icon8-->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     </head>
@@ -137,11 +137,11 @@ $gid=$_GET['id'];
     const NAME = document.getElementById("name").value;
     var tr_id = document.groups.tr_id.value;
     if(NAME==""){
-        alert(" pleas enter Group-name");
+        alert(" Please enter Group-name");
         return false;
     }
     if(tr_id==""){
-        alert(" pleas Choese Teacher Name");
+        alert(" Please Choese Teacher Name");
         return false;
     }
     }

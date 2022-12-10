@@ -21,7 +21,7 @@ include("../../controls/edit-studentC.php");
 
   <!-- For circular image -->
   <div class="profile-pic-div"  >
-                <img src="../../sources/image/blue_rectangle_with_user.JPG" id="photo" height="120" width="120" >
+                <?php echo"  <img src='../../sources/image/$img1' id='photo' height='120' width='120' > ' "?>
                 <input type="file" id="file" name="u_img">
                 <label for="file" id="uploadBtn">Choose Photo</label>
   </div>
@@ -34,19 +34,31 @@ include("../../controls/edit-studentC.php");
         </div>
           
         <div class="form-field-signup">
-        <input id="spe" type="password"  name="pass" placeholder="password"   maxlength="25" value="" />
+        <input id="cof-pass" type="password"  name="pass" placeholder="password"   maxlength="25" value="<?php  echo $pass  ?>" />
        </div>
 
           <div class="form-field-signup">
-            <input id="pass" type="password" name="cof-pass" placeholder="Confirm Password"  value="" maxlength="25" />  
+            <input id="pass" type="password" name="cof-pass" placeholder="Confirm Password"  value="<?php  echo $pass  ?>" maxlength="25" />  
          </div>
          <div class="form-field-signup">
-          <input id="cof-pass" type="text" name="spe" placeholder="Specialization" value="<?php  echo $spe  ?>"maxlength="25"/>  
+          <input id="spe" type="text" name="spe" placeholder="Specialization" value="<?php  echo $spe  ?>"maxlength="25"/>  
          </div>
 
          <div class="error" style="color: red; margin-left:30px;" > 
                    <?php echo $error ?>
                 </div> 
+
+
+                  <!-- For Errors -->
+            <?php if(count($errors)> 0): ?>
+                    <div class="msg error" style="color: #D92A2A; margin-bottom: 20px;"> 
+                     <?php foreach($errors as $error): ?>
+                        <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php echo($error); ?></li>
+                     <?php endforeach; ?>
+                    </div> 
+            <?php endif; ?> 
+            <!----------------->
+            
         <button type="submit" name="bts" onclick=""> Save</button>
     </form>
     </div>
@@ -93,7 +105,44 @@ include("../../controls/edit-studentC.php");
             reader.readAsDataURL(choosedFile);
         }
     });
+
+/*************************check fields****************************/
+    function check_Enter() {
+    const userID = document.getElementById("id").value;
+    const full_name = document.getElementById("name").value;
+    const spe = document.getElementById("spe").value;
+    const pass = document.getElementById("pass").value;
+    const conf_pass = document.getElementById("cof-pass").value;
+    
+    if(userID==""){
+        alert(" Please enter UserID");
+        return false;
+    }
+    if(full_name==""){
+        alert(" Please enter Full name");
+        return false;
+    }
+    const regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+    if(!regName.test(full_name)){
+        alert('the name is incorrect, Please rewrite your full name (first and last name).');
+        return false;
+    }
+    if(pass==""){
+        alert(" Please enter Password");
+        return false;
+    }
+    if(conf_pass==""){
+        alert(" Please enter Password again");
+        return false;
+    }
+    if(conf_pass!=pass){
+        alert(" the password is not equal ");
+        return false;
+    }
+    }
 </script>
+
+
 </body>
 </html>
 </head>

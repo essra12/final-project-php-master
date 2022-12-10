@@ -103,7 +103,7 @@ if(isset($_POST['add_material'])){
 /*****************************************************************************/
 /*****************************add assignment**********************************/
 
-
+$user_id=$_SESSION['user_id'];
 
 /****to find stu_group*****/
 function selectStu_group(){ 
@@ -115,8 +115,8 @@ function selectStu_group(){
     }
     /******************/
  
-    $user_id=$_SESSION['user_id'];
- 
+   
+  global $user_id;
  
     $sql_select_stu_id = "SELECT  stu_id FROM `student` WHERE student.user_id ='$user_id';";
     $result = $conn->query($sql_select_stu_id);
@@ -150,7 +150,7 @@ if(isset($_POST['add_assignment'])){
    $stu_group=selectStu_group();
 
    if(count($files)==0){
-    array_push($errors_for_material,"please choose a file.");
+    array_push($errors_for_assignment,"please choose a file.");
   }
   else{
     $sql_insert_post = "INSERT INTO `post`(`title`, `description`, `stu_group`, `g_no`) VALUES ('$title','$description','$stu_group',null);";
@@ -212,3 +212,7 @@ else{
 }
 
 }
+
+
+
+

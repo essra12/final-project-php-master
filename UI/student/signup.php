@@ -50,7 +50,7 @@ include(MAIN_PATH."/controls/students.php");
         <button type="submit" name="Add_student">Signup</button>
     </form>
     <div class="additional-action">
-        <a href="<?php echo BASE_URL . '/login.php' ?>" style="text-decoration: none;"><p><b><u>Login</u></b></p></a>
+        <a href="<?php echo BASE_URL . '/login.php' ?>" style="text-decoration: none; color:#222242;"><p><b><u>Login</u></b></p></a>
     </div>
 </div>
 <form>
@@ -65,27 +65,33 @@ include(MAIN_PATH."/controls/students.php");
   const pass2=document.getElementById("conf_pass").value;
   const specialization=document.getElementById("spe").value;
   if(id==""){
-  alert(" pleas enter ID");
+  alert(" Please enter ID");
   return false
   }
   if(NAME==""){
-  alert(" pleas enter name");
+  alert(" Please enter name");
   return false
   }
+  const regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+    if(!regName.test(NAME)){
+        alert('the name is incorrect, Please rewrite your full name (first and last name).');
+        document.getElementById('full_name').focus();
+        return false;
+    }
   else if(pass==""){
-  alert("    pleas enter password ");
+  alert(" Please enter password ");
   return false
   }
   if(pass2==""){
-  alert(" pleas enter password again");
+  alert(" Please enter password again");
   return false
   }
   if(pass != pass2){
-  alert(" the password is not equal ");
+  alert(" the password is not equal,Please enter the correct value");
   return false
   }
   if(specialization==""){
-  alert(" pleas enter specialization ");
+  alert(" Please enter specialization ");
   return false
   }
   }

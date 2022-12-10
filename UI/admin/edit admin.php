@@ -2,6 +2,8 @@
 <?php
 include("../../Database/Connection.php");  
 include("../../controls/edit admin.php");
+$img1=$_SESSION['img1'];/** profile admin  صورة تم احضارها من */
+
 ?>
 
 <!DOCTYPE html>
@@ -21,10 +23,11 @@ include("../../controls/edit admin.php");
     <form class="login-form"  method="POST" name="signup_form" enctype="multipart/form-data"  onsubmit="return check_Enter(this)">
 
   <!-- For circular image -->
+  
   <div class="profile-pic-div"  >
-                <img src="../../sources/image/blue_rectangle_with_user.JPG" id="photo" height="120" width="120" >
+             <?php echo"  <img src='../../sources/image/$img1' id='photo' height='120' width='120' > ' "?>
                 <input type="file" id="file" name="u_img">
-                <label for="file" id="uploadBtn">Choose Photo</label>
+                <label for="file" id="uploadBtn">Choose Photo</label> 
   </div>
             <!-- inputs  --> 
             <div class="form-field-signup">
@@ -32,10 +35,10 @@ include("../../controls/edit admin.php");
        </div>
           
           <div class="form-field-signup">
-            <input id="pass" name="pass" type="password" placeholder="Password"  value="" maxlength="25" />  
+            <input id="pass" name="pass" type="password" placeholder="Password"  value="<?php echo $pass ?>" maxlength="25" />  
          </div>
          <div class="form-field-signup">
-          <input id="pass2" name="cof-pass" type="password" placeholder="Confrim Password" value="" maxlength="25"/>  
+          <input id="cof-pass" name="cof-pass" type="password" placeholder="Confrim Password" value="<?php echo $pass ?>" maxlength="25"/>  
          </div> 
          
          <div class="error" style="color: red; margin-left:20px;" > 
@@ -52,7 +55,7 @@ include("../../controls/edit admin.php");
 
   <!--   ********************************************* circular image *********************************    -->
   <script>
-                 const imgDiv = document.querySelector('.profile-pic-div');
+    const imgDiv = document.querySelector('.profile-pic-div');
     const img = document.querySelector('#photo');
     const file = document.querySelector('#file');
     const uploadBtn = document.querySelector('#uploadBtn');
@@ -88,6 +91,38 @@ include("../../controls/edit admin.php");
             reader.readAsDataURL(choosedFile);
         }
     });
+
+    
+    function check_Enter(){
+    const full_name = document.getElementById("name").value;
+    const pass = document.getElementById("pass").value;
+    const conf_pass = document.getElementById("cof-pass").value;
+    
+    if(full_name==""){
+        alert(" Please enter full name");
+        return false;
+    }
+    const regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+    if(!regName.test(full_name)){
+        alert('the name is incorrect, Please rewrite your full name (first and last name).');
+        document.getElementById('full_name').focus();
+        return false;
+    }
+
+    if(pass==""){
+        alert(" Please enter Password");
+        return false;
+    }
+    if(conf_pass==""){
+        alert(" Please enter Password again");
+        return false;
+    }
+    if(conf_pass!=pass){
+        alert(" the password is not equal ");
+        return false;
+    }
+    }
+
 </script>
 </body>
 </html>

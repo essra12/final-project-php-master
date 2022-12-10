@@ -36,10 +36,7 @@ $teachers=selectAllTeacherInfo();
     <div class="header-box">
 
         <div class="header-box-content-table">
-            <h2>Add New Teacher Account</h2><br>
-            <a href="<?php echo BASE_URL . '/UI/control_panel/create_teacher.php' ?>">
-                <button class="btn-create">+</button>
-            </a>
+            <h2>Teachers Inside Groups</h2><br>
         </div>
         <img src="../../sources/image/teacher_image_3d.png" >
     </div>

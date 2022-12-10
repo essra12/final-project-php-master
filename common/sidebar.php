@@ -33,7 +33,7 @@ if ($result->num_rows == 1) {
         <!--menu profile photo -->
         <div class="sidebar-avartar" style="margin-top:20px">
             <div>
-                <a href="<?php echo BASE_URL . '/UI/admin/edit admin.php' ?>"><img src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " alt=" " style="width: 70px; height:70px ;"></a>
+                <a href="<?php echo BASE_URL . '/UI/admin/admin profile.php' ?>"><img src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " alt=" " style="width: 70px; height:70px ;"></a>
             </div>
 
             <div class="avartar-info">

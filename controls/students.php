@@ -15,12 +15,12 @@ $conf_password="";
 
 
 
-/********************************Insert Student Data (signUp)********************************/
+/********************************Add Student  (signUp)********************************/
 if(isset($_POST['Add_student'])){
     $exisiting_teacher = selectOne($table2,['stu_id'=>$_POST['stu_id']]);
     if($exisiting_teacher)
     {
-        array_push($errors,"Student alredy exists");
+        array_push($errors,"This Student alredy exists");
     }
 
     
@@ -79,8 +79,8 @@ if(isset($_POST['Add_student'])){
         $conn->query($sql2); 
         $_SESSION['full_name'] = $full_name;
         $_SESSION['user_id']=$last_id;
-        $_SESSION['roie']='';
-
+        $_SESSION['role']='';
+        $_SESSION['password']=$password;
        
 
     /*When succes add*/
@@ -98,80 +98,88 @@ if(isset($_POST['Add_student'])){
     } 
 }
 
+/*****************************************************************************************************************************/
+/***********************************************Select All Student Inside Group***********************************************/
 
+function selectAllStudentInGroup(){ 
+    global $conn; 
+    if(isset($_GET['g_no'])){
+        $sql = "SELECT user.full_name,user.u_img,student.stu_id FROM user,student, student_group WHERE user.user_id=student.user_id AND student.stu_id=student_group.stu_id AND student_group.g_no ='$_GET[g_no]';";
+        $pre=$conn->prepare($sql);
+        $pre->execute();
+        $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $records;
+    }
 
- /********************************************Delete Student**********************************************/
- if(isset($_GET['deleteID']))
+    
+}
+/****************************************************************************************************************************/
+ /********************************************Delete Student from control panel**********************************************/
+/*  if(isset($_GET['deleteID']))
  {
    $deleteStudent=deleteStudent($_GET['deleteID']);
    $_SESSION['message']="Student deleted successfully";
    header('location: '.BASE_URL.'/UI/control_panel/student_control_panel.php');
    $conn->close();
    exit();
- } 
+ }  */
 
-
- /*********************************************   insert stdent group  in  Enrollment Requests page  ***************************************************************** */
- 
- 
-function selectStudentG(){ 
-
-    global $conn;
-   $sql="SELECT  user.full_name,user.u_img ,user.user_id , student_group.stu_id,student_group.stu_group ,file.p_no FROM `student_group`,user,student,file WHERE student_group.stu_id=student.stu_id and user.user_id=student.user_id;";
-  /*  $sql = "SELECT  user.full_name,user.u_img ,user.user_id , student_group.stu_id,student_group.stu_group FROM `student_group`,user,student WHERE student_group.stu_id=student.stu_id and user.user_id=student.user_id;";
-  */ 
-  $pre=$conn->prepare($sql);
-    $pre->execute();
-    $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
-    return $records;
-}
-
-
- /********************************************Delete Student in  Enrollment Requests page **********************************************/
-
-
- 
-/*
-function deleteStudentgroup2($id)
-{
-    global $conn;
-    $sql="  DELETE FROM `file` WHERE file.p_no=?;";
-    $st=executeQuery($sql,['p_no'=>$id]);
-    return $st->affected_rows;
-} 
-
- if(isset($_GET['deleteSTID2']))
+ if(isset($_GET['deleteID'])&& isset($_GET['deletestu_id']))
  {
-   $deleteStudent=deleteStudentgroup($_GET['deleteSTID2']);
-   $_SESSION['message']="Student deleted successfully";
-   header('location: '.BASE_URL.'/UI/teacher/Enrollment Requests.php');
-   $conn->close();
-   exit();
- } 
-  sql="  DELETE FROM `file`;";
-} 
-*/
+
+    $user_id_delete=$_GET['deleteID'];
+    $stu_id_delete=$_GET['deletestu_id'];
+
+    //to get g_no 
+    $array_g_no=array();
+    $select_g_no="SELECT DISTINCT  groups.g_no FROM groups,student_group,student WHERE student_group.g_no=groups.g_no AND student.stu_id=student_group.stu_id AND student.stu_id='$stu_id_delete';";
+    $result = $conn->query($select_g_no);
+    if($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+        $g_no=$row['g_no'];
+        array_push($array_g_no,$g_no);
+      }
+    }//
+
+    //to get p_no 
+    $array_p_no=array();
+    foreach($array_g_no as $g_no){
+        $group_number=$g_no;
+        $select_p_no="SELECT DISTINCT post.p_no FROM post,student_group,groups WHERE student_group.g_no=groups.g_no AND student_group.stu_group=post.stu_group AND groups.g_no='$group_number';";
+        $result = $conn->query($select_p_no);
+        if($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+              $p_no=$row['p_no'];
+              array_push($array_p_no,$p_no);
+            } 
+          }
+    }
+
+    /**delete from file table**/
+    if(count($array_p_no)>0){
+        for($i=0;$i<count($array_p_no);$i++){
+            //delete from file table by p_no
+            $deletefile_by_p_no=deleteFileBy_p_no($array_p_no[$i]);
+        }
+    }
+
+    /**delete from post table**/
+    for($i=0;$i<count($array_p_no);$i++){
+        //delete from post table by p_no
+        $deletepost_by_p_no=deletePostBy_p_no($array_p_no[$i]);
+    }
+
+    /**delete from post table**/
+    $deleteStudent=deleteStudentGroup($stu_id_delete);
 
 
+    /**delete from student/user tables**/
+    $deleteStudent=deleteStudentUser($user_id_delete);
 
-/**----------------------------------- delete sudent group -------------------------------- */
-function deleteStudentgroup($id,$id1)
-{
-    global $conn;
-    $sql="  DELETE FROM `file` WHERE file.p_no=?;";
-    $st=executeQuery($sql,['p_no'=>$id1]);
-    $sql1="DELETE FROM `post` WHERE post.stu_group=?;";
-    $st=executeQuery($sql1,['stu_group'=>$id]);
-    $sql2="DELETE FROM `student_group` WHERE student_group.stu_group=?";
-    $st=executeQuery($sql2,['stu_group'=>$id]);
-    return $st->affected_rows;
-} 
+    /*for successfully message */ 
+    $_SESSION['message']="Student deleted successfully";
+    header('location: '.BASE_URL.'/UI/control_panel/student_control_panel.php');
+    $conn->close();
+    exit();
 
- if(isset($_GET['deleteSTID'])&&isset($_GET['deleteSTID2']))
- {
-   $deleteStudent=deleteStudentgroup($_GET['deleteSTID'],$_GET['deleteSTID2']);
-   $_SESSION['message']="Student deleted successfully";
-   header('location: '.BASE_URL.'/UI/teacher/Enrollment Requests.php');
-   $conn->close();
-   exit();
- } 
+ }

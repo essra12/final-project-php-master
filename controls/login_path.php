@@ -15,8 +15,6 @@ if (isset($_POST['submit'])) {
       
       $fullname = trim(mysqli_real_escape_string($conn,$_POST['username']));
       $password = mysqli_real_escape_string($conn,$_POST['password']);
-    
-  
   // Ensuring that the user has not left any input field blank
   // error messages will be displayed for every blank input
 if (empty($fullname)) { array_push($errors, "Full name is required"); }
@@ -40,6 +38,7 @@ if (mysqli_num_rows($results) == 1)
     {
       $_SESSION['full_name'] = $fullname;
       $_SESSION['user_id'] =$row['user_id'];
+      $_SESSION['pass2']=$password;/** profile  تعديل !   ليتم رفع كلمة السر الي  */
       
       header('Location: UI/control_panel/groups_control_panel.php');
       $conn->close();
@@ -50,6 +49,7 @@ if (mysqli_num_rows($results) == 1)
       $_SESSION['full_name'] = $fullname;
       $_SESSION['user_id'] =$row['user_id'];
       $_SESSION['role']=$row['role'];
+      $_SESSION['passT']=$password;/** profile  تعديل !   ليتم رفع كلمة السر الي  */
       header('Location: UI/group/main page for group.php');
       $conn->close();
       exit();
@@ -58,6 +58,7 @@ if (mysqli_num_rows($results) == 1)
       $_SESSION['full_name'] = $fullname;
       $_SESSION['user_id'] =$row['user_id'];
       $_SESSION['role']=$row['role'];
+      $_SESSION['pass4']=$password;/** profile  تعديل !   ليتم رفع كلمة السر الي  */
       /* $_SESSION['u_img'] =$row['u_img']; */
       // page after logging in
       header('Location: UI/group/main page for group.php');

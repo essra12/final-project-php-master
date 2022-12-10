@@ -49,7 +49,6 @@ function selectAll($table,$condition=[])
     }
 }
 
-/* SELECT ONE RECORD */
 function selectOne($table,$condition) 
 {
     global $conn; 
@@ -68,7 +67,8 @@ function selectOne($table,$condition)
     $pre = executeQuery($sql,$condition);
     $records=$pre->get_result()->fetch_assoc();
     return $records;
-}
+}/* SELECT ONE RECORD */
+
 
 /* SELECT All Student Info FUNCTIONS */
 function selectAllStudentInfo(){ 
@@ -99,7 +99,6 @@ function selectAllteacher(){
 
     global $conn;
     $sql = "Select teacher.tr_id,user.user_id,user.full_name,user.u_img,teacher.tr_phone_no from teacher,user WHERE user.user_id=teacher.user_id;";
-    global $conn;
     $pre=$conn->prepare($sql);
     $pre->execute();
     $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -111,7 +110,6 @@ function selectAllGroupInfo(){
 
     global $conn; 
     $sql = "SELECT *,teacher.user_id,user.full_name FROM groups,user,teacher WHERE groups.tr_id=teacher.tr_id AND teacher.user_id=user.user_id;";
-    global $conn;
     $pre=$conn->prepare($sql);
     $pre->execute();
     $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -119,12 +117,11 @@ function selectAllGroupInfo(){
 }
 
 
-/* SELECT Groups Info FUNCTIONS */
+/* SELECT File Info FUNCTIONS */
 function selectAllFileInfo(){ 
 
     global $conn; 
     $sql = "SELECT file.*,post.title FROM `file`, `post` WHERE file.p_no=post.p_no;";
-    global $conn;
     $pre=$conn->prepare($sql);
     $pre->execute();
     $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -163,7 +160,7 @@ function deleteAdmin($table, $id)
  
 
 /* DELETE Student FUNCTION */
- function deleteStudent($id)
+ function deleteStudentUser($id)
 {
     global $conn;
     $sql1="DELETE FROM student WHERE user_id=?";
@@ -172,6 +169,14 @@ function deleteAdmin($table, $id)
     $st=executeQuery($sql2,['user_id'=>$id]);
     return $st->affected_rows;
 } 
+
+function deleteStudentGroup($id)
+{
+    global $conn;
+    $sql1="DELETE FROM student_group WHERE stu_id=?";
+    $st=executeQuery($sql1,['stu_id'=>$id]);
+    return $st->affected_rows;
+}
 
 /* DELETE Group FUNCTION */
 function deleteGroup($id)
@@ -183,20 +188,43 @@ function deleteGroup($id)
 }
 
 
-/*  function insertGroup(){
-    $sql="INSERT INTO `groups`(`g_no`, `tr_id`, `g_name`, `g_img`) VALUES (?,?,?,?);";
- } */
+
+/* DELETE File by f_no FUNCTION */
+function deleteFile($f_no)
+{
+    global $conn;
+    $sql="DELETE FROM file WHERE f_no=?";
+    $st=executeQuery($sql,['f_no'=>$f_no]);//وضع في مصفوفة لانه عنصر داخل مصفوفة
+    return $st->affected_rows; //اذا تحقق الحذف يجب ان يرجع قيمة اكبر من 0
+}
+
+/* DELETE from File by p_no FUNCTION */
+function deleteFileBy_p_no($p_no)
+{
+    global $conn;
+    $sql="DELETE FROM file WHERE p_no=?";
+    $st=executeQuery($sql,['p_no'=>$p_no]);//وضع في مصفوفة لانه عنصر داخل مصفوفة
+    return $st->affected_rows; //اذا تحقق الحذف يجب ان يرجع قيمة اكبر من 0
+}
+
+/* DELETE from post by p_no FUNCTION */
+function deletePostBy_p_no($p_no)
+{
+    global $conn;
+    $sql="DELETE FROM post WHERE p_no=?";
+    $st=executeQuery($sql,['p_no'=>$p_no]);//وضع في مصفوفة لانه عنصر داخل مصفوفة
+    return $st->affected_rows; //اذا تحقق الحذف يجب ان يرجع قيمة اكبر من 0
+}
+
+/* DELETE from Student_group by g_no FUNCTION */
+function deleteStudent_group($g_no)
+{
+    global $conn;
+    $sql="DELETE FROM student_group WHERE g_no=?";
+    $st=executeQuery($sql,['g_no'=>$g_no]);//وضع في مصفوفة لانه عنصر داخل مصفوفة
+    return $st->affected_rows; //اذا تحقق الحذف يجب ان يرجع قيمة اكبر من 0
+}
 
 
 
-
-
-
-
-
-
-
- 
-
-
- /**  -------------------------------  -------------------------------------------------------      ------------------ -------------------     */
+ /*--------------------------------------------------------------------------------------*/

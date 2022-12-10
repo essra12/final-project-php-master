@@ -22,7 +22,7 @@ $groups=selectAllGroupInfo();
 <body  class="b-white">
 
 <!-- menu -->
-<?php include(MAIN_PATH."/common/sidebar.php"); ?> 
+<?php include(MAIN_PATH."/common/sidebar.php");  ?> 
 <!-------------------->
 
 <!-- header card -->
@@ -48,7 +48,7 @@ $groups=selectAllGroupInfo();
             <a href="<?php echo BASE_URL . '/UI/control_panel/create_group.php' ?>">
                 <button class="btn-create">+</button>
             </a>
-            <h4 style="margin-top: 20px;"><a href="<?php echo BASE_URL . '/UI/control_panel/teacher_with_group_control_panel.php' ?>" style="color: #222242 ;" class="show_tr_g">click here Show all teachers with their groups</a></h4>
+            <h4 style="margin-top: 20px;"><a href="<?php echo BASE_URL . '/UI/control_panel/teacher_with_group_control_panel.php' ?>" style="color: #222242 ;" class="show_tr_g">Show all teachers with their groups</a></h4>
         </div>
         <img  src="../../sources/image/groups_image_3d.png" >
     </div>
@@ -77,7 +77,7 @@ $groups=selectAllGroupInfo();
             
 
                 <div class="group-card">
-                <a href="">
+                <a href="students_in_group_control_panel.php?g_no=<?= $group['g_no']?>">
                     <div class="group-card-info">
                         <h3><?php echo $group['g_name'] ?></h3>
                         <p>Group ID:<?php echo $group['g_no'] ?></p>

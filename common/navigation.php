@@ -11,7 +11,7 @@ include(MAIN_PATH. "/database/connection.php");
 
         <!--students-->
         <?php if ($_SESSION['role']=="teacher"):?> 
-            <li><a href="<?php echo BASE_URL . '/UI/teacher/Enrollment Requests.php' ?>"><i class="las la-user-friends"></i>&nbsp;&nbsp;Students</a></li>
+            <li><a href="<?php echo BASE_URL . '/UI/teacher/Enrollment__Requests.php' ?>"><i class="las la-user-friends"></i>&nbsp;&nbsp;Students</a></li>
         <?php endif; ?>  
         <!------------>
 
