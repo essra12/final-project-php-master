@@ -279,3 +279,97 @@ button[type="submit"]:hover {
     }
 
 }
+/**********************************************************************/
+/********************:) **********************************************/
+/**file list for download page ***/
+
+.row {
+    border-collapse: separate;
+    margin: 0;
+    padding: 0;
+    table-layout: auto;
+    width: 100%;
+    font-size: 14px;
+    border-radius: 10px;
+    table-layout: fixed;
+    border-spacing: 0 10px;
+    display: flex;
+    justify-content: center;   
+    }
+.row tr {
+    padding: .2em;
+    margin-bottom: 10px;
+    box-shadow: var(--shadow1);
+    font-weight: 500;
+    margin-bottom: 1em;
+    padding: 1.1em 1em;
+    border-radius: 0.3em;
+    display: flex;
+    background-color: #fff;
+    justify-content: space-between;
+    
+}
+
+.row th,td {
+    padding: 1em 2em;
+    text-align: left;
+    width: 1%;
+    white-space: nowrap;
+ }
+.row  i{
+    color: var(--vdarkblue);
+    font-size: 30px;
+    margin-right: 30px;
+}
+
+#file {
+    width: 60%;
+    white-space: nowrap;
+}
+#icon1:hover {
+    color: #A4D2F0;
+}
+#icon2:hover {
+    color: #D92A2A;
+}
+
+
+@media(max-width: 884px){
+	
+    .row{
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        
+    }
+
+	.row, .row tbody, .row tr, .row td{
+		display: block;
+		width: 100%;
+       
+	}
+	.row tr{
+        display: block;	
+		margin-bottom:15px;
+   	}
+	.row td{
+		
+		text-align: center;
+		position: relative;
+	}
+    #icon3,#icon2,#icon1{
+        font-size: 2.5em;
+    }
+ 
+	
+}
+/**********************************************************************/
+/********************:)the end ***************************************/
+
+   
+
+
+
+
+

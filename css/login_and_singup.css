@@ -68,10 +68,11 @@ button {
   }
 
 .imagelogo{
-height: 11.0em;
-width: auto;
+height: auto;
+width: 20em;;
 position: absolute;
-left: 14%;   
+left: 14%;  
+top: 15%; 
 }
 
 /****************************************/ 

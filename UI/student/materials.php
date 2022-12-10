@@ -1,8 +1,9 @@
 <?php 
 include("../../path.php"); 
 include(MAIN_PATH."/controls/materials_and_Assignments.php");
-$table="files";
-$files=selectAll($table);
+$table="post";
+$group_no=$_SESSION['g_no'];
+$files=selectAll($table,['g_no'=>$_SESSION['g_no']]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +14,12 @@ $files=selectAll($table);
      <link rel="stylesheet" href="../../css/materials.css"> 
       <!--icon8-->
       <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <title>Materials</title>
+      <title>Materials</title>
+    <style>
+     a:link, a:visited{
+      text-decoration: none; 
+      color:#000}
+    </style>
     
 </head>
 <body>
@@ -45,7 +51,12 @@ $files=selectAll($table);
             <h3 class="card__title"><?php echo $file['title'] ?></h3>            
           </div>
         </div>
-        <p class="card__description" onclick="openFunction()">Click  to Download</p>
+        
+        <?php $_SESSION['p_no']=$file['p_no']?>
+        <a  href="../student/download.php?>" >
+        <p class="card__description">Click  to Download</p>
+        </a>
+       <!--  <a href="download.php?delete=<?php echo $file['p_no'];?>" ><i id="icon2" class="fa-solid fa-xmark"></i></a></td> -->
       </div>
   </div>  
     <?php endforeach; ?>    
@@ -53,11 +64,7 @@ $files=selectAll($table);
  </div>
 </main>
 
-<script>
-function openFunction() {
-  window.open("http://localhost/final-project-php-master/UI/student/download.php", "anotherWindow", "scrollbars=yes,top=200,left=400,width=600,height=400,status=no,menubar=no");
-}
-</script>
+
  
 </body>
 </html>

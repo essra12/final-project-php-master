@@ -18,7 +18,7 @@ $role=$_SESSION['role'];
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     
     <style>
-        body{background-color: #a4d2f096;}
+     
         .header-div{background-color: #fff;}
 
         .dropdown{
@@ -96,16 +96,16 @@ $role=$_SESSION['role'];
        <div class="carousel">
 
 	   <a href="<?php echo BASE_URL . '/UI/student/materials.php' ?>">
-		<img id="img1" onmouseover="setNewImage1(this)" onmouseout="setOldImage()" src="../../sources/image/4.jpg" alt="img" draggable="false">
+		<img id="img1" onmouseover="setNewImage1(this)" onmouseout="setOldImage()" src="../../sources/image/m1Dark.png" alt="img" draggable="false">
         </a>
     	<a href="<?php echo BASE_URL . '/UI/student/Assignments for student.php' ?>">
-		<img id="img2" onmouseover="setNewImage2(this)" onmouseout="setOldImage()" src="../../sources/image/2.jpg" alt="img" draggable="false">
+		<img id="img2" onmouseover="setNewImage2(this)" onmouseout="setOldImage()" src="../../sources/image/A2Dark.png" alt="img" draggable="false">
         </a>
 		<a href="<?php echo BASE_URL . '/UI/student/add asignment.php' ?>">
-		<img id="img3" onmouseover="setNewImage3(this)" onmouseout="setOldImage()" src="../../sources/image/3.jpg" alt="img" draggable="false">
+		<img id="img3" onmouseover="setNewImage3(this)" onmouseout="setOldImage()" src="../../sources/image/N3Dark.png" alt="img" draggable="false">
         </a>
 		<a href="<?php echo BASE_URL . '/UI/student/add asignment.php' ?>">
-		<img id="img4" onmouseover="setNewImage4(this)" onmouseout="setOldImage()" src="../../sources/image/5.jpg" alt="img" draggable="false">
+		<img id="img4" onmouseover="setNewImage4(this)" onmouseout="setOldImage()" src="../../sources/image/E4Dark.png" alt="img" draggable="false">
         </a>
              
       </div>
@@ -182,16 +182,16 @@ carousel.addEventListener("touchmove", dragging);
 document.addEventListener("mouseup", dragStop);
 carousel.addEventListener("touchend", dragStop);
  //-------------------------------------------------------------------------------
- function setNewImage1(){  document.getElementById("img1").src="../../sources/image/img4.png";} 
- function setNewImage2(){document.getElementById("img2").src="../../sources/image/img2.png";}
- function setNewImage3(){document.getElementById("img3").src="../../sources/image/img3.png";}
- function setNewImage4(){document.getElementById("img4").src="../../sources/image/img5.png";}
+ function setNewImage1(){  document.getElementById("img1").src="../../sources/image/M1light.png";} 
+ function setNewImage2(){document.getElementById("img2").src="../../sources/image/A2light.png";}
+ function setNewImage3(){document.getElementById("img3").src="../../sources/image/N3light.png";}
+ function setNewImage4(){document.getElementById("img4").src="../../sources/image/E4light.png";}
 
  function setOldImage(){
-    document.getElementById("img1").src="../../sources/image/4.jpg";
-    document.getElementById("img2").src="../../sources/image/2.jpg";
-    document.getElementById("img3").src="../../sources/image/3.jpg";
-    document.getElementById("img4").src="../../sources/image/5.jpg";
+    document.getElementById("img1").src="../../sources/image/m1Dark.png";
+    document.getElementById("img2").src="../../sources/image/A2Dark.png";
+    document.getElementById("img3").src="../../sources/image/N3Dark.png";
+    document.getElementById("img4").src="../../sources/image/E4Dark.png";
  }
     </script>
       
