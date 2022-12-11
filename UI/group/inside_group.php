@@ -4,7 +4,8 @@ include(MAIN_PATH."/controls/inside_group.php");
 /////////////////////
 $user_id=$_SESSION['user_id'];
 $role=$_SESSION['role'];
-$group_no=$_SESSION['g_no'];
+$groupNumber=$_SESSION['g_no'];
+
 
 
 ////////////////////
