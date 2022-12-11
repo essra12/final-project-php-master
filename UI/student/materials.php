@@ -66,7 +66,9 @@ $files=selectAll($table,['g_no'=>$_SESSION['g_no']]);
           <div class="card__header-text">
           <h3 class="card__title child"><?php echo $file['title'] ?></h3>
           
+          <?php if($role=="teacher"):?>
           <a class="child" href="materials.php?deletePost=<?php echo $file['p_no'];?>" onclick="return confirmDelete()"><i id="icon2" class="fa-solid fa-xmark"></i></a>
+          <?php endif;?>
           </div>
         </div>
       
