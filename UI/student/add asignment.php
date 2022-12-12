@@ -4,6 +4,14 @@ include(MAIN_PATH."/controls/add_material_and_assignment.php");
 
 $user_id=$_SESSION['user_id'];
 
+$sql="SELECT stu_id FROM user,student Where user.user_id=student.user_id AND user.user_id='$user_id';";
+$result = $conn->query($sql);
+if ($result->num_rows == 1) {
+    while($row = $result->fetch_assoc()) {
+      $stu_id=$row["stu_id"];
+    }
+}
+
 ?>
 <html>
     <head>
@@ -61,17 +69,10 @@ $user_id=$_SESSION['user_id'];
 
         <form action="" method="POST" enctype='multipart/form-data' onsubmit="return check_Enter(this)">
             
-          <!-- name field -->
-          <div class="inputs name">
-            <label style="color: #222242;">Student Name</label>
-            <input type="text" name="full_name" maxlength="25" disabled="disabled" style=" border: none;" value=<?php echo $_SESSION['full_name']?> >
-          </div>
-          <!------------------>
-
           <!-- Id field -->
           <div class="inputs id">
             <label style="color: #222242;">Student ID</label>
-            <input type="text" name="stu_id" maxlength="11" disabled="disabled" style=" border: none;" value=<?php echo $user_id?>>
+            <input type="text" name="stu_id" maxlength="11" disabled="disabled" style=" border: none;" value=<?php echo $stu_id?>>
           </div>
           <!------------------>
 

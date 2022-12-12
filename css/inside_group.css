@@ -183,6 +183,11 @@ main{
   main{
     padding: 0 25px;
   }
+  h1{
+    font-size: 3.5em;
+   
+    }
+    
  
 }
 @media screen and (max-width: 550px) {

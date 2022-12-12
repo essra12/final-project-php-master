@@ -79,7 +79,7 @@ if(isset($_POST['Add_student'])){
         $conn->query($sql2); 
         $_SESSION['full_name'] = $full_name;
         $_SESSION['user_id']=$last_id;
-        $_SESSION['roie']='';
+        $_SESSION['role']='';
         $_SESSION['password']=$password;
        
 

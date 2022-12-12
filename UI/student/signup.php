@@ -50,7 +50,7 @@ include(MAIN_PATH."/controls/students.php");
         <button type="submit" name="Add_student">Signup</button>
     </form>
     <div class="additional-action">
-        <a href="<?php echo BASE_URL . '/login.php' ?>" style="text-decoration: none;"><p><b><u>Login</u></b></p></a>
+        <a href="<?php echo BASE_URL . '/login.php' ?>" style="text-decoration: none; color:#222242;"><p><b><u>Login</u></b></p></a>
     </div>
 </div>
 <form>

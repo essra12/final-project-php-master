@@ -133,8 +133,8 @@ if ($result->num_rows == 1) {
          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
          
          <div class="card__header-text">
-           <a href="inside_group.php?data=<?= $Info['g_name']?>&number=<?= $Info['g_no']?>"  style=" color:#000;
-         text-decoration:none;"><h3 class="card__title"><?php echo $Info['g_name'] ?></h3> </a>        
+         <?php $_SESSION['g_no']=$Info['g_no']?>
+           <a href="inside_group.php?data=<?= $Info['g_name']?>&number=<?= $Info['g_no']?>"  style=" color:#000; text-decoration:none;"><h3 class="card__title"><?php echo $Info['g_name'] ?></h3> </a>        
          </div>
        </div>
      </div>
