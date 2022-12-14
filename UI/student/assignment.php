@@ -57,21 +57,19 @@ include(MAIN_PATH."/controls/materials_and_Assignments.php");
                 </div>
               <?php endif; ?>
     
-   <?php //foreach($files as $key => $group):  ?>
+   <?php foreach($files as $key => $group):  ?>
      
     <div class="div-card">
       <div class="div-dawenload ">
        <label style="font-weight: bold;">hello</label>
-       <a> <i id="files" class="fa-sharp fa-solid fa-file-arrow-down" style="margin-left: 70%;"></i> </a>
-       </div>
-                                        
+                             
          <div class="div-files">
-          <a>  <i id="files" class="fa-solid fa-file"></i></a>
+          <a> <i  id="files" class="fa-solid fa-file-lines" id="icon3"></i></a>
            <label class="ld" ></label>
            </div>
          </div>                                             
-                                          
-   <?php  // endforeach;   ?> 
+         <i id="files" class="fa fa-download"></i>                           
+   <?php   endforeach;   ?> 
  
 </main>
 

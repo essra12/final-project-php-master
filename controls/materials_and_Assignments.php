@@ -2,6 +2,7 @@
 include(MAIN_PATH. "/database/db.php");
 /* $newFilePath = MAIN_PATH. "/sources/files/"; */
 
+
 global $conn;
 $role=$_SESSION['role'];
 $post_no=$_SESSION['p_no'];

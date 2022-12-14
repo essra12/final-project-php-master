@@ -1,6 +1,7 @@
 <?php 
 include("../../path.php"); 
-include(MAIN_PATH."/controls/materials_and_Assignments.php");
+include(MAIN_PATH. "/database/db.php");
+$role=$_SESSION['role'];
 $table="post";
 $group_no=$_SESSION['g_no'];
 $files=selectAll($table,['g_no'=>$_SESSION['g_no']]);
