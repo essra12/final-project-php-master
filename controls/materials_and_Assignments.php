@@ -5,7 +5,8 @@ include(MAIN_PATH. "/database/db.php");
 
 global $conn;
 $role=$_SESSION['role'];
-$post_no=$_SESSION['p_no'];
+/* $post_no=$_SESSION['p_no']; */
+$post_no=$_GET['post_no'];
 $query="SELECT * FROM post,file WHERE post.p_no=file.p_no AND post.p_no='".$post_no."'";
 $result = $conn->query($query);
 if ($result->num_rows > 0) {
@@ -46,6 +47,8 @@ if(isset($_GET['file']))
       }    
 
  }
+ /********************************************************************************/
+/**********************delete  section for teacher*********************************/
  if(isset($_GET['delete']))
  {
     global $conn;
@@ -75,7 +78,8 @@ if(isset($_GET['file']))
         }  
        
  } 
-
+/********************************************************************************/
+/**********************delete post section for teacher*****************************/
  if(isset($_GET['deletePost'])){
 
   {
@@ -87,6 +91,10 @@ if(isset($_GET['file']))
   
   } 
  }
+
+ /********************************************************************************/
+/*****************************Assignments****************************************/
+ /********************************************************************************/
 
         
         

@@ -1,6 +1,7 @@
 <?php 
 include("../../path.php"); 
-include(MAIN_PATH."/controls/materials_and_Assignments.php");
+include(MAIN_PATH."/controls/assigment__.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,29 +9,12 @@ include(MAIN_PATH."/controls/materials_and_Assignments.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-     <link rel="stylesheet" href="../../css/assignments-student.css"> 
-      <!--icon8-->
-      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-        <!--file icon-->
-        <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+     <link rel="stylesheet" href="../../css/materials.css"> 
       <title>Assignments</title>
     <style>
      a:link, a:visited{
       text-decoration: none; 
       color:#000}
-      .ld{
-    margin-left: 3%;
-}
-
-.div-files{
-    height: auto;
-    padding: 2%;
-    margin-top: 5%;
-}
-.div-card{
-  background-color: #A4D2F0;;
-}
     </style>
     
 </head>
@@ -38,51 +22,45 @@ include(MAIN_PATH."/controls/materials_and_Assignments.php");
  <!--------------------navigation_bar ----------------------->  
  <?php include(MAIN_PATH."/common/navigation.php"); ?> 
  <!---------------------------------------------------------->
-  <!-------------------- Assignments -------------------------> 
+  <!-------------------- materials -------------------------> 
 
 <div class="header-div">
-                 
-           <h1>Assignments </h1>
+ <h1>Assignments</h1>
  </div>
  <!-----------------Dynamically Create Card-----------------> 
  <main>
-    <!-- For Succes -->
-    <?php if (isset($_SESSION['message'])): ?>
-                <div class="msg success" style="color: #5a9d48; margin-Top: 2em; margin-left:7em;">
-                    <li style="list-style-type: none;"><i class="las la-check-circle" style="color: #5a9d48 ;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;<?php echo $_SESSION['message']; ?></li>
-                    <?php
-                    /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */
-                    unset($_SESSION['message']);
-                    ?>
-                </div>
-              <?php endif; ?>
-    
-   <?php foreach($files as $key => $group):  ?>
-     
-    <div class="div-card">
-      <div class="div-dawenload ">
-       <label style="font-weight: bold;">hello</label>
-                             
-         <div class="div-files">
-          <a> <i  id="files" class="fa-solid fa-file-lines" id="icon3"></i></a>
-           <label class="ld" ></label>
-           </div>
-         </div>                                             
-         <i id="files" class="fa fa-download"></i>                           
-   <?php   endforeach;   ?> 
- 
+   
+ <div class="container">
+   
+  <div class="cards">
+  <?php $files=infoforstudent();?>
+  <?php foreach($files as $key => $file):?>
+    <div class="card">
+    <?php $datetime=strtotime($file['Datatime'])?>
+        <h6 class="card__time"><?php echo  date("d-m-Y h:i",$datetime)?></h6>
+      
+        <img src="../../sources/image/create_add_photo.png" class="card__image" alt="" />
+       <div class="card__overlay">
+       <div class="card__header">
+            
+          
+          <div class="card__header-text">
+          <h3 class="card__title child"><?php echo $file['title'] ?></h3>
+          </div>
+        </div>
+      
+        <?php $_SESSION['p_no']=$file['p_no'];?>
+          <a  href="../student/download_assignment.php?post_no=<?= $file['p_no']?>" >
+        <p class="card__description">Click  to Check the Assignment</p>
+        </a>
+           <!--  -->
+      </div>
+  </div>  
+    <?php endforeach; ?>    
+   </div>
+   
+ </div>
 </main>
-
-<script>
-    function confirmDelete() {
-    if (confirm("Are you sure you want to delete ?")) {
-        return true;
-    } 
-    else {
-        return false;
-    }
-}
-  </script>
  
 </body>
 </html>

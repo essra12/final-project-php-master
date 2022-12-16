@@ -72,9 +72,8 @@ $files=selectAll($table,['g_no'=>$_SESSION['g_no']]);
           <?php endif;?>
           </div>
         </div>
-      
         <?php $_SESSION['p_no']=$file['p_no']?>
-        <a  href="../student/download.php" >
+        <a  href="../student/download.php?post_no=<?= $file['p_no']?>" >
         <p class="card__description">Click  to Download</p>
         </a>
            <!--  -->
