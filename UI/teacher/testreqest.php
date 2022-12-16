@@ -12,6 +12,11 @@ echo $groupNO;
         <meta charset="UTF-8">
         <link rel="stylesheet" href="../../css/Enrollment__Requsertts.css">
         <script src="https://kit.fontawesome.com/e1ca29be31.js" crossorigin="anonymous"></script>
+         <!--icon8-->
+     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+     <!-- Font Awesome Icons -->
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+     <!--icons-->
     </head>
 <style>
   h1{

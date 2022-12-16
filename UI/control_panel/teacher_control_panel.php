@@ -102,7 +102,7 @@ $teachers=selectAllteacher();
        /*******************for delet confirm***********************/
 
    function confirmDelete() {
-        if (confirm("Are you sure you want to delete teacher?/nif it belongs to a group, delete it causes its group to be deleted !!!")) {
+        if (confirm("Are you sure you want to delete teacher?\ndelete it causes its group to be deleted !!!")) {
             return true;
         } 
         else {

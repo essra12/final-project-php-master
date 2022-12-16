@@ -14,63 +14,87 @@ $img1=$_SESSION['img1'];/** profile admin  صورة تم احضارها من */
     <!--using th same login and signup css page with addtional-->
     <link rel="stylesheet" href="../../CSS/login_and_singup.css"/>
     <link rel="stylesheet" href="../../CSS/editing.css"/>
+    <!--icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <title>Edit Profile</title>
-   <html>
-    <style> 
-      form .form-field-signup:nth-child(3)::before {
+
+<style> 
+    form .form-field-signup:nth-child(3)::before {
     background-image: url(https://img.icons8.com/material-outlined/512/lock.png);
     width: 24px;
     height: 24px;
     top:0.4em;
     left: 6%;
-    }
-    form .form-field-signup:nth-child(2)::before {
+}
+form .form-field-signup:nth-child(2)::before {
     background-image: url(https://img.icons8.com/small/512/user.png);
     width: 24px;
     height: 24px;
     top:0.4em;
     left: 6%;
-    }
-    </style>
-<body >
+}
 
-  <div class="login-container">
-      <p class="signup_text"><b>Edit Admin</p>
+/* for show password */
+.form-field-signup.pass input::placeholder{
+    font-size: 17px;
+}
+.form-field-signup.pass span{
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #222242;
+    cursor: pointer;
+    display: none;
+}
+.form-field-signup.pass input:valid ~ span{
+    display: block;
+}
+.form-field-signup.pass span i.hide-btn::before{
+    content: "\f070";
+}
+</style>
+<body>
+    <div class="login-container">
+    <p class="signup_text"><b>Edit Admin</p>
     <form class="login-form"  method="POST" name="signup_form" enctype="multipart/form-data"  onsubmit="return check_Enter(this)">
 
-  <!-- For circular image -->
-  
-  <div class="profile-pic-div"  >
-             <?php echo"  <img src='../../sources/image/$img1' id='photo' height='120' width='120' > ' "?>
-                <input type="file" id="file" name="u_img">
-                <label for="file" id="uploadBtn">Choose Photo</label> 
-  </div>
-            <!-- inputs  --> 
-            <div class="form-field-signup">
+    <!-- For circular image -->
+    <div class="profile-pic-div"  >
+        <?php echo"  <img src='../../sources/image/$img1' id='photo' height='120' width='120' > ' "?>
+        <input type="file" id="file" name="u_img">
+        <label for="file" id="uploadBtn">Choose Photo</label> 
+    </div>
+
+    <!-- inputs  --> 
+    <div class="form-field-signup">
         <input id="name" name="name" type="text"  placeholder="Full_name"  value="<?php echo $name ?>"  maxlength="25" />
-       </div>
-          
-          <div class="form-field-signup">
-            <input id="pass" name="pass" type="password" placeholder="Password"  value="<?php echo $pass ?>" maxlength="25" />  
-         </div>
-         <div class="form-field-signup">
-          <input id="cof-pass" name="cof-pass" type="password" placeholder="Confrim Password" value="<?php echo $pass ?>" maxlength="25"/>  
-         </div> 
-         
-         <div class="error" style="color: red; margin-left:20px;" > 
-                   <?php echo $error ?>
-                </div>
+    </div>
+            
+    <div class="form-field-signup pass">
+        <input id="pass" name="pass" type="password" placeholder="Password"  value="<?php echo $pass ?>" maxlength="25" /> 
+        <span class="show-btn"><i id="show-btn" class="fas fa-eye"></i></span>  
+    </div>
+
+    <div class="form-field-signup pass">
+        <input id="conf_pass" name="cof-pass" type="password" placeholder="Confrim Password" value="<?php echo $pass ?>" maxlength="25"/>  
+        <span class="show-btn_conf"><i id="show-btn_conf" class="fas fa-eye conf_pass"></i></span>   
+    </div> 
+            
+    <div class="error" style="color: red; margin-left:20px;" > 
+        <?php echo $error ?>
+    </div>
                 
-        <button type="submit" name="bts" onclick="" > Save</button>
+    <button type="submit" name="bts" onclick="" > Save</button>
     </form>
     </div>
 
-
-
 <!-- check enter -->
 
-  <!--   ********************************************* circular image *********************************    -->
+ 
   <script>
+    /************************************ circular image *********************************/
     const imgDiv = document.querySelector('.profile-pic-div');
     const img = document.querySelector('#photo');
     const file = document.querySelector('#file');
@@ -88,10 +112,6 @@ $img1=$_SESSION['img1'];/** profile admin  صورة تم احضارها من */
         uploadBtn.style.display = "none";
     });
 
-    //lets work for image showing functionality when we choose an image to upload
-
-    //when we choose a foto to upload
-
     file.addEventListener('change', function(){
         //this refers to file
         const choosedFile = this.files[0];
@@ -108,7 +128,7 @@ $img1=$_SESSION['img1'];/** profile admin  صورة تم احضارها من */
         }
     });
 
-    
+/**************************check for entres*******************************/
     function check_Enter(){
     const full_name = document.getElementById("name").value;
     const pass = document.getElementById("pass").value;
@@ -138,8 +158,32 @@ $img1=$_SESSION['img1'];/** profile admin  صورة تم احضارها من */
         return false;
     }
     }
+/*****************************for show password********************************/
+    const passField = document.getElementById("pass");
+    const showBtn = document.getElementById("show-btn");
+    showBtn.onclick = (()=>{
+    if(passField.type === "password"){
+        passField.type = "text";
+        showBtn.classList.add("hide-btn");
+    }else{
+        passField.type = "password";
+        showBtn.classList.remove("hide-btn");
+    }
+    });
+/***************************for show confirm password*************************/
+    const confPassField = document.getElementById("conf_pass");
+    const showBtn_conf = document.getElementById("show-btn_conf");
+    showBtn_conf.onclick = (()=>{
+        if(confPassField.type === "password"){
+        confPassField.type = "text";
+        showBtn_conf.classList.add("hide-btn");
+        }else{
+        confPassField.type = "password";
+        showBtn_conf.classList.remove("hide-btn");
+        }
+    });
 
-</script>
+  </script>
 </body>
 </html>
 </head>

@@ -13,6 +13,8 @@ include("../../controls/Edit-TeacherPH.php");
     <!--using th same login and signup css page with addtional-->
     <link rel="stylesheet" href="../../CSS/login_and_singup.css"/>
     <link rel="stylesheet" href="../../CSS/editing.css"/>
+    <!--icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <title>Edit Profile</title>
    <html>
 
@@ -31,6 +33,26 @@ include("../../controls/Edit-TeacherPH.php");
     height: 24px;
     top:0.4em;
     left: 6%;
+    }
+     /* for show password */
+     .form-field-signup.pass input::placeholder{
+        font-size: 17px;
+    }
+    .form-field-signup.pass span{
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+        color: #222242;
+        cursor: pointer;
+        display: none;
+    }
+    .form-field-signup.pass input:valid ~ span{
+        display: block;
+    }
+    .form-field-signup.pass span i.hide-btn::before{
+        content: "\f070";
     }
 </style>
   <div class="login-container">
@@ -52,11 +74,13 @@ include("../../controls/Edit-TeacherPH.php");
         <input  id="phone" name="phone" type="text"  placeholder="Phone" onkeypress="return onlyNumberKey(event)"  value="<?php  echo $phon  ?> "  maxlength="10" />
        </div>
           
-          <div class="form-field-signup">
+          <div class="form-field-signup pass">
             <input id="pass" name="pass" type="password" placeholder="Password"  value="<?php  echo $pass  ?>"  maxlength="25" />  
+            <span class="show-btn"><i id="show-btn" class="fas fa-eye"></i></span> 
          </div>
-         <div class="form-field-signup">
-          <input id="cof-pass" name="cof-pass" type="password" placeholder="Confrim Password" value="<?php  echo $pass  ?>" maxlength="25"/>  
+         <div class="form-field-signup pass">
+          <input id="conf_pass" name="cof-pass" type="password" placeholder="Confrim Password" value="<?php  echo $pass  ?>" maxlength="25"/>  
+          <span class="show-btn_conf"><i id="show-btn_conf" class="fas fa-eye conf_pass"></i></span>   
          </div> 
          
          <div class="error" style="color: red; margin-left:20px;" > 
@@ -167,6 +191,31 @@ include("../../controls/Edit-TeacherPH.php");
   }
   return true;
 }
+
+/*****************************for show password********************************/
+const passField = document.getElementById("pass");
+    const showBtn = document.getElementById("show-btn");
+    showBtn.onclick = (()=>{
+    if(passField.type === "password"){
+        passField.type = "text";
+        showBtn.classList.add("hide-btn");
+    }else{
+        passField.type = "password";
+        showBtn.classList.remove("hide-btn");
+    }
+    });
+/***************************for show confirm password*************************/
+    const confPassField = document.getElementById("conf_pass");
+    const showBtn_conf = document.getElementById("show-btn_conf");
+    showBtn_conf.onclick = (()=>{
+        if(confPassField.type === "password"){
+        confPassField.type = "text";
+        showBtn_conf.classList.add("hide-btn");
+        }else{
+        confPassField.type = "password";
+        showBtn_conf.classList.remove("hide-btn");
+        }
+    });
 
 </script>
 

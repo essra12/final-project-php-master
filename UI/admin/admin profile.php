@@ -67,7 +67,7 @@ width: 50%;
 
 
                    /* <echo"<input  class='l33' type='text' value='$name'/>   ";*/
-                        echo"<lable  class='l3'>.$name.</lable>  ";
+                        echo"<lable  class='l3'>$name</lable>";
                         
                         
 
