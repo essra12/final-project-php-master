@@ -35,7 +35,23 @@ width: 50%;
     .l33{
 width: 50%;
     }}
-  
+    #img44{
+    width: 7%;
+    height: 7%;
+    position: absolute;
+    left: 28%;
+    top: 29%;
+    font-size: 25px;
+}
+#img33{
+    position: absolute;
+    left: 28%;
+    top: 42%;
+}
+.l3{
+margin-left: 5%;
+margin-top: 5%;
+}
 </style>
     <html>
         <body>
@@ -57,17 +73,20 @@ width: 50%;
             <div class="div-data"> 
                 <form method="get" action="edit profile.php">
                 <i id="img33"  style="font-size: 35px;" class="las la-user"></i>
+                <i id="img44"  style="font-size: 35px;" class="las la-id-card"></i>
+
              <?php
 
                         global $conn;
-                      $sqln="  SELECT  `full_name` FROM `user` WHERE `role`='admin'and user.user_id='".$id."';";
+                      $sqln="  SELECT  `full_name`,user.user_id FROM `user` WHERE `role`='admin'and user.user_id='".$id."';";
                         $result= mysqli_query($conn,$sqln);
                         $row =mysqli_fetch_row($result);
                         $name=$row[0];
+                        $ida=$row[1];
 
 
                    /* <echo"<input  class='l33' type='text' value='$name'/>   ";*/
-                        echo"<lable  class='l3'>.$name.</lable>  ";
+                        echo"<lable  class='l3'>.$name.</lable>.<lable  class='l1'>.$ida.</lable>   ";
                         
                         
 

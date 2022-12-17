@@ -32,6 +32,21 @@ include("../../controls/Edit-TeacherPH.php");
     top:0.4em;
     left: 6%;
     }
+     .btcansel {
+    text-align      : center;
+    text-transform  : uppercase;
+    font-size       : 14px;
+    background-color: #222242;
+    color: #fff;
+    cursor          : pointer;
+    transition      : background-color 0.3s;
+}
+
+.btcansel:hover {
+   color: #000000;
+   font-weight: bold;
+   background-color: #fff;
+}
 </style>
   <div class="login-container">
       <p class="signup_text"><b>Edit Teacher</p>
@@ -73,6 +88,8 @@ include("../../controls/Edit-TeacherPH.php");
             <?php endif; ?> 
             <!----------------->
         <button type="submit" name="bts"  onclick=""> Save</button>
+        <a href="../group/main page for group.php">   <button style="margin-top: 3%;" class="btcansel" type="button" > Cansel</button></a>
+
     </form>
     </div>
 

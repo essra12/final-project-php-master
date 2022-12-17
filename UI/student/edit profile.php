@@ -13,6 +13,23 @@ include("../../controls/edit-studentC.php");
     <link rel="stylesheet" href="../../CSS/editing.css"/>
     <title>Edit Profile</title>
    <html>
+    <style> 
+     .btcansel {
+    text-align      : center;
+    text-transform  : uppercase;
+    font-size       : 14px;
+    background-color: #222242;
+    color: #fff;
+    cursor          : pointer;
+    transition      : background-color 0.3s;
+}
+
+.btcansel:hover {
+   color: #000000;
+   font-weight: bold;
+   background-color: #fff;
+}
+    </style>
 <body >
 
   <div class="login-container">
@@ -60,7 +77,11 @@ include("../../controls/edit-studentC.php");
             <!----------------->
             
         <button type="submit" name="bts" onclick=""> Save</button>
+        <a href="../group/main page for group.php">   <button style="margin-top: 3%;" class="btcansel" type="button" > Cansel</button></a>
+
+
     </form>
+
     </div>
 
 

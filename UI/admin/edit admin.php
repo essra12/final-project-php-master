@@ -31,6 +31,22 @@ $img1=$_SESSION['img1'];/** profile admin  صورة تم احضارها من */
     top:0.4em;
     left: 6%;
     }
+     .btcansel {
+    text-align      : center;
+    text-transform  : uppercase;
+    font-size       : 14px;
+    background-color: #222242;
+    color: #fff;
+    cursor          : pointer;
+    transition      : background-color 0.3s;
+}
+
+.btcansel:hover {
+   color: #000000;
+   font-weight: bold;
+   background-color: #fff;
+}
+    
     </style>
 <body >
 
@@ -62,6 +78,8 @@ $img1=$_SESSION['img1'];/** profile admin  صورة تم احضارها من */
                 </div>
                 
         <button type="submit" name="bts" onclick="" > Save</button>
+        <a href="../control_panel/groups_control_panel.php">   <button style="margin-top: 3%;" class="btcansel" type="button" > Cansel</button></a>
+
     </form>
     </div>
 
