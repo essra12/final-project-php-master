@@ -13,7 +13,7 @@ $files=selectAll($table,['p_no'=>$_GET['post_no']]);
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1">
         <title>Assignment</title>
-        <link rel="stylesheet" href="../../css/add_material_assignment_join_page.css">
+        <link rel="stylesheet" href="../../css/add_assignment_material_join.css">
           <!--icon8-->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
         <!--file icon-->
