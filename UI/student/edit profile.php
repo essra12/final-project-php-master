@@ -11,8 +11,11 @@ include("../../controls/edit-studentC.php");
     <!--using th same login and signup css page with addtional-->
     <link rel="stylesheet" href="../../CSS/login_and_singup.css"/>
     <link rel="stylesheet" href="../../CSS/editing.css"/>
+    <!--icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <title>Edit Profile</title>
    <html>
+<<<<<<< HEAD
     <style> 
      .btcansel {
     text-align      : center;
@@ -30,6 +33,33 @@ include("../../controls/edit-studentC.php");
    background-color: #fff;
 }
     </style>
+=======
+</head>
+
+<style> 
+    /* for show password */
+    .form-field-signup.pass input::placeholder{
+        font-size: 17px;
+    }
+    .form-field-signup.pass span{
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+        color: #222242;
+        cursor: pointer;
+        display: none;
+    }
+    .form-field-signup.pass input:valid ~ span{
+        display: block;
+    }
+    .form-field-signup.pass span i.hide-btn::before{
+        content: "\f070";
+    }
+</style>
+
+>>>>>>> 6ab8fc5bb1582b81e958ca513e548faf9bb5d97f
 <body >
 
   <div class="login-container">
@@ -38,11 +68,11 @@ include("../../controls/edit-studentC.php");
 
   <!-- For circular image -->
   <div class="profile-pic-div"  >
-                <?php echo"  <img src='../../sources/image/$img1' id='photo' height='120' width='120' > ' "?>
-                <input type="file" id="file" name="u_img">
-                <label for="file" id="uploadBtn">Choose Photo</label>
+    <?php echo"  <img src='../../sources/image/$img1' id='photo' height='120' width='120' > ' "?>
+    <input type="file" id="file" name="u_img">
+    <label for="file" id="uploadBtn">Choose Photo</label>
   </div>
-            <!-- inputs  --> 
+        <!-- inputs  --> 
         <div class="form-field-signup">
         <input id="id" name="id" type="text"  placeholder="ID"  value="<?php  echo $id  ?>"  maxlength="8"/>
         </div>
@@ -50,12 +80,14 @@ include("../../controls/edit-studentC.php");
             <input id="name" name="name" type="text"  placeholder="Full Name"  value="<?php  echo $name  ?>" maxlength="30" />
         </div>
           
-        <div class="form-field-signup">
-        <input id="cof-pass" type="password"  name="pass" placeholder="password"   maxlength="25" value="<?php  echo $pass  ?>" />
+        <div class="form-field-signup pass">
+        <input id="pass" type="password"  name="pass" placeholder="password"   maxlength="25" value="<?php  echo $pass  ?>" />
+        <span class="show-btn"><i id="show-btn" class="fas fa-eye"></i></span>  
        </div>
 
-          <div class="form-field-signup">
-            <input id="pass" type="password" name="cof-pass" placeholder="Confirm Password"  value="<?php  echo $pass  ?>" maxlength="25" />  
+          <div class="form-field-signup pass">
+            <input id="conf_pass" type="password" name="cof-pass" placeholder="Confirm Password"  value="<?php  echo $pass  ?>" maxlength="25" />
+            <span class="show-btn_conf"><i id="show-btn_conf" class="fas fa-eye conf_pass"></i></span>   
          </div>
          <div class="form-field-signup">
           <input id="spe" type="text" name="spe" placeholder="Specialization" value="<?php  echo $spe  ?>"maxlength="25"/>  
@@ -161,6 +193,30 @@ include("../../controls/edit-studentC.php");
         return false;
     }
     }
+/*****************************for show password********************************/
+const passField = document.getElementById("pass");
+    const showBtn = document.getElementById("show-btn");
+    showBtn.onclick = (()=>{
+    if(passField.type === "password"){
+        passField.type = "text";
+        showBtn.classList.add("hide-btn");
+    }else{
+        passField.type = "password";
+        showBtn.classList.remove("hide-btn");
+    }
+    });
+/***************************for show confirm password*************************/
+    const confPassField = document.getElementById("conf_pass");
+    const showBtn_conf = document.getElementById("show-btn_conf");
+    showBtn_conf.onclick = (()=>{
+        if(confPassField.type === "password"){
+        confPassField.type = "text";
+        showBtn_conf.classList.add("hide-btn");
+        }else{
+        confPassField.type = "password";
+        showBtn_conf.classList.remove("hide-btn");
+        }
+    });
 </script>
 
 

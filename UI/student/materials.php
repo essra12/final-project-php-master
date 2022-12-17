@@ -1,6 +1,7 @@
 <?php 
 include("../../path.php"); 
-include(MAIN_PATH."/controls/materials_and_Assignments.php");
+include(MAIN_PATH. "/database/db.php");
+$role=$_SESSION['role'];
 $table="post";
 $group_no=$_SESSION['g_no'];
 $files=selectAll($table,['g_no'=>$_SESSION['g_no']]);
@@ -71,9 +72,8 @@ $files=selectAll($table,['g_no'=>$_SESSION['g_no']]);
           <?php endif;?>
           </div>
         </div>
-      
         <?php $_SESSION['p_no']=$file['p_no']?>
-        <a  href="../student/download.php?>" >
+        <a  href="../student/download.php?post_no=<?= $file['p_no']?>" >
         <p class="card__description">Click  to Download</p>
         </a>
            <!--  -->

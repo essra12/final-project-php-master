@@ -1,17 +1,18 @@
 <?php
 include("../../path.php");  
-
-include(MAIN_PATH."/controls/materials_and_Assignments.php");
-
+/* include(MAIN_PATH. "/database/db.php"); */
+ include(MAIN_PATH."/controls/materials_and_Assignments.php"); 
+$stu_id=$_SESSION['stu_id'];
 $table="file";
 $files=selectAll($table,['p_no'=>$_GET['post_no']]);
+
 ?>
 <html>
     <head>
    
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1">
-        <title>Materials</title>
+        <title>Assignment</title>
         <link rel="stylesheet" href="../../css/add_material_assignment_join_page.css">
           <!--icon8-->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
@@ -24,36 +25,22 @@ $files=selectAll($table,['p_no'=>$_GET['post_no']]);
  <?php include(MAIN_PATH."/common/navigation.php"); ?> 
  <!---------------------------------------------------------->
 
-      <!-- For Succes -->
-      <?php if (isset($_SESSION['message'])): ?>
-                <div class="msg success" style="color: #5a9d48; margin-Top: 2em; margin-left:7em;">
-                    <li><i class="las la-check-circle" style="color: #5a9d48 ;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;<?php echo $_SESSION['message']; ?></li>
-                    <?php
-                    /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */
-                    unset($_SESSION['message']);
-                    ?>
-                </div>
-              <?php endif; ?>
-    <!----------------->
-      <!-- For unSucces -->
-      <?php if (isset($_SESSION['error_message'])): ?>
-                <div class="msg success" style="color: #D92A2A; margin-Top: 2em; margin-left:7em;">
-                    <li><i class="las la-exclamation-circle" style="color: #D92A2A ;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;<?php echo $_SESSION['error_message']; ?></li>
-                    <?php
-                    /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */
-                    unset($_SESSION['error_message']);
-                    ?>
-                </div>
-              <?php endif; ?>
-    <!----------------->
+    
         
-           <!--------main-container----------->
+        <!--------main-container----------->
       <div class="main-container">
         <div class="title">
-            <h1 style="color: #222242;">Materials</h1>
+            <h1 style="color: #222242;">Assignment</h1>
         </div>
 
         <form  >
+
+           <!-- Id field -->
+           <div class="inputs id">
+            <label style="color: #222242;">Student ID</label>
+            <input type="text" name="stu_id" maxlength="11" disabled="disabled" style=" border: none;" value=<?php echo $stu_id?>>
+          </div>
+          <!------------------>
             
           <!-- title field -->
           <div class="inputs title">
@@ -81,10 +68,10 @@ $files=selectAll($table,['p_no'=>$_GET['post_no']]);
                 <td><i class="fa-solid fa-file-lines" id="icon3"></i></td>
                 <td id="file"><?php echo $file["f_name"];?></td>
                 <td></td>
-                <td class="td2"><a href="download.php?file=<?php echo $file['f_no'];?>"><i id="icon1" class="fa fa-download"></i></a></td>
+                <td class="td2"><a href="download_assignment.php?file=<?php echo $file['f_no'];?>"><i id="icon1" class="fa fa-download"></i></a></td>
                 <!--making the delete just for teacher-->
                 <?php if($role=="teacher"):?>
-                <td class="td2"><a href="download.php?delete=<?php echo $file['f_no'];?>" onclick="return confirmDelete()"><i id="icon2" class="fa-solid fa-xmark"></i></a></td>
+                <td class="td2"><a href="download_assignment.php?delete=<?php echo $file['f_no'];?>" onclick="return confirmDelete()"><i id="icon2" class="fa-solid fa-xmark"></i></a></td>
                </tr>
                <?php endif;?>
               <?php endforeach;?>

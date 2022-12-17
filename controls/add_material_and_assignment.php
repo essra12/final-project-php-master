@@ -8,18 +8,20 @@ $errors_for_assignment=array();
 $title="";
 $description="";
 
+$groupNumber=$_SESSION['g_no'];
+
 
 /*****************************************************************************/
 /*****************************Insert  material*******************************/
 
 /*****to find g_no *******/
  function selectGroupNo(){ 
-   global $conn; 
+/*    global $conn; 
    if(isset($_GET["g_no"]))
    {
      $g_number = $_GET["g_no"];
    }
-   return $g_number;
+   return $g_number; */
  } 
  /***********************/
 
@@ -27,11 +29,11 @@ if(isset($_POST['add_material'])){
    unset($_POST['add_material']);
 
    $files = array_filter($_FILES['f_name']['name']);
-
+   
    /******for Post Table*********/
     $title=htmlentities($_POST['title']);
     $description=htmlentities($_POST['description']);
-    $g_no=selectGroupNo();
+    $g_no=$groupNumber;
 
     if(count($files)==0){
       array_push($errors_for_material,"please choose a file.");
@@ -60,7 +62,6 @@ if(isset($_POST['add_material'])){
   
       $total_count = count($_FILES['f_name']['name']);
   
-      
         for( $i=0 ; $i < $total_count ; $i++ ) {
           $tmpFilePath = $_FILES['f_name']['tmp_name'][$i];
           if ($tmpFilePath != ""){
@@ -88,7 +89,7 @@ if(isset($_POST['add_material'])){
     
     if(count($errors_for_material)==0){
       $_SESSION['message']="The post sent successfully";
-      header('location: '.BASE_URL.'/UI/teacher/add material.php');
+      header('location: '.BASE_URL.'/UI/student/materials.php');
       $conn->close();
       exit();
     }
@@ -108,11 +109,12 @@ $user_id=$_SESSION['user_id'];
 /****to find stu_group*****/
 function selectStu_group(){ 
     global $conn; 
+    global $groupNumber;
     /****to get g_no****/
-    if(isset($_GET["g_no"]))
+    /*if(isset($_GET["g_no"]))
     {
       $g_number = $_GET["g_no"];
-    }
+    } */
     /******************/
  
    
@@ -127,7 +129,7 @@ function selectStu_group(){
         }
     }
 
-    $sql_select_stu_group = "SELECT DISTINCT stu_group FROM `student_group`,groups WHERE student_group.stu_id ='$stu_id' AND student_group.g_no ='$g_number';";
+    $sql_select_stu_group = "SELECT DISTINCT stu_group FROM `student_group`,groups WHERE student_group.stu_id ='$stu_id' AND student_group.g_no ='$groupNumber';";
     $result = $conn->query($sql_select_stu_group);
     if ($result->num_rows == 1) {
         while($row = $result->fetch_assoc()) {
@@ -174,7 +176,7 @@ if(isset($_POST['add_assignment'])){
     /* for Files Table */
     
     $total_count = count($_FILES['f_name']['name']);
-
+    
     for( $i=0 ; $i < $total_count ; $i++ ) {
       $tmpFilePath = $_FILES['f_name']['tmp_name'][$i];
       if ($tmpFilePath != ""){

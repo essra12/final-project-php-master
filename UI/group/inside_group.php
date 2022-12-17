@@ -102,7 +102,7 @@ $groupNumber=$_SESSION['g_no'];
 	   <a href="<?php echo BASE_URL . '/UI/student/materials.php' ?>">
 		<img id="img1" onmouseover="setNewImage1(this)" onmouseout="setOldImage()" src="../../sources/image/m1Dark.png" alt="img" draggable="false">
         </a>
-    	<a href="<?php echo BASE_URL . '/UI/student/Assignments for student.php' ?>">
+    	<a href="<?php echo BASE_URL . '/UI/student/assignment.php' ?>">
 		<img id="img2" onmouseover="setNewImage2(this)" onmouseout="setOldImage()" src="../../sources/image/A2Dark.png" alt="img" draggable="false">
         </a>
 		<a href="<?php echo BASE_URL . '/UI/student/add asignment.php' ?>">

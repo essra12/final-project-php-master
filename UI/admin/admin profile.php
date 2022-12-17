@@ -86,7 +86,11 @@ margin-top: 5%;
 
 
                    /* <echo"<input  class='l33' type='text' value='$name'/>   ";*/
+<<<<<<< HEAD
                         echo"<lable  class='l3'>.$name.</lable>.<lable  class='l1'>.$ida.</lable>   ";
+=======
+                        echo"<lable  class='l3'>$name</lable>";
+>>>>>>> 6ab8fc5bb1582b81e958ca513e548faf9bb5d97f
                         
                         
 
