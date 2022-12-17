@@ -34,7 +34,6 @@ include("../../controls/Edit-TeacherPH.php");
     top:0.4em;
     left: 6%;
     }
-<<<<<<< HEAD
      .btcansel {
     text-align      : center;
     text-transform  : uppercase;
@@ -50,9 +49,10 @@ include("../../controls/Edit-TeacherPH.php");
    font-weight: bold;
    background-color: #fff;
 }
-=======
-     /* for show password */
-     .form-field-signup.pass input::placeholder{
+
+
+    /* for show password */
+    .form-field-signup.pass input::placeholder{
         font-size: 17px;
     }
     .form-field-signup.pass span{
@@ -71,7 +71,6 @@ include("../../controls/Edit-TeacherPH.php");
     .form-field-signup.pass span i.hide-btn::before{
         content: "\f070";
     }
->>>>>>> 6ab8fc5bb1582b81e958ca513e548faf9bb5d97f
 </style>
   <div class="login-container">
       <p class="signup_text"><b>Edit Teacher</p>

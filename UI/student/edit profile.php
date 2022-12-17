@@ -15,7 +15,6 @@ include("../../controls/edit-studentC.php");
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <title>Edit Profile</title>
    <html>
-<<<<<<< HEAD
     <style> 
      .btcansel {
     text-align      : center;
@@ -32,11 +31,23 @@ include("../../controls/edit-studentC.php");
    font-weight: bold;
    background-color: #fff;
 }
-    </style>
-=======
-</head>
 
-<style> 
+     .btcansel {
+    text-align      : center;
+    text-transform  : uppercase;
+    font-size       : 14px;
+    background-color: #222242;
+    color: #fff;
+    cursor          : pointer;
+    transition      : background-color 0.3s;
+}
+
+.btcansel:hover {
+   color: #000000;
+   font-weight: bold;
+   background-color: #fff;
+}
+    
     /* for show password */
     .form-field-signup.pass input::placeholder{
         font-size: 17px;
@@ -57,9 +68,7 @@ include("../../controls/edit-studentC.php");
     .form-field-signup.pass span i.hide-btn::before{
         content: "\f070";
     }
-</style>
-
->>>>>>> 6ab8fc5bb1582b81e958ca513e548faf9bb5d97f
+    </style>
 <body >
 
   <div class="login-container">

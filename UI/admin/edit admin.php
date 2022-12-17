@@ -32,7 +32,6 @@ form .form-field-signup:nth-child(2)::before {
     height: 24px;
     top:0.4em;
     left: 6%;
-<<<<<<< HEAD
     }
      .btcansel {
     text-align      : center;
@@ -49,34 +48,29 @@ form .form-field-signup:nth-child(2)::before {
    font-weight: bold;
    background-color: #fff;
 }
-    
-    </style>
-<body >
-=======
-}
->>>>>>> 6ab8fc5bb1582b81e958ca513e548faf9bb5d97f
-
 /* for show password */
 .form-field-signup.pass input::placeholder{
-    font-size: 17px;
-}
-.form-field-signup.pass span{
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
-    color: #222242;
-    cursor: pointer;
-    display: none;
-}
-.form-field-signup.pass input:valid ~ span{
-    display: block;
-}
-.form-field-signup.pass span i.hide-btn::before{
-    content: "\f070";
-}
-</style>
+        font-size: 17px;
+    }
+    .form-field-signup.pass span{
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+        color: #222242;
+        cursor: pointer;
+        display: none;
+    }
+    .form-field-signup.pass input:valid ~ span{
+        display: block;
+    }
+    .form-field-signup.pass span i.hide-btn::before{
+        content: "\f070";
+    }
+    
+    </style>
+
 <body>
     <div class="login-container">
     <p class="signup_text"><b>Edit Admin</p>
@@ -108,13 +102,9 @@ form .form-field-signup:nth-child(2)::before {
         <?php echo $error ?>
     </div>
                 
-<<<<<<< HEAD
         <button type="submit" name="bts" onclick="" > Save</button>
         <a href="../control_panel/groups_control_panel.php">   <button style="margin-top: 3%;" class="btcansel" type="button" > Cansel</button></a>
 
-=======
-    <button type="submit" name="bts" onclick="" > Save</button>
->>>>>>> 6ab8fc5bb1582b81e958ca513e548faf9bb5d97f
     </form>
     </div>
 
