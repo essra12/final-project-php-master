@@ -85,8 +85,8 @@ ul{
   
   .notification .badge {
     position: absolute;
-    top: 4px;
-    right: 4px;
+    top: 5px;
+    right: 8px;
     padding: 1px 6px;
     border-radius: 50%;
     background: var(--orange);
@@ -253,7 +253,6 @@ font-size: 30px;
     
  }
  
-
 @media  (max-width:410px) {
     #true1{
         
@@ -268,8 +267,6 @@ font-size: 30px;
     
  }
 
- 
- 
 @media  (max-width:350px) {
     #true1{
         
