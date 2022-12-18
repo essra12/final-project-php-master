@@ -10,7 +10,7 @@ $errors = array();
 function testposttest(){
     global $conn;
     $groupNO=$_SESSION['g-no'];
-    $sql=" SELECT  user.full_name,user.u_img ,user.user_id ,student_group.g_no, student.stu_id ,student_group.stu_id,student_group.stu_group FROM `student_group`,user,student WHERE student_group.stu_id=student.stu_id and user.user_id=student.user_id  and student_group.g_no=14
+    $sql=" SELECT  user.full_name,user.u_img ,user.user_id ,student_group.g_no, student.stu_id ,student_group.stu_id,student_group.stu_group FROM `student_group`,user,student WHERE student_group.stu_id=student.stu_id and user.user_id=student.user_id  and student_group.g_no='$groupNO'
 ;    ";
     $pre=$conn->prepare($sql);
     $pre->execute();

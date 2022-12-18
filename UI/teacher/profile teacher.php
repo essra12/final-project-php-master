@@ -17,6 +17,7 @@ include("../../Database/db.php");
 
 .photo{
     border-radius: 100px;
+   
 }
 
 </style>

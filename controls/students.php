@@ -80,8 +80,10 @@ if(isset($_POST['Add_student'])){
         $_SESSION['full_name'] = $full_name;
         $_SESSION['user_id']=$last_id;
         $_SESSION['role']='';
-        $_SESSION['password']=$password;
-       
+        $_SESSION['password']=$password; 
+        ////
+        $_SESSION['pass2']=$password;
+       ////
 
     /*When succes add*/
         header('location: ' . BASE_URL .'/UI/group/main page for group.php');// يتم إستخدام هذه الدالة  من أجل نقل أو تحويل المستخدم للمكان الذي نُريده

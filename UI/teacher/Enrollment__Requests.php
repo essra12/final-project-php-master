@@ -12,7 +12,7 @@ echo $groupNO;
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="../../css/Enrollment__Requsertts.css">
+        <link rel="stylesheet" href="../../css/enrollment_requsertts.css">
         <script src="https://kit.fontawesome.com/e1ca29be31.js" crossorigin="anonymous"></script>
     </head>
 <style>

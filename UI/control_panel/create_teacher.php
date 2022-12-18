@@ -3,14 +3,39 @@ include("../../path.php");
 include(MAIN_PATH."/controls/teachers.php");
 ?>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, minimum-scale=1">
-        <title>Add Teacher</title>
-        <link rel="stylesheet" href="../../css/add_group_teacher_admin.css">
-        <!--icon8-->
-        <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1">
+    <title>Add Teacher</title>
+    <link rel="stylesheet" href="../../css/add_group_teacher_admin.css">
+    <!--icon8-->
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <!--icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+
+<style>
+/* for show password */
+.form-field.tr.pass input::placeholder{
+  font-size: 17px;
+}
+.form-field.tr.pass span{
+  position: absolute;
+  right: 27%;
+  top: 42%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #222242;
+  cursor: pointer;
+  display: none;
+}
+.form-field.tr.pass input:valid ~ span{
+  display: block;
+}
+.form-field.tr.pass span i.hide-btn::before{
+  content: "\f070";
+}
+</style>
 
 <body id="b-vlightblue">
 
@@ -55,12 +80,14 @@ include(MAIN_PATH."/controls/teachers.php");
                <input id="tr_phon_no" class="input-name" type="text"  placeholder="Phone Number" maxlength="10" name="tr_phone_no" onkeypress="return onlyNumberKey(event)" value="<?php echo $tr_phone_no;?>"/>
             </div>
 
-            <div class="form-field tr">
+            <div class="form-field tr pass">
                 <input id="pass" class="input-name" type="password"  placeholder="Password" maxlength="25"  name="password" value="<?php echo $password;?>"/>
+                <span class="show-btn"><i id="show-btn" class="fas fa-eye"></i></span> 
              </div>
 
-             <div class="form-field tr">
+             <div class="form-field tr pass">
                 <input id="conf_pass" class="input-name" type="password"  placeholder="Confrim Password" maxlength="25" name="conf_password" value="<?php echo $conf_password;?>"/>
+                <span class="show-btn_conf"><i id="show-btn_conf" class="fas fa-eye conf_pass"></i></span>   
              </div>
 
         </div>
@@ -189,16 +216,32 @@ include(MAIN_PATH."/controls/teachers.php");
             });
 
             reader.readAsDataURL(choosedFile);
-
-            //Allright is done
-
-            //please like the video
-            //comment if have any issue related to vide & also rate my work in comment section
-
-            //And aslo please subscribe for more tutorial like this
-
-            //thanks for watching
         }
+    });
+    
+    /*************************************For show password *********************************/
+    const passField = document.getElementById("pass");
+    const showBtn = document.getElementById("show-btn");
+    showBtn.onclick = (()=>{
+    if(passField.type === "password"){
+        passField.type = "text";
+        showBtn.classList.add("hide-btn");
+    }else{
+        passField.type = "password";
+        showBtn.classList.remove("hide-btn");
+    }
+    });
+    /**********************************for show confirm password******************************/
+    const confPassField = document.getElementById("conf_pass");
+    const showBtn_conf = document.getElementById("show-btn_conf");
+    showBtn_conf.onclick = (()=>{
+    if(confPassField.type === "password"){
+        confPassField.type = "text";
+        showBtn_conf.classList.add("hide-btn");
+    }else{
+        confPassField.type = "password";
+        showBtn_conf.classList.remove("hide-btn");
+    }
     });
 </script>
 
