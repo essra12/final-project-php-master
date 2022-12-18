@@ -2,6 +2,7 @@
 include("../../path.php"); 
 include(MAIN_PATH."/controls/assigment__.php");
 
+$files=infoforstudent();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +36,7 @@ include(MAIN_PATH."/controls/assigment__.php");
  <div class="container">
    
   <div class="cards">
-  <?php $files=infoforstudent();?>
+ 
   <?php foreach($files as $key => $file):?>
     <div class="card">
     <?php $datetime=strtotime($file['Datatime'])?>

@@ -5,7 +5,7 @@ include(MAIN_PATH. "/database/db.php");
 global $conn;
 $role=$_SESSION['role'];
 $post_no=$_GET['post_no'];
-if(isset($post_no)){
+
 $query="SELECT * FROM post,file WHERE post.p_no=file.p_no AND post.p_no='".$post_no."'";
 $result = $conn->query($query);
 if ($result->num_rows > 0) {
@@ -16,8 +16,9 @@ while($row = $result->fetch_assoc()) {
   $des=$row['description'];
 
 }
+
 } 
-} else echo "error";
+
 /************************************************************************/
 /**********************download section*********************************/
 

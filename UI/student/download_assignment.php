@@ -1,8 +1,8 @@
 <?php
 include("../../path.php");  
 /* include(MAIN_PATH. "/database/db.php"); */
- include(MAIN_PATH."/controls/materials_and_Assignments.php"); 
-
+ include(MAIN_PATH."/controls/download_Assignments.php"); 
+$stu_id=$_SESSION['stu_id'];
 $table="file";
 $files=selectAll($table,['p_no'=>$_GET['post_no']]);
 
@@ -13,7 +13,7 @@ $files=selectAll($table,['p_no'=>$_GET['post_no']]);
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1">
         <title>Assignment</title>
-        <link rel="stylesheet" href="../../css/add_assignment_material_join.css">
+        <link rel="stylesheet" href="../../css/add_material_assignment_join_page.css">
           <!--icon8-->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
         <!--file icon-->
@@ -21,7 +21,7 @@ $files=selectAll($table,['p_no'=>$_GET['post_no']]);
     </head>
 
     <body>
- <!--------------------navigation_bar ----------------------->  
+  <!--------------------navigation_bar ----------------------->  
  <?php include(MAIN_PATH."/common/navigation.php"); ?> 
  <!---------------------------------------------------------->
 

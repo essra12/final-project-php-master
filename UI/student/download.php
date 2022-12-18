@@ -1,10 +1,10 @@
 <?php
 include("../../path.php");  
-
-include(MAIN_PATH."/controls/materials_and_Assignments.php");
+include(MAIN_PATH."/controls/download_materials.php");
 
 $table="file";
 $files=selectAll($table,['p_no'=>$_GET['post_no']]);
+
 ?>
 <html>
     <head>
@@ -84,7 +84,7 @@ $files=selectAll($table,['p_no'=>$_GET['post_no']]);
                 <td class="td2"><a href="download.php?file=<?php echo $file['f_no'];?>"><i id="icon1" class="fa fa-download"></i></a></td>
                 <!--making the delete just for teacher-->
                 <?php if($role=="teacher"):?>
-                <td class="td2"><a href="download.php?delete=<?php echo $file['f_no'];?>" onclick="return confirmDelete()"><i id="icon2" class="fa-solid fa-xmark"></i></a></td>
+                <td class="td2"><a href="download.php?delete=<?php echo $file['f_no'];?>&post_no=<?php echo $file['p_no'];?>" onclick="return confirmDelete()"><i id="icon2" class="fa-solid fa-xmark"></i></a></td>
                </tr>
                <?php endif;?>
               <?php endforeach;?>
