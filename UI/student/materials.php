@@ -1,11 +1,13 @@
 <?php 
 include("../../path.php"); 
-include(MAIN_PATH. "/database/db.php");
+include(MAIN_PATH."/controls/deletePost.php");
+
 $role=$_SESSION['role'];
 $table="post";
 $group_no=$_SESSION['g_no'];
 $files=selectAll($table,['g_no'=>$_SESSION['g_no']]);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +54,7 @@ $files=selectAll($table,['g_no'=>$_SESSION['g_no']]);
     
  <div class="container">
             
-     
+
   <div class="cards">
   <?php foreach($files as $key => $file):?>
     <div class="card">
@@ -72,16 +74,16 @@ $files=selectAll($table,['g_no'=>$_SESSION['g_no']]);
           <?php endif;?>
           </div>
         </div>
-        <?php $_SESSION['p_no']=$file['p_no']?>
-        <a  href="../student/download.php?post_no=<?= $file['p_no']?>" >
+        
+        <?php $_SESSION['p_no']=$file['p_no'];?>
+        <a  href="../student/download.php?post_no=<?= $file['p_no']?>" > 
         <p class="card__description">Click  to Download</p>
-        </a>
+        </a>     
            <!--  -->
       </div>
   </div>  
     <?php endforeach; ?>    
    </div>
-   
  </div>
 </main>
 
@@ -95,6 +97,11 @@ $files=selectAll($table,['g_no'=>$_SESSION['g_no']]);
     }
 }
   </script>
+  <?php
+/********************************************************************************/
+/**********************delete post section for teacher*****************************/
+
+  ?>
  
 </body>
 </html>

@@ -1,12 +1,11 @@
 <?php
 include(MAIN_PATH. "/database/db.php");
-/* $newFilePath = MAIN_PATH. "/sources/files/"; */
 
 
 global $conn;
 $role=$_SESSION['role'];
-/* $post_no=$_SESSION['p_no']; */
 $post_no=$_GET['post_no'];
+if(isset($post_no)){
 $query="SELECT * FROM post,file WHERE post.p_no=file.p_no AND post.p_no='".$post_no."'";
 $result = $conn->query($query);
 if ($result->num_rows > 0) {
@@ -18,6 +17,7 @@ while($row = $result->fetch_assoc()) {
 
 }
 } 
+} else echo "error";
 /************************************************************************/
 /**********************download section*********************************/
 
@@ -53,6 +53,7 @@ if(isset($_GET['file']))
  {
     global $conn;
       $id =$_GET['delete'];
+      $post_no=$_GET['post_no'];
      $sql="SELECT * FROM file WHERE f_no=$id";
      $result = $conn->query($sql);
      $file =$result -> fetch_assoc();
@@ -61,7 +62,7 @@ if(isset($_GET['file']))
     
       if(file_exists($filepath))
       {
-        $sqll="SELECT * FROM file WHERE p_no=$post_no";
+        $sqll="SELECT * FROM file WHERE p_no='".$post_no."'";
         $result = $conn->query($sqll);
         $row =mysqli_num_rows($result);
         if($row >1){
@@ -78,8 +79,12 @@ if(isset($_GET['file']))
         }  
        
  } 
-/********************************************************************************/
-/**********************delete post section for teacher*****************************/
+
+
+ /********************************************************************************/
+/*****************************Assignments****************************************/
+ /********************************************************************************/
+
  if(isset($_GET['deletePost'])){
 
   {
@@ -90,13 +95,7 @@ if(isset($_GET['file']))
 
   
   } 
- }
-
- /********************************************************************************/
-/*****************************Assignments****************************************/
- /********************************************************************************/
-
-        
+ }     
         
 
 

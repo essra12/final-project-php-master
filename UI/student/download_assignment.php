@@ -2,7 +2,7 @@
 include("../../path.php");  
 /* include(MAIN_PATH. "/database/db.php"); */
  include(MAIN_PATH."/controls/materials_and_Assignments.php"); 
-$stu_id=$_SESSION['stu_id'];
+
 $table="file";
 $files=selectAll($table,['p_no'=>$_GET['post_no']]);
 
@@ -21,7 +21,7 @@ $files=selectAll($table,['p_no'=>$_GET['post_no']]);
     </head>
 
     <body>
-  <!--------------------navigation_bar ----------------------->  
+ <!--------------------navigation_bar ----------------------->  
  <?php include(MAIN_PATH."/common/navigation.php"); ?> 
  <!---------------------------------------------------------->
 
