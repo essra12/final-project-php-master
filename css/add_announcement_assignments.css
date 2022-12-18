@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+:root{
+    --darkblue:#2A3D6C ;
+    --vdarkblue:#222242 ;
+    --orange:#FFBA5F;
+    --shadow1:rgba(17,17,26,0.1) 2px 2px 16px; 
+    --shadow2:0 0 0.375rem 0.25rem rgb(0 0 0 / 15%);
+    --lightblue:#A4D2F0;
+    --lightgreen:#D8E6D6;
+    --vlightblue:#e5f3fe;
+    --vvlightblue:#f5fafe;
+    --darkgreen:#53744A;
+    --red:#D92A2A;
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+    list-style-type: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/*****************************************************Navigation Bar style**********************************************************/
+
+.navbar {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222242;
+    box-shadow: var(--shadow2);
+    color: white;
+}
+
+ul{
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.lift-side li{
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding-right: 1rem;
+    margin: auto;
+}
+
+.lift-side li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+}
+
+.back{
+    display: inline;
+    margin-right: 0;
+}
+
+.back i{
+    margin-left: .5rem;
+    font-size: 2.2rem;
+}
+
+.brand-title {
+    font-size: 1.5rem;
+    margin: .5rem;
+    margin-left: 0;
+}
+
+.navbar-links {
+    height: 100%;
+}
+/******Notification*******/
+
+.notification {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .notification .badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 1px 6px;
+    border-radius: 50%;
+    background: var(--orange);
+    color: var(--vdarkblue);
+    font-size: .7rem;
+  }
+/************************/
+.navbar-links ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li {
+    list-style: none;
+}
+
+.navbar-links li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+}
+
+.navbar-links li:hover {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.navbar-links li:hover i{
+    font-weight: bold;
+    font-size: 1.7rem;
+}
+
+a:is(:link,:active,:hover).active{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/***********************************************main container*************************************************/
+
+.main-container{
+    margin: 2rem 8rem 0rem;
+}
+.main-container .title h1{
+    font-size: 50px;
+    padding-top:20px;
+}
+
+.main-container .inputs{
+    background: var(--vlightblue);    
+    box-shadow: var(--shadow1);
+    border-radius: 15px;
+    padding: 1rem 2rem 1rem 2rem;
+    margin-bottom: 2rem;
+    margin-top: 4rem;
+}
+
+
+/******************************** textarea field**************************************/
+.main-container .inputs textarea{
+    background:var(--vlightblue);
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--vdarkblue);
+    font-size: 20px;
+    margin-bottom: 2rem;
+}
+
+
+/***********************************Button post**************************************/
+.main-container .inputs .btn_post{
+    margin:3rem 0rem 0rem 0rem;
+    text-align: center;
+}
+.main-container .inputs .btn_post button{
+    border: 2px double var(--vdarkblue);
+    padding: 10px 24px;
+    color: #fff;
+    border-radius: 25px;
+    background: var(--vdarkblue);
+    width: 150px;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+.main-container .inputs .btn_post button:hover{
+    color: var(--vdarkblue);
+    font-weight: bold;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/******************************************Just for add announcement*********************************************/
+.main-container .inputs.announcement label{
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+}
+.container_text_input .text_input{
+    background: var(--vvlightblue);
+}
+/********************************Just for add assignment announcement*******************************************/
+
+.main-container .inputs.assignment_announcement label{
+    display: inline;
+    font-size: 28px;
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+/**************text******************/
+.container_text_input .text_input{
+    padding: .8rem;
+    border-radius: 25px;
+}
+
+.container_text_input .text_input textarea{
+    background: var(--vvlightblue);
+    padding-left: .8rem;
+}
+
+/*************due date***************/
+.main-container .inputs.assignment_announcement .container_date_grade_input{
+    margin-top: 5rem;
+}
+
+.container_date_grade_input .date_input{
+    display: inline;
+    margin-right: 10%;
+}
+
+.container_date_grade_input .date_input input[type="date"]{
+    outline: none;
+    border: none;
+    padding: .8rem;
+    border-radius: 25px;
+    background: var(--vvlightblue);
+}
+
+/*************grade***************/
+.container_date_grade_input .grade_input{
+    display: inline;
+}
+
+.container_date_grade_input .grade_input input[type="text"]{
+    outline: none;
+    border: none;
+    padding: .8rem;
+    border-radius: 25px;
+    background: var(--vvlightblue);
+    width: 100px;
+    text-align: center;
+}
+
+/***********button****************/
+.main-container .inputs.assignment_announcement .btn_post{
+    text-align: right;
+}
+
+
+@media only screen and (max-width:1168px) {
+    .container_date_grade_input .date_input{
+        display: block;
+    }
+    .container_date_grade_input .grade_input{
+        display: block;        
+        margin-top: 2rem;
+    }
+    .main-container .inputs.assignment_announcement .grade_input label{
+        margin-right: 3.3rem;    
+    }
+    .main-container .inputs.assignment_announcement label{
+        margin-left: .5rem;
+    }
+
+}
+@media only screen and (max-width:785px) {
+    .main-container .title h1{
+        font-size: 40px;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width:748px) {
+    .container_date_grade_input .date_input{
+        text-align: center;
+    }
+    .container_date_grade_input .grade_input{
+        text-align: center;
+    }
+    .main-container .inputs.assignment_announcement .btn_post{
+        text-align: center;
+    }
+    .main-container .inputs.assignment_announcement .grade_input label{
+        margin-right: .8rem;    
+    }
+    .main-container .title h1{
+        font-size: 38px;
+    }
+    
+}
+@media only screen and (max-width:535px) {
+    .main-container .inputs.assignment_announcement label{
+        font-size: 24px;
+    }
+    .container_date_grade_input .date_input input[type="date"]{
+        width: 160px;
+    }
+    .main-container .title h1{
+        font-size: 34px;
+    }
+}

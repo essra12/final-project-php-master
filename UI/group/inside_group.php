@@ -130,7 +130,8 @@ if ($result_g_name->num_rows == 1) {
                     <button class="btn-create">+</button>
                     <div>
                         <a href="../teacher/add material.php?g_no=<?= $group_no?>">Material</a>
-                        <a href="#">Notification</a>
+                        <a href="../teacher/add announcement.php?g_no=<?= $group_no?>">Announcement</a>
+                         <a href="../teacher/add_announcement_assignment.php?g_no=<?= $group_no?>">Assignment</a>
                     </div>
                 </div>
             <?php endif;?>    

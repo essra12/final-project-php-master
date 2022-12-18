@@ -48,13 +48,17 @@ h1{
     height: 72vh;
     overflow: auto;
 }
+.notification .badge {
+            top: 9px;
+            right: 9px;
+}
+
     </style>
 <body >
     
 <!------------Navigation Bar --------------->  
 <nav class="navbar">
     <ul class="lift-side">
-
         <!-------logo------>
         <li><div class="brand-title"><img src="../../sources/image/logo_dark.png" style="width: 100px;" /></div></li>
         <!----------------->
