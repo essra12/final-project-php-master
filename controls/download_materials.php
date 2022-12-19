@@ -6,6 +6,10 @@ global $conn;
 $role=$_SESSION['role'];
 $post_no=$_GET['post_no'];
 
+////////////////////////////
+$group_no=$_SESSION['g_no'];
+///////////////////////////
+
 $query="SELECT * FROM post,file WHERE post.p_no=file.p_no AND post.p_no='".$post_no."'";
 $result = $conn->query($query);
 if ($result->num_rows > 0) {

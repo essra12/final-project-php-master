@@ -3,6 +3,10 @@ include(MAIN_PATH. "/database/db.php");
 
 $user_id=$_SESSION['user_id'];
 
+////////////////////////////
+$group_no=$_SESSION['g_no'];
+///////////////////////////
+
 $sql="SELECT stu_id FROM user,student Where user.user_id=student.user_id AND user.user_id='$user_id';";
 $result = $conn->query($sql);
 if ($result->num_rows == 1) {

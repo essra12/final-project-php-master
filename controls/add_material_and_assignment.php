@@ -204,7 +204,7 @@ if(isset($_POST['add_assignment'])){
 
 if(count($errors_for_assignment)==0){
   $_SESSION['message']="your assignment sent successfully";
-  header('location: '.BASE_URL.'/UI/student/add asignment.php');
+  header('location: '.BASE_URL.'/UI/student/assignment.php');
   $conn->close();
   exit();
 }

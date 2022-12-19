@@ -18,7 +18,7 @@ $join_data=selectGroupNameTeacherName();
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="../../css/add_assignment_material_join.css" />
+  <link rel="stylesheet" href="../../css/add_materiial_assignment_join_dw.css" />
     <!--icon8-->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 

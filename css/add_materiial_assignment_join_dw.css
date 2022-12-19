@@ -33,7 +33,7 @@
     color: white;
 }
 
-ul{
+.navbar ul{
     display: flex;
     margin: 0;
     padding: 0;
@@ -43,7 +43,7 @@ ul{
     display: block;
     text-decoration: none;
     color: white;
-    padding-right: 1rem;
+    /* padding-right: 1rem; */
     margin: auto;
 }
 
@@ -51,7 +51,10 @@ ul{
     display: block;
     text-decoration: none;
     color: white;
-    padding: 1rem;
+    /* padding: 1rem; */
+    padding-top: .8rem;
+    padding-bottom: .8rem;
+    margin-right: 1rem;
 }
 
 .back{
