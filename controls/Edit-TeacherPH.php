@@ -17,17 +17,13 @@ $img1=$_SESSION['img1'];/**-----------profile admin  احضار الصورة م�
 $error ="";
 if($_SERVER['REQUEST_METHOD']=='POST')
 { 
-    
-    if($phon!=$_POST['phone']){
-        
+    $p_new=trim($_POST['phone']);
+    if($phon!=$p_new){
         $exisiting_teachera = selectOne($table2,['tr_phone_no'=>$_POST['phone']]);
         if($exisiting_teachera)
         {
             array_push($errors,"This Teacher  alredy exists");
-            
         }else{
-
-
        /* user Image */
    if (!empty($_FILES['u_img']['name'])) {
     $imgName= time() .'_' . $_FILES['u_img']['name'];// تُرجع الدالة الوقت الحالي بعدد الثواني منذ ذلك الحين time() ،  HTTP POST عبارة عن مصفوفة ارتباطية تحتوي على عناصر تم تحميلها عبر طريقة $_FILES
@@ -50,7 +46,7 @@ else if (empty($_FILES['u_img']['name'])) {
 if(count($errors)==0){
     /** حفظ القيم المدخلة في المتغيرات */
     $username = $_POST['name'];
-    $phone = $_POST['phone'];
+    $phone = $p_new;
     $userpass1=password_hash($_POST['pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
     $userpass2=password_hash($_POST['cof-pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
     $img=$_POST['u_img'];
@@ -63,8 +59,8 @@ if(count($errors)==0){
     }
     else 
     {
-        $sqln="UPDATE user,teacher set   user.full_name='$username', user.password='$userpass1',teacher.tr_phone_no=$phone,user.u_img='$img'
-        WHERE user.user_id=teacher.user_id and teacher.tr_phone_no=$phon ;";
+        $sqln="UPDATE user,teacher set   user.full_name='$username', user.password='$userpass1',teacher.tr_phone_no='$phone',user.u_img='$img'
+        WHERE user.user_id=teacher.user_id and teacher.tr_phone_no='$phon' ;";
         if(mysqli_query($conn,$sqln)){
         echo '<script type="text/javascript">alert("Record updated successfully .")</script>';
         ?>
@@ -78,8 +74,6 @@ if(count($errors)==0){
     }}
     
     else {
-
-
 
        /* user Image */
        if (!empty($_FILES['u_img']['name'])) {
@@ -103,7 +97,7 @@ if(count($errors)==0){
     if(count($errors)==0){
         /** حفظ القيم المدخلة في المتغيرات */
         $username = $_POST['name'];
-        $phone = $_POST['phone'];
+        $phone = $p_new;
         $userpass1=password_hash($_POST['pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
         $userpass2=password_hash($_POST['cof-pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
         $img=$_POST['u_img'];
@@ -116,8 +110,8 @@ if(count($errors)==0){
         }
         else 
         {
-            $sqln="UPDATE user,teacher set   user.full_name='$username', user.password='$userpass1',teacher.tr_phone_no=$phone,user.u_img='$img'
-            WHERE user.user_id=teacher.user_id and teacher.tr_phone_no=$phon ;";
+            $sqln="UPDATE user,teacher set   user.full_name='$username', user.password='$userpass1',teacher.tr_phone_no='$phone',user.u_img='$img'
+            WHERE user.user_id=teacher.user_id and teacher.tr_phone_no='$phon' ;";
             if(mysqli_query($conn,$sqln)){
             echo '<script type="text/javascript">alert("Record updated successfully .")</script>';
             ?>
