@@ -1,11 +1,9 @@
 <?php
 include("../../path.php");  
-<<<<<<< HEAD
 include(MAIN_PATH."/controls/materials_and_Assignments.php");
 $table="file";
 $files=selectAll($table,['p_no'=>$_GET['post_no']]);
 
-=======
 include(MAIN_PATH."/controls/download_materials.php");
 
 $table="file";
@@ -21,7 +19,6 @@ if ($result_g_name->num_rows == 1) {
 }
 ////////////////////
 
->>>>>>> 64dc978cd8e2024bfdcd890627828c1f3b24ef44
 ?>
 <html>
     <head>
