@@ -1,0 +1,148 @@
+
+
+     /**  ---------------------  card for Add  Inquiries  ---------------------------------*/
+
+ .Inquirieslable{
+    font-size: 40px;
+    font-weight: bold;
+    position: absolute;
+    top: 10%;
+    left: 7%;
+    
+     }
+     .card{
+    background-color:#D8E6D6;
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    height: 31vh;
+    width: 75%;
+    border-radius:10px;
+     }
+     .AddInquiry{
+    font-size: 25px;
+    font-weight: bold;
+    position: absolute;
+    top: 1%;
+    left: 1%; 
+     }
+     .Inquiry{
+    height: 8vh;
+    position: absolute;
+    top: 40%;
+    left: 4%; 
+    width: 92%;
+    border: none;
+    border-radius: 5px;
+     }
+     .btpost{
+        font-size: 16px;
+    background-color:#2A3D6C ;
+    color: white;
+    width: 16%;
+    height: 6vh;
+    font-weight: 600;
+    position: absolute;
+    top:70%;
+    right: 4%;
+    border: none;
+    border-radius: 30px;
+    
+     }
+     .btpost:hover{
+        color: #000000;
+        background-color: #fff;
+        cursor: pointer;
+        border: 2px double #222242;
+     }
+     /**  ---------------------  card for student  Inquiries  ---------------------------------*/
+    
+     main{
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          width: 90%;
+          margin-left: 8%;
+          position: absolute;
+          top: 63%;
+         /* height:70vh;
+          overflow: auto;
+          */
+          height: auto;
+          }
+         
+    .cardst{
+    background-color:#D8E6D6;
+    margin-top: 1%;
+    margin-left: 2%;
+    height: 30vh;
+    width: 84%;
+    border-radius:10px;
+    padding-top: 2%;
+    }
+    .studentname{
+        margin: 0;
+        font-size: 20px;
+        margin-left: 4%;
+        font-weight: 600;
+    }
+    p{
+        margin-left: 4%;
+        margin-top: 1%;
+        width: 80%;
+    }
+    hr{
+        margin-top:2%;
+    }
+    .lable{
+        margin-top:2%;
+    
+    }
+    .reply{
+    margin-left: 4%;
+    margin-top: 1%;
+    height: 8vh;
+    width: 89%;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 600;
+    padding-left: 2%;
+    }
+    .deleteicon1{
+    position: absolute;
+    right: 15px;
+    font-size: 27px;
+    margin-left: 80%;
+    }
+    i:hover{
+        color: red;
+        font-size: 35px;  
+    }
+    p{
+    
+    }
+    
+    @media only screen and (max-width:700px)
+    {
+        
+    .btpost{
+    font-size: 14px;
+    width: 26%;
+     } 
+     i{
+    font-size: 20px;
+    margin-right: 0;
+     }
+     .reply{
+    width: 85%;
+    font-size: 15px;
+    
+     }
+     .studentname{
+        font-size: 18px;
+     }
+     p{
+        font-size: 15px; 
+     }
+    }
