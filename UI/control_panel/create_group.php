@@ -55,7 +55,7 @@ include(MAIN_PATH."/controls/groups.php");
                         $items = $pre->get_result()->fetch_all(MYSQLI_ASSOC);
                     ?>
                     <select class="select-t" name="tr_id">
-                        <option value=""></option>
+                        <option value="" disabled selected>Teacher Name</option>
 
                         <?php foreach($items as $key => $item):?>
                             <?php if(!empty($tr_id) && $tr_id==$item['tr_id']):?>
