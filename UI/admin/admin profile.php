@@ -16,6 +16,10 @@ $id3=$_SESSION['pass2'];/** login path كلمة السر غسر مشفرة تم 
 
     <!--  style for profile student -->
 <style>
+     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+  font-family: "Poppins", sans-serif;
+}
     .l3{
         
     position: absolute;

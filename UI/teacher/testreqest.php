@@ -31,6 +31,10 @@ if ($result_g_name->num_rows == 1) {
      <!--icons-->
     </head>
 <style>
+     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+  font-family: "Poppins", sans-serif;
+}
   h1{
     font-size: 42px;
   }

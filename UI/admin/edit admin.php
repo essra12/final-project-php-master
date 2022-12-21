@@ -19,6 +19,10 @@ $img1=$_SESSION['img1'];/** profile admin  صورة تم احضارها من */
     <title>Edit Profile</title>
 
 <style> 
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+  font-family: "Poppins", sans-serif;
+}
     form .form-field-signup:nth-child(3)::before {
     background-image: url(https://img.icons8.com/material-outlined/512/lock.png);
     width: 24px;
@@ -73,12 +77,22 @@ form .form-field-signup:nth-child(2)::before {
     .form-field-signup.pass span i.hide-btn::before{
         content: "\f070";
     }
-    
+    .login-form{
+width: 100%;
+    }
+  
+   .login-container{
+    width: 29%;
+padding: 2%;
+   }
+   *{
+    font-family: "Poppins", sans-serif;
+   }
     </style>
 
 <body>
     <div class="login-container">
-    <p class="signup_text"><b>Edit Admin</p>
+    <p class="signup_text" style="margin-left:25% ;"><b>Edit Admin</p>
     <form class="login-form"  method="POST" name="signup_form" enctype="multipart/form-data"  onsubmit="return check_Enter(this)">
 
     <!-- For circular image -->
@@ -108,7 +122,7 @@ form .form-field-signup:nth-child(2)::before {
     </div>
                 
         <button type="submit" name="bts" onclick="confirmDelete()" > Save</button>
-        <a href="../control_panel/groups_control_panel.php">   <button style="margin-top: 3%;" class="btcansel" type="button" > Cansels</button></a>
+        <a href="../control_panel/groups_control_panel.php">   <button style="margin-top: 3%;" class="btcansel" type="button" > Cancels</button></a>
 
     </form>
     </div>

@@ -16,6 +16,10 @@ $files=selectAllfilesInfo();
         
     </head>
 <style>
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+  font-family: "Poppins", sans-serif;
+}
 .ld{
     margin-left: 3%;
 }

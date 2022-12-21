@@ -20,6 +20,11 @@ include("../../controls/Edit-TeacherPH.php");
 
 <body >
 <style>
+   
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+  font-family: "Poppins", sans-serif;
+}
     form .form-field-signup:nth-child(3)::before {
     background-image: url(https://img.icons8.com/small/512/phone.png);
     width: 24px;
@@ -73,9 +78,21 @@ include("../../controls/Edit-TeacherPH.php");
     .form-field-signup.pass span i.hide-btn::before{
         content: "\f070";
     }
+    .profile-pic-div{
+   
+    }
+    .login-form{
+width: 104%;
+margin: 0;
+    }
+  
+   .login-container{
+    width: 29%;
+
+   }
 </style>
   <div class="login-container">
-      <p class="signup_text"><b>Edit Teacher</p>
+      <p class="signup_text" style="margin-left:25% ;"><b>Edit Teacher</p>
     <form class="login-form"  method="POST" name="signup_form" enctype="multipart/form-data"  onsubmit="return check_Enter(this)">
 
   <!-- For circular image -->
