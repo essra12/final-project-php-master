@@ -21,20 +21,55 @@ if ($result->num_rows == 1) {
     <title>Main page </title>
     <meta name="descreption " content=" " />
     <link rel="stylesheet" href="../../css/main_page_.css">
+    <link rel="stylesheet" href="../../css/inside_groups.css">
+
     <!--icon8-->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
      <!--icon8-->
      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-         
-    </head>
-    <style>
+     <style>
         * {
       list-style-type: none;
       }
+          
+     
     </style>
+         
+    </head>
+   
    
 <html>
 <body>
+   <!------------Navigation Bar ----------->  
+<nav class="navbar">
+      <ul class="lift-side">
+          <!-------back------>
+          <li><div class="back"><a href="../group/main page for group.php"><i class="las la-arrow-left"></i></a></div></li>
+          <!----------------->
+
+          <!-------logo------>
+          <li><div class="brand-title"><img src="../../sources/image/logo_dark.png" style="width: 100px;" /></div></li>
+          <!----------------->
+
+      </ul>
+      <div class="navbar-links">
+        <ul>
+          
+          <!------HOME------>
+          <li><a href="<?php echo BASE_URL . '/UI/group/main page for group.php' ?>" style="font-size: 1.5rem;"><i class="las la-home"></i></a></li>
+          <!---------------->
+
+          <!--Notification-->
+          <li><a href="#" class="notification" style="font-size: 1.5rem;"><i class="las la-bell"></i><span class="badge">3</span></a></li>
+          <!---------------->
+
+          <!------Logout----->
+          <li><a href="..\..\logout.php" style="color:#FFBA5F;font-size: 1.5rem;"><i class="las la-sign-out-alt"></i></a></li>
+          <!----------------->
+        </ul>
+      </div>
+    </nav>
+    <!------------------------------------>
        <!-- header div-->
        <div class="header-div">
               <img class="logo" src="../../sources/image/logo_light.png" alt="" style="width: 100px;">

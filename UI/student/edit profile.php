@@ -16,6 +16,10 @@ include("../../controls/edit-studentC.php");
     <title>Edit Profile</title>
    <html>
     <style> 
+     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+  font-family: "Poppins", sans-serif;
+}
      .btcansel {
     text-align      : center;
     text-transform  : uppercase;
@@ -32,11 +36,14 @@ include("../../controls/edit-studentC.php");
    background-color: #fff;
 }
 
-     .btcansel {
+
+
+.btcansel {
     text-align      : center;
     text-transform  : uppercase;
     font-size       : 14px;
-    background-color: #222242;
+    background-color:#fba433;
+    border: none;
     color: #fff;
     cursor          : pointer;
     transition      : background-color 0.3s;
@@ -46,6 +53,8 @@ include("../../controls/edit-studentC.php");
    color: #000000;
    font-weight: bold;
    background-color: #fff;
+   color: #fba433;
+   border: 1px solid #fba433 ;
 }
     
     /* for show password */
@@ -68,11 +77,21 @@ include("../../controls/edit-studentC.php");
     .form-field-signup.pass span i.hide-btn::before{
         content: "\f070";
     }
+
+    .login-form{
+width: 100%;
+margin: 0;
+    }
+  
+   .login-container{
+    width: 29%;
+padding: 2%;
+   }
     </style>
 <body >
 
   <div class="login-container">
-      <p class="signup_text"><b>Edit Student</p>
+      <p class="signup_text" style="margin-left:25% ;"><b>Edit Student</p>
     <form class="login-form"  method="POST" name="signup_form" enctype="multipart/form-data"  onsubmit="return check_Enter(this)">
 
   <!-- For circular image -->
@@ -117,8 +136,8 @@ include("../../controls/edit-studentC.php");
             <?php endif; ?> 
             <!----------------->
             
-        <button type="submit" name="bts" onclick=""> Save</button>
-        <a href="../group/main page for group.php">   <button style="margin-top: 3%;" class="btcansel" type="button" > Cansel</button></a>
+        <button type="submit" name="bts" onclick="confirmDelete()"> Save</button>
+        <a href="../group/main page for group.php">   <button style="margin-top: 3%;" class="btcansel" type="button" > Cancels</button></a>
 
 
     </form>
@@ -226,6 +245,16 @@ const passField = document.getElementById("pass");
         showBtn_conf.classList.remove("hide-btn");
         }
     });
+
+
+    /***************************for show emphasis *************************/
+    function confirmDelete() {
+    if (confirm("Are you sure you want to Update ?")) {
+        return true;
+    } 
+    else {
+        return false;
+    }}
 </script>
 
 
