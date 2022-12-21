@@ -31,6 +31,7 @@ border: none;
   outline: none;
 border: none;
 }
+
 </style>
   <body>
 
@@ -44,7 +45,8 @@ border: none;
 <!-- AddInquiry card   -->
 <div class="card">
 <label class="AddInquiry">Add Inquiry</label>
-<input class=" Inquiry " type="text"/>
+<input class=" Inquiry " type="text" placeholder="Inquiry" style="    padding-left: 2%;
+" />
 <input class="btpost" type="submit" />
 </div>
 <!-- student Inquiries  card   -->
