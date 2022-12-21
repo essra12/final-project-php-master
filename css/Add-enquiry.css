@@ -37,9 +37,9 @@
      }
      .btpost{
         font-size: 16px;
-    background-color:#2A3D6C ;
+    background-color:#222242 ;
     color: white;
-    width: 16%;
+    width: 18%;
     height: 6vh;
     font-weight: 600;
     position: absolute;
@@ -49,12 +49,15 @@
     border-radius: 30px;
     
      }
+   
      .btpost:hover{
-        color: #000000;
-        background-color: #fff;
+        /*color: #ffffff;
+        background-color: rgb(255, 255, 255);
         cursor: pointer;
-        border: 2px double #222242;
-     }
+        border: 2px double #222242;*/
+       color: white;
+
+         }
      /**  ---------------------  card for student  Inquiries  ---------------------------------*/
     
      main{
@@ -80,6 +83,31 @@
     border-radius:10px;
     padding-top: 2%;
     }
+    /* ----------------------------------- ------------------*/
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+    *{
+      font-family: "Poppins", sans-serif;
+    }
+     .cardst{
+      background-color: #e5f3fe;
+    }
+    .card{
+      background-color: #e5f3fe;
+     
+    }
+    .Inquiry{
+    outline: none;
+    border: none;
+    }
+    
+    .reply{
+      outline: none;
+    border: none;
+    width: 84%;
+    
+    }
+    /*-----------------------------------------------------------------------*/
     .studentname{
         margin: 0;
         font-size: 20px;
@@ -119,10 +147,7 @@
         color: red;
         font-size: 35px;  
     }
-    p{
-    
-    }
-    
+ 
     @media only screen and (max-width:700px)
     {
         
@@ -131,7 +156,7 @@
     width: 26%;
      } 
      i{
-    font-size: 20px;
+    font-size: 17px;
     margin-right: 0;
      }
      .reply{
