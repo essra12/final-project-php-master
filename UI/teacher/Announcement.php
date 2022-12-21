@@ -19,6 +19,10 @@ include(MAIN_PATH."/controls/add_material_and_assignment.php");
 .card{
   background-color: #e5f3fe;
 }
+i:hover{
+  font-size: 29px;
+  color: black;
+}
 </style>
   <body>
 
@@ -38,36 +42,53 @@ include(MAIN_PATH."/controls/add_material_and_assignment.php");
 
 <div class="card">
 <lable class="studentname"> Essra Sowan</lable>
-<i style="font-size: 27px;position:absolute;right: 8%;color:red" class="las la-times-circle"></i>
-
+<a onclick="return confirmDelete()" href="Announcement.php" ><i style="font-size: 27px;position:absolute;right: 8%;color:red" class="las la-times-circle"></i></a>
 </div>
 
 
 <div class="card">
 <lable class="studentname"> Essra Sowan</lable>
-<i style="font-size: 27px;position:absolute;right: 8%;color:red" class="las la-times-circle"></i>
+<a onclick="return confirmDelete()" href="Announcement.php" ><i style="font-size: 27px;position:absolute;right: 8%;color:red" class="las la-times-circle"></i></a>
 </div>
 
 
 <div class="card">
 <lable class="studentname"> Essra Sowan</lable>
-<i style="font-size: 27px;position:absolute;right: 8%;color:red" class="las la-times-circle"></i>
+<a onclick="return confirmDelete()" href="Announcement.php" ><i style="font-size: 27px;position:absolute;right: 8%;color:red" class="las la-times-circle"></i></a>
 </div>
 
 
 <div class="card">
 <lable class="studentname"> Essra Sowan</lable>
-<i style="font-size: 27px;position:absolute;right: 8%;color:red" class="las la-times-circle"></i>
+<a onclick="return confirmDelete()" href="Announcement.php" ><i style="font-size: 27px;position:absolute;right: 8%;color:red" class="las la-times-circle"></i></a>
 </div>
 
 
 <div class="card">
 <lable class="studentname"> Essra Sowan</lable>
-<i style="font-size: 27px;position:absolute;right: 8%;color:red" class="las la-times-circle"></i>
+<a onclick="return confirmDelete()" href="Announcement.php" ><i style="font-size: 27px;position:absolute;right: 8%;color:red" class="las la-times-circle"></i></a>
 </div>
+
+
+
+
 
 </main>
 
 </form>
   </body>
 </html>
+
+<script>
+                  /*******************for delet confirm***********************/
+    function confirmDelete(){
+    if (confirm("Are you sure you want to delete ?")) {
+        return true;
+    } 
+    else {
+        return false;
+    }
+}
+
+
+</script>

@@ -23,8 +23,9 @@ include(MAIN_PATH."/controls/add_material_and_assignment.php");
     }
  .btpost:hover{
   cursor: pointer;
-  background-color: white;
- }
+  color: #222242;
+        background-color: rgb(255, 255, 255);
+        border: 2px double #222242; }
 </style>
   <body>
 
@@ -40,7 +41,9 @@ include(MAIN_PATH."/controls/add_material_and_assignment.php");
 <label class="AddInquiry">Add Enquiry</label>
 <input class=" Inquiry"  id="id" type="text" placeholder="Enquiry" style="    padding-left: 2%;
 " />
-<input class="btpost" style="background-color: #222242;" type="submit" />
+<!--<input class="btpost" style="background-color: #222242;" type="submit" />-->
+<button type="submit" class="btpost" >POST</button>
+
 </div>
 <!-- student Inquiries  card   -->
 <main>
