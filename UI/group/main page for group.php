@@ -21,6 +21,8 @@ if ($result->num_rows == 1) {
     <title>Main page </title>
     <meta name="descreption " content=" " />
     <link rel="stylesheet" href="../../css/main_page_.css">
+    <link rel="stylesheet" href="../../css/inside_groups.css">
+
     <!--icon8-->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
      <!--icon8-->
