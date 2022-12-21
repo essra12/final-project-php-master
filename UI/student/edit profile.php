@@ -122,7 +122,7 @@ include("../../controls/edit-studentC.php");
             <?php endif; ?> 
             <!----------------->
             
-        <button type="submit" name="bts" onclick=""> Save</button>
+        <button type="submit" name="bts" onclick="confirmDelete()"> Save</button>
         <a href="../group/main page for group.php">   <button style="margin-top: 3%;" class="btcansel" type="button" > Cansels</button></a>
 
 
@@ -231,6 +231,16 @@ const passField = document.getElementById("pass");
         showBtn_conf.classList.remove("hide-btn");
         }
     });
+
+
+    /***************************for show emphasis *************************/
+    function confirmDelete() {
+    if (confirm("Are you sure you want to Update ?")) {
+        return true;
+    } 
+    else {
+        return false;
+    }}
 </script>
 
 

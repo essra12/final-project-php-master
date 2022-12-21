@@ -107,7 +107,7 @@ form .form-field-signup:nth-child(2)::before {
         <?php echo $error ?>
     </div>
                 
-        <button type="submit" name="bts" onclick="" > Save</button>
+        <button type="submit" name="bts" onclick="confirmDelete()" > Save</button>
         <a href="../control_panel/groups_control_panel.php">   <button style="margin-top: 3%;" class="btcansel" type="button" > Cansels</button></a>
 
     </form>
@@ -206,6 +206,16 @@ form .form-field-signup:nth-child(2)::before {
         }
     });
 
+
+
+    /***************************for show emphasis *************************/
+    function confirmDelete() {
+    if (confirm("Are you sure you want to Update ?")) {
+        return true;
+    } 
+    else {
+        return false;
+    }}
   </script>
 </body>
 </html>
