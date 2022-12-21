@@ -32,11 +32,14 @@ include("../../controls/edit-studentC.php");
    background-color: #fff;
 }
 
-     .btcansel {
+
+
+.btcansel {
     text-align      : center;
     text-transform  : uppercase;
     font-size       : 14px;
-    background-color: #222242;
+    background-color:#fba433;
+    border: none;
     color: #fff;
     cursor          : pointer;
     transition      : background-color 0.3s;
@@ -46,6 +49,8 @@ include("../../controls/edit-studentC.php");
    color: #000000;
    font-weight: bold;
    background-color: #fff;
+   color: #fba433;
+   border: 1px solid #fba433 ;
 }
     
     /* for show password */
@@ -117,8 +122,8 @@ include("../../controls/edit-studentC.php");
             <?php endif; ?> 
             <!----------------->
             
-        <button type="submit" name="bts" onclick=""> Save</button>
-        <a href="../group/main page for group.php">   <button style="margin-top: 3%;" class="btcansel" type="button" > Cansel</button></a>
+        <button type="submit" name="bts" onclick="confirmDelete()"> Save</button>
+        <a href="../group/main page for group.php">   <button style="margin-top: 3%;" class="btcansel" type="button" > Cansels</button></a>
 
 
     </form>
@@ -226,6 +231,16 @@ const passField = document.getElementById("pass");
         showBtn_conf.classList.remove("hide-btn");
         }
     });
+
+
+    /***************************for show emphasis *************************/
+    function confirmDelete() {
+    if (confirm("Are you sure you want to Update ?")) {
+        return true;
+    } 
+    else {
+        return false;
+    }}
 </script>
 
 
