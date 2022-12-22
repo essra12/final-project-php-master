@@ -71,44 +71,124 @@ if ($result_g_name->num_rows == 1) {
 <html>
 <body>
 <!------------Navigation Bar ----------->  
-<nav class="navbar">
+<!-- <nav class="navbar">
       <ul class="lift-side">
-          <!-------back------>
+          -------back------
           <li><div class="back"><a href="../group/main page for group.php"><i class="las la-arrow-left"></i></a></div></li>
-          <!----------------->
+          -----------------
 
-          <!-------logo------>
+          -------logo------
           <li><div class="brand-title"><img src="../../sources/image/logo_dark.png" style="width: 100px;" /></div></li>
-          <!----------------->
+          -----------------
 
       </ul>
       <div class="navbar-links">
         <ul>
-          <!----group name--->
-          <li><a href="../group/inside_group.php?data=<?= $g_name?>&number=<?= $groupNumber?>" style="padding-top:.5rem;"><?php echo $g_name ?></a></li>
-          <!----------------->
+          ----group name---
+          <li><a href="../group/inside_group.php?data= /* $g_name */?>&number= /* $groupNumber */?>" style="padding-top:.5rem;"> /* echo $g_name  */?></a></li>
+          -----------------
 
-          <!-----students--->
-          <?php if ($_SESSION['role']=="teacher"):?> 
-          <li><a href="<?php echo BASE_URL . '/UI/teacher/testreqest.php' ?>"  style="font-size: 1.5rem;"><i class="las la-user-friends"></i></a></li>
-          <?php endif; ?>  
-          <!----------------->
+          -----students---
+           /* if ($_SESSION['role']=="teacher"): */?> 
+          <li><a href=" /* echo BASE_URL . '/UI/teacher/testreqest.php'  */?>"  style="font-size: 1.5rem;"><i class="las la-user-friends"></i></a></li>
+          /*  endif; */ ?>  
+          -----------------
 
-          <!------HOME------>
-          <li><a href="<?php echo BASE_URL . '/UI/group/main page for group.php' ?>" style="font-size: 1.5rem;"><i class="las la-home"></i></a></li>
-          <!---------------->
+          ------HOME------
+          <li><a href=" /* echo BASE_URL . '/UI/group/main page for group.php' */ ?>" style="font-size: 1.5rem;"><i class="las la-home"></i></a></li>
+          ----------------
 
-          <!--Notification-->
+          --Notification--
           <li><a href="#" class="notification" style="font-size: 1.5rem;"><i class="las la-bell"></i><span class="badge">3</span></a></li>
-          <!---------------->
+          ----------------
 
-          <!------Logout----->
+          ------Logout-----
           <li><a href="..\..\logout.php" style="color:#FFBA5F;font-size: 1.5rem;"><i class="las la-sign-out-alt"></i></a></li>
-          <!----------------->
+          -----------------
         </ul>
       </div>
-    </nav>
+    </nav> -->
+
+
+    <!----------------side bar------------------->
+    <input type="checkbox" name="" id="menu-toggle">
+
+    <div class="overlay">
+        <label for="menu-toggle">
+            <span class="las la-cance"></span>
+        </label>
+    </div>
+
+    <div class="sidebar">
+
+        <div class="sidebar-container">
+
+            <div class="brand">
+                <h2>
+                    <img src="../../sources/image/logo_dark.png" alt="" style="width: 100px;">
+                </h2>
+            </div>
+
+            <!--menu profile photo -->
+            <div class="sidebar-avartar" style="margin-top:20px">
+                <div>
+                    <a href="" alt=" " style="width: 70px; height:70px ;"></a>
+                </div>
+
+                <div class="avartar-info">
+                    <div class="avartar-text">
+                        <h4><?php echo $username;?></h4>
+                        <p>Id : <?php echo $user_id;?> </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- menu items -->
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="<?php echo BASE_URL . '/UI/control_panel/groups_control_panel.php' ?>">
+                            <span class="las la-user-friends"></span>
+                            <span>Groups</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo BASE_URL . '/UI/control_panel/teacher_control_panel.php' ?>">
+                            <span class="las la-user-tie"></span>
+                            <span>Teachers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo BASE_URL . '/UI/control_panel/student_control_panel.php' ?>">
+                            <span class="las la-user-alt"></span>
+                            <span>Students</span>
+                        </a>
+                    </li>                
+                    <li>
+                    <a href="..\..\logout.php">
+                            <span class="las la-sign-out-alt" style="color:#FFBA5F;"></span>
+                            <span style="color:#FFBA5F;">LogOut</span>
+                        </a>
+
+                </ul>
+            </div>
+            <!--menu admen -->
+            <div class="sidebar-card">
+                <img src="../../sources/image/admin_image_3d.png">  
+            </div>
+            <div class="sidebar-card-btn">
+                <a href="<?php echo BASE_URL . '/UI/control_panel/admin_control_panel.php' ?>">
+                    <button  class="btn btn-admin">Admin</button>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+    <!----------------End side bar------------------->
+
     <!------------------------------------>
+    <div class="main-content">
        <!-- header div-->
        <div class="header-div">
 			 
@@ -129,7 +209,7 @@ if ($result_g_name->num_rows == 1) {
                 <div class="dropdown">
                     <button class="btn-create">+</button>
                     <div>
-                        <a href="../teacher/add material.php?g_no=<?= $group_no?>">Material</a>
+                        <a href="../teacher/add.php?g_no=<?= $group_no?>">Material</a>
                         <a href="../teacher/add announcement.php?g_no=<?= $group_no?>">Announcement</a>
                          <a href="../teacher/add_announcement_assignment.php?g_no=<?= $group_no?>">Assignment</a>
                     </div>
@@ -137,7 +217,7 @@ if ($result_g_name->num_rows == 1) {
             <?php endif;?>    
             <!------------------------------------------------------------->
         </div>
-           
+     
          <!-- ************************************************************************************* -->
 		 <main>
 		 <div class="wrapper">
@@ -164,7 +244,7 @@ if ($result_g_name->num_rows == 1) {
         
 
 
-
+</div>
 
 
 <!-- java script for current date -->
