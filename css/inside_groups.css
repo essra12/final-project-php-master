@@ -26,110 +26,7 @@
  
 
  /*****************************************************Navigation Bar style**********************************************************/
-/*
- .navbar {
-    display: flex;
-    position: relative;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #222242;
-    box-shadow: var(--shadow2);
-    color: white;
-}
 
-ul{
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-.lift-side li{
-    display: block;
-    text-decoration: none;
-    color: white;
-    padding-right: 1rem;
-    margin: auto;
-}
-
-.lift-side li a {
-    display: block;
-    text-decoration: none;
-    color: white;
-    margin-left: 0;
-}
-
-.back{
-    display: inline;
-    margin-right: 0;
-}
-
-.back i{
-    margin-left: .5rem;
-    font-size: 2.2rem;
-}
-
-.brand-title {
-    font-size: 1.5rem;
-    margin: .5rem;
-    margin-left: 0;
-}
-
-.navbar-links {
-    height: 100%;
-}
-/******Notification*******
- 
-.notification {
-    color: white;
-    text-decoration: none;
-    position: relative;
-    display: inline-block;
-  }
-  
-  .notification .badge {
-    position: absolute;
-    top: 1px;
-    right: 1px;
-    padding: 1px 6px;
-    border-radius: 50%;
-    background: var(--orange);
-    color: var(--vdarkblue);
-    font-size: .7rem;
-  }
-/***********************
-.navbar-links ul {
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-.navbar-links li {
-    list-style: none;
-}
-
-.navbar-links li a {
-    display: block;
-    text-decoration: none;
-    color: white;
-    padding-left: .5rem;
-    padding-right: .5rem;
-}
-
-.navbar-links li:hover {
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.navbar-links li:hover i{
-    font-weight: bold;
-    font-size: 1.7rem;
-}
-
-a:is(:link,:active,:hover).active{
-    font-weight: bold;
-    font-size: 18px;
-}
-  */
   
 /*menu icon*/
 #menu-toggle{
@@ -137,7 +34,7 @@ a:is(:link,:active,:hover).active{
 } 
 
 #menu-toggle:checked ~ .sidebar{
-  left:-290px;
+  left:-270px;
 }
 
 #menu-toggle:checked ~ .main-content{
@@ -145,7 +42,7 @@ a:is(:link,:active,:hover).active{
   width: 100vw; 
 }
 .sidebar {
-  Width:290px;
+  Width:270px;
   height: 100%;
   position: fixed;
   top: 0;
@@ -185,7 +82,7 @@ a:is(:link,:active,:hover).active{
   display: grid;
   grid-template-columns: 100px auto;
   align-items: center;
-  margin: 2rem 0rem 2rem;
+  margin: 3rem 0rem 2rem;
   padding: .1rem 0 rem;
   color: #FFFFFF;
 }
@@ -208,6 +105,7 @@ a:is(:link,:active,:hover).active{
 /*menu items*/
 .sidebar-menu li{
   margin-bottom: 1rem;
+
 }
 .sidebar-menu a{
   color: #FFFFFF;
@@ -227,7 +125,8 @@ a:is(:link,:active,:hover).active{
 }
 
 .sidebar-menu ul{
-  margin-left: 4rem; 
+  margin-left: 2rem; 
+  margin-top: 30%;
 }
 .sidebar-menu a span:first-child{
   display: inline-block;
@@ -235,53 +134,40 @@ a:is(:link,:active,:hover).active{
   font-size: 18px;
   color: #FFFFFF;
 }
+/***********/
+@media only screen and (max-width:1280px) {
+  .sidebar{
+      left: -290px;
+      z-index: 30;
+  }
+  .main-content{
+      width: 100vw;
+      margin-left: 0;
+  }
+  #menu-toggle:checked ~ .sidebar{
+      left: 0;
+  }
+  #menu-toggle:checked ~ .overlay{
+      display: block;
+  }
 
-/*admin card in sidebar*/
-.sidebar-card{
-  text-align: center;
-  padding-top: .5rem;
-}
-.sidebar-card img{
-  width: 180px;
-  height: auto;
-  margin: 0px;
-}
-.sidebar-card-btn{
-  background: #FFFFFF;
-  border-radius: 15px;
-  width: 65%;
-  margin: 0rem 2rem 0rem 3rem;
-}
-.btn-admin{
-  padding: .5rem 1rem;
-  border: none;
-  border-radius: 15px;
-  background-color: var(--lightblue);
-  color: var(--darkblue);
-  font-size: 14px;
-  width: 60%;
-  margin: 1.5rem 1.5rem 1.5rem 2rem ;
-  font-weight: bold;
-  text-transform  : uppercase;
-  transition      : background-color 0.3s;
-}
-.btn-admin:hover{
- /*  background: var(--orange); */
-  color: #000000;
-  background-color: #fff;
-  cursor: pointer;
-  border: 2px double #222242;
-  border-radius: 25px;
+  .header-title label{
+     display: inline-block;
+
+  }
 }
 
-  /***************/
+
+/****************main container***************/
 
   .main-content{
-    margin-left:290px;
+    margin-left:270px;
     width: calc(100vw - 290px);
     transition: margin-left 300ms;
     padding: 1rem 6rem;
 }
+
+/********************************************/
 
 
   /***********************header************************************************************************************************************/
