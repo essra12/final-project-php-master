@@ -21,12 +21,12 @@ if ($result->num_rows == 1) {
     <title>Main page </title>
     <meta name="descreption " content=" " />
     <link rel="stylesheet" href="../../css/main_page_.css">
-    <link rel="stylesheet" href="../../css/inside_groups.css">
-
+  
     <!--icon8-->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
      <!--icon8-->
      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    
      <style>
         * {
       list-style-type: none;
@@ -72,7 +72,6 @@ if ($result->num_rows == 1) {
     <!------------------------------------>
        <!-- header div-->
        <div class="header-div">
-              <img class="logo" src="../../sources/image/logo_light.png" alt="" style="width: 100px;">
              <h5 id="date" style="font-size:24px; padding-bottom: 10px; padding-left:14px;">  </h5>
             <form class="example"  method="POST" action="" onsubmit="return check_Enter(this)">
             <div class="full_name">
@@ -97,16 +96,35 @@ if ($result->num_rows == 1) {
            
 
              <div class="photo-div">
-                <a href="..\student\student-profile.php"><img class="img-user" src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " style="border-radius: 100%; width: 150px; height:150px" /></a>
+              <div class="container">
+                <a href="..\student\student-profile.php"><img class="img-user" src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " style="border-radius: 100%; "/></a>
+                <div class="overlay">
+               <div class="text"><a href="..\student\student-profile.php">View Profile</a></div>
+               </div>
+             </div> 
             </div>
+           
             <!-- ************************************************************************************* -->
             <!-- ****************image section for teacher************************* -->
             <?php if($role=="teacher"):?>
                  <div class="photo-div">
-                <a href="..\teacher\profile teacher.php"><img class="img-user" src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " style="border-radius: 100%; width: 150px; height:150px" /></a>
+                 <div class="container">
+                <a href="..\student\student-profile.php"><img class="img-user" src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " style="border-radius: 100%; "/></a>
+                <div class="overlay">
+               <div class="text"><a href="..\teacher\profile teacher.php">View Profile</a></div>
+               </div>
+             </div> 
             </div>
             <?php endif;?>
+
+          
+       <section id="section_scroll" class="demo">
+      <a href="#section"><span></span></a>
+      </section>
         </div>
+
+      
+
 
         <h1  style=" padding:3% 18% 0% 18%;"> Groups </h1>
 
@@ -132,12 +150,12 @@ if ($result->num_rows == 1) {
   <!------foreach loop--------->
   <?php $groupsInfo=selectGroupName();?>
  <main>  
- <div class="container">
+ <div id="section" class="container">
   <div class="cards">
   <?php foreach($groupsInfo as $key => $Info):?>
     <div href="" class="card">
-      <img src="../../sources/image/background.png" class="card__image" alt="" />
-      <div class="card__overlay">
+        <img src="../../sources/image/background.png" class="card__image" alt="" />
+          <div class="card__overlay">
         <div class="card__header">
           <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
           
@@ -158,7 +176,7 @@ if ($result->num_rows == 1) {
 <?php if($role=="teacher"):?>
   <?php $groupsInfoForTeacher=selectGroupNameForTeacher()?>
   <main>
-<div class="container">      
+<div id="section" class="container">      
  <div class="cards">
  <?php foreach($groupsInfoForTeacher as $key => $Info):?>
    <div href="" class="card">
@@ -205,12 +223,17 @@ if ($result->num_rows == 1) {
         // Only ASCII character in that range allowed
         var ASCIICode = (evt.which) ? evt.which : evt.keyCode
         if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)){
-            alert(" pleas enter Just Number");
+            alert(" please enter Just Number");
             return false;
         }
         return true;
     }
-
+    $(function() {
+  $('a[href*=#]').on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
+  });
+});
     </script>
       
 </body>
