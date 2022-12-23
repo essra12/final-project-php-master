@@ -103,17 +103,20 @@ if ($result->num_rows == 1) {
             <!-- ************************************************************************************* -->
             <!-- ****************image section for teacher************************* -->
             <?php if($role=="teacher"):?>
+            
                  <div class="photo-div">
-                
-                <a href="..\teacher\profile teacher.php"><img class="img-user" src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " style="border-radius: 100%; "/></a>
+                  <a href="..\teacher\profile teacher.php"><img class="img-user" src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " style="border-radius: 100%; "/></a>
                 </div> 
-            </div>
+                <section id="section_scroll" class="demo">
+                 <a href="#section"><span></span></a>
+               </section>
+               </div>
             <?php endif;?>
 
           
-       <section id="section_scroll" class="demo">
-      <a href="#section"><span></span></a>
-      </section>
+        <section id="section_scroll" class="demo">
+        <a href="#section"><span></span></a>
+        </section>
         </div>
 
       
