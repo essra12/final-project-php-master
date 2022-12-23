@@ -78,15 +78,22 @@ include("../../controls/edit-studentC.php");
         content: "\f070";
     }
 
-    .login-form{
-width: 100%;
-margin: 0;
-    }
-  
    .login-container{
-    width: 29%;
-padding: 2%;
+    padding: 2%;
+    width: 30%;
    }
+   .login-form{
+    width: 100%;
+    margin: 0;
+    
+   }
+   
+@media only screen and (max-width:800px) {   
+    .login-container{
+    width: 70%;
+   } 
+}
+    
     </style>
 <body >
 

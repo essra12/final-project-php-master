@@ -84,10 +84,18 @@ width: 100%;
    .login-container{
     width: 29%;
 padding: 2%;
+
    }
    *{
     font-family: "Poppins", sans-serif;
    }
+
+   
+@media only screen and (max-width:800px) {   
+    .login-container{
+    width: 60%;
+   } 
+}
     </style>
 
 <body>
