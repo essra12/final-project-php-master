@@ -16,6 +16,16 @@ if ($result_g_name->num_rows == 1) {
     }
 }
 ///////////////////////////
+//to get group name
+$sql="SELECT full_name,u_img FROM user Where user_id='$user_id';";
+$result_g_name = $conn->query($sql);
+if ($result_g_name->num_rows == 1) {
+    while($row = $result_g_name->fetch_assoc()) {
+      $username=$row["full_name"];
+      $img=$row["u_img"];
+    }
+}
+///////////////////////////
 
 ?>
 
@@ -70,45 +80,86 @@ if ($result_g_name->num_rows == 1) {
     </head>    
 <html>
 <body>
-<!------------Navigation Bar ----------->  
-<nav class="navbar">
-      <ul class="lift-side">
-          <!-------back------>
-          <li><div class="back"><a href="../group/main page for group.php"><i class="las la-arrow-left"></i></a></div></li>
-          <!----------------->
+    <!----------------side bar------------------->
+    <input type="checkbox" name="" id="menu-toggle">
 
-          <!-------logo------>
-          <li><div class="brand-title"><img src="../../sources/image/logo_dark.png" style="width: 100px;" /></div></li>
-          <!----------------->
+    <div class="overlay">
+        <label for="menu-toggle">
+            <span class="las la-cance" style="color:#222242;"></span>
+        </label>
+    </div>
 
-      </ul>
-      <div class="navbar-links">
-        <ul>
-          <!----group name--->
-          <li><a href="../group/inside_group.php?data=<?= $g_name?>&number=<?= $groupNumber?>" style="padding-top:.5rem;"><?php echo $g_name ?></a></li>
-          <!----------------->
+    <div class="sidebar">
 
-          <!-----students--->
-          <?php if ($_SESSION['role']=="teacher"):?> 
-          <li><a href="<?php echo BASE_URL . '/UI/teacher/testreqest.php' ?>"  style="font-size: 1.5rem;"><i class="las la-user-friends"></i></a></li>
-          <?php endif; ?>  
-          <!----------------->
+        <div class="sidebar-container">
 
-          <!------HOME------>
-          <li><a href="<?php echo BASE_URL . '/UI/group/main page for group.php' ?>" style="font-size: 1.5rem;"><i class="las la-home"></i></a></li>
-          <!---------------->
+            <div class="brand">
+                <h2>
+                    <img src="../../sources/image/logo_dark.png" alt="" style="width: 100px;">
+                </h2>
+            </div>
 
-          <!--Notification-->
-          <li><a href="#" class="notification" style="font-size: 1.5rem;"><i class="las la-bell"></i><span class="badge">3</span></a></li>
-          <!---------------->
+            <!--menu profile photo -->
+            <div class="sidebar-avartar" style="margin-top:20px">
+                <div>
+                    <a href="" alt="" style="width: 70px; height:70px ;"><img src="<?php echo BASE_URL . '/sources/image/'.$img  ?>" alt=" " style="width: 70px; height:70px ;"></img></a>
+                </div>
 
-          <!------Logout----->
-          <li><a href="..\..\logout.php" style="color:#FFBA5F;font-size: 1.5rem;"><i class="las la-sign-out-alt"></i></a></li>
-          <!----------------->
-        </ul>
-      </div>
-    </nav>
-    <!------------------------------------>
+                <div class="avartar-info">
+                    <div class="avartar-text">
+                        <h4><?php echo $username;?></h4>
+                        <p>Id : <?php echo $user_id;?> </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- menu items -->
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="<?php echo BASE_URL . '/UI/control_panel/groups_control_panel.php' ?>">
+                            <span style="font-size:20px;"><?php echo $g_name ?></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo BASE_URL . '/UI/group/main page for group.php' ?>">
+                            <span class="las la-home"></span>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo BASE_URL . '/UI/teacher/testreqest.php' ?>">
+                            <span class="las la-user-friends"></span>
+                            <span>Student</span>
+                        </a>
+                    </li>     
+                    <li>
+                        <a href="#">
+                            <span class="las la-bell"></span>
+                            <span>Notifications</span>
+                        </a>
+                    </li>                
+                    <li>
+                    <a href="..\..\logout.php">
+                            <span class="las la-sign-out-alt" style="color:#FFBA5F;"></span>
+                            <span style="color:#FFBA5F;">LogOut</span>
+                        </a>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <header class="main_icon">
+        <div class="header-title">
+            <label for="menu-toggle">
+                <span class="las la-bars"></span>
+            </label>
+        </div>
+    </header>
+    <!----------------End side bar------------------->
+
+    <!----------------------------main container---------------------------->
+    <div class="main-content">
        <!-- header div-->
        <div class="header-div">
 			 
@@ -122,6 +173,10 @@ if ($result_g_name->num_rows == 1) {
             <?php if($role==""):?>
             <a href="../student/add asignment.php?g_no=<?= $group_no?>">
                 <button class="btn-create">+</button>
+                <div>
+                    <a href="../student/add asignment.php?g_no=<?= $group_no?>">Assignment</a>
+                    <a href="../teacher/Add Enquiry.php?">Enquiry</a>
+                </div>
             </a>
             <?php endif;?>
             
@@ -129,15 +184,15 @@ if ($result_g_name->num_rows == 1) {
                 <div class="dropdown">
                     <button class="btn-create">+</button>
                     <div>
-                        <a href="../teacher/add material.php?g_no=<?= $group_no?>">Material</a>
+                        <a href="../teacher/add.php?g_no=<?= $group_no?>">Material</a>
                         <a href="../teacher/add announcement.php?g_no=<?= $group_no?>">Announcement</a>
-                         <a href="../teacher/add_announcement_assignment.php?g_no=<?= $group_no?>">Assignment</a>
+                        <a href="../teacher/add_announcement_assignment.php?g_no=<?= $group_no?>">Assignment</a>
                     </div>
                 </div>
             <?php endif;?>    
             <!------------------------------------------------------------->
         </div>
-           
+     
          <!-- ************************************************************************************* -->
 		 <main>
 		 <div class="wrapper">
@@ -157,15 +212,13 @@ if ($result_g_name->num_rows == 1) {
 		<img id="img4" onmouseover="setNewImage4(this)" onmouseout="setOldImage()" src="../../sources/image/E4Dark.png" alt="img" draggable="false">
         </a>
              
-      </div>
-      <i id="right" class="fa-solid fa-angle-right"></i>
-    </div>
-    <main>    
+        </div>
+        <i id="right" class="fa-solid fa-angle-right"></i>
+       </div>
+       <main>    
         
-
-
-
-
+    </div>
+    <!-------------end main group----------------->
 
 <!-- java script for current date -->
 <!---js section for image slider--->
@@ -242,6 +295,18 @@ carousel.addEventListener("touchend", dragStop);
     document.getElementById("img3").src="../../sources/image/N3Dark.png";
     document.getElementById("img4").src="../../sources/image/E4Dark.png";
  }
+
+
+
+/******************************for sidebar (highlights items after click it)********************************/
+const activePage = window.location.pathname;
+const navLinks = document.querySelectorAll('.sidebar-menu a').forEach(link => {
+if(link.href.includes(`${activePage}`)){
+    link.classList.add('active');
+    console.log(link);
+}
+})
+
     </script>
       
 </body>

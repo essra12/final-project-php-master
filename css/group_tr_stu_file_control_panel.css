@@ -390,7 +390,7 @@ main{
 
     .header-title label{
        display: inline-block;
- 
+       cursor: pointer;
     }
 }
 
