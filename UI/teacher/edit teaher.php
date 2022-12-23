@@ -78,18 +78,25 @@ include("../../controls/Edit-TeacherPH.php");
     .form-field-signup.pass span i.hide-btn::before{
         content: "\f070";
     }
-    .profile-pic-div{
-   
-    }
-    .login-form{
-width: 104%;
-margin: 0;
-    }
-  
-   .login-container{
-    width: 29%;
+    .login-container{
+    padding: 2%;
+    width: 30%;
+    background-color: #D92A2A;
 
    }
+   .login-form{
+    width: 100%;
+    margin: 0;
+   }
+   .form-field-signup{
+   }
+   
+@media only screen and (max-width:800px) {   
+    .login-container{
+    width: 70%;
+   } 
+}
+    
 </style>
   <div class="login-container">
       <p class="signup_text" style="margin-left:25% ;"><b>Edit Teacher</p>
@@ -133,7 +140,7 @@ margin: 0;
             <?php endif; ?> 
             <!----------------->
         <button type="submit" name="bts"  onclick="confirmDelete()"> Save</button>
-        <a href="../group/main page for group.php">   <button style="margin-top: 3%;" class="btcansel" type="button" > Cancels</button></a>
+        <a href="../group/main page for group.php">   <button style="margin-top: 3%;" class="btcansel" type="button" > Cancel</button></a>
 
     </form>
     </div>
