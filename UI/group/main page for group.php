@@ -95,25 +95,18 @@ if ($result->num_rows == 1) {
             <!-------------------------------------->
            
 
-             <div class="photo-div">
-              <div class="container">
-                <a href="..\student\student-profile.php"><img class="img-user" src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " style="border-radius: 100%; "/></a>
-                <div class="overlay">
-               <div class="text"><a href="..\student\student-profile.php">View Profile</a></div>
-               </div>
-             </div> 
+             <div class="photo-div">                
+              <a href="..\student\student-profile.php"><img class="img-user" src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " style="border-radius: 100%; "/></a>
+            
             </div>
            
             <!-- ************************************************************************************* -->
             <!-- ****************image section for teacher************************* -->
             <?php if($role=="teacher"):?>
                  <div class="photo-div">
-                 <div class="container">
-                <a href="..\student\student-profile.php"><img class="img-user" src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " style="border-radius: 100%; "/></a>
-                <div class="overlay">
-               <div class="text"><a href="..\teacher\profile teacher.php">View Profile</a></div>
-               </div>
-             </div> 
+                
+                <a href="..\teacher\profile teacher.php"><img class="img-user" src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " style="border-radius: 100%; "/></a>
+                </div> 
             </div>
             <?php endif;?>
 
