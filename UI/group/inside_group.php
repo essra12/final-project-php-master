@@ -117,7 +117,7 @@ if ($result_g_name->num_rows == 1) {
             <div class="sidebar-menu">
                 <ul>
                     <li>
-                        <a href="<?php echo BASE_URL . '/UI/control_panel/groups_control_panel.php' ?>">
+                        <a href="#">
                             <span style="font-size:20px;"><?php echo $g_name ?></span>
                         </a>
                     </li>
@@ -297,15 +297,6 @@ carousel.addEventListener("touchend", dragStop);
  }
 
 
-
-/******************************for sidebar (highlights items after click it)********************************/
-const activePage = window.location.pathname;
-const navLinks = document.querySelectorAll('.sidebar-menu a').forEach(link => {
-if(link.href.includes(`${activePage}`)){
-    link.classList.add('active');
-    console.log(link);
-}
-})
 
     </script>
       

@@ -127,7 +127,6 @@ function selectAllFileInfo(){
     $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
     return $records;
 }
-
 /* Insert to Group FUNCTIONS */
  function insertData($table ,$data)
 {
@@ -169,7 +168,7 @@ function deleteAdmin($table, $id)
     $st=executeQuery($sql2,['user_id'=>$id]);
     return $st->affected_rows;
 } 
-
+/* DELETE Student From Group FUNCTION */
 function deleteStudentGroup($id)
 {
     global $conn;

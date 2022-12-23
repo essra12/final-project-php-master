@@ -17,7 +17,7 @@ if ($result_g_name->num_rows == 1) {
     <head>
     <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add Assignment</title>
+    <title>Add Announcement_ssignment</title>
     <meta charset="utf-8">
     <!--for logo-->
     <link rel="shortcut icon" href="../../sources/image/logo_dark-without_bc.png">
