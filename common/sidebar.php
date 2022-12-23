@@ -65,7 +65,7 @@ if ($result->num_rows == 1) {
                         <span>Students</span>
                     </a>
                 </li>
-<!--                 <li>
+            <!--<li>
                     <a href="<?php echo BASE_URL . '/UI/control_panel/file_control_panal.php' ?>">
                         <span class="lar la-file"></span>
                         <span>Files</span>

@@ -144,13 +144,18 @@ if ($result_g_name->num_rows == 1) {
                             <span class="las la-sign-out-alt" style="color:#FFBA5F;"></span>
                             <span style="color:#FFBA5F;">LogOut</span>
                         </a>
-
                 </ul>
             </div>
 
         </div>
-
     </div>
+    <header class="main_icon">
+        <div class="header-title">
+            <label for="menu-toggle">
+                <span class="las la-bars"></span>
+            </label>
+        </div>
+    </header>
     <!----------------End side bar------------------->
 
     <!----------------------------main container---------------------------->
@@ -168,6 +173,10 @@ if ($result_g_name->num_rows == 1) {
             <?php if($role==""):?>
             <a href="../student/add asignment.php?g_no=<?= $group_no?>">
                 <button class="btn-create">+</button>
+                <div>
+                    <a href="../student/add asignment.php?g_no=<?= $group_no?>">Assignment</a>
+                    <a href="../teacher/Add Enquiry.php?">Enquiry</a>
+                </div>
             </a>
             <?php endif;?>
             
@@ -177,7 +186,7 @@ if ($result_g_name->num_rows == 1) {
                     <div>
                         <a href="../teacher/add.php?g_no=<?= $group_no?>">Material</a>
                         <a href="../teacher/add announcement.php?g_no=<?= $group_no?>">Announcement</a>
-                         <a href="../teacher/add_announcement_assignment.php?g_no=<?= $group_no?>">Assignment</a>
+                        <a href="../teacher/add_announcement_assignment.php?g_no=<?= $group_no?>">Assignment</a>
                     </div>
                 </div>
             <?php endif;?>    
