@@ -5,7 +5,7 @@ include(MAIN_PATH."/controls/add_material_and_assignment.php");
 ?>
 <html lang="en">
   <head>
-  <title>Group</title>
+  <title>Enquiry</title>
   <!--for logo-->
   <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
   <link rel="stylesheet" href="../../css/assignments-student.css"> 
