@@ -206,23 +206,7 @@ if ($result_g_name->num_rows == 1) {
     <h3><a href="<?php echo BASE_URL . '/UI/student/materials.php' ?>">Materials</a></h3>
     </div>
   </div>
-
-	   <a href="<?php echo BASE_URL . '/UI/student/materials.php' ?>">
-		<img id="img1" onmouseover="setNewImage1(this)" onmouseout="setOldImage()" src="../../sources/image/m1Dark.png" alt="img" draggable="false">
-        </a>
-    	<a href="<?php echo BASE_URL . '/UI/student/assignment.php' ?>">
-		<img id="img2" onmouseover="setNewImage2(this)" onmouseout="setOldImage()" src="../../sources/image/A2Dark.png" alt="img" draggable="false">
-        </a>
-		<a href="../teacher/Announcement.php?g_no=<?= $group_no?>">
-		<img id="img3" onmouseover="setNewImage3(this)" onmouseout="setOldImage()" src="../../sources/image/N3Dark.png" alt="img" draggable="false">
-        </a>
-		<a href="<?php echo BASE_URL . '/UI/student/add asignment.php' ?>">
-		<img id="img4" onmouseover="setNewImage4(this)" onmouseout="setOldImage()" src="../../sources/image/E4Dark.png" alt="img" draggable="false">
-        </a>
-             
-        </div>
-        <i id="right" class="fa-solid fa-angle-right"></i>
-       </div>
+       
   <div class="column">
     <div class="card">
       <h3><a href="<?php echo BASE_URL . '/UI/student/assignment.php' ?>">Assignment</a></h3>
@@ -257,81 +241,6 @@ if ($result_g_name->num_rows == 1) {
 <!-- java script for current date -->
 <!---js section for image slider--->
     <script>
-     const carousel = document.querySelector(".carousel"),
-firstImg = carousel.querySelectorAll("img")[0],
-arrowIcons = document.querySelectorAll(".wrapper i");
-let isDragStart = false, isDragging = false, prevPageX, prevScrollLeft, positionDiff;
-const showHideIcons = () => {
-    // showing and hiding prev/next icon according to carousel scroll left value
-    let scrollWidth = carousel.scrollWidth - carousel.clientWidth; // getting max scrollable width
-    arrowIcons[0].style.display = carousel.scrollLeft == 0 ? "none" : "block";
-    arrowIcons[1].style.display = carousel.scrollLeft == scrollWidth ? "none" : "block";
-}
-arrowIcons.forEach(icon => {
-    icon.addEventListener("click", () => {
-        let firstImgWidth = firstImg.clientWidth + 14; // getting first img width & adding 14 margin value
-        // if clicked icon is left, reduce width value from the carousel scroll left else add to it
-        carousel.scrollLeft += icon.id == "left" ? -firstImgWidth : firstImgWidth;
-        setTimeout(() => showHideIcons(), 60); // calling showHideIcons after 60ms
-    });
-});
-const autoSlide = () => {
-    // if there is no image left to scroll then return from here
-    if(carousel.scrollLeft - (carousel.scrollWidth - carousel.clientWidth) > -1 || carousel.scrollLeft <= 0) return;
-    positionDiff = Math.abs(positionDiff); // making positionDiff value to positive
-    let firstImgWidth = firstImg.clientWidth + 14;
-    // getting difference value that needs to add or reduce from carousel left to take middle img center
-    let valDifference = firstImgWidth - positionDiff;
-    if(carousel.scrollLeft > prevScrollLeft) { // if user is scrolling to the right
-        return carousel.scrollLeft += positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff;
-    }
-    // if user is scrolling to the left
-    carousel.scrollLeft -= positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff;
-}
-const dragStart = (e) => {
-    // updatating global variables value on mouse down event
-    isDragStart = true;
-    prevPageX = e.pageX || e.touches[0].pageX;
-    prevScrollLeft = carousel.scrollLeft;
-}
-const dragging = (e) => {
-    // scrolling images/carousel to left according to mouse pointer
-    if(!isDragStart) return;
-    e.preventDefault();
-    isDragging = true;
-    carousel.classList.add("dragging");
-    positionDiff = (e.pageX || e.touches[0].pageX) - prevPageX;
-    carousel.scrollLeft = prevScrollLeft - positionDiff;
-    showHideIcons();
-}
-const dragStop = () => {
-    isDragStart = false;
-    carousel.classList.remove("dragging");
-    if(!isDragging) return;
-    isDragging = false;
-    autoSlide();
-}
-carousel.addEventListener("mousedown", dragStart);
-carousel.addEventListener("touchstart", dragStart);
-document.addEventListener("mousemove", dragging);
-carousel.addEventListener("touchmove", dragging);
-document.addEventListener("mouseup", dragStop);
-carousel.addEventListener("touchend", dragStop);
- //-------------------------------------------------------------------------------
- function setNewImage1(){  document.getElementById("img1").src="../../sources/image/M1light.png";} 
- function setNewImage2(){document.getElementById("img2").src="../../sources/image/A2light.png";}
- function setNewImage3(){document.getElementById("img3").src="../../sources/image/N3light.png";}
- function setNewImage4(){document.getElementById("img4").src="../../sources/image/E4light.png";}
-
- function setOldImage(){
-    document.getElementById("img1").src="../../sources/image/m1Dark.png";
-    document.getElementById("img2").src="../../sources/image/A2Dark.png";
-    document.getElementById("img3").src="../../sources/image/N3Dark.png";
-    document.getElementById("img4").src="../../sources/image/E4Dark.png";
- }
-
-
-
     </script>
       
 </body>
