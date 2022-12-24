@@ -31,7 +31,7 @@ function stprofileimg(){
                        $spe=$row[6];
                        $pass=$row[2];
                        $img=$row[3];
-                     echo"  <label class='LabelID' style='margin-left: 30%;'>ID <br>$id</label>";
+                     echo"  <label class='LabelID' style='margin-left: 30%;'>&nbsp&nbsp&nbspID <br>$id</label>";
                      echo"   <label class='stname' >$name</label>";
                      echo"   <label class='stspe' >$spe</label>";
       
@@ -120,7 +120,7 @@ function imgteacher(){
                   $img=$row[3];
 
      
-                    echo"  <label class='LabelID' style='margin-left: 30%;'>ID <br>$id</label>";
+                    echo"  <label class='LabelID' style='margin-left: 30%;'>&nbsp&nbsp&nbspID <br>$id</label>";
                     echo"   <label class='stname' >$name</label>";
                     echo"   <label class='stspe' >$phone</label>";
 

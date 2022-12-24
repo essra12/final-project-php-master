@@ -22,11 +22,20 @@ include("../../controls/profiles.php");
     .divdata{
         border-radius:0px 0px  20px 20px;
     }
+    #group{
+    position: absolute;
+    top: 35%;
+    left: 35.5%; 
+}
+.divphoto{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 </style>
 <html>
 
 
 <body>
+    
 <form method="get" action="edit profile.php" enctype="multipart/form-data">
 <div class="container">
         <!-- container one for photo,groups,assinament data -->
