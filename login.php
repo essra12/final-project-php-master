@@ -8,6 +8,8 @@ include(MAIN_PATH."/controls/login_path.php");
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!--for logo-->
+    <link rel="shortcut icon" href="sources/image/logo_bar.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS\login_and_singup.css" type="text/css"/>
