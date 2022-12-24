@@ -41,9 +41,7 @@ if ($result_g_name->num_rows == 1) {
     
     <style>
      
-        .header-div{background-color: #fff;}
-
-        .dropdown{
+         .dropdown{
             display:inline-block;
             position:relative;
         }
@@ -71,7 +69,7 @@ if ($result_g_name->num_rows == 1) {
             margin-left:0px;
         }
         .dropdown div a:hover{
-            background-color:#222242;
+            background-color:#FFBA5F;
             color:#fff;
         }
 
@@ -157,6 +155,7 @@ if ($result_g_name->num_rows == 1) {
         </div>
     </header>
     <!----------------End side bar------------------->
+    <div class="vertical_line"></div>
 
     <!----------------------------main container---------------------------->
     <div class="main-content">
@@ -169,14 +168,19 @@ if ($result_g_name->num_rows == 1) {
 			 <h3>Group Code:    <?php echo $group_no ?></h3>
 			</div>
             
+            <div class="button-div"> 
             <!-------------------- (+) button------------------------------->
             <?php if($role==""):?>
+                
+            <a href="../student/add asignment.php?g_no=<?= $group_no?>">  </a>
                 <div class="dropdown">
                 <button class="btn-create">+</button>
                 <div>
                     <a href="../student/add asignment.php?g_no=<?= $group_no?>">Assignment</a>
                     <a href="../teacher/Add Enquiry.php?">Enquiry</a>
                 </div>
+                </div>
+          
             <?php endif;?>
             
             <?php if($role=="teacher"):?>
@@ -190,13 +194,18 @@ if ($result_g_name->num_rows == 1) {
                 </div>
             <?php endif;?>    
             <!------------------------------------------------------------->
+            </div>
         </div>
      
          <!-- ************************************************************************************* -->
 		 <main>
-		 <div class="wrapper">
-        <i id="left" class="fa-solid fa-angle-left"></i>
-       <div class="carousel">
+	
+       <div class="row">
+  <div class="column">
+    <div class="card">
+    <h3><a href="<?php echo BASE_URL . '/UI/student/materials.php' ?>">Materials</a></h3>
+    </div>
+  </div>
 
 	   <a href="<?php echo BASE_URL . '/UI/student/materials.php' ?>">
 		<img id="img1" onmouseover="setNewImage1(this)" onmouseout="setOldImage()" src="../../sources/image/m1Dark.png" alt="img" draggable="false">
@@ -214,6 +223,32 @@ if ($result_g_name->num_rows == 1) {
         </div>
         <i id="right" class="fa-solid fa-angle-right"></i>
        </div>
+  <div class="column">
+    <div class="card">
+      <h3><a href="<?php echo BASE_URL . '/UI/student/assignment.php' ?>">Assignment</a></h3>
+  
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <h3><a href="<?php echo BASE_URL . '/UI/teacher/Announcement.php' ?>">Announcement</a></h3>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <h3><a href="<?php echo BASE_URL . '/UI/teacher/Add Enquiry .php' ?>">Enquiries</a></h3>
+     </div>
+  </div>
+  
+    <div class="column">
+    <div class="card">
+      <h3>Report</a></h3>
+   
+    </div>
+  </div>
+</div>
        <main>    
         
     </div>

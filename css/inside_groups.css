@@ -23,6 +23,7 @@
 }
 body{
   overflow-x: hidden;
+  background-color: #222242;
 }
  
 
@@ -204,16 +205,15 @@ header{
   display: inline-block;
   cursor: pointer;
 }
+.vertical_line{
+  display: none;
+}
 }
   /***********************header************************************************************************************************************/
   .header-div{
-    padding: 2.5% ;
-    margin: 50px 12rem 0px;
     position: relative;
-     border-radius : 15px 15px 15px 15px;
-     background-color: #fff;
-       box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-     
+    color: #fff;
+    background-color: #222242;      
   }
 
   h1{
@@ -230,118 +230,139 @@ header{
  } 
  .btn-create{
     margin-left: 2em;
-    margin-top: 10px;
+    margin-top: 50px;
     border: none;
     border-radius: 100%;
     width: 70px;
     height: 70px;
     font-size: 40px;
-    color: #FFFFFF;
+    color: #222242;
     font-style: bold;
-    background: #222242;
+    background: #fff;
     box-shadow: var(--shadow2);
     transition      : background-color 0.3s;
 }
 
 .btn-create:hover {
-    color: #000000;
-    background-color: #fff;
+    color: #fff;
+    background-color: #FFBA5F;
     cursor: pointer;
-    border: 2px double #222242;
+    border: 2px double #fff;
 }
 
 
-  /***********************Slider for cards************************************************************************************************************/
+  /**********************************************************************************************************************************/
+  /********************************************************************************************/
+/***************new Cards ***********/
  
 main{
-  display: flex;
-  padding: 0 15px;
-  min-height: 80vh;
-  align-items: center;
+ 
+   align-items: center;
   justify-content: center;
+  padding: 0;
+  margin: 0;
+
  
-}
-.wrapper{
-  display: flex;
-  max-width: 1200px;
-  position: relative;
- 
-}
-.wrapper i{
-  top: 50%;
-  height: 44px;
-  width: 44px;
-  color: #343F4F;
-  cursor: pointer;
-  font-size: 1.15rem;
-  position: absolute;
-  text-align: center;
-  line-height: 44px;
-  background: #fff;
-  border-radius: 50%;
-  transform: translateY(-50%);
-  transition: transform 0.1s linear;
-}
-.wrapper i:active{
-  transform: translateY(-50%) scale(0.9);
-}
-.wrapper i:hover{
-  background: #f2f2f2;
-}
-.wrapper i:first-child{
-  left: -22px;
-  display: none;
-}
-.wrapper i:last-child{
-  right: -22px;
-}
-.wrapper .carousel{
-  font-size: 0px;
-  cursor: pointer;
-  overflow: hidden;
-  white-space: nowrap;
-  scroll-behavior: smooth;
-  border-radius : 15px;
-}
-.carousel.dragging{
-  cursor: grab;
-  scroll-behavior: auto;
-}
-.carousel.dragging img{
-  pointer-events: none;
-  border-radius : 15px;
-}
- a{
-    margin-left: 14px;
-  }
-.carousel img{
-  height: 340px;
-  object-fit: cover;
-  user-select: none;
-  margin-left: 14px;
-  width: calc(100% / 3);
-  border-radius : 15px;
 }
 
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 33%;
+  padding: 1% 0.75%;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 5% -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  padding: 25%;
+   text-align: center;
+   align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 15px;
+  color: #222242;
+ }
+.card:hover {
+  color: #FFBA5F;
+  cursor: pointer;
+  /*****to add zoom****/
+  -ms-transform: scale(1.010); /* IE 9 */
+  -webkit-transform: scale(1.010); /* Safari 3-8 */
+  transform: scale(1.010); 
+  
+}
+.card a{
+  color: #222242;
+}
+
+.card a:hover{
+  text-decoration: none;
+  color: #FFBA5F;
+  cursor: pointer;
+}
+
+
+
+
 @media screen and (max-width: 900px) {
-  .carousel img{
-    width: calc(100% / 2);
-  }
-  main{
-    padding: 0 25px;
-  }
+ 
   h1{
     font-size: 3.5em;
    
+    }
+    .column {
+      width: 50%;
     }
     
  
 }
 @media screen and (max-width: 550px) {
-  .carousel img{
+  .column {
     width: 100%;
+  }
+  .button-div{
+    margin-top: 15%;
   }
   
 }
-/********************************************************************************************/
-/***************Hovering ***********/
+/******************to pustion create button ****************************************************/
+.button-div{
+  width: 30%;
+  position: absolute;
+  top: 0;
+  right: 0%;
+  bottom: 0%;
+  margin-left: 5px;
+  margin-right: 30PX;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+ 
+  }
+  .vertical_line {
+    border-left:4px solid #fff;
+    height: 500px;
+    position: absolute;
+    left: 20%;
+    top: 15%;
+  }
