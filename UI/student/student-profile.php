@@ -11,54 +11,45 @@ include("../../controls/profiles.php");
     <!--for logo-->
     <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
     <meta name="descreption " content=" " />
-    <link rel="stylesheet" href="..\..\CSS\profiless.css" />
+    <link rel="stylesheet" href="../../CSS/profile.css"/>
      <!--icons-->
      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <script src="https://kit.fontawesome.com/e1ca29be31.js" crossorigin="anonymous"></script>
-    
     </head>
-    <!--  style for profile student -->
 <style>
-     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-*{
-  font-family: "Poppins", sans-serif;
-}
-.photo{
-    border-radius: 100px;
-}
 </style>
     <html>
-        <body>
-    <!--------------------------------------------  image for student  (Part 1) ------------------------------------>          
-            <div class="div-photo">
-            <form method="get" action="edit profile.php" enctype="multipart/form-data">
-              <?php
-                      stprofileimg();
+     <body>
 
-                      ?>
+
+
+<form method="get" action="edit profile.php" enctype="multipart/form-data">
+<div class="container">
+        <!-- container one for photo,groups,assinament data -->
+    <div class="divphoto">
+            <span id="group" class="las la-user-friends"></span>
+            <span  id="file" style="margin-left: 15%;" class="lar la-file"></span>
+            <span id="id" style="margin-left: 30%;" class="las la-id-card"></span>
+            <?php
+            stprofileimg();
+           /** الاستعلام عن عدد المجموعات و الفروض  لديي الطالب  */
+            countgroupandassinament();
+           ?>           
+    </div>
+<!-- ----------------------------- container two for  name and spe  student ------------------- -->
+    <div class="divdata" >
+    <label class="name">Name :</label>
+    <label class="spe" >specialization :</label>
+            <!-- php code  -->
+            <?php
+             informationstudent();  
+            ?>
+            <a href="edit profile.php" >
+            <input name="bts" class="bt1"  type="button" value="Edit"/></a>
+            <a href="..\..\logout.php">
+            <input class="bt2"  name="edit" type="button" value="Logout"/></a>
+    </div>
 </div>
-   <!--------------------------------------------  information for student  (Part 2) ------------------------------------>          
-            <div class="div-data">
-
-                <i id="img1" style="font-size: 27px;" class="las la-id-card"></i>
-                <i id="img2" style="font-size: 27px;" class="las la-user"></i>
-                <i id="img3" style="font-size: 27px;" class="las la-tv"></i>
-              
-                <a href="edit profile.php" >
-                <input name="bts" class="bt1"  type="button" value="Edit"/></a>
-                <a href="..\..\logout.php">
-                <input class="bt2" name="edit" type="button" value="Logout"/></a>
-                 
-                <?php
-                       informationPR();
-                           ?>
-             
-<a href="edit profile.php" > 
-<input name="bts" class="bt1"  type="button" value="Edit"/></a>
-<a href="..\..\logout.php">
-<input class="bt2" name="edit" type="button" value="Logout"/></a>
-
-     </form>
-     </div>
-     </body>
-     </html>
+</form>
+</body>
+</html>

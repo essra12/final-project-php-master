@@ -136,14 +136,18 @@ $today = strtotime($todays_date);
 
               $deadline=$announcement['due_date'];
               $expiration_date = strtotime($deadline);
-              
+              ?>
+              <!-- deu date -->
+              <p id="deu_date"class="card__time due_date" >Due Date&nbsp;&nbsp;&nbsp;<?php echo date("d-m-Y",$expiration_date)?></p>
+              <!-------------->
+              <?php 
               if ($expiration_date <= $today):?>
 
                 <?php
                 if(empty($check)):?>
                     <div style="text-align: right;">
-                      <i class="fa-solid fa-xmark" style="font-size: 24px;margin-right:3.5%; color:red; font-weight: bold;"></i>
-                    </div> 
+                    <i class="las la-calendar-times" style="font-size: 24px;margin-right:3.5%; color:red; font-weight: bold;"></i>
+                    </div>
                     <?php endif;?>
                     <?php if(!empty($check)):?>
                       <div style="text-align: right;">
@@ -180,9 +184,9 @@ $today = strtotime($todays_date);
 
 
 <script>
-                  /*******************for delet confirm***********************/
-    function confirmDelete(){
-    if (confirm("Are you sure you want to delete ?")) {
+/*******************for delet confirm***********************/
+function confirmDelete(){
+    if (confirm("Are you sure you want to delete ?")){
         return true;
     } 
     else {
