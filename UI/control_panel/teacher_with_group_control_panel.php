@@ -9,6 +9,9 @@ $teachers=selectAllTeacherInfo();
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1">
         <title>Control Panel (teachers with their groups)</title>
+        <!--for logo-->
+        <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
+        <!--stylesheet-->
         <link rel="stylesheet" href="../../css/controlpanel_groups_teacher_student_files.css">
         <!--icon8-->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
