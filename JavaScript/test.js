@@ -26,6 +26,23 @@ fileInput.addEventListener("change", () => {
         //add a click event to remove the current item
         deleteButton.addEventListener("click", function() {
           listItem.remove();
+          
+          //XXXXXXX New Code to delete file form input html XXXXXXX///
+          var attachments = document.getElementById("file-input").files; // <-- reference your file input here
+          var fileBuffer = new DataTransfer();
+        
+          // append the file list to an array iteratively
+          for (let i = 0; i < attachments.length; i++) {
+              // Exclude file in specified index
+              if (index !== i)
+                  fileBuffer.items.add(attachments[i]);
+          }
+          
+          // Assign buffer to file input
+          document.getElementById("file-input").files = fileBuffer.files; // <-- according to your file input reference
+          //XXXXXXX New Code to delete file form input html XXXXXXX///
+
+
         });
         //////////////////////////////////////////////
 
@@ -55,4 +72,5 @@ if(title==""){
     alert(" please enter Title");
     return false;
 }
+
 }

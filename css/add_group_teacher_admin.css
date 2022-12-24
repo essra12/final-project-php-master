@@ -323,8 +323,16 @@ form .form-field::before {
     background-size: cover;
     background-repeat: no-repeat;       
 }
-form .form-field:nth-child(1)::before {
+ form .form-field:nth-child(1)::before {
     background-image: url(https://img.icons8.com/small/512/user.png);
+    width: 28px;
+    height: 28px;
+    top:0.4em;
+    left: 27%;
+}
+
+form .form-field.group:nth-child(1)::before {
+    background-image: url(https://img.icons8.com/pastel-glyph/512/groups.png);
     width: 28px;
     height: 28px;
     top:0.4em;

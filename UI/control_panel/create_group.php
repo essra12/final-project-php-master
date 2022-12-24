@@ -7,6 +7,9 @@ include(MAIN_PATH."/controls/groups.php");
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1">
         <title>Add Group</title>
+        <!--for logo-->
+        <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
+        <!--stylesheet-->
         <link rel="stylesheet" href="../../css/add_group_teacher_admin.css">
         <!--icon8-->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">

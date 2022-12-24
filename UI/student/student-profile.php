@@ -8,6 +8,8 @@ include("../../controls/profiles.php");
 <!DOCTYPE html>
 <head>
     <title>student-profile</title>
+    <!--for logo-->
+    <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
     <meta name="descreption " content=" " />
     <link rel="stylesheet" href="../../CSS/profile.css"/>
      <!--icons-->

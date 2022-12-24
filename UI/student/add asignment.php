@@ -16,6 +16,20 @@ if ($result_stu_id->num_rows == 1) {
 }
 ///////////////////////
 
+//to get text
+if(isset($_GET["an_no"]))
+   {
+      $an_no = $_GET["an_no"];
+      $sql="SELECT an_content FROM `announcement` WHERE an_no='$an_no';";
+      $result_an_no = $conn->query($sql);
+      if ($result_an_no->num_rows > 0) {
+          while($row = $result_an_no->fetch_assoc()) {
+            $an_data=$row["an_content"];
+          }
+      }
+   }
+///////////////////////
+
 //to get group name
 $sql="SELECT g_name FROM groups Where g_no='$groupNumber';";
 $result_g_name = $conn->query($sql);
@@ -25,6 +39,9 @@ if ($result_g_name->num_rows == 1) {
     }
 }
 ///////////////////////////
+
+
+
 ?>
 <html>
     <head>
@@ -33,7 +50,7 @@ if ($result_g_name->num_rows == 1) {
     <title>Add Assignment</title>
     <meta charset="utf-8">
     <!--for logo-->
-    <link rel="shortcut icon" href="../../sources/image/logo_dark-without_bc.png">
+    <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
     <!-- Stylesheet -->
@@ -115,10 +132,16 @@ if ($result_g_name->num_rows == 1) {
 
         <form action="" method="POST" enctype='multipart/form-data' onsubmit="return check_Enter(this)">
             
+         <!-- Id field -->
+         <div class="inputs ">
+            <input type="text" name="text" disabled="disabled" style=" border: none;" value="<?php echo $an_data?>">
+          </div>
+          <!------------------>
+
           <!-- Id field -->
           <div class="inputs id">
             <label style="color: #222242;">Student ID</label>
-            <input type="text" name="stu_id" maxlength="11" disabled="disabled" style=" border: none;" value=<?php echo $stu_id?>>
+            <input type="text" name="stu_id"  disabled="disabled" style=" border: none;" value="<?php echo $stu_id?>">
           </div>
           <!------------------>
 

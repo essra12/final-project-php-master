@@ -128,7 +128,7 @@ a:is(:link,:active,:hover).active{
      background-color: #222242;
      color: #f1f1f1;
   }
-  
+ 
   h1{
   font-size: 2.5em;
   padding-bottom: 10px;
@@ -195,6 +195,7 @@ a:is(:link,:active,:hover).active{
     display: block;
   
   }
+  
 
   
   /* media responsive */
@@ -250,7 +251,7 @@ a:is(:link,:active,:hover).active{
   .card {
     position: relative;
     display: block;
-    height: 100%;  
+    height: 100%; 
     border-radius: calc(var(--curve) * 1px);
     overflow: hidden;
     text-decoration: none;
@@ -259,7 +260,7 @@ a:is(:link,:active,:hover).active{
   
   .card__image {      
     width: 100%;
-    height: auto;
+    height:auto;
   }
   
   .card__overlay {
@@ -354,10 +355,9 @@ a:is(:link,:active,:hover).active{
   @media only screen and (min-width: 1025px) {
     .cards{
         
-        grid-template-columns: repeat(3, minmax(200px, auto)); 
-        width: 100%;
-     
-  }
+        grid-template-columns: repeat(2, minmax(200px, auto)); 
+        width: 60%;
+       }
   
   } 
 
@@ -383,41 +383,6 @@ a:is(:link,:active,:hover).active{
   }
     /*******************************************************************************************************/
   /**********************Hovering for image******************************************************************/
-
-.overlay {
- position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-   opacity: 0;
-  transition: .5s ease;
-  background-color: #f9a12e;
-  border-radius: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50% , -50%);
-    width:55%;
-    height: 70%;
-    }
-  
-  .container:hover .overlay {
-    opacity: 1;
-  }
-  
-  .text {
-    color: white;
-    font-size: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
-  .text a{
-    text-decoration: none;
-    color: #fff;
-  }
   /*****************************************************************************************************/
   /************************scroll button ***************************************************************/
 

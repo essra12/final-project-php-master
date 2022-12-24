@@ -128,6 +128,19 @@ function selectAllFileInfo(){
     return $records;
 }
 
+/* SELECT Announcement FUNCTIONS */
+function selectAllAnnouncement($g_no){ 
+
+    global $conn; 
+    $sql = "SELECT * FROM announcement WHERE g_no = '$g_no'
+    ORDER BY an_Datetime DESC;";
+    $pre=$conn->prepare($sql);
+    $pre->execute();
+    $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
+
+
 /* Insert to Group FUNCTIONS */
  function insertData($table ,$data)
 {
@@ -169,7 +182,7 @@ function deleteAdmin($table, $id)
     $st=executeQuery($sql2,['user_id'=>$id]);
     return $st->affected_rows;
 } 
-
+/* DELETE Student From Group FUNCTION */
 function deleteStudentGroup($id)
 {
     global $conn;

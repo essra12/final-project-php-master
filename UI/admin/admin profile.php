@@ -7,7 +7,13 @@ $id3=$_SESSION['pass2'];/** login path كلمة السر غسر مشفرة تم 
 
 <!DOCTYPE html>
 <head>
+<<<<<<< HEAD
     <title>student-profile</title>
+=======
+    <title>admin-profile</title>
+    <!--for logo-->
+    <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
+>>>>>>> c5df885aa8c7eb54022f85237fd3dc62700f4f71
     <meta name="descreption " content=" " />
     <link rel="stylesheet" href="../../CSS/profile.css"/>
      <!--icons-->

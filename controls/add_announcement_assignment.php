@@ -23,7 +23,7 @@ if(isset($_POST['add_announcement_assignment'])){
     }  
     if(count($errors)==0){
         $_SESSION['message']="The announcement sent successfully";
-        header('location: '.BASE_URL.'/UI/teacher/add_announcement_assignment.php');
+        header('location: '.BASE_URL.'/UI/teacher/Announcement.php');
         $conn->close();
         exit();
       }

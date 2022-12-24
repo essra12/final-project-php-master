@@ -15,12 +15,11 @@ if ($result_g_name->num_rows == 1) {
 ?>
 <html>
     <head>
-    <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add Assignment</title>
+    <title>Add Announcement</title>
     <meta charset="utf-8">
     <!--for logo-->
-    <link rel="shortcut icon" href="../../sources/image/logo_dark-without_bc.png">
+    <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
     <!-- Stylesheet -->
@@ -28,7 +27,7 @@ if ($result_g_name->num_rows == 1) {
     <!--icon8-->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     </head>
-    </head>
+
 
     <body>
         
@@ -85,17 +84,6 @@ if ($result_g_name->num_rows == 1) {
         <?php endif; ?> 
         <!------------------------>
 
-        <!-- For Succes message -->
-        <?php if (isset($_SESSION['message'])): ?>
-            <div class="msg success" style="color: #5a9d48; margin-Top: 20px;">
-                <li><i class="las la-check-circle" style="color: #5a9d48 ;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;<?php echo $_SESSION['message']; ?></li> 
-                <?php
-                /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */
-                unset($_SESSION['message']); 
-                ?>
-            </div>
-        <?php endif; ?>
-        <!------------------------->
         <div class="title">
             <h1 style="color: #222242;">Add Announcement</h1>
         </div>
