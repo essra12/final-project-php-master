@@ -9,6 +9,8 @@ $join_data=selectGroupNameTeacherName();
   <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>join</title>
+  <!--for logo-->
+  <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
   <meta charset="utf-8">
   <!--for logo-->
   <link rel="shortcut icon" href="../../sources/image/logo_bar.png">

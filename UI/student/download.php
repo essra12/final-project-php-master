@@ -23,6 +23,8 @@ if ($result_g_name->num_rows == 1) {
     <head>
    
         <meta charset="UTF-8">
+        <!--for logo-->
+        <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
         <meta name="viewport" content="width=device-width, minimum-scale=1">
         <title>Materials</title>
         <link rel="stylesheet" href="../../css/add_materiial_assignment_join_dw.css">
