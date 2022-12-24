@@ -171,13 +171,12 @@ if ($result_g_name->num_rows == 1) {
             
             <!-------------------- (+) button------------------------------->
             <?php if($role==""):?>
-            <a href="../student/add asignment.php?g_no=<?= $group_no?>">
+                <div class="dropdown">
                 <button class="btn-create">+</button>
                 <div>
                     <a href="../student/add asignment.php?g_no=<?= $group_no?>">Assignment</a>
                     <a href="../teacher/Add Enquiry.php?">Enquiry</a>
                 </div>
-            </a>
             <?php endif;?>
             
             <?php if($role=="teacher"):?>
@@ -205,7 +204,7 @@ if ($result_g_name->num_rows == 1) {
     	<a href="<?php echo BASE_URL . '/UI/student/assignment.php' ?>">
 		<img id="img2" onmouseover="setNewImage2(this)" onmouseout="setOldImage()" src="../../sources/image/A2Dark.png" alt="img" draggable="false">
         </a>
-		<a href="<?php echo BASE_URL . '/UI/student/add asignment.php' ?>">
+		<a href="../teacher/Announcement.php?g_no=<?= $group_no?>">
 		<img id="img3" onmouseover="setNewImage3(this)" onmouseout="setOldImage()" src="../../sources/image/N3Dark.png" alt="img" draggable="false">
         </a>
 		<a href="<?php echo BASE_URL . '/UI/student/add asignment.php' ?>">

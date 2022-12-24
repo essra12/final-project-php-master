@@ -115,7 +115,7 @@ if ($result_g_name->num_rows == 1) {
             </div>
             <!-------->
 
-            <!--date grade-->
+            <!--date & grade-->
             <div class="container_date_grade_input">
                 <div class="date_input">
                     <label style="color: #222242; margin-left: .5rem;">Due date</label>

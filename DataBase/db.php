@@ -127,6 +127,20 @@ function selectAllFileInfo(){
     $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
     return $records;
 }
+
+/* SELECT Announcement FUNCTIONS */
+function selectAllAnnouncement($g_no){ 
+
+    global $conn; 
+    $sql = "SELECT * FROM announcement WHERE g_no = '$g_no'
+    ORDER BY an_Datetime DESC;";
+    $pre=$conn->prepare($sql);
+    $pre->execute();
+    $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
+
+
 /* Insert to Group FUNCTIONS */
  function insertData($table ,$data)
 {

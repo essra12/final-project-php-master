@@ -155,12 +155,26 @@ if(isset($_POST['add_assignment'])){
     array_push($errors_for_assignment,"please choose a file.");
   }
   else{
-    $sql_insert_post = "INSERT INTO `post`(`title`, `description`, `stu_group`, `g_no`) VALUES ('$title','$description','$stu_group',null);";
-    if(mysqli_query($conn, $sql_insert_post)){
+    
+
+    if(isset($_GET["an_no"])){
+      $an_no=$_GET["an_no"];
+      $sql_insert_post = "INSERT INTO `post`(`title`, `description`, `stu_group`, `g_no`,`an_no`) VALUES ('$title','$description','$stu_group',null,'$an_no');";
+      if(mysqli_query($conn, $sql_insert_post)){
+      }
+      else{
+          array_push($errors_for_assignment,"Error in post information");
+      }  
     }
     else{
-        array_push($errors_for_assignment,"Error in post information");
-    }  
+      $sql_insert_post = "INSERT INTO `post`(`title`, `description`, `stu_group`, `g_no`) VALUES ('$title','$description','$stu_group',null);";
+      if(mysqli_query($conn, $sql_insert_post)){
+      }
+      else{
+          array_push($errors_for_assignment,"Error in post information");
+      }  
+    }
+
       /******end post table********/
 
       /*****to find last id in post table*******/
