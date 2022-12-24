@@ -7,13 +7,9 @@ $id3=$_SESSION['pass2'];/** login path كلمة السر غسر مشفرة تم 
 
 <!DOCTYPE html>
 <head>
-<<<<<<< HEAD
-    <title>student-profile</title>
-=======
     <title>admin-profile</title>
     <!--for logo-->
     <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
->>>>>>> c5df885aa8c7eb54022f85237fd3dc62700f4f71
     <meta name="descreption " content=" " />
     <link rel="stylesheet" href="../../CSS/profile.css"/>
      <!--icons-->
@@ -35,6 +31,12 @@ $id3=$_SESSION['pass2'];/** login path كلمة السر غسر مشفرة تم 
     left: 40%;  
 }
 
+    .divphoto{
+        border-radius: 20px 20px 0px 0px;
+    }
+    .divdata{
+        border-radius:0px 0px  20px 20px;
+    }
 </style>
 <html>
 

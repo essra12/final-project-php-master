@@ -6,7 +6,7 @@ include("../../controls/profiles.php");
 
 <!DOCTYPE html>
 <head>
-    <title>student-profile</title>
+    <title>Teacher-profile</title>
     <meta name="descreption " content=" " />
     <link rel="stylesheet" href="../../CSS/profile.css"/>
      <!--icons-->
@@ -16,6 +16,12 @@ include("../../controls/profiles.php");
     </head>
     <!--  style for profile student -->
 <style>
+    .divphoto{
+        border-radius: 20px 20px 0px 0px;
+    }
+    .divdata{
+        border-radius:0px 0px  20px 20px;
+    }
 </style>
 <html>
 
