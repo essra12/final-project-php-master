@@ -7,6 +7,8 @@ $id3=$_SESSION['pass2'];/** login path كلمة السر غسر مشفرة تم 
 <!DOCTYPE html>
 <head>
     <title>admin-profile</title>
+    <!--for logo-->
+    <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
     <meta name="descreption " content=" " />
     <link rel="stylesheet" href="..\..\css\profiless.css" />
     <script src="https://kit.fontawesome.com/e1ca29be31.js" crossorigin="anonymous"></script>
