@@ -5,7 +5,8 @@ include(MAIN_PATH."/controls/add_material_and_assignment.php");
 ?>
 <html lang="en">
   <head>
-   
+  <!--for logo-->
+  <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
   <link rel="stylesheet" href="../../css/assignments-student.css"> 
   <link rel="stylesheet" href="../../css/Add-enquiry.css"> 
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">

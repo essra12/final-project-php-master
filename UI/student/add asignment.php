@@ -50,7 +50,7 @@ if ($result_g_name->num_rows == 1) {
     <title>Add Assignment</title>
     <meta charset="utf-8">
     <!--for logo-->
-    <link rel="shortcut icon" href="../../sources/image/logo_dark-without_bc.png">
+    <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
     <!-- Stylesheet -->

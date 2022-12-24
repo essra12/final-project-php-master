@@ -6,6 +6,8 @@ include(MAIN_PATH."/controls/students.php");
 <!DOCTYPE html>
 <head>
     <title>Singup</title>
+    <!--for logo-->
+    <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
     <meta name="descreption " content=" " />
     <link rel="stylesheet" href="../../CSS/login_and_singup.css"/>
     <!--icon8-->

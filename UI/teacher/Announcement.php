@@ -20,10 +20,10 @@ $today = strtotime($todays_date);
 <html lang="en">
   <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add Announcement</title>
+    <title>Announcements</title>
     <meta charset="utf-8">
     <!--for logo-->
-    <link rel="shortcut icon" href="../../sources/image/logo_dark-without_bc.png">
+    <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../../css/announcement.css"> 
     <!-- Font Awesome Icons -->
@@ -138,10 +138,20 @@ $today = strtotime($todays_date);
               $expiration_date = strtotime($deadline);
               
               if ($expiration_date <= $today):?>
-                <div style="text-align: right;">
-                  <i class="fa-solid fa-xmark" style="font-size: 24px;margin-right:3.5%; color:red; font-weight: bold;"></i>
-                </div> 
-              <?php endif;
+
+                <?php
+                if(empty($check)):?>
+                    <div style="text-align: right;">
+                      <i class="fa-solid fa-xmark" style="font-size: 24px;margin-right:3.5%; color:red; font-weight: bold;"></i>
+                    </div> 
+                    <?php endif;?>
+                    <?php if(!empty($check)):?>
+                      <div style="text-align: right;">
+                          <i class="las la-check" style="font-size: 24px;margin-right:3%; color:#45a72a; font-weight: bold;"></i>
+                      </div> 
+                    <?php endif;?>
+                <?php endif;
+
               if ($expiration_date > $today) {
                    if(empty($check)):?>
                      <div style="text-align: right; margin-top: 1rem;">
