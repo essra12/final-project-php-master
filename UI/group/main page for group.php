@@ -20,6 +20,8 @@ if ($result->num_rows == 1) {
 <head>
     <title>Main page </title>
     <meta name="descreption " content=" " />
+    <!--for logo-->
+    <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
     <link rel="stylesheet" href="../../css/main_page_.css">
   
     <!--icon8-->

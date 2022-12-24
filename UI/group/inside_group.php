@@ -32,6 +32,8 @@ if ($result_g_name->num_rows == 1) {
 <!DOCTYPE html>
 <head>
     <title>Group</title>
+    <!--for logo-->
+    <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
     <meta name="descreption " content=" " />
     <link rel="stylesheet" href="../../css/inside_groups.css">
     <!--icon8-->
