@@ -11,7 +11,7 @@ include("../../controls/profiles.php");
     <!--for logo-->
     <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
     <meta name="descreption " content=" " />
-    <link rel="stylesheet" href="../../CSS/profile.css"/>
+    <link rel="stylesheet" href="../../CSS/profiless.css"/>
      <!--icons-->
      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <script src="https://kit.fontawesome.com/e1ca29be31.js" crossorigin="anonymous"></script>
