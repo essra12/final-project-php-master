@@ -35,6 +35,9 @@ if ($result_g_name->num_rows == 1) {
     <!--for logo-->
     <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
     <meta name="descreption " content=" " />
+    <!--for logo-->
+    <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
+    <!--stylesheet-->
     <link rel="stylesheet" href="../../css/inside_groups.css">
     <!--icon8-->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
@@ -178,8 +181,8 @@ if ($result_g_name->num_rows == 1) {
                 <div class="dropdown">
                 <button class="btn-create">+</button>
                 <div>
-                    <a href="../student/add asignment.php?g_no=<?= $group_no?>">Assignment</a>
-                    <a href="../teacher/Add Enquiry.php?">Enquiry</a>
+                    <a href="<?php echo BASE_URL . '/UI/teacher/Announcement.php' ?>">Assignment</a>
+                    <a href="<?php echo BASE_URL . '/UI/teacher/Add Enquiry .php' ?>">Enquiry</a>
                 </div>
                 </div>
           
