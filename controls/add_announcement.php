@@ -15,7 +15,7 @@ $sql_insert_announcement = "INSERT INTO announcement(an_content, g_no) VALUES ('
 if(mysqli_query($conn, $sql_insert_announcement)){
 }
 else{
-    array_push($errors,"Error in save data");
+    array_push($errors,"Error in save data $conn->error");
 }  
 if(count($errors)==0){
     /* $_SESSION['message']="The announcement sent successfully"; */

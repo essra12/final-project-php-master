@@ -80,6 +80,16 @@ if ($result_g_name->num_rows == 1) {
  </div>
  <!-----------------Dynamically Create Card-----------------> 
  <main>
+      <!-- For Succes -->
+      <?php if (isset($_SESSION['message'])): ?>
+      <div class="msg success" style="color: #5a9d48; margin-Top: 2em; margin-left:7em;">
+          <li style="list-style-type: none;"><i class="las la-check-circle" style="color: #5a9d48 ;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;<?php echo $_SESSION['message']; ?></li>
+          <?php
+          /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */
+          unset($_SESSION['message']);
+          ?>
+      </div>
+    <?php endif; ?>
    
  <div class="container">
    
