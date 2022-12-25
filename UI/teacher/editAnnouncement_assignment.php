@@ -18,7 +18,7 @@ $Announcment= $_SESSION['announcment'];
               $GRADE= $_SESSION['grade'];
 
               $new_date = date('Y-m-d', strtotime( $DUEDATE));
-              echo $new_date;
+              
 
 //////////////////////////////////////////////////////////////////////
 

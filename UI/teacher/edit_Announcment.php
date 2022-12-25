@@ -1,6 +1,8 @@
 <?php
 include("../../path.php"); 
 include(MAIN_PATH."/controls/add_announcement.php"); 
+include(MAIN_PATH."/controls/Edit_Announcemment.php"); 
+
 
 //to get group name
 $sql="SELECT g_name FROM groups Where g_no='$groupNumber';";
@@ -16,7 +18,7 @@ if ($result_g_name->num_rows == 1) {
 <html>
     <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add Announcement</title>
+    <title>Edit Announcement</title>
     <meta charset="utf-8">
     <!--for logo-->
     <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
@@ -93,10 +95,10 @@ if ($result_g_name->num_rows == 1) {
           <!-- Text field -->
           <div class="inputs announcement">
             <label style="color: #222242;">Text</label>
-            <textarea type="text" name="an_content" id="content" maxlength="250" style="font-size: 20px; margin-left: .5rem; margin-right: .5rem;"><?php echo $an_content; ?></textarea>
+            <textarea type="text" name="an_content" id="content" maxlength="250" style="font-size: 20px; margin-left: .5rem; margin-right: .5rem;"><?php echo$announcment; ?></textarea>
             <!-- Button -->
             <div class="btn_post">
-                <button type="submit" name="add_announcement" >POST</button>
+                <button type="submit" name="add_announcement" >Edit</button>
             </div>
             <!----------->   
           </div>
