@@ -92,7 +92,8 @@ if ($result_g_name->num_rows == 1) {
     <div class="sidebar">
 
         <div class="sidebar-container">
-
+              
+          <!----------------->
             <div class="brand">
                 <h2>
                     <img src="../../sources/image/logo_dark.png" alt="" style="width: 100px;">
@@ -211,14 +212,14 @@ if ($result_g_name->num_rows == 1) {
        
   <div class="column">
     <div class="card">
-      <h3><a href="<?php echo BASE_URL . '/UI/student/assignment.php' ?>">Assignment</a></h3>
+      <h3><a href="<?php echo BASE_URL . '/UI/student/assignment.php' ?>">Assignments</a></h3>
   
     </div>
   </div>
   
   <div class="column">
     <div class="card">
-      <h3><a href="<?php echo BASE_URL . '/UI/teacher/Announcement.php' ?>">Announcement</a></h3>
+      <h3><a href="<?php echo BASE_URL . '/UI/teacher/Announcement.php' ?>">Announcements</a></h3>
     </div>
   </div>
   

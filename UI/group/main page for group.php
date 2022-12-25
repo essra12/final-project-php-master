@@ -46,7 +46,7 @@ if ($result->num_rows == 1) {
 <nav class="navbar">
       <ul class="lift-side">
           <!-------back------>
-          <li><div class="back"><a href="../group/main page for group.php"><i class="las la-arrow-left"></i></a></div></li>
+          <li><div class="back"></div></li>
           <!----------------->
 
           <!-------logo------>
