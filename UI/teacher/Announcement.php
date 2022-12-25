@@ -90,7 +90,7 @@ $today = strtotime($todays_date);
         <lable class="text"><?php echo $announcement['an_content']?></lable>
         <!------------Delete announcement------------------>
         <?php if($role=="teacher"):?>
-          <a onclick="return confirmDelete()" href="Announcement.php" ><i style="font-size: 20px;position:absolute;right: 7.5%;" class="fa-solid fa-xmark tr"></i></a>
+          <a onclick="return confirmDelete()" href="announcement.php" ><i style="font-size: 20px;position:absolute;right: 7.5%;" class="fa-solid fa-xmark tr"></i></a>
         <?php endif;?>
         <!------------------------------------------------->
 

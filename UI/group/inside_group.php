@@ -35,6 +35,9 @@ if ($result_g_name->num_rows == 1) {
     <!--for logo-->
     <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
     <meta name="descreption " content=" " />
+    <!--for logo-->
+    <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
+    <!--stylesheet-->
     <link rel="stylesheet" href="../../css/inside_groups.css">
     <!--icon8-->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
@@ -92,7 +95,8 @@ if ($result_g_name->num_rows == 1) {
     <div class="sidebar">
 
         <div class="sidebar-container">
-
+              
+          <!----------------->
             <div class="brand">
                 <h2>
                     <img src="../../sources/image/logo_dark.png" alt="" style="width: 100px;">
@@ -178,8 +182,8 @@ if ($result_g_name->num_rows == 1) {
                 <div class="dropdown">
                 <button class="btn-create">+</button>
                 <div>
-                    <a href="../student/add asignment.php?g_no=<?= $group_no?>">Assignment</a>
-                    <a href="../teacher/Add Enquiry.php?">Enquiry</a>
+                    <a href="<?php echo BASE_URL . '/UI/teacher/announcement.php' ?>">Assignment</a>
+                    <a href="<?php echo BASE_URL . '/UI/teacher/Add Enquiry .php' ?>">Enquiry</a>
                 </div>
                 </div>
           
@@ -211,14 +215,14 @@ if ($result_g_name->num_rows == 1) {
        
   <div class="column">
     <div class="card">
-      <h3><a href="<?php echo BASE_URL . '/UI/student/assignment.php' ?>">Assignment</a></h3>
+      <h3><a href="<?php echo BASE_URL . '/UI/student/assignment.php' ?>">Assignments</a></h3>
   
     </div>
   </div>
   
   <div class="column">
     <div class="card">
-      <h3><a href="<?php echo BASE_URL . '/UI/teacher/Announcement.php' ?>">Announcement</a></h3>
+      <h3><a href="<?php echo BASE_URL . '/UI/teacher/announcement.php' ?>">Announcements</a></h3>
     </div>
   </div>
   

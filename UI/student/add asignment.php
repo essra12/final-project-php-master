@@ -66,7 +66,7 @@ if ($result_g_name->num_rows == 1) {
     <nav class="navbar">
       <ul class="lift-side" id="lift-side">
           <!-------back------>
-          <li><div class="back"><a href="../group/inside_group.php?data=<?= $g_name?>&number=<?= $groupNumber?>"><i class="las la-arrow-left"></i></a></div></li>
+          <li><div class="back"><a href="../teacher/announcement.php"><i class="las la-arrow-left"></i></a></div></li>
           <!----------------->
 
           <!-------logo------>
