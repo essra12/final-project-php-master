@@ -166,7 +166,7 @@ if ($result_g_name->num_rows == 1) {
             <div class="container_wrapper">
 
               <div class="container" style="border-radius: 15px;">
-                  <div style="margin-bottom:20px"><p style="font-size:12px;">when you select more than one file, Keep pressing on Ctrl or Shift</p></div>            
+                  <div style="margin-bottom:20px"><p style="font-size:12px;">To select more than one file, hold on Ctrl or Shift</p></div>            
                   <input id="file-input" name="f_name[]" type="file" multiple="multiple" />
                   <label class="lab" for="file-input">
                       <i class="fa-solid fa-arrow-up-from-bracket"></i>
