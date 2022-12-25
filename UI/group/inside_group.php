@@ -182,7 +182,7 @@ if ($result_g_name->num_rows == 1) {
                 <div class="dropdown">
                 <button class="btn-create">+</button>
                 <div>
-                    <a href="<?php echo BASE_URL . '/UI/teacher/Announcement.php' ?>">Assignment</a>
+                    <a href="<?php echo BASE_URL . '/UI/teacher/announcement.php' ?>">Assignment</a>
                     <a href="<?php echo BASE_URL . '/UI/teacher/Add Enquiry .php' ?>">Enquiry</a>
                 </div>
                 </div>
@@ -222,7 +222,7 @@ if ($result_g_name->num_rows == 1) {
   
   <div class="column">
     <div class="card">
-      <h3><a href="<?php echo BASE_URL . '/UI/teacher/Announcement.php' ?>">Announcements</a></h3>
+      <h3><a href="<?php echo BASE_URL . '/UI/teacher/announcement.php' ?>">Announcements</a></h3>
     </div>
   </div>
   

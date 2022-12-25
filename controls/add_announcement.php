@@ -19,7 +19,7 @@ else{
 }  
 if(count($errors)==0){
     /* $_SESSION['message']="The announcement sent successfully"; */
-    header('location: '.BASE_URL.'/UI/teacher/Announcement.php');
+    header('location: '.BASE_URL.'/UI/teacher/announcement.php');
     $conn->close();
     exit();
   }
