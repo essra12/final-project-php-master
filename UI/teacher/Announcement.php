@@ -96,12 +96,16 @@ $today = strtotime($todays_date);
         <!------------Delete announcement------------------>
         <?php if($role=="teacher"):?>
             <a onclick="return confirmDelete()" href="announcement.php" ><i style="position:absolute;right: 7.5%; margin-bottom:1rem;" class="fa-solid fa-xmark tr"></i></a>
-            <a href="editAnnouncement_assignment.php?textANN=<?php echo $announcement['an_no']?>" ><i style="position:absolute;right: 9%; margin-bottom:1rem;" class="las la-pen ticon tr"></i></a>
-            <div style="height: 15px;"></div>
+            <?php if(empty($announcement['due_date'])):?>
+              <a href="edit_Announcment.php?textANN=<?php echo $announcement['an_no']?>" ><i style="position:absolute;right: 9%; margin-bottom:1rem;" class="las la-pen ticon tr"></i></a>
+              <div style="height: 15px;"></div>
+            <?php endif;?>
             <?php if(!empty($announcement['due_date'])):?>
-            <!-- deu date -->
-            <p id="deu_date"class="card__time due_date" >Due Date&nbsp;&nbsp;&nbsp;<?php echo date("d-m-Y",$expiration_date)?></p>
-            <!-------------->
+              <a href="editAnnouncement_assignment.php?textANN=<?php echo $announcement['an_no']?>" ><i style="position:absolute;right: 9%; margin-bottom:1rem;" class="las la-pen ticon tr"></i></a>
+              <div style="height: 15px;"></div>
+              <!-- deu date -->
+              <p id="deu_date"class="card__time due_date" >Due Date&nbsp;&nbsp;&nbsp;<?php echo date("d-m-Y",$expiration_date)?></p>
+              <!-------------->
           <?php endif;?>
         <?php endif;?>
         <!------------------------------------------------->
