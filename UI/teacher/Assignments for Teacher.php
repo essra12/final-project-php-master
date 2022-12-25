@@ -1,6 +1,6 @@
 <?php 
 include("../../path.php"); 
-include(MAIN_PATH."/controls/materials_and_Assignments.php");
+/*include(MAIN_PATH."/controls/materials_and_Assignments.php");*/
 include(MAIN_PATH."/controls/assignmentss.php");
 include(MAIN_PATH."/DataBase/Connection.php");
 

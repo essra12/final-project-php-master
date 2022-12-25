@@ -8,8 +8,6 @@ if(isset($_GET['textANN']))
 }else echo "no";
 
 global $conn;
-$id=$_SESSION['user_id'];/** من صفحة تسجيل الدخول  stud_id*/
-$id3=$_SESSION['passT'];/** login path كلمة السر غسر مشفرة تم احضارها من  */
 $sqln="SELECT * FROM `announcement` WHERE announcement.an_no='$textann'";
 /** وتخزينها في متغيرات DB  احضار بيانات من  */                      
 $result= mysqli_query($conn,$sqln);
@@ -43,7 +41,7 @@ $row =mysqli_fetch_row($result);
 
               if($_SERVER['REQUEST_METHOD']=='POST')
               { 
-                $annou= $_POST['an_content'];/** edit profile  في  id القيمة المدخلة في حقل  */
+                $annou= $_POST['an_content'];/** text القيمة المدخلة في حقل  */
                 $gradee=$_POST['an_grade'];
                 $due_date=$_POST['due_date'];  
 

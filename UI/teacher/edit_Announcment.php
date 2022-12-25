@@ -12,6 +12,7 @@ if ($result_g_name->num_rows == 1) {
       $g_name=$row["g_name"];
     }
 }
+echo $announcment;
 ///////////////////////////
 
 ?>
