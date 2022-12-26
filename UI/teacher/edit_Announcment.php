@@ -107,7 +107,7 @@ if ($result_g_name->num_rows == 1) {
             <textarea type="text" name="an_content" id="content" maxlength="250" style="font-size: 20px; margin-left: .5rem; margin-right: .5rem;"><?php echo$announcment; ?></textarea>
             <!-- Button -->
             <div class="btn_post">
-                <button type="submit" onclick="confirmDelete()" name="edit_announcement" >Edit</button>
+                <button type="submit" onclick="return confirmDelete()" name="edit_announcement" >Edit</button>
             </div>
             <!----------->   
           </div>

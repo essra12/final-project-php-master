@@ -170,11 +170,11 @@ function admingroupcount(){
 function countTeacherforadminpage(){
  
   global $conn;
-  $query=" SELECT COUNT(teacher.tr_id) FROM `teacher`  ";
+  $query=" SELECT COUNT(user.user_id) FROM `user`WHERE user.role='admin'; ";
   $result = $conn->query($query);
   if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
-  $idr=$row['COUNT(teacher.tr_id)'];}}
-  echo "<label class='LabelAssinaments' style='margin-left: 15%;'>Teachers<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp$idr</label>  ";
+  $idr=$row['COUNT(user.user_id)'];}}
+  echo "<label class='LabelAssinaments' style='margin-left: 15%;'>&nbspAdmins<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp$idr</label>  ";
 }
                 ?>

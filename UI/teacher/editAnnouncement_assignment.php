@@ -128,7 +128,7 @@ $Announcment= $_SESSION['announcment'];
 
             <!-- Button -->
             <div class="btn_post">
-                <button type="submit" name="edit_announcement_assignment" >edit</button>
+                <button type="submit" onclick="return confirmDelete()" name="edit_announcement_assignment" >edit</button>
             </div>
             <!----------->   
           </div>
@@ -191,6 +191,16 @@ $Announcment= $_SESSION['announcment'];
           }
           return true;
         }
+
+             
+    function confirmDelete() {
+    if (confirm("Are you sure you want to Update ?")) {
+        return true;
+    } 
+    else {
+        return false;
+    }
+}
         /***********************************************************/
 
       </script>
