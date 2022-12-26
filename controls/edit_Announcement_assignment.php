@@ -7,6 +7,7 @@ if(isset($_GET['textANN']))
   $textann=$_GET['textANN'];
 }else echo "no";
 
+
 global $conn;
 $sqln="SELECT * FROM `announcement` WHERE announcement.an_no='$textann'";
 /** وتخزينها في متغيرات DB  احضار بيانات من  */                      
@@ -37,14 +38,17 @@ $row =mysqli_fetch_row($result);
                $gno=  $_SESSION['gNO'];
 
 
-             
+               date_default_timezone_set('libya');
+               $date = date ('Y-m-d H:i:s');
 
-              if($_SERVER['REQUEST_METHOD']=='POST')
-              { 
+               if(isset($_POST['edit_announcement_assignment']))
+               { 
                 $annou= $_POST['an_content'];/** text القيمة المدخلة في حقل  */
                 $gradee=$_POST['an_grade'];
                 $due_date=$_POST['due_date'];  
 
+
+             
               
             
                   if(empty($annou)) 
@@ -55,7 +59,7 @@ $row =mysqli_fetch_row($result);
                 {
                 /*****************/
                    /** update statment  */
-                    $sqln="UPDATE `announcement` SET `an_content`='$annou',`due_date`='$due_date',`grade`='$gradee',`g_no`='$gno' WHERE announcement.an_no=$textann";
+                    $sqln="UPDATE `announcement` SET `an_content`='$annou',`an_Datetime`='$date',`due_date`='$due_date',`grade`='$gradee',`g_no`='$gno' WHERE announcement.an_no=$textann";
                     if(mysqli_query($conn,$sqln)){
                     echo '<script type="text/javascript">alert("Record updated successfully .")</script>';
                     ?>

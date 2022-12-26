@@ -12,8 +12,16 @@ if ($result_g_name->num_rows == 1) {
       $g_name=$row["g_name"];
     }
 }
-echo $announcment;
-///////////////////////////
+ $announcment;
+ /*
+ $date = new DateTime();
+ $date->setTimeZone(new DateTimeZone("Asia/Dhaka"));
+ echo $get_datetime = $date->format('d.m.Y H:i:s');
+ echo"-----------";*/
+ date_default_timezone_set('libya');
+ $date = date ('Y.m.d H: i: s');
+ 
+  ///////////////////////////
 
 ?>
 <html>
@@ -99,7 +107,7 @@ echo $announcment;
             <textarea type="text" name="an_content" id="content" maxlength="250" style="font-size: 20px; margin-left: .5rem; margin-right: .5rem;"><?php echo$announcment; ?></textarea>
             <!-- Button -->
             <div class="btn_post">
-                <button type="submit" name="add_announcement" >Edit</button>
+                <button type="submit" onclick="confirmDelete()" name="edit_announcement" >Edit</button>
             </div>
             <!----------->   
           </div>
@@ -120,6 +128,15 @@ echo $announcment;
             }
         }
         /***********************************************************/
+        
+    function confirmDelete() {
+    if (confirm("Are you sure you want to Update ?")) {
+        return true;
+    } 
+    else {
+        return false;
+    }
+}
       </script>  
 
     </body>

@@ -128,7 +128,7 @@ $Announcment= $_SESSION['announcment'];
 
             <!-- Button -->
             <div class="btn_post">
-                <button type="submit" name="add_announcement_assignment" >edit</button>
+                <button type="submit" name="edit_announcement_assignment" >edit</button>
             </div>
             <!----------->   
           </div>
