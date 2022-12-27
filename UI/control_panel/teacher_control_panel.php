@@ -1,6 +1,7 @@
 <?php 
 include("../../path.php"); 
-include(MAIN_PATH."/controls/teachers.php"); 
+include(MAIN_PATH."/controls/teachers.php");
+adminOnly(); 
 $teachers=selectAllteacher();  
 ?>
 <!DOCTYPE html>

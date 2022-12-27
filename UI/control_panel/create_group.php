@@ -1,6 +1,7 @@
 <?php 
 include("../../path.php"); 
 include(MAIN_PATH."/controls/groups.php");
+userOnly();
 ?>
 <html lang="en">
     <head>

@@ -1,6 +1,6 @@
 <?php 
 include(MAIN_PATH. "/database/connection.php");
-$username=$_SESSION['full_name'];
+/* $username=$_SESSION['full_name']; */
 $user_id=$_SESSION['user_id'];
 
 $sql="SELECT u_img FROM user Where user_id ='$user_id';";
@@ -29,21 +29,23 @@ if ($result->num_rows == 1) {
                 <img src="../../sources/image/logo_dark.png" alt="" style="width: 100px;">
             </h2>
         </div>
-
-        <!--menu profile photo -->
-        <div class="sidebar-avartar" style="margin-top:20px">
-            <div>
-                <a href="<?php echo BASE_URL . '/UI/admin/admin profile.php' ?>"><img src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " alt=" " style="width: 70px; height:70px ;"></a>
-            </div>
-
-            <div class="avartar-info">
-                <div class="avartar-text">
-                    <h4><?php echo $username;?></h4>
-                    <p>Id : <?php echo $user_id;?> </p>
+        <?php if(isset($_SESSION['user_id'])): ?>
+            <!--menu profile photo -->
+            <div class="sidebar-avartar" style="margin-top:20px">
+                <div>
+                    <a href="<?php echo BASE_URL . '/UI/admin/admin profile.php' ?>"><img src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " alt=" " style="width: 70px; height:70px ;"></a>
                 </div>
-            </div>
-        </div>
+                <?php if(isset($_SESSION['full_name'])): ?>
+                    <div class="avartar-info">
+                        <div class="avartar-text">
+                            <h4><?php echo $_SESSION['full_name'];?></h4>
+                            <p>Id : <?php echo $user_id;?> </p>
+                        </div>
+                    </div>
+                <?php endif;?>
 
+            </div>
+        <?php endif;?>
         <!-- menu items -->
         <div class="sidebar-menu">
             <ul>

@@ -155,7 +155,7 @@ function selectAllStudentInGroup(){
               array_push($array_p_no,$p_no);
             } 
           }
-    }
+    }//
 
     /**delete from file table**/
     if(count($array_p_no)>0){
