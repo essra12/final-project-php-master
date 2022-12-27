@@ -38,14 +38,13 @@ $today = strtotime($todays_date);
     <!--Navigation Bar -->  
     <nav class="navbar">
       <ul class="lift-side">
-          <!-------back------>
-          <li><div class="back"><a href="../group/inside_group.php?data=<?= $g_name?>&number=<?= $groupNumber?>"><i class="las la-arrow-left"></i></a></div></li>
-          <!----------------->
+        <!-------back------>
+        <li><div class="back"><a href="../group/inside_group.php?data=<?= $g_name?>&number=<?= $groupNumber?>"><i class="las la-arrow-left"></i></a></div></li>
+        <!----------------->
 
-          <!-------logo------>
-          <li><div class="brand-title"><img src="../../sources/image/logo_dark.png" style="width: 100px;" /></div></li>
-          <!----------------->
-
+        <!-------logo------>
+        <li><div class="brand-title"><img src="../../sources/image/logo_dark.png" style="width: 100px;" /></div></li>
+        <!----------------->
       </ul>
       <div class="navbar-links">
         <ul>
@@ -77,108 +76,168 @@ $today = strtotime($todays_date);
 
 <form>
 
-    <!-- student Inquiries  card   -->
+  <h1>Announcements </h1>
 
-    <h1>Announcements </h1>
+  <main>
+    <!-- For Errors message-->
+    <?php if(count($errors)> 0): ?>
+      <div class="msg error" style="color: #D92A2A; margin-bottom: 20px;"> 
+        <?php foreach($errors as $error): ?>
+        <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php echo($error); ?></li>
+        <?php endforeach; ?>
+      </div> 
+    <?php endif; ?> 
+    <!------------------------>
 
-    <main>
-   
-    <?php foreach($announcements as $key => $announcement):?>
-      <div class="card" id="card"> 
+    <!-- For Succes -->
+    <?php if (isset($_SESSION['message'])): ?>
+    <div class="msg success" style="color: #5a9d48;">
+        <li style="list-style-type: none;"><i class="las la-check-circle" style="color: #5a9d48 ;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;<?php echo $_SESSION['message']; ?></li>
+        <?php
+        /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */
+        unset($_SESSION['message']);
+        ?>
+    </div>
+  <?php endif; ?>
+  <!-------------------->  
+  
+  <?php foreach($announcements as $key => $announcement):?>
+    <?php
+        $deadline=$announcement['due_date'];
+        $expiration_date = strtotime($deadline);
+      ?>
+    <!--------------------------------------------------Card------------------------------------------------------>  
+    <div class="card" id="card"> 
+       <div class="card-img">
+          <?php if(empty($announcement['due_date'])):?>
+            <img src="../../sources/image/ann.png" alt="">
+          <?php endif;?>
+          <?php if(!empty($announcement['due_date'])):?>
+            <img src="../../sources/image/ass.png" alt="">
+          <?php endif;?>
+        </div>
+      <div class="card-info">  
         <?php $datetime=strtotime($announcement['an_Datetime'])?>
         <p class="card__time"><i class="las la-clock"></i><?php echo date("d-m-Y h:i",$datetime)?></p>
-        <lable class="text"><?php echo $announcement['an_content']?></lable>
-        <!------------Delete announcement------------------>
+        <p class="text"><?php echo $announcement['an_content']?></p>
+        
+        <!------------Delete/Edit announcement------------------>
         <?php if($role=="teacher"):?>
-          <a onclick="return confirmDelete()" href="Announcement.php" ><i style="font-size: 20px;position:absolute;right: 7.5%;" class="fa-solid fa-xmark tr"></i></a>
-        <?php endif;?>
-        <!------------------------------------------------->
-
-        <!------------------------------------------------Assignment Buttom------------------------------------------------>
-        <?php if($role==""):?>
+            <!--------Announcement------>
+            <?php if(empty($announcement['due_date'])):?>
+              <a onclick="return confirmDelete()" href="announcement.php?delete_an_no=<?php echo $announcement['an_no'];?>" ><i style="position:absolute;right: 7.5%; margin-bottom:1rem;" class="fa-solid fa-xmark tr"></i></a>
+              <a href="edit_Announcment.php?textANN=<?php echo $announcement['an_no'];?>" ><i style="position:absolute;right: 9%; margin-bottom:1rem;" class="las la-pen ticon tr"></i></a>
+              <div style="height: 15px;"></div>
+            <?php endif;?>
+            <!--------------------------->
+            <!--Announcement Assignment-->
             <?php if(!empty($announcement['due_date'])):?>
-              <!-------------------------deadline--------------------------------->
-              <?php
-              $an_no=$announcement['an_no'];
-              /*--------------to know if student sent assignment-----------------*/
-                //to get student id
-                $sql="SELECT stu_id FROM user,student Where user.user_id=student.user_id AND user.user_id='$user_id';";
-                $result_stu_id = $conn->query($sql);
-                if ($result_stu_id->num_rows == 1) {
-                    while($row = $result_stu_id->fetch_assoc()) {
-                      $stu_id=$row["stu_id"];
-                      /**********to get the student id in session */
-                      $_SESSION['stu_id']=$stu_id;
-                    }
-                }
-                ///////////////////////
-                //to get student group no
-                $sql="SELECT stu_group FROM student_group,groups WHERE student_group.g_no=groups.g_no AND stu_id=$stu_id AND groups.g_no='$groupNumber';";
-                $result_stu_group = $conn->query($sql);
-                if ($result_stu_group->num_rows == 1) {
-                    while($row = $result_stu_group->fetch_assoc()) {
-                      $stu_group=$row["stu_group"];
-                      /**********to get the student id in session */
-                      $_SESSION['stu_group']=$stu_group;
-                    }
-                }
-                ///////////////////////
-                //to get data if its exist
-                $sql="SELECT p_no FROM post,student_group,announcement WHERE post.stu_group=student_group.stu_group AND post.an_no=announcement.an_no
-                AND post.stu_group='$stu_group' AND post.an_no='$an_no';";
-                $result_check = $conn->query($sql);
-                if ($result_check->num_rows > 0) {
-                    while($row = $result_check->fetch_assoc()) {
-                      $check=$row["p_no"];
-                    }
-                }
-                ///////////////////////
-
-              $deadline=$announcement['due_date'];
-              $expiration_date = strtotime($deadline);
-              ?>
+              <a onclick="return confirmDelete()" href="announcement.php?delete_an_ass_no=<?php echo $announcement['an_no'];?>" ><i style="position:absolute;right: 7.5%; margin-bottom:1rem;" class="fa-solid fa-xmark tr"></i></a>
+              <a href="editAnnouncement_assignment.php?textANN=<?php echo $announcement['an_no'];?>" ><i style="position:absolute;right: 9%; margin-bottom:1rem;" class="las la-pen ticon tr"></i></a>
+              <div style="height: 15px;"></div>
               <!-- deu date -->
               <p id="deu_date"class="card__time due_date" >Due Date&nbsp;&nbsp;&nbsp;<?php echo date("d-m-Y",$expiration_date)?></p>
               <!-------------->
-              <?php 
+            <!--------------------------->
+          <?php endif;?>
+        <?php endif;?>
+        <!------------------------------------------------->
+
+        <!------------------------------------------------Assignment Button----------------------------------------------->
+        <?php if($role==""):?>
+            <?php if(!empty($announcement['due_date'])):?>
+              <!-- deu date -->
+              <p id="deu_date"class="card__time due_date" >Due Date&nbsp;&nbsp;&nbsp;<?php echo date("d-m-Y",$expiration_date)?></p>
+              <!-------------->
+              <!-------------------------deadline--------------------------------->
+              <?php
+              $an_no=$announcement['an_no'];
+
+              /*--------------to know if student sent assignment-----------------*/
+              //to get student id
+              $sql="SELECT stu_id FROM user,student Where user.user_id=student.user_id AND user.user_id='$user_id';";
+              $result_stu_id = $conn->query($sql);
+              if ($result_stu_id->num_rows == 1) {
+                  while($row = $result_stu_id->fetch_assoc()) {
+                    $stu_id=$row["stu_id"];
+                    /**********to get the student id in session */
+                    $_SESSION['stu_id']=$stu_id;
+                  }
+              }
+
+              ///////////////////////
+              //to get student group no
+              $sql="SELECT stu_group FROM student_group,groups WHERE student_group.g_no=groups.g_no AND stu_id=$stu_id AND groups.g_no='$groupNumber';";
+              $result_stu_group = $conn->query($sql);
+              if ($result_stu_group->num_rows == 1) {
+                  while($row = $result_stu_group->fetch_assoc()) {
+                    $stu_group=$row["stu_group"];
+                    /**********to get the student id in session */
+                    $_SESSION['stu_group']=$stu_group;
+                  }
+              }
+
+              ///////////////////////
+              //to get data if its exist
+              $sql_check="SELECT post.an_no FROM post,student_group,announcement WHERE post.stu_group=student_group.stu_group AND post.an_no=announcement.an_no
+              AND post.stu_group='$stu_group' AND post.an_no='$an_no';";
+              $result_check = $conn->query($sql_check);
+              if ($result_check->num_rows > 0) {
+                  while($row = $result_check->fetch_assoc()) {
+                    $check=$row['an_no'];
+                  }
+              }
+              else{
+                $check=NULL;
+              }
+              ///////////////////////
               if ($expiration_date <= $today):?>
 
                 <?php
-                if(empty($check)):?>
-                    <div style="text-align: right;">
+                if($check!=$an_no):?>
+                  <div style="text-align: right;">
                     <i class="las la-calendar-times" style="font-size: 24px;margin-right:3.5%; color:red; font-weight: bold;"></i>
-                    </div>
-                    <?php endif;?>
-                    <?php if(!empty($check)):?>
-                      <div style="text-align: right;">
-                          <i class="las la-check" style="font-size: 24px;margin-right:3%; color:#45a72a; font-weight: bold;"></i>
-                      </div> 
-                    <?php endif;?>
-                <?php endif;
+                  </div>
+                <?php endif;?>
 
-              if ($expiration_date > $today) {
-                   if(empty($check)):?>
-                     <div style="text-align: right; margin-top: 1rem;">
-                       <button class="btn-create"><a href="../student/add asignment.php?g_no=<?= $groupNumber?>&an_no=<?php echo $announcement['an_no'];?> ">+</a></button>
-                     </div>
-                   <?php endif;?>
-                   <?php if(!empty($check)):?>
-                     <div style="text-align: right;">
-                         <i class="las la-check" style="font-size: 24px;margin-right:3%; color:#45a72a; font-weight: bold;"></i>
-                     </div> 
-                   <?php endif;
-              /*--------------end to know if student sent assignment-----------------*/
-              }?>
-              <!----------------------end deadline-------------------------------->
+                <?php if($check==$an_no):?>
+                    <div style="text-align: right;">
+                      <i class="las la-check" style="font-size: 24px;margin-right:3%; color:#45a72a; font-weight: bold;"></i>
+                    </div> 
+                <?php endif;?>
+
+              <?php endif;
+
+              if ($expiration_date > $today):?>
+
+                  <?php
+                  if($check!=$an_no || empty($check)):?>
+                    <div style="text-align: right; margin-top: 1rem;">
+                      <button class="btn-create"><a href="../student/add asignment.php?g_no=<?= $groupNumber?>&an_no=<?php echo $announcement['an_no'];?> ">+</a></button>
+                    </div>
+                  <?php endif;?>
+
+                  <?php if($check==$an_no):?>
+                    <div style="text-align: right;">
+                      <i class="las la-check" style="font-size: 24px;margin-right:3%; color:#45a72a; font-weight: bold;"></i>
+                    </div> 
+                  <?php endif;?>
+              <?php endif;?>
+
+              <!--------------End to know if student sent assignment-------------->
+              
+              <!----------------------End deadline-------------------------------->
 
             <?php endif;?>
         <?php endif;?>
-      </div>
-    <?php endforeach;?> 
-    
-    <!------------------------------------------------end Assignment Buttom------------------------------------------------>
+      </div>  
+    </div>
+    <!--------------------------------------------------End Card------------------------------------------------------>  
+  <?php endforeach;?> 
+  
+  <!------------------------------------------------end Assignment Buttom------------------------------------------------>
 
-    </main>
+  </main>
 
 </form>
 

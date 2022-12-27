@@ -1,6 +1,7 @@
 <?php
 include("../../path.php"); 
-include(MAIN_PATH."/controls/add_announcement.php"); 
+include(MAIN_PATH."/controls/add_groups.php"); 
+
 
 //to get group name
 $sql="SELECT g_name FROM groups Where g_no='$groupNumber';";
@@ -16,14 +17,14 @@ if ($result_g_name->num_rows == 1) {
 <html>
     <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add Announcement</title>
+    <title>Add Group</title>
     <meta charset="utf-8">
     <!--for logo-->
     <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="../../css/add_announcement_assignments.css" /> 
+    <link rel="stylesheet" href="../../css/add_group.css" /> 
     <!--icon8-->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     </head>
@@ -85,18 +86,18 @@ if ($result_g_name->num_rows == 1) {
         <!------------------------>
 
         <div class="title">
-            <h1 style="color: #222242;">Add Announcement</h1>
+            <h1 style="color: #222242;">Add Group</h1>
         </div>
 
         <form action="" method="POST" enctype='multipart/form-data' onsubmit="return check_Enter(this)">
             
-          <!-- Text field -->
-          <div class="inputs announcement">
-            <label style="color: #222242;">Text</label>
-            <textarea type="text" name="an_content" id="content" style="font-size: 20px; margin-left: .5rem; margin-right: .5rem;"><?php echo $an_content; ?></textarea>
+          <!-- group name field -->
+          <div class="inputs group">
+            <label style="color: #222242;">Group Name</label>
+            <input type="text" name="g_name" id="group" value="<?php echo $new_g_name ?>"/>
             <!-- Button -->
             <div class="btn_post">
-                <button type="submit" name="add_announcement" >POST</button>
+                <button type="submit" name="add_group" >SAVE</button>
             </div>
             <!----------->   
           </div>
@@ -110,9 +111,9 @@ if ($result_g_name->num_rows == 1) {
       <script>
         /*********************check for entres**********************/
         function check_Enter() {
-            const content = document.getElementById("content").value;
-            if(content==""){
-            alert(" Please enter Text");
+            const group = document.getElementById("group").value;
+            if(group==""){
+            alert(" Please enter Group Name");
             return false;
             }
         }

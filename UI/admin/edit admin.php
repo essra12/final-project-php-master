@@ -131,7 +131,7 @@ padding: 2%;
         <?php echo $error ?>
     </div>
                 
-        <button type="submit" name="bts" onclick="confirmDelete()" > Save</button>
+        <button type="submit" name="bts" onclick="return confirmDelete()" > Save</button>
         <a href="../control_panel/groups_control_panel.php">   <button style="margin-top: 3%;" class="btcansel" type="button" > Cancels</button></a>
 
     </form>

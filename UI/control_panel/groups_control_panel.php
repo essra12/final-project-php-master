@@ -1,8 +1,8 @@
 <?php 
 include("../../path.php"); 
 include(MAIN_PATH."/controls/groups.php"); 
+userOnly();
 $groups=selectAllGroupInfo();
-
 ?>
 <!DOCTYPE html>
 <ht7;l.ml lang="en">

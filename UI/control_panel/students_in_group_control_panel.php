@@ -1,6 +1,7 @@
 <?php 
 include("../../path.php"); 
 include(MAIN_PATH."/controls/students.php"); 
+adminOnly();
 $students=selectAllStudentInGroup();  
 ?>
 <!DOCTYPE html>

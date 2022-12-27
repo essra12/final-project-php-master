@@ -23,7 +23,6 @@ if ($result->num_rows == 1) {
     <!--for logo-->
     <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
     <link rel="stylesheet" href="../../css/main_page_.css">
-  
     <!--icon8-->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
      <!--icon8-->
@@ -33,11 +32,9 @@ if ($result->num_rows == 1) {
         * {
       list-style-type: none;
       }
-          
-     
     </style>
          
-    </head>
+</head>
    
    
 <html>
@@ -128,7 +125,7 @@ if ($result->num_rows == 1) {
 
                 <!-- For Succes -->
                 <?php if (isset($_SESSION['message'])): ?>
-            <div class="msg success" style="color: #5a9d48; margin-bottom: 20px; padding:3% 18% 0% 18%;">
+                <div class="msg success" style="color: #5a9d48; margin-bottom: 20px; padding:3% 18% 0% 18%;">
                 <li><i class="las la-check-circle" style="color: #5a9d48 ;font-weight: 600; font-size: 20px; "></i>&nbsp;&nbsp;<?php echo $_SESSION['message']; ?></li>
                 <?php
                 /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */

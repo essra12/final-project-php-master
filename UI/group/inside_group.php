@@ -46,6 +46,9 @@ endif;
     <!--for logo-->
     <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
     <meta name="descreption " content=" " />
+    <!--for logo-->
+    <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
+    <!--stylesheet-->
     <link rel="stylesheet" href="../../css/inside_groups.css">
     <!--icon8-->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
@@ -190,8 +193,8 @@ endif;
                 <div class="dropdown">
                 <button class="btn-create">+</button>
                 <div>
-                    <a href="../student/add asignment.php?g_no=<?= $group_no?>">Assignment</a>
-                    <a href="../teacher/Add Enquiry.php?">Enquiry</a>
+                    <a href="<?php echo BASE_URL . '/UI/teacher/announcement.php' ?>">Assignment</a>
+                    <a href="<?php echo BASE_URL . '/UI/teacher/Add Enquiry .php' ?>">Enquiry</a>
                 </div>
                 </div>
           
@@ -204,6 +207,7 @@ endif;
                         <a href="../teacher/add.php?g_no=<?= $group_no?>">Material</a>
                         <a href="../teacher/add announcement.php?g_no=<?= $group_no?>">Announcement</a>
                         <a href="../teacher/add_announcement_assignment.php?g_no=<?= $group_no?>">Assignment</a>
+                        <a href="../teacher/add group.php?g_no=<?= $group_no?>">Group</a>
                     </div>
                 </div>
             <?php endif;?>    
@@ -230,7 +234,7 @@ endif;
   
   <div class="column">
     <div class="card">
-      <h3><a href="<?php echo BASE_URL . '/UI/teacher/Announcement.php' ?>">Announcements</a></h3>
+      <h3><a href="<?php echo BASE_URL . '/UI/teacher/announcement.php' ?>">Announcements</a></h3>
     </div>
   </div>
   

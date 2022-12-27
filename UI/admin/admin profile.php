@@ -22,7 +22,7 @@ $id3=$_SESSION['pass2'];/** login path كلمة السر غسر مشفرة تم 
     font-size: 35px;
     position: absolute;
     top: 35%;
-    left: 41%;
+    left: 40.7%;
     }
 .Lablegroup,.LabelAssinaments{
     font-size: 15px;
