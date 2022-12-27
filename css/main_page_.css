@@ -3,6 +3,17 @@
 :root {
     --surface-color: #fff;
     --curve: 40;
+    --darkblue:#2A3D6C ;
+    --vdarkblue:#222242 ;
+    --orange:#FFBA5F;
+    --shadow1:rgba(17,17,26,0.1) 2px 2px 16px; 
+    --shadow2:0 0 0.375rem 0.25rem rgb(0 0 0 / 15%);
+    --lightblue:#A4D2F0;
+    --lightgreen:#D8E6D6;
+    --vlightblue:#e5f3fe;
+    --vvlightblue:#f5fafe;
+    --darkgreen:#53744A;
+    --red:#D92A2A;
   }
   
   * {
