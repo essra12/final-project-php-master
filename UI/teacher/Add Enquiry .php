@@ -134,10 +134,12 @@ if ($result_g_name->num_rows == 1) {
 <p class="lable"><?php echo $Info['r_content'] ?></p>
 <?php endforeach; ?>
 
+<?php if($role=="teacher"):?>
 <form  onsubmit="return check__Enter()" method="post" action="Add Enquiry .php" >
 <div class="input-container"> 
 <input class="input-field reply_text" name="replyText" type="text" placeholder="Reply" >
 <button type="submit" class="icon" name="reply" >Reply</button>
+<?php endif;?>
 </div>
 </form>
 </div>

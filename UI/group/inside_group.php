@@ -37,6 +37,18 @@ if ($result->num_rows == 1) {
 }
 endif;
 ///////////////////////////
+if($role=="teacher"):
+    /*to get user id from user -> student*/
+    $sql="SELECT tr_id FROM user,teacher Where user.user_id=teacher.user_id AND user.user_id='$user_id';";
+    $result= $conn->query($sql);
+    if ($result->num_rows == 1) {
+        while($row = $result->fetch_assoc()) {
+          $stu_id=$row["tr_id"];
+        
+        }
+    }
+    endif;
+    ///////////////////////////
 
 ?>
 
