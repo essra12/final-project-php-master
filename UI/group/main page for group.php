@@ -86,9 +86,19 @@ if ($result->num_rows == 1) {
             </div>
             <?php search()?> 
             <?php endif;?>
+            
+            <?php if($role=="teacher"):?>
+            
+            <div class="search">
+            <input type="text" placeholder=" Create New Group" id="Create" name="g_name" onkeypress="" value="<?php echo $new_g_name ?>">
+            <button type="submit" name="Create" style="font-weight: 900;">+</button>
+            </div>
+            <?php search()?> 
+            <?php endif;?>
 
-               <!--  Errors -->
-               <?php include("../../controls/errors.php")?>
+
+             <!--  Errors -->
+             <?php include("../../controls/errors.php")?>
             <!--********************-->
             </form> 
             <!-------------------------------------->
