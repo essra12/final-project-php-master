@@ -238,6 +238,12 @@ function deleteStudent_group($g_no)
     return $st->affected_rows; //اذا تحقق الحذف يجب ان يرجع قيمة اكبر من 0
 }
 
-
-
+/* DELETE Announcement FUNCTION */
+function deleteAnnouncement($an_no)
+{
+    global $conn;
+    $sql="DELETE FROM announcement WHERE an_no=?";
+    $st=executeQuery($sql,['an_no'=>$an_no]);//وضع في مصفوفة لانه عنصر داخل مصفوفة
+    return $st->affected_rows; //اذا تحقق الحذف يجب ان يرجع قيمة اكبر من 0
+}
  /*--------------------------------------------------------------------------------------*/

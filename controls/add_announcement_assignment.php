@@ -22,7 +22,7 @@ if(isset($_POST['add_announcement_assignment'])){
         array_push($errors,"Error in save data");
     }  
     if(count($errors)==0){
-        /* $_SESSION['message']="The announcement sent successfully"; */
+        $_SESSION['message']="The announcement sent successfully"; 
         header('location: '.BASE_URL.'/UI/teacher/announcement.php');
         $conn->close();
         exit();
