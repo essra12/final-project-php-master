@@ -25,7 +25,30 @@ if ($result_g_name->num_rows == 1) {
       $img=$row["u_img"];
     }
 }
+ if($role==""):
+/*to get user id from user -> student*/
+$sql="SELECT stu_id FROM user,student Where user.user_id=student.user_id AND user.user_id='$user_id';";
+$result= $conn->query($sql);
+if ($result->num_rows == 1) {
+    while($row = $result->fetch_assoc()) {
+      $stu_id=$row["stu_id"];
+    
+    }
+}
+endif;
 ///////////////////////////
+if($role=="teacher"):
+    /*to get user id from user -> student*/
+    $sql="SELECT tr_id FROM user,teacher Where user.user_id=teacher.user_id AND user.user_id='$user_id';";
+    $result= $conn->query($sql);
+    if ($result->num_rows == 1) {
+        while($row = $result->fetch_assoc()) {
+          $stu_id=$row["tr_id"];
+        
+        }
+    }
+    endif;
+    ///////////////////////////
 
 ?>
 
@@ -112,7 +135,7 @@ if ($result_g_name->num_rows == 1) {
                 <div class="avartar-info">
                     <div class="avartar-text">
                         <h4><?php echo $username;?></h4>
-                        <p>Id : <?php echo $user_id;?> </p>
+                        <p>Id : <?php echo $stu_id;?> </p>
                     </div>
                 </div>
             </div>

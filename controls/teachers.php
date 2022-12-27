@@ -121,6 +121,32 @@ $conf_password="";
     $user_id_delete=$_GET['deleteID'];
     $tr_id=$_GET['delete_tr_id'];
 
+
+      /*--------------------------------------------  Delte teacher if table groups =""----------------------------
+$array_g_no=array();
+$select_g_no="SELECT  groups.g_no FROM groups,teacher WHERE groups.tr_id=teacher.tr_id AND teacher.tr_id=' $tr_id';";
+$result = $conn->query($select_g_no);
+if($result->num_rows > 0) {
+    echo '<script type="text/javascript">alert("Cannot delete tgis teacher ! .")</script>';
+    ?>
+    <script type="text/javascript">
+     window.location.href="../control_panel/teacher_control_panel.php." </script>
+     <?php 
+}
+else 
+$sqln="DELETE FROM `teacher` WHERE teacher.tr_id=' $tr_id'";
+if(mysqli_query($conn,$sqln)){
+    echo '<script type="text/javascript">alert("Record updated successfully .")</script>';
+    ?>
+    <script type="text/javascript">
+     window.location.href="../control_panel/teacher_control_panel.php." </script>
+     <?php 
+      } else {
+      echo "Error updating record: " . mysqli_error($conn);
+       }
+       */
+
+
     //to get g_no 
     $array_g_no=array();
     $select_g_no="SELECT  groups.g_no FROM groups,teacher WHERE groups.tr_id=teacher.tr_id AND teacher.tr_id='$tr_id';";
