@@ -168,9 +168,9 @@ if($role=="teacher"):
                     </li>                
                     <li>
                     <a href="..\..\logout.php">
-                            <span class="las la-sign-out-alt" style="color:#FFBA5F;"></span>
-                            <span style="color:#FFBA5F;">LogOut</span>
-                        </a>
+                        <span class="las la-sign-out-alt" style="color:#FFBA5F;"></span>
+                        <span style="color:#FFBA5F;">LogOut</span>
+                    </a>
                 </ul>
             </div>
 
@@ -255,13 +255,14 @@ if($role=="teacher"):
       <h3><a href="<?php echo BASE_URL . '/UI/teacher/Add Enquiry .php' ?>">Enquiries</a></h3>
      </div>
   </div>
-  
+    
+  <?php if($role=="teacher"):?>
     <div class="column">
-    <div class="card">
-      <h3>Report</a></h3>
-   
+        <div class="card">
+        <h3><a href="<?php echo BASE_URL . '/UI/teacher/reports.php' ?>">Report</a></h3>
+        </div>
     </div>
-  </div>
+   <?php endif;?>
 </div>
        <main>    
         

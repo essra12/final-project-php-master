@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+:root{
+    --darkblue:#2A3D6C ;
+    --vdarkblue:#222242 ;
+    --orange:#FFBA5F;
+    --shadow1:rgba(17,17,26,0.1) 2px 2px 16px; 
+    --shadow2:0 0 0.375rem 0.25rem rgb(0 0 0 / 15%);
+    --lightblue:#A4D2F0;
+    --lightgreen:#D8E6D6;
+    --vlightblue:#e5f3fe;
+    --vvlightblue:#f5fafe;
+    --darkgreen:#53744A;
+    --red:#D92A2A;
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+    list-style-type: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/*****************************************************Navigation Bar style**********************************************************/
+
+.navbar {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222242;
+    box-shadow: var(--shadow2);
+    color: white;
+}
+
+ul{
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.lift-side li{
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding-right: 1rem;
+    margin: auto;
+}
+
+.lift-side li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+}
+
+.back{
+    display: inline;
+    margin-right: 0;
+}
+
+.back i{
+    margin-left: .5rem;
+    font-size: 2.2rem;
+}
+
+.brand-title {
+    font-size: 1.5rem;
+    margin: .5rem;
+    margin-left: 0;
+}
+
+.navbar-links {
+    height: 100%;
+}
+/******Notification*******/
+
+.notification {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .notification .badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 1px 6px;
+    border-radius: 50%;
+    background: var(--orange);
+    color: var(--vdarkblue);
+    font-size: .7rem;
+  }
+/************************/
+.navbar-links ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li {
+    list-style: none;
+}
+
+.navbar-links li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+}
+
+.navbar-links li:hover {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.navbar-links li:hover i{
+    font-weight: bold;
+    font-size: 1.7rem;
+}
+
+a:is(:link,:active,:hover).active{
+    font-weight: bold;
+    font-size: 18px;
+}
+/******************************************************************************/
+.main-container{
+    padding-left: 9.5%;
+}
+.main-container  h1{
+    font-size: 50px;
+    margin-left: 2.5%;
+    margin-top: 2rem;
+}
+/*groups card*/
+.group-cards{
+    display: grid;
+    width: 80%;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 0rem 2rem;
+}
+.group-card{
+    display: flex;
+    justify-content: center; 
+    margin-top: 2rem;
+    transition:  0.5s;
+}
+/*************/
+.square-flip{
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    -ms-perspective: 1000;
+    perspective: 1000;
+
+    -webkit-transform: perspective(1000px);
+    -moz-transform: perspective(1000px);
+    -ms-transform: perspective(1000px);
+    transform: perspective(1000px);
+
+    -webkit-transform-style: preserve-3d; 
+    -moz-transform-style: preserve-3d; 
+    -ms-transform-style: preserve-3d; 
+    transform-style: preserve-3d; 
+
+    position:relative;
+    float:left;
+}
+.square-flip{
+    width:400px;
+    height:350px;
+}
+.square,.square2{
+    width:100%;
+    height:100%;
+}
+.square{
+    background-size: cover;
+    background-position:center center;
+    -ms-transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
+    transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
+    -webkit-transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
+    overflow: hidden;
+    position:absolute;
+    top:0;
+    -webkit-backface-visibility: hidden; 
+    backface-visibility: hidden;
+}
+.square-flip .square{
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+    z-index:1;
+}
+.square-flip:hover .square{
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+    transform-style: preserve-3d;
+}
+.square2{
+    background-size: cover;
+    background-position:center center;
+    -ms-transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
+    transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
+    -webkit-transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
+    overflow: hidden;
+    position:absolute;
+    top:0;
+    -webkit-backface-visibility: hidden; 
+    backface-visibility: hidden;
+}
+.square-flip .square2{
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    transform-style: preserve-3d;
+    z-index:1;
+}
+.square-flip:hover .square2{
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+}
+/*Square content*/
+.square-container{
+    padding:40px;
+    text-align:center;
+    position:relative;
+    top:40%;
+    -ms-transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
+    transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
+    -webkit-transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
+    -webkit-transform: translateY(-50%) translateX(0px)  scale(1);
+    -ms-transform: translateY(-50%) translateX(0px)  scale(1);
+    transform: translateY(-50%) translateX(0px)  scale(1);
+    transform-style: preserve-3d;
+    z-index:2;
+}
+.square-container i{
+    color: #fff;
+    font-size: 28px;
+}
+.square-container span{
+    display: block;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.square-flip:hover .square-container{
+    -webkit-transform: translateY(-50%) translateX(-650px)  scale(.88);
+    -ms-transform: translateY(-50%) translateX(-650px)  scale(.88);
+    transform: translateY(-50%) translateX(-650px)  scale(.88);
+    transform-style: preserve-3d;
+}
+.square-container2{
+    padding:40px;
+    text-align:center;
+    position:relative;
+    top:50%;
+    -ms-transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
+    transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
+    -webkit-transition: transform 0.60s cubic-bezier(.5,.3,.3,1);
+    -webkit-transform: translateY(-50%) translateX(650px) translateZ(60px) scale(.88);
+    -ms-transform: translateY(-50%) translateX(650px) translateZ(60px) scale(.88);
+    transform: translateY(-50%) translateX(650px) translateZ(60px) scale(.88);
+    transform-style: preserve-3d;
+    z-index:2;
+}
+.square-flip:hover .square-container2{
+    -webkit-transform: translateY(-50%) translateX(0px) translateZ(0px) scale(1);
+    -ms-transform: translateY(-50%) translateX(0px) translateZ(0px) scale(1);
+    transform: translateY(-50%) translateX(0px) translateZ(0px) scale(1);
+    transform-style: preserve-3d;
+}
+/*Style text*/
+.square-flip h2{
+    color:var(--orange);
+    font-weight:700;
+    font-size:22px;
+}
+.square-flip p{
+    color:white;
+    font-weight:500;
+    font-size:16px;
+    line-height:26px;
+}
+/*Elements*/
+.flip-overlay{
+    display:block;
+    background:var(--vdarkblue);
+    border-radius: 25px;
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+}
+
+.button{
+    display:block;
+    margin:0 auto;
+    border: 2px double var(--orange);
+    padding: 10px 24px;
+    color: var(--vdarkblue);
+    border-radius: 25px;
+    background: #fff;
+    width: 150px;
+    text-transform: uppercase;
+    font-size: 14px;
+    text-align: center;
+}
+.button:hover{
+    background: var(--orange);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+/*ADD SHADOWS OPTIONAL*/
+.square-flip .square .boxshadow, .square-flip .square .textshadow, .square-flip .square2 .boxshadow, .square-flip .square2 .textshadow{
+    -ms-transition: 0.60s;
+    transition: 0.60s;
+    -webkit-transition: 0.60s;
+}
+/*You can delete this style*/
+.centerflipcards{
+    display:block;
+    width:1330px;
+    height:440px;
+    text-align:center;
+    margin:0 auto;
+    margin-top:25px;
+}
+.clearfix{clear:both;}
+.centerflipcards p{
+    font-family:"Open Sans";
+    font-size:13px;
+    margin-top:10px;
+    font-weight:700;
+}
+
+@media only screen and (max-width:1450px) {
+
+    .group-cards{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media only screen and (max-width:1000px) {
+
+    .group-cards{
+         grid-template-columns: 100%;
+    } 
+    .square-flip{
+        width:80%;
+        height:350px;
+    }
+}
