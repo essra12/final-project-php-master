@@ -1,9 +1,9 @@
 <?php 
 include("../../path.php"); 
 include(MAIN_PATH."/controls/admins.php"); 
-adminOnly();
 $table="user";
 $condition=["role"=>'admin'];
+
 $admins=selectAll($table,$condition);  
 ?>
 <!DOCTYPE html>

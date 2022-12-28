@@ -1,7 +1,7 @@
 <?php 
 include("../../path.php"); 
 include(MAIN_PATH."/controls/groups.php"); 
-userOnly();
+
 $groups=selectAllGroupInfo();
 ?>
 <!DOCTYPE html>
@@ -19,7 +19,7 @@ $groups=selectAllGroupInfo();
     </head>
 <style>
     .group-card{
-    background:#ffd9a7;
+    background:#fcc680;
     }
 </style>
 <body  class="b-white">
