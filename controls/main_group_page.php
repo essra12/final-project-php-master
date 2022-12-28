@@ -125,6 +125,7 @@ if ($result->num_rows > 0) {
      if($exisiting_group)
      {
          array_push($errors," This Group alredy exists");
+      
      }
      
      if(count($errors)==0){

@@ -90,10 +90,10 @@ if ($result->num_rows == 1) {
             <?php if($role=="teacher"):?>
             
             <div class="search">
-            <input type="text" placeholder=" Create New Group" id="Create" name="g_name" onkeypress="" value="<?php echo $new_g_name ?>">
-            <button type="submit" name="Create" style="font-weight: 900;">+</button>
+            <input type="text" placeholder=" Create New Group" id="Create" name="g_name" >
+            <button type="submit" name="Create" id="btn" style="font-weight: 900;" onclick="return check_Enter()">+</button>
             </div>
-            <?php search()?> 
+            
             <?php endif;?>
 
 
@@ -215,13 +215,18 @@ if ($result->num_rows == 1) {
             var date =name+'   '+dt.getDate()+','+dt.getFullYear();
             document.getElementById('date').innerHTML=date;
 
-            function check_Enter() {
+ function check_Enter() {
   const search = document.getElementById("search").value;
-  
+  const Create = document.getElementById("Create").value;
   if(search==""){
   alert(" you should Enter Group Code");
   return false
-  }}
+  }
+  if(Create==" "){
+  alert(" you should Enter an Name to Create the group");
+  return false
+  }
+}
 
   /* when do not enter number */
   function onlyNumberKey(evt) {
@@ -239,6 +244,8 @@ if ($result->num_rows == 1) {
     $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
   });
 });
+
+
     </script>
       
 </body>
