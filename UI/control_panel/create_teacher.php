@@ -1,7 +1,7 @@
 <?php 
 include("../../path.php"); 
 include(MAIN_PATH."/controls/teachers.php");
-adminOnly();
+
 ?>
 <html lang="en">
 <head>

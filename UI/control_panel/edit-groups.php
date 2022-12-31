@@ -2,7 +2,7 @@
 include("../../path.php"); 
 include(MAIN_PATH."/controls/groups.php");
 include("../../controls/edit-group.php"); 
-adminOnly();
+
 $nameg=$_GET['name-g'];
 $nameT=$_GET['name-t'];
 $gid=$_GET['id'];

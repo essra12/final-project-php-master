@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+:root{
+    --darkblue:#2A3D6C ;
+    --vdarkblue:#222242 ;
+    --orange:#FFBA5F;
+    --shadow1:rgba(17,17,26,0.1) 2px 2px 16px; 
+    --shadow2:0 0 0.375rem 0.25rem rgb(0 0 0 / 15%);
+    --lightblue:#A4D2F0;
+    --lightgreen:#D8E6D6;
+    --vlightblue:#e5f3fe;
+    --vvlightblue:#f5fafe;
+    --darkgreen:#53744A;
+    --red:#D92A2A;
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+    list-style-type: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/*****************************************************Navigation Bar style**********************************************************/
+
+.navbar {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222242;
+    box-shadow: var(--shadow2);
+    color: white;
+}
+
+ul{
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.lift-side li{
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding-right: 1rem;
+    margin: auto;
+}
+
+.lift-side li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+}
+
+.back{
+    display: inline;
+    margin-right: 0;
+}
+
+.back i{
+    margin-left: .5rem;
+    font-size: 2.2rem;
+}
+
+.brand-title {
+    font-size: 1.5rem;
+    margin: .5rem;
+    margin-left: 0;
+}
+
+.navbar-links {
+    height: 100%;
+}
+/******Notification*******/
+
+.notification {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .notification .badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 1px 6px;
+    border-radius: 50%;
+    background: var(--orange);
+    color: var(--vdarkblue);
+    font-size: .7rem;
+  }
+/************************/
+.navbar-links ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li {
+    list-style: none;
+}
+
+.navbar-links li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+}
+
+.navbar-links li:hover {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.navbar-links li:hover i{
+    font-weight: bold;
+    font-size: 1.7rem;
+}
+
+a:is(:link,:active,:hover).active{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/***********************************************main container*************************************************/
+.main-container{
+    margin: 2rem 8rem 0rem;
+}
+.main-container .title h1{
+    font-size: 45px;
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+
+/* Style the search field */
+div .search{
+    text-align: center;
+}
+.search input[type=text] {
+    padding: 10px;
+    font-size: 18px;
+    /* float: left; */
+    width: 25%;
+    border: none;
+    border-radius : 15px 0px 0px 15px;
+    background: #fff;
+    box-shadow: var(--shadow1);
+    margin-bottom: 12px;
+    outline: none;
+}
+
+span.clear-btn{
+  position: absolute;
+  right: 45%;
+  margin-top: 13px;
+  margin-left: 10px;
+  font-size: 18px;
+  color: rgb(87, 91, 95);
+  cursor: pointer;
+}
+span.clear-btn:hover{
+    color:var(--vdarkblue);
+  }
+
+/*  submit button */
+.search button {
+    /* float: left; */
+    width: 10%;
+    padding: 10px;
+    background: var(--vdarkblue);
+    color: white;
+    font-size: 18px;
+    border-radius : 0px 15px 15px 0px;
+    border: none;
+    cursor: pointer;
+}
+.search button:hover {
+    background: var(--orange);
+    color: #000;
+}
+/* Clear floats */
+.search::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+@media(max-width: 1448px){
+    .search input[type=text] {
+        font-size: 18px;
+        width: 35%;
+    }
+    span.clear-btn{
+        right: 42%;
+      }
+}
+@media(max-width: 1084px){
+    .search input[type=text] {
+        font-size: 16px;
+    }
+    .search button {
+        width: 12%;
+        font-size: 16px;
+    }
+}
+@media(max-width: 860px){
+    .search button {
+        width: 15%;
+    }
+    span.clear-btn{
+        right: 45%;
+      }
+}
+@media(max-width: 740px){
+    .search input[type=text] {
+        width: 50%;
+    }
+    .search button {
+        width: 20%;
+    }
+    span.clear-btn{
+        right: 42%;
+      }
+}
+@media(max-width: 620px){
+    .search input[type=text] {
+        width: 40%;
+        font-size: 14px;
+    }
+    .search button {
+        width: 30%;
+        font-size: 14px;
+    }
+    span.clear-btn{
+        right: 48%;
+        font-size: 14px;
+      }
+}
+/**********************************/
+
+.container_text_input label{
+    display: block;
+    font-size: 28px;
+    font-weight: bold;
+}
+/** textarea field**/
+
+.text_input textarea{
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    margin-bottom: 2rem;
+    padding: 10px;
+    box-shadow: var(--shadow1);
+    background: #fff
+}
+/*******************/
+
+/*table*/
+.table-box{
+	width:99%;
+	box-shadow: var(--shadow);
+	margin-top: 30px;
+	border-radius: 10px;
+	float: left;
+}
+
+table {
+    border-collapse: separate;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-size: 14px;
+    border-radius: 10px;
+    table-layout: fixed;
+    border-spacing: 0 10px;
+}
+
+table tr {
+    padding: .15em;
+    margin-bottom: 10px;
+    box-shadow: var(--shadow1);
+}
+thead{
+    background: var(--vdarkblue);
+    color: #fff;
+    box-shadow: var(--shadow1);
+}
+
+table th,table td {
+    padding: 1em;
+    text-align: left;
+}
+
+table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+.tab-img{
+	display: inline-block;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    border: 1px solid #000;
+    border-radius:100%;
+    margin-right: 8px;
+}
+.tab-img image{ 
+    width: 30px;
+    height: 30px;
+}
+
+
+@media(max-width: 884px){
+	.table thead{
+		display: none;
+	}
+    .table-box{
+        border-radius: 25px;
+    }
+
+	.table, .table tbody, .table tr, .table td{
+		display: block;
+		width: 100%;
+	}
+	.table tr{
+		margin-bottom:15px;
+	}
+	.table td{
+		text-align: right;
+		padding-left: 50%;
+		text-align: right;
+		position: relative;
+	}
+	.table td::before{
+		content: attr(data-label);
+		position: absolute;
+		left:0;
+		width: 50%;
+		padding-left:15px;
+		font-size:15px;
+		font-weight: bold;
+		text-align: left;
+	}
+    .main-container .title h1{
+        font-size: 30px;
+    }
+    .container_text_input label{
+        font-size: 20px;
+    }
+    /** textarea field**/
+    
+    .text_input textarea{
+        font-size: 14px;
+    }
+    /*******************/
+    .msg.error{
+        font-size: 14px;
+    }
+}
