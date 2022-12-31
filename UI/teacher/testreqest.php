@@ -6,7 +6,7 @@ $testpost=testposttest();
 $groupNO=$_SESSION['g-no'];
 echo $groupNO;
 */
-
+$role=$_SESSION['role'];
 //to get group name
 $sql="SELECT g_name FROM groups Where g_no='$groupNO';";
 $result_g_name = $conn->query($sql);
@@ -106,7 +106,9 @@ h1{
     foreach($testpost as $key => $student):?> <!--هذا المتغير عبارة عن سجل واحد من الجدول $student  -->
         <div class="ab2">
             <label data-label="stu-name"><img src="<?php echo BASE_URL . '/sources/image/' . $student['u_img']; ?>" class="tab-img" style=" margin-right:10px;  width: 25px; height: 25px; border-radius:100%;"><?php echo $student['full_name'] ?> </label>
-            <a  onclick="return confirmDelete()"href="testreqest.php?deleteSTID=<?php echo $student['g_no'];?>&deletestuid=<?php echo $student['stu_id']; ?>&group=<?php echo $student['stu_group']; ?> "><i id="croos2" class="fa-solid fa-circle-xmark" ></i></a>  
+            <?php if($role=="teacher"):?>
+            <a  onclick="return confirmDelete()"href="testreqest.php?deleteSTID=<?php echo $student['g_no'];?>&deletestuid=<?php echo $student['stu_id']; ?>&group=<?php echo $student['stu_group']; ?> "><i id="croos2" class="fa-solid fa-circle-xmark" ></i></a> 
+            <?php endif;?> 
         </div>
         <?php endforeach ; 
 
