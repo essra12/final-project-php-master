@@ -19,7 +19,7 @@ function infoforstudent(){
     $stu_id=$_SESSION['stu_id'];
     $group_no=$_SESSION['g_no'];
     global $conn;
-    $sql = "SELECT post.title ,post.Datatime,post.p_no from post,student_group WHERE post.stu_group=student_group.stu_group AND student_group.g_no=$group_no and student_group.stu_id=$stu_id";
+    $sql = "SELECT post.title ,post.Datatime,post.p_no from post,student_group WHERE post.stu_group=student_group.stu_group AND student_group.g_no=$group_no and student_group.stu_id=$stu_id ORDER BY post.Datatime DESC";
     $pre=$conn->prepare($sql);
     $pre->execute();
     $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);

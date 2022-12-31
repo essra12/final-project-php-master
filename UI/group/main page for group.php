@@ -116,7 +116,7 @@ if ($result->num_rows == 1) {
             <?php if($role=="teacher"):?>
             
                  <div class="photo-div">
-                  <a href="..\teacher\profile teacher.php"><img class="img-user" src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " style="border-radius: 100%; "/></a>
+                  <a href="..\teacher\profile teacher.php"><img id="imgteacher" onmouseover="setNewImage1(this)" onmouseout="setOldImage()" class="img-user" src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " style="border-radius: 100%; "/></a>
                 </div> 
                 <section id="section_scroll" class="demo">
                  <a href="#section"><span></span></a>
@@ -250,9 +250,11 @@ if ($result->num_rows == 1) {
     $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
   });
 });
-function setNewImage1(){  document.getElementById("img").src="../../sources/image/view.png";}
+function setNewImage1(){  document.getElementById("img").src="../../sources/image/view.png";
+  document.getElementById("imgteacher").src="../../sources/image/view.png";}
 
-function setOldImage(){ document.getElementById("img").src="<?php echo BASE_URL . '/sources/image/'.$img  ?> ";}
+function setOldImage(){ document.getElementById("img").src="<?php echo BASE_URL . '/sources/image/'.$img  ?>";
+  document.getElementById("imgteacher").src="<?php echo BASE_URL . '/sources/image/'.$img  ?>";}
 
     </script>
       

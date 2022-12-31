@@ -68,7 +68,7 @@ if ($result->num_rows > 0) {
   }
 } 
   /*******************************************************/
-  $sql = "SELECT * FROM groups,student_group WHERE groups.g_no=student_group.g_no and student_group.stu_id='".$id."'";
+  $sql = "SELECT * FROM groups,student_group WHERE groups.g_no=student_group.g_no and student_group.stu_id='.$id.' ORDER BY groups.Datetime DESC";
   $pre=$conn->prepare($sql);
   $pre->execute();
   $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -91,7 +91,7 @@ if ($result->num_rows > 0) {
   }
 } 
   /*******************************************************/
-  $sql = "SELECT * FROM groups WHERE  groups.tr_id='".$id."'";
+  $sql = "SELECT * FROM groups WHERE  groups.tr_id='$id' ORDER BY groups.Datetime DESC;";
   $pre=$conn->prepare($sql);
   $pre->execute();
   $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);

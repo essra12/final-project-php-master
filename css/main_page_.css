@@ -203,7 +203,7 @@ a:is(:link,:active,:hover).active{
     transform: translate(-50% , -50%);
     width:55%;
     height: auto;
-    display: block;
+    display: block; 
     
   }
 
