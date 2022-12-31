@@ -105,12 +105,11 @@ if ($result->num_rows == 1) {
             <!--********************-->
             </form> 
             <!-------------------------------------->
-           
-
-             <div class="photo-div">                
-              <a href="..\student\student-profile.php"><img class="img-user" src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " style="border-radius: 100%; "/></a>
             
-            </div>
+         
+              <div class="photo-div">                
+              <a href="..\student\student-profile.php"><img id="img" onmouseover="setNewImage1(this)" onmouseout="setOldImage()"  class="img-user" src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " style="border-radius: 100%; "/></a>
+              </div> 
            
             <!-- ************************************************************************************* -->
             <!-- ****************image section for teacher************************* -->
@@ -208,7 +207,11 @@ if ($result->num_rows == 1) {
 <!-------------------------------------------------------------------->
 
 
-    
+
+
+
+
+<!-------------------------------------------------------------------->    
 <!-- java script for current date -->
     <script>
         const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sept","Oct","Nov","Dec"];
@@ -247,7 +250,9 @@ if ($result->num_rows == 1) {
     $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
   });
 });
+function setNewImage1(){  document.getElementById("img").src="../../sources/image/view.png";}
 
+function setOldImage(){ document.getElementById("img").src="<?php echo BASE_URL . '/sources/image/'.$img  ?> ";}
 
     </script>
       

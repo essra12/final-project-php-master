@@ -118,10 +118,8 @@ if($role=="teacher"):
     <div class="sidebar">
 
         <div class="sidebar-container">
-              
-          <!----------------->
             <div class="brand">
-                <h2>
+                 <h2>
                     <img src="../../sources/image/logo_dark.png" alt="" style="width: 100px;">
                 </h2>
             </div>
