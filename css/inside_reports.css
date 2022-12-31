@@ -295,7 +295,9 @@ table th,table td {
     padding: 1em;
     text-align: left;
 }
-
+td.grade{
+    text-align: center;
+}
 table th {
     font-size: .85em;
     letter-spacing: .1em;

@@ -127,7 +127,7 @@ if($role=="teacher"):
             <!--menu profile photo -->
             <div class="sidebar-avartar" style="margin-top:20px">
                 <div>
-                    <a href="" alt="" style="width: 70px; height:70px ;"><img src="<?php echo BASE_URL . '/sources/image/'.$img  ?>" alt=" " style="width: 70px; height:70px ;"></img></a>
+                    <a href="..\teacher\profile teacher.php" alt="" style="width: 70px; height:70px ;"><img src="<?php echo BASE_URL . '/sources/image/'.$img  ?>" alt=" " style="width: 70px; height:70px ;"></img></a>
                 </div>
 
                 <div class="avartar-info">

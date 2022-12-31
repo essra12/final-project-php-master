@@ -132,7 +132,18 @@ function selectAllStudentInGroup(){
     $user_id_delete=$_GET['deleteID'];
     $stu_id_delete=$_GET['deletestu_id'];
 
-    //to get g_no 
+    //to get stu_group
+    $array_stu_group=array();
+    $select_stu_group="SELECT student_group.stu_group FROM student_group,student WHERE student_group.stu_id=student.stu_id AND student.stu_id='$stu_id_delete';";
+    $result = $conn->query($select_stu_group);
+    if($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+        $stu_group=$row['stu_group'];
+        array_push($array_stu_group,$stu_group);
+      }
+    }
+
+    /*to get g_no 
     $array_g_no=array();
     $select_g_no="SELECT DISTINCT  groups.g_no FROM groups,student_group,student WHERE student_group.g_no=groups.g_no AND student.stu_id=student_group.stu_id AND student.stu_id='$stu_id_delete';";
     $result = $conn->query($select_g_no);
@@ -141,13 +152,13 @@ function selectAllStudentInGroup(){
         $g_no=$row['g_no'];
         array_push($array_g_no,$g_no);
       }
-    }//
+    }*/
 
     //to get p_no 
     $array_p_no=array();
-    foreach($array_g_no as $g_no){
-        $group_number=$g_no;
-        $select_p_no="SELECT DISTINCT post.p_no FROM post,student_group,groups WHERE student_group.g_no=groups.g_no AND student_group.stu_group=post.stu_group AND groups.g_no='$group_number';";
+    foreach($array_stu_group as $stu_group){
+        $stu_group_number=$stu_group;
+        $select_p_no="SELECT DISTINCT post.p_no FROM post,student_group WHERE student_group.stu_group=post.stu_group AND  student_group.stu_group='$stu_group_number';";
         $result = $conn->query($select_p_no);
         if($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
@@ -157,6 +168,20 @@ function selectAllStudentInGroup(){
           }
     }//
 
+        //to get e_no 
+        $array_e_no=array();
+        foreach($array_stu_group as $stu_group){
+            $stu_group_number=$stu_group;
+            $select_e_no="SELECT DISTINCT enquiry.e_no FROM enquiry,student_group WHERE student_group.stu_group=enquiry.stu_group AND student_group.stu_group='$stu_group_number';";
+            $result = $conn->query($select_e_no);
+            if($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                  $e_no=$row['e_no'];
+                  array_push($array_e_no,$e_no);
+                } 
+              }
+        }//
+
     /**delete from file table**/
     if(count($array_p_no)>0){
         for($i=0;$i<count($array_p_no);$i++){
@@ -164,14 +189,35 @@ function selectAllStudentInGroup(){
             $deletefile_by_p_no=deleteFileBy_p_no($array_p_no[$i]);
         }
     }
+    /**************************/
 
     /**delete from post table**/
     for($i=0;$i<count($array_p_no);$i++){
         //delete from post table by p_no
         $deletepost_by_p_no=deletePostBy_p_no($array_p_no[$i]);
     }
+    /**************************/
 
-    /**delete from post table**/
+    /**delete from response table**/
+    if(count($array_e_no)>0){
+        for($i=0;$i<count($array_e_no);$i++){
+            //delete from response table by p_no
+            $deleteResponse_by_e_no=deleteResponse_e_no($array_e_no[$i]);
+        }
+    }
+    /*****************************/
+
+    /**delete from Enquiry table**/
+    if(count($array_e_no)>0){
+        for($i=0;$i<count($array_e_no);$i++){
+            //delete from Enquiry table by p_no
+            $deleteEnquiry_by_e_no=deleteEnquiry($array_e_no[$i]);
+        }
+    }
+    /*****************************/
+
+
+    /**delete from student group table**/
     $deleteStudent=deleteStudentGroup($stu_id_delete);
 
 

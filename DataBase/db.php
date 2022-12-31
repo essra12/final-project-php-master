@@ -144,7 +144,7 @@ function selectAllAnnouncement($g_no){
 function selectAllStudntHaveAssignment($an_no){ 
 
     global $conn; 
-    $sql = "SELECT post.stu_group,user.full_name,user.u_img,student.stu_id FROM post,student_group,announcement,user,student WHERE post.an_no=announcement.an_no AND post.stu_group=student_group.stu_group AND user.user_id=student.user_id 
+    $sql = "SELECT post.stu_group,user.full_name,user.u_img,student.stu_id,post.grade FROM post,student_group,announcement,user,student WHERE post.an_no=announcement.an_no AND post.stu_group=student_group.stu_group AND user.user_id=student.user_id 
     AND student.stu_id=student_group.stu_id AND post.an_no='$an_no'
     ORDER BY student.stu_id;";
     $pre=$conn->prepare($sql);
@@ -258,5 +258,41 @@ function deleteAnnouncement($an_no)
     $sql="DELETE FROM announcement WHERE an_no=?";
     $st=executeQuery($sql,['an_no'=>$an_no]);//وضع في مصفوفة لانه عنصر داخل مصفوفة
     return $st->affected_rows; //اذا تحقق الحذف يجب ان يرجع قيمة اكبر من 0
+}
+
+/* DELETE response by g_no FUNCTION */
+function deleteResponse_g_no($g_no)
+{
+    global $conn;
+    $sql="DELETE FROM response WHERE g_no=?";
+    $st=executeQuery($sql,['g_no'=>$g_no]);    
+    return $st->affected_rows;
+}
+
+/* DELETE enquiry FUNCTION */
+function deleteEnquiry($e_no)
+{
+    global $conn;
+    $sql="DELETE FROM enquiry WHERE e_no=?";
+    $st=executeQuery($sql,['e_no'=>$e_no]);    
+    return $st->affected_rows;
+}
+
+/* DELETE response by e_no FUNCTION */
+function deleteResponse_e_no($e_no)
+{
+    global $conn;
+    $sql="DELETE FROM response WHERE e_no=?";
+    $st=executeQuery($sql,['e_no'=>$e_no]);    
+    return $st->affected_rows;
+}
+
+/* DELETE announcement by g_no FUNCTION */
+function deleteAnnouncement_g_no($g_no)
+{
+    global $conn;
+    $sql="DELETE FROM announcement WHERE g_no=?";
+    $st=executeQuery($sql,['g_no'=>$g_no]);    
+    return $st->affected_rows;
 }
  /*--------------------------------------------------------------------------------------*/

@@ -12,8 +12,17 @@ if ($result_g_name->num_rows == 1) {
     }
 }
 ///////////////////////////
-$an_number=an_no();
 
+$an_number=an_no();
+//to get grade out of name
+$sql="SELECT announcement.grade FROM announcement WHERE an_no='$an_number';";
+$result_out_of = $conn->query($sql);
+if ($result_out_of->num_rows == 1) {
+    while($row = $result_out_of->fetch_assoc()) {
+      $out_of=$row["grade"];
+    }
+}
+///////////////////////////
 //to get announcement text
 $sql="SELECT an_content FROM announcement Where an_no='$an_number';";
 $result_g_name = $conn->query($sql);
@@ -152,7 +161,12 @@ else{
                         <tr>
                             <td data-label="student ID"><?php echo $student['stu_id'] ?></td>
                             <td data-label="student name" ><img src="<?php echo BASE_URL . '/sources/image/' . $student['u_img']; ?>" class="tab-img" style="  width: 30px; height: 30px;border-radius:100%;"><?php echo $student['full_name'] ?></td>
-                            <td data-label="grade" style="text-align: center;">10</td>
+                            <?php if (empty($student['grade'])):?>
+                                <td data-label="grade" class="grade">--</td>
+                            <?php endif;?>
+                            <?php if (!empty($student['grade'])):?>    
+                                <td data-label="grade" class="grade"><?php echo $student['grade']; ?>&nbsp;&nbsp;/&nbsp;&nbsp;<?php echo $out_of;?></td>
+                            <?php endif;?>
                         </tr>   
                     <?php endforeach; ?>                      
                 </tbody>
