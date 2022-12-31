@@ -219,7 +219,6 @@ if($role=="teacher"):
                         <a href="../teacher/add.php?g_no=<?= $group_no?>">Material</a>
                         <a href="../teacher/add announcement.php?g_no=<?= $group_no?>">Announcement</a>
                         <a href="../teacher/add_announcement_assignment.php?g_no=<?= $group_no?>">Assignment</a>
-                        <a href="../teacher/add group.php?g_no=<?= $group_no?>">Group</a>
                     </div>
                 </div>
             <?php endif;?>    
