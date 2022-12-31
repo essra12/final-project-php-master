@@ -31,6 +31,9 @@ if ($result_g_name->num_rows == 1) {
      a:link, a:visited{
       text-decoration: none; 
       color:#000}
+      .las.la-clock{
+      font-size: 16px;
+      margin-right: 5px;}
     </style>
     
 </head>
@@ -98,7 +101,7 @@ if ($result_g_name->num_rows == 1) {
   <?php foreach($files as $key => $file):?>
     <div class="card">
     <?php $datetime=strtotime($file['Datatime'])?>
-        <h6 class="card__time"><?php echo  date("d-m-Y h:i",$datetime)?></h6>
+        <h6 class="card__time"><i class="las la-clock"></i><?php echo  date("d-m-Y h:i a",$datetime)?></h6>
       
         <img src="../../sources/image/create_add_photo.png" class="card__image" alt="" />
        <div class="card__overlay">

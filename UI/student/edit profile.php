@@ -146,7 +146,7 @@ include("../../controls/edit-studentC.php");
             <!----------------->
             
         <button type="submit" name="bts" onclick="return confirmDelete()"> Save</button>
-        <a href="../group/main page for group.php">   <button style="margin-top: 3%;" class="btcansel" type="button" > Cancels</button></a>
+        <a href="../group/main page for group.php">   <button style="margin-top: 3%;" class="btcansel" type="button" > Cancel</button></a>
 
 
     </form>
