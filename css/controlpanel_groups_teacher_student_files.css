@@ -347,6 +347,10 @@ main{
    width: 100%;
 }
 
+a.show_tr_g:hover{
+color: rgb(56, 56, 56);
+}
+
 @media only screen and (max-width:1334px) {
 
      .header-box img{
@@ -530,7 +534,7 @@ table th {
 
  .ticon.delet:hover{
     color:#9b1d1d;
- }
+ } 
 
  /* just for file_control_panel*/
  .header-box.file{

@@ -136,7 +136,8 @@ $today = strtotime($todays_date);
               <a href="editAnnouncement_assignment.php?textANN=<?php echo $announcement['an_no'];?>" ><i style="position:absolute;right: 9%; margin-bottom:1rem;" class="las la-pen ticon tr"></i></a>
               <div style="height: 15px;"></div>
               <!-- deu date -->
-              <p id="deu_date"class="card__time due_date" >Due Date&nbsp;&nbsp;&nbsp;<?php echo date("d-m-Y",$expiration_date)?></p>
+              <p id="deu_date"class="card__time due_date" >Due Date&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;"><?php echo date("d-m-Y",$expiration_date)?></span>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Out Of&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;"><?php echo $announcement['grade']?></span></p>
               <!-------------->
             <!--------------------------->
           <?php endif;?>
@@ -147,7 +148,8 @@ $today = strtotime($todays_date);
         <?php if($role==""):?>
             <?php if(!empty($announcement['due_date'])):?>
               <!-- deu date -->
-              <p id="deu_date"class="card__time due_date" >Due Date&nbsp;&nbsp;&nbsp;<?php echo date("d-m-Y",$expiration_date)?></p>
+              <p id="deu_date"class="card__time due_date" >Due Date&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;"><?php echo date("d-m-Y",$expiration_date)?></span>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Out Of&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;"><?php echo $announcement['grade']?></span></p>
               <!-------------->
               <!-------------------------deadline--------------------------------->
               <?php
