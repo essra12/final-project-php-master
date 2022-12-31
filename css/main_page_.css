@@ -227,6 +227,9 @@ a:is(:link,:active,:hover).active{
   font-size: 12px;
   
   }
+
+
+
   .search button {
     font-size:12px;
     width: 20%;

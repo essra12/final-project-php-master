@@ -32,6 +32,9 @@ if ($result->num_rows == 1) {
         * {
       list-style-type: none;
       }
+      input:focus {
+    outline: none;
+  }
     </style>
          
 </head>

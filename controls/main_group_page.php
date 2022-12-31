@@ -44,9 +44,10 @@ global $errors;
              exit();            
         }
 
-    elseif(!$exisiting_group_search) 
+    else if(!$exisiting_group_search) 
       {
         array_push($errors," This group is not exists");
+      
     
      } 
                
@@ -101,8 +102,12 @@ if ($result->num_rows > 0) {
 /*******************************************************************************************/
 /*******to creat group section *************************************************************/
 /*******************************************************************************************/
+$role=$_SESSION['role'];
 
+if($_SESSION['role']=="teacher")
+{
   $table="groups";
+  isset($_SESSION['g_no']);
   $groupNumber=$_SESSION['g_no'];
   $errors = array();
   global $conn;
@@ -125,7 +130,7 @@ if ($result->num_rows > 0) {
      if($exisiting_group)
      {
          array_push($errors," This Group alredy exists");
-      
+           
      }
      
      if(count($errors)==0){
@@ -137,8 +142,7 @@ if ($result->num_rows > 0) {
          $conn->close();
          exit(); 
      }
-     else{
-         $new_g_name=$_POST['g_name'];
-     } 
+     
              
 } 
+}

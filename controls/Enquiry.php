@@ -10,6 +10,7 @@ global $conn;
 
 
 if(isset($_POST['add_enquiry'])){
+  unset($_POST['add_enquiry']);
  
 /*to get user id from user -> student*/
 $user_id=$_SESSION['user_id'];
@@ -34,10 +35,13 @@ if ($result->num_rows == 1) {
     $e_content=$_REQUEST["enquiry"];
     $sql="INSERT INTO `enquiry`(`e_no`, `e_content`, `datetime`,  `stu_group`) VALUES (0,'$e_content',current_timestamp(),'$stu_group')";
     if(mysqli_query($conn, $sql)){
-        $_SESSION['message']="The post sent successfully";
-      
+       
+        $_SESSION['message']="The Enquiry sent successfully";
+        header('location: '.BASE_URL.'/UI/teacher/Add Enquiry .php');
+        $conn->close();
+        exit();
     } 
-   
+    
 }
 /*******************************************************************************************************/
 /*******************************************************************************************************/
@@ -54,6 +58,9 @@ $group_no=$_SESSION['g_no'];
   $pre->execute();
   $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
   return $records;
+  $pre-> free_result();
+  exit();
+  
   
 }
 /*******************************************************************************************************/
@@ -61,34 +68,42 @@ $group_no=$_SESSION['g_no'];
 /*******   to  reply on post section ******************************************************************/
 /******************************************************************************************************/
 
-
-
-  
 if(isset($_POST['reply'])){
- 
+
+
   global $conn; 
   $group_no=$_SESSION['g_no'];
-  $r_content=$_REQUEST["replyText"];
-  $e_no=$_POST['e_no'];
-  dd($e_no);
+  $r_content=$_POST['replyText'];
+  $e_no=$_POST['replyno'];
   $sql="INSERT INTO `response`(`r_no`, `r_content`, `datetime`, `e_no`, `g_no`) VALUES (0,'$r_content',current_timestamp(),'$e_no',$group_no);";
   if(mysqli_query($conn, $sql)){
-    $_SESSION['message']="successfully";
+   $_SESSION['message']="Reply added successfully";
+   header('location: '.BASE_URL.'/UI/teacher/Add Reply.php');
+   $conn->close();  
+   exit();
    
   } 
- 
 }
+  
 
-function selectReply(){ 
+
+
+function selectReply($e_no){ 
   global $conn; 
   $group_no=$_SESSION['g_no'];
-  $mysql="SELECT `r_no`, `r_content`, response.datetime, response.e_no, `g_no`,enquiry.e_no  FROM `response`,enquiry WHERE response.e_no=70 AND g_no='$group_no' AND enquiry.e_no=response.e_no;";
+  
+  $mysql="SELECT `r_no`, `r_content`, response.datetime, response.e_no, `g_no`,enquiry.e_no  FROM `response`,enquiry WHERE response.e_no='$e_no' AND g_no='$group_no' AND enquiry.e_no=response.e_no;";
   $pre=$conn->prepare($mysql);
   $pre->execute();
   $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
   return $records;
   
+  
 }
+/*******************************************************************************************************/
+/*******************************************************************************************************/
+/*******   to  reply on post section ******************************************************************/
+/******************************************************************************************************/
 
 if(isset($_GET['deleteReply'])){
 
@@ -97,8 +112,32 @@ if(isset($_GET['deleteReply'])){
   $sql="DELETE FROM `response` WHERE r_no='$r_no';";
   $pre=$conn->query($sql);
 
-}
 
+}
+/*******************************************************************************************************/
+/*******************************************************************************************************/
+/*******  delete  post section ******************************************************************/
+/******************************************************************************************************/
+ if(isset($_GET['deleteEnquiry'])){
+
+  global $conn;
+  $e_no=$_GET['deleteEnquiry'];
+  $sql="DELETE FROM `response` WHERE e_no='$e_no';";
+  $pre=$conn->query($sql);
+
+  $sql="DELETE FROM `enquiry` WHERE e_no='$e_no';";
+ 
+  if(mysqli_query($conn, $sql)){
+    $_SESSION['message']="the Enquiry deleted successfully";
+    header('location: '.BASE_URL.'/UI/teacher/Add Reply.php');
+    $conn->close();  
+    exit();
+ }}
+
+ /*******************************************************************************************************/
+/*******************************************************************************************************/
+/******* display replay section******************************************************************/
+/******************************************************************************************************/
 
 
 

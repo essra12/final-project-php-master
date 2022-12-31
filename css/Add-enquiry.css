@@ -116,7 +116,10 @@ a:is(:link,:active,:hover).active{
         margin-left: 4%;
         margin-top: 4%;
         font-size: 18px;
+        
+       
     }
+  
     h6{
       margin-left: 4%;
       margin-bottom: 0.75%;
@@ -130,12 +133,15 @@ a:is(:link,:active,:hover).active{
     position: absolute;
     top: 10%;
     left: 7%;
+    font-size: 50px;
+    padding-top:20px;
+    color: #222242;
     
      }
      .card{
     background-color:#D8E6D6;
     position: absolute;
-    top: 30%;
+    top: 32%;
     left: 10%;
     height: 35vh;
     width: 75%;
@@ -184,13 +190,13 @@ a:is(:link,:active,:hover).active{
           width: 90%;
           margin-left: 8%;
           position: absolute;
-          top: 63%;
+          top: 68%;
          /* height:70vh;
           overflow: auto;
           */
           height: auto;
           }
-         
+             
     .cardst{
       background-color: #e5f3fe;
     margin-top: 3%;
@@ -201,34 +207,41 @@ a:is(:link,:active,:hover).active{
     padding-top: 2%;
     padding-bottom: 2%;
     }
-    /* ----------------------------------- ------------------*/
-
- 
+    .cardst:hover{
+      box-shadow: 0 0 11px rgba(33,33,33,.2); 
+    }
+    /* ----------------------------------------------------------------------------------*/
     .card{
       background-color: #e5f3fe;
-     
     }
     .Inquiry{
     outline: none;
     border: none;
     }
-    
+    .datetime{
+      font-size: 12px;
+      margin-bottom: 10px;
+      color: #222242;
+    }
+    .las.la-clock{
+      font-size: 16px;
+      margin-right: 5px;
+      }
     .reply{
-      outline: none;
+    outline: none;
     border: none;
     width: 84%;
-    
     }
-    /*-----------------------------------------------------------------------*/
+    /*----------------------------------------------------------------------------------------------------*/
     .studentname{
         margin: 15%;
-        font-size: 20px;
+        font-size: 200%;
         margin-left: 4%;
-        font-weight: 600;
+        font-weight: 300;
     }
     p{
         margin-left: 4%;
-        margin-top: 1%;
+        margin-top: 3%;
         width: 80%;
     }
     hr{
@@ -237,10 +250,7 @@ a:is(:link,:active,:hover).active{
         height: 1px;
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #222242, rgba(0, 0, 0, 0));
     }
-    .lable{
-        margin-top:2%;
     
-    }
  
 /***************************************************************************************************************************/
 /**************************************************************************************************************************/
@@ -250,6 +260,10 @@ a:is(:link,:active,:hover).active{
   width: 95%;
   margin-bottom:2%;
   margin-top: 4%;
+}
+a{
+  margin-top: 1%;
+ 
 }
 
 .icon {
@@ -282,20 +296,23 @@ a:is(:link,:active,:hover).active{
     height: 8vh;
     width: 89%;
     border: none;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     font-size: 18px;
     font-weight: 600;
     padding-left: 2%;
     }
-/***************************************************************************************************************************/
-/**************************************************************************************************************************/    
-    #deleteicon1{
+/*******************************************************************************************************/
+/************************Delete and Edit icons**********************************************************/    
+  .card-container{
+    display: inline;
+
+  }  
+#deleteicon1{
     position: absolute;
     right: 15px;
     font-size: 27px;
     margin-left: 80%;
     font-size: 22px;
-    position:absolute;
     right:22% ;
     margin-top: 1%; 
     color:#222242;
@@ -303,6 +320,17 @@ a:is(:link,:active,:hover).active{
     #deleteicon1:hover{
         color: #D92A2A;
     }
+    #Editicon{
+      font-size: 27px;
+      margin-left: 85%;
+      font-size: 22px;
+      right:40% ;
+      margin-top: 1.5%; 
+      color:#222242;
+    }
+    #Editicon:hover{
+      color: #A4D2F0;
+  }
  
     @media only screen and (max-width:700px)
     {
@@ -317,21 +345,55 @@ a:is(:link,:active,:hover).active{
     
      }
      .studentname{
-        font-size: 18px;
+        font-size: 150%;
      }
      p{
         font-size: 15px; 
      }
+   
     }
 
     @media only screen and (max-width:700px)
     {
-     i{
-   
-     }}
+      #Editicon{
+       
+        margin-left: 75%;
+            }}
     
  .btpost:hover{
   cursor: pointer;
   color: #222242;
         background-color: rgb(255, 255, 255);
         border: 2px double #222242; }
+      
+/****************************************************************************************************/
+/**************************** on hovering note *****************************************************/
+.tooltip {
+  position: relative;
+  display: inline-block;
+  position:absolute;
+  right: 22%;
+  margin-top:1%;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #A4D2F0;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  width: 120px;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}       

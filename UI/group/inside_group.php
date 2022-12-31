@@ -194,7 +194,7 @@ if($role=="teacher"):
             <h1><?php echo $data ?></h1>
 			<div class="group_info">
              <h3>Teacher Name: <?php echo  $teacher_name ?></h3>
-			 <h3>Group Code:    <?php echo $group_no ?></h3>
+			 <h3>Group Code: EFWL<?php echo $group_no ?></h3>
 			</div>
             
             <div class="button-div"> 
@@ -250,13 +250,21 @@ if($role=="teacher"):
     </div>
   </div>
   
+  <?php if($role==""):?>
   <div class="column">
     <div class="card">
       <h3><a href="<?php echo BASE_URL . '/UI/teacher/Add Enquiry .php' ?>">Enquiries</a></h3>
      </div>
   </div>
+  <?php endif;?>
     
   <?php if($role=="teacher"):?>
+    <div class="column">
+    <div class="card">
+      <h3><a href="<?php echo BASE_URL . '/UI/teacher/Add Reply.php' ?>">Enquiries</a></h3>
+     </div>
+  </div>
+
     <div class="column">
         <div class="card">
         <h3><a href="<?php echo BASE_URL . '/UI/teacher/reports.php' ?>">Report</a></h3>
