@@ -19,7 +19,7 @@
     list-style-type: none;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
-  }
+   }
   /*****************************************************Navigation Bar style**********************************************************/
   
 .navbar {
@@ -30,53 +30,50 @@
     background-color: #222242;
     box-shadow: var(--shadow2);
     color: white;
-}
-
-ul{
+  }
+  
+  ul{
     display: flex;
     margin: 0;
     padding: 0;
-}
-
-.lift-side li{
+  }
+  
+  .lift-side li{
     display: block;
     text-decoration: none;
     color: white;
     padding-right: 1rem;
     margin: auto;
-}
-
-.lift-side li a {
+  }
+  
+  .lift-side li a {
     display: block;
     text-decoration: none;
     color: white;
-    padding: 1rem;
-}
-
-.back{
+  }
+  
+  .back{
     display: inline;
     margin-right: 0;
-}
-
-.back i{
+  }
+  
+  .back i{
     margin-left: .5rem;
     font-size: 2.2rem;
-}
-
-.brand-title {
+  }
+  
+  .brand-title {
     font-size: 1.5rem;
     margin: .5rem;
     margin-left: 0;
-}
-
-.navbar-links {
+  }
+  
+  .navbar-links {
     height: 100%;
-    margin-left: 0;
-    margin-right: 0;
-}
-/******Notification*******/
-
-.notification {
+  }
+  /******Notification*******/
+  
+  .notification {
     color: white;
     text-decoration: none;
     position: relative;
@@ -85,46 +82,49 @@ ul{
   
   .notification .badge {
     position: absolute;
-    top: 5px;
-    right: 8px;
+    top: 2px;
+    right:8px;
     padding: 1px 6px;
     border-radius: 50%;
     background: var(--orange);
     color: var(--vdarkblue);
     font-size: .7rem;
   }
-/************************/
-.navbar-links ul {
+  /************************/
+  .navbar-links ul {
     display: flex;
     margin: 0;
     padding: 0;
-}
-
-.navbar-links li {
+  }
+  
+  .navbar-links li {
     list-style: none;
-}
-
-.navbar-links li a {
+  }
+  
+  .navbar-links li a {
     display: block;
     text-decoration: none;
     color: white;
-    padding: 1rem;
-}
-
-.navbar-links li:hover {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .navbar-links li:hover {
     font-weight: bold;
     font-size: 18px;
-}
-
-.navbar-links li:hover i{
+  }
+  
+  .navbar-links li:hover i{
     font-weight: bold;
     font-size: 1.7rem;
-}
-
-a:is(:link,:active,:hover).active{
+  }
+  
+  a:is(:link,:active,:hover).active{
     font-weight: bold;
     font-size: 18px;
-}
+  }
+  
+  
   /* ////////////////////////////////// Enrollment ///////////////////////////////////////////////////*/
 
 h1{
