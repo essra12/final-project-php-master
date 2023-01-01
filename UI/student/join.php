@@ -23,6 +23,11 @@ $join_data=selectGroupNameTeacherName();
   <link rel="stylesheet" href="../../css/add_materiial_assignment_join_dw.css" />
     <!--icon8-->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <style>
+      h1{
+        margin-bottom:3% ;
+      }
+    </style>
 
   </head>
 
@@ -92,12 +97,7 @@ $join_data=selectGroupNameTeacherName();
         </div>
         <!--------------------->
 
-        <!-- Student name -->
-        <div class="inputs name">
-          <label style="color: #222242;">Student name</label>
-          <input type="text" name="full_name" disabled="disabled" style=" border: none;" value="<?php echo $_SESSION['full_name']; ?>">
-        </div>
-        <!------------------>
+      
 
 
           <!-- Button -->

@@ -233,13 +233,21 @@ if($role=="teacher"):
     <h3><a href="<?php echo BASE_URL . '/UI/student/materials.php' ?>">Materials</a></h3>
     </div>
   </div>
-       
+   
+  <?php if($role==""):?>
   <div class="column">
     <div class="card">
       <h3><a href="<?php echo BASE_URL . '/UI/student/assignment.php' ?>">Assignments</a></h3>
-  
     </div>
   </div>
+  <?php endif;?>
+  <?php if($role=="teacher"):?>
+  <div class="column">
+    <div class="card">
+      <h3><a href="<?php echo BASE_URL . '/UI/teacher/Assignments for Teacher.php' ?>">Assignments</a></h3>
+    </div>
+  </div>
+  <?php endif;?>
   
   <div class="column">
     <div class="card">

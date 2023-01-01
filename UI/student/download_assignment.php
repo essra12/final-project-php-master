@@ -116,10 +116,10 @@ if ($result_g_name->num_rows == 1) {
                 <td id="file"><?php echo $file["f_name"];?></td>
                 <td></td>
                 <td class="td2"><a href="download_assignment.php?file=<?php echo $file['f_no'];?>"><i id="icon1" class="fa fa-download"></i></a></td>
-                <!--making the delete just for teacher-->
+               <!--  -making the delete just for teacher
                 <?php if($role=="teacher"):?>
                 <td class="td2"><a href="download_assignment.php?delete=<?php echo $file['f_no'];?>" onclick="return confirmDelete()"><i id="icon2" class="fa-solid fa-xmark"></i></a></td>
-               </tr>
+               </tr> -->
                <?php endif;?>
               <?php endforeach;?>
              </tbody>

@@ -52,15 +52,23 @@ function stprofileimg(){
                 }
                 function countgroupandassinament(){
                   global $conn;
-                  $id=$_SESSION['id'];
-                  $query="SELECT COUNT(student_group.g_no)  FROM student_group WHERE student_group.stu_id='$id' ";
+                  $user_id=$_SESSION['user_id'];
+                  $sql="SELECT stu_id FROM user,student Where user.user_id=student.user_id AND user.user_id='$user_id';";
+                 $result_stu_id = $conn->query($sql);
+                 if ($result_stu_id->num_rows == 1) {
+                  while($row = $result_stu_id->fetch_assoc()) {
+                  $stu_id=$row["stu_id"];
+    
+                   }
+                   }
+                  $query="SELECT COUNT(student_group.g_no)  FROM student_group WHERE student_group.stu_id='$stu_id' ";
                    $result = $conn->query($query);
                    if ($result->num_rows > 0) {
                   while($row = $result->fetch_assoc()) {
                   $idq=$row['COUNT(student_group.g_no)'];}}
                   echo"  <label class='Lablegroup'>Groups<br>&nbsp&nbsp&nbsp&nbsp&nbsp$idq</label>";
                  /** الاستعلام عن عدد الفروض الذي قام بإرسالها  الطالب  */
-                  $sqlass="SELECT COUNT(post.p_no) from student_group,post,file WHERE student_group.stu_group=post.stu_group and post.p_no=file.p_no and student_group.stu_id='$id' ";
+                  $sqlass="SELECT COUNT(post.p_no) from student_group,post,file WHERE student_group.stu_group=post.stu_group and post.p_no=file.p_no and student_group.stu_id='$stu_id' ";
                   $result = $conn->query($sqlass);
                   if ($result->num_rows > 0) {
                  while($row = $result->fetch_assoc()) {
