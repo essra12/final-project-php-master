@@ -107,13 +107,22 @@ $role=$_SESSION['role'];
 if($_SESSION['role']=="teacher")
 {
   $table="groups";
-  isset($_SESSION['g_no']);
-  $groupNumber=$_SESSION['g_no'];
+  /* $groupNumber=$_SESSION['g_no']; */
   $errors = array();
   global $conn;
+   /***to get tr_id****/
+  $user_id=$_SESSION['user_id'];
+  $query="SELECT teacher.tr_id FROM teacher,user WHERE teacher.user_id=user.user_id and user.user_id='".$user_id."'";
+$result = $conn->query($query);
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    $tr_id=$row['tr_id'];
+  }
+}
   
-  /***to get tr_id****/
-  $query="SELECT teacher.tr_id FROM teacher,groups WHERE teacher.tr_id=groups.tr_id and groups.g_no='$groupNumber';";
+  
+/*   $query="SELECT teacher.tr_id FROM teacher,groups WHERE teacher.tr_id=groups.tr_id and groups.g_no='$groupNumber';";
     $result = $conn->query($query);
     if ($result->num_rows == 1) {
       // output data of each row
@@ -121,7 +130,7 @@ if($_SESSION['role']=="teacher")
         $tr_id=$row['tr_id'];
        
       }
-    } 
+    } */ 
   
   /*************************Insert Group Data************************/
   $new_g_name=""; 

@@ -75,7 +75,7 @@ if ($result->num_rows == 1) {
        <!-- header div-->
        <div class="header-div">
              <h5 id="date" style="font-size:24px; padding-bottom: 10px; padding-left:14px;">  </h5>
-            <form class="example"  method="POST" action="" onsubmit="return check_Enter(this)">
+            <form class="example"  method="POST" action="" onsubmit= "return check__Enter(this)">
             <div class="full_name">
             <h1> Hello , <?php echo $full_name;?></h1>
             </div>
@@ -94,7 +94,7 @@ if ($result->num_rows == 1) {
             
             <div class="search">
             <input type="text" placeholder=" Create New Group" id="Create" name="g_name" >
-            <button type="submit" name="Create" id="btn" style="font-weight: 900;" onclick="return check_Enter()">+</button>
+            <button type="submit" name="Create" id="btn" style="font-weight: 900;" onclick="return check__Enter(this)">+</button>
             </div>
             
             <?php endif;?>
@@ -204,6 +204,8 @@ if ($result->num_rows == 1) {
 </div>
 </main>
 <?php endif;?>
+
+ 
 <!-------------------------------------------------------------------->
 
 
@@ -221,14 +223,14 @@ if ($result->num_rows == 1) {
             var date =name+'   '+dt.getDate()+','+dt.getFullYear();
             document.getElementById('date').innerHTML=date;
 
- function check_Enter() {
-  const search = document.getElementById("search").value;
-  const Create = document.getElementById("Create").value;
+ function check__Enter() {
+   search = document.getElementById("search").value;
+   Create = document.getElementById("Create").value;
   if(search==""){
   alert(" you should Enter Group Code");
   return false
   }
-  if(Create==" "){
+  if(Create==""){
   alert(" you should Enter an Name to Create the group");
   return false
   }
