@@ -2,6 +2,7 @@
 include("../../path.php"); 
 include(MAIN_PATH."/controls/assigment__.php");
 
+
 $files=selectpostfile();
 
 //to get group name
@@ -24,8 +25,10 @@ if ($result_g_name->num_rows == 1) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="../../css/material.css"> 
-       <!--icon8-->
-       <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+      <!-- Stylesheet -->
+    <link rel="stylesheet" href="../../css/inside_reports.css" /> 
+     <!--icon8-->
+     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
       <title>Assignments</title>
     <style>
      a:link, a:visited{
@@ -82,7 +85,18 @@ if ($result_g_name->num_rows == 1) {
 
 <div class="header-div">
  <h1>Assignments</h1>
+
  </div>
+ <!--  <form action="" method="POST"  onsubmit="return check_Enter(this)">  
+          
+            <div class="search">
+                <input type="text" value="" placeholder=" Enter Student ID" id="find_stu" name="find_stu" maxlength="8" onkeypress="return onlyNumberKey(event)" >
+                <span class="clear-btn"><i id="clear-btn" class="fa-solid fa-xmark" onclick="ClearFields();"></i></span>
+                <button type="submit" name="search">Search</button>  
+            </div>
+           
+    
+        </form> -->
  <!-----------------Dynamically Create Card-----------------> 
  <main>
       <!-- For Succes -->
@@ -130,6 +144,32 @@ if ($result_g_name->num_rows == 1) {
    
  </div>
 </main>
+<script>
+       /*********************check for entres**********************/
+       function check_Enter() {
+            const find_stu = document.getElementById("find_stu").value;
+            if(find_stu==""){
+            alert(" Please enter student ID");
+            return false;
+            }
+        }
+        function onlyNumberKey(evt) {
+        // Only ASCII character in that range allowed
+        var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)){
+            alert(" please enter Just Number");
+            return false;
+        }
+        return true;
+        }
+        /***********************************************************/
+        /************************clear field************************/
+        function ClearFields() {
+
+        document.getElementById("find_stu").value = "";
+        }
+        /***********************************************************/
+ </script> 
  
 </body>
 </html>

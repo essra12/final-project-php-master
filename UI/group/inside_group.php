@@ -118,10 +118,8 @@ if($role=="teacher"):
     <div class="sidebar">
 
         <div class="sidebar-container">
-              
-          <!----------------->
             <div class="brand">
-                <h2>
+                 <h2>
                     <img src="../../sources/image/logo_dark.png" alt="" style="width: 100px;">
                 </h2>
             </div>
@@ -173,9 +171,15 @@ if($role=="teacher"):
                     </a>
                 </ul>
             </div>
-
+     <!--menu admen -->
+     
+      <!--   <div class="sidebar-card-btn">
+            <a href="<?php echo BASE_URL . '/UI/control_panel/admin_control_panel.php' ?>">
+                 <button  class="btn btn-admin">Admin</button>
+            </a>
+        </div> -->
         </div>
-    </div>
+  </div>
     <header class="main_icon">
         <div class="header-title">
             <label for="menu-toggle">
@@ -235,13 +239,21 @@ if($role=="teacher"):
     <h3><a href="<?php echo BASE_URL . '/UI/student/materials.php' ?>">Materials</a></h3>
     </div>
   </div>
-       
+   
+  <?php if($role==""):?>
   <div class="column">
     <div class="card">
       <h3><a href="<?php echo BASE_URL . '/UI/student/assignment.php' ?>">Assignments</a></h3>
-  
     </div>
   </div>
+  <?php endif;?>
+  <?php if($role=="teacher"):?>
+  <div class="column">
+    <div class="card">
+      <h3><a href="<?php echo BASE_URL . '/UI/teacher/Assignments for Teacher.php' ?>">Assignments</a></h3>
+    </div>
+  </div>
+  <?php endif;?>
   
   <div class="column">
     <div class="card">

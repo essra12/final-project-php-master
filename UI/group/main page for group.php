@@ -75,7 +75,7 @@ if ($result->num_rows == 1) {
        <!-- header div-->
        <div class="header-div">
              <h5 id="date" style="font-size:24px; padding-bottom: 10px; padding-left:14px;">  </h5>
-            <form class="example"  method="POST" action="" onsubmit="return check_Enter(this)">
+            <form class="example"  method="POST" action="" onsubmit= "return check__Enter(this)">
             <div class="full_name">
             <h1> Hello , <?php echo $full_name;?></h1>
             </div>
@@ -94,7 +94,7 @@ if ($result->num_rows == 1) {
             
             <div class="search">
             <input type="text" placeholder=" Create New Group" id="Create" name="g_name" >
-            <button type="submit" name="Create" id="btn" style="font-weight: 900;" onclick="return check_Enter()">+</button>
+            <button type="submit" name="Create" id="btn" style="font-weight: 900;" onclick="return check__Enter(this)">+</button>
             </div>
             
             <?php endif;?>
@@ -105,19 +105,18 @@ if ($result->num_rows == 1) {
             <!--********************-->
             </form> 
             <!-------------------------------------->
-           
-
-             <div class="photo-div">                
-              <a href="..\student\student-profile.php"><img class="img-user" src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " style="border-radius: 100%; "/></a>
             
-            </div>
+         
+              <div class="photo-div">                
+              <a href="..\student\student-profile.php"><img id="img" onmouseover="setNewImage1(this)" onmouseout="setOldImage()"  class="img-user" src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " style="border-radius: 100%; "/></a>
+              </div> 
            
             <!-- ************************************************************************************* -->
             <!-- ****************image section for teacher************************* -->
             <?php if($role=="teacher"):?>
             
                  <div class="photo-div">
-                  <a href="..\teacher\profile teacher.php"><img class="img-user" src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " style="border-radius: 100%; "/></a>
+                  <a href="..\teacher\profile teacher.php"><img id="imgteacher" onmouseover="setNewImage1(this)" onmouseout="setOldImage()" class="img-user" src="<?php echo BASE_URL . '/sources/image/'.$img  ?> " style="border-radius: 100%; "/></a>
                 </div> 
                 <section id="section_scroll" class="demo">
                  <a href="#section"><span></span></a>
@@ -205,10 +204,16 @@ if ($result->num_rows == 1) {
 </div>
 </main>
 <?php endif;?>
+
+ 
 <!-------------------------------------------------------------------->
 
 
-    
+
+
+
+
+<!-------------------------------------------------------------------->    
 <!-- java script for current date -->
     <script>
         const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sept","Oct","Nov","Dec"];
@@ -218,14 +223,14 @@ if ($result->num_rows == 1) {
             var date =name+'   '+dt.getDate()+','+dt.getFullYear();
             document.getElementById('date').innerHTML=date;
 
- function check_Enter() {
-  const search = document.getElementById("search").value;
-  const Create = document.getElementById("Create").value;
+ function check__Enter() {
+   search = document.getElementById("search").value;
+   Create = document.getElementById("Create").value;
   if(search==""){
   alert(" you should Enter Group Code");
   return false
   }
-  if(Create==" "){
+  if(Create==""){
   alert(" you should Enter an Name to Create the group");
   return false
   }
@@ -247,7 +252,11 @@ if ($result->num_rows == 1) {
     $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
   });
 });
+function setNewImage1(){  document.getElementById("img").src="../../sources/image/view.png";
+  document.getElementById("imgteacher").src="../../sources/image/view.png";}
 
+function setOldImage(){ document.getElementById("img").src="<?php echo BASE_URL . '/sources/image/'.$img  ?>";
+  document.getElementById("imgteacher").src="<?php echo BASE_URL . '/sources/image/'.$img  ?>";}
 
     </script>
       

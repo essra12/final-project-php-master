@@ -203,9 +203,10 @@ a:is(:link,:active,:hover).active{
     transform: translate(-50% , -50%);
     width:55%;
     height: auto;
-    display: block;
-  
+    display: block; 
+    
   }
+
   
 
   
@@ -219,17 +220,15 @@ a:is(:link,:active,:hover).active{
   h1{
     font-size: 1.5em;
     }
-  
+  /*******************************************************************************************/
   .photo-div{
    width: 30%;
   }
+
   .search input[type=text] {
   font-size: 12px;
   
   }
-
-
-
   .search button {
     font-size:12px;
     width: 20%;
@@ -243,7 +242,7 @@ a:is(:link,:active,:hover).active{
    height: auto; 
   }
   
-  }
+}
   /*******************************************************************************************************/
    
   /*******************************************************************************************************/

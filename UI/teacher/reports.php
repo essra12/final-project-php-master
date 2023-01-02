@@ -117,6 +117,14 @@ if ($result_g_name->num_rows == 1) {
                         </div>
                     </div>
                 <?php endif;?>
+                    <div class='square2'>
+                        <div class="square-container2">
+                            <a href="inside reports.php?an_no=<?= $an_no?>"  class="boxshadow button">View Report</a>
+                        </div>
+                        <div class="flip-overlay"></div>
+                    </div>
+                </div>
+            </div>
             <?php endforeach;?>
             <!------------------------------------>
 

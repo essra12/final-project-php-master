@@ -19,7 +19,7 @@ function infoforstudent(){
     $stu_id=$_SESSION['stu_id'];
     $group_no=$_SESSION['g_no'];
     global $conn;
-    $sql = "SELECT post.title ,post.Datatime,post.p_no from post,student_group WHERE post.stu_group=student_group.stu_group AND student_group.g_no=$group_no and student_group.stu_id=$stu_id";
+    $sql = "SELECT post.title ,post.Datatime,post.p_no from post,student_group WHERE post.stu_group=student_group.stu_group AND student_group.g_no=$group_no and student_group.stu_id=$stu_id ORDER BY post.Datatime DESC";
     $pre=$conn->prepare($sql);
     $pre->execute();
     $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -36,5 +36,30 @@ $pre->execute();
 $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
 return $records;
 }
+function search($stu_id){ 
+    $search="";
+    global $errors;
+    global $conn; 
+
+        $sql="SELECT post.stu_group,user.full_name,user.u_img,student.stu_id FROM post,student_group,announcement,user,student WHERE  post.stu_group=student_group.stu_group AND user.user_id=student.user_id 
+        AND student.stu_id=student_group.stu_id  AND student.stu_id='$stu_id'; ";
+        $pre=$conn->prepare($sql);
+        $pre->execute();
+        $exisiting_student_search=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
+            
+        if($exisiting_student_search)
+        {
+            $conn->close();
+            return $exisiting_student_search;
+        }
+        elseif(!$exisiting_student_search) 
+          {
+            array_push($errors," This student dosn't exist");
+            $search="";
+            return $exisiting_student_search;
+         } 
+                   
+    } 
+
 ?>
 
