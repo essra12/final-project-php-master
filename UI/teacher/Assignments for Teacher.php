@@ -87,16 +87,16 @@ if ($result_g_name->num_rows == 1) {
  <h1>Assignments</h1>
 
  </div>
-  <form action="" method="POST"  onsubmit="return check_Enter(this)">  
-            <!--serch bar-->
+ <!--  <form action="" method="POST"  onsubmit="return check_Enter(this)">  
+          
             <div class="search">
                 <input type="text" value="" placeholder=" Enter Student ID" id="find_stu" name="find_stu" maxlength="8" onkeypress="return onlyNumberKey(event)" >
                 <span class="clear-btn"><i id="clear-btn" class="fa-solid fa-xmark" onclick="ClearFields();"></i></span>
                 <button type="submit" name="search">Search</button>  
             </div>
-            <!------------->
+           
     
-        </form>
+        </form> -->
  <!-----------------Dynamically Create Card-----------------> 
  <main>
       <!-- For Succes -->

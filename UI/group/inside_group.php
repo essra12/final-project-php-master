@@ -171,9 +171,15 @@ if($role=="teacher"):
                     </a>
                 </ul>
             </div>
-
+     <!--menu admen -->
+     
+      <!--   <div class="sidebar-card-btn">
+            <a href="<?php echo BASE_URL . '/UI/control_panel/admin_control_panel.php' ?>">
+                 <button  class="btn btn-admin">Admin</button>
+            </a>
+        </div> -->
         </div>
-    </div>
+  </div>
     <header class="main_icon">
         <div class="header-title">
             <label for="menu-toggle">
