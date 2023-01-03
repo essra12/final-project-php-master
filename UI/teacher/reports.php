@@ -78,35 +78,45 @@ if ($result_g_name->num_rows == 1) {
             <!--------------card---------------->
 
             <?php foreach($reports as $key => $report):?>
-            <div class="group-card">
-                <div class="square-flip">
-                    <div class='square'>
-                        <div class="square-container">
-                            <i class="las la-user-friends"></i>
-                            <!--Number of student-->
-                            <span class="number">
-                            <?php
-                                $an_no=$report['an_no'];
-                                $sql="SELECT COUNT(*) FROM post,announcement WHERE post.an_no=announcement.an_no AND post.an_no='$an_no' ;";
-                                $result = $conn->query($sql);
-                                if ($result->num_rows == 1) {
-                                    while($row = $result->fetch_assoc()) {
-                                    $students=$row['COUNT(*)']; 
-                                    }
-                                }
-                                echo $students;
-                            ?></span>
-                            <!--------------------->
-                            <!--DateTime-->
-                            <?php $datetime=strtotime($report['an_Datetime'])?>
-                            <h2 class="textshadow"><?php echo date("d-m-Y",$datetime)?></h2>
-                            <!------------>
-                            <!--Text-->
-                            <p class="textshadow"><?php echo html_entity_decode(substr($report['an_content'],0,152). '...'); ?></p>
-                            <!-------->
+                <?php if(!empty($report['due_date'])): ?>
+                    <div class="group-card">
+                        <div class="square-flip">
+                            <div class='square'>
+                                <div class="square-container">
+                                    <i class="las la-user-friends"></i>
+                                    <!--Number of student-->
+                                    <span class="number">
+                                    <?php
+                                        $an_no=$report['an_no'];
+                                        $sql="SELECT COUNT(*) FROM post,announcement WHERE post.an_no=announcement.an_no AND post.an_no='$an_no' ;";
+                                        $result = $conn->query($sql);
+                                        if ($result->num_rows == 1) {
+                                            while($row = $result->fetch_assoc()) {
+                                            $students=$row['COUNT(*)']; 
+                                            }
+                                        }
+                                        echo $students;
+                                    ?></span>
+                                    <!--------------------->
+                                    <!--DateTime-->
+                                    <?php $datetime=strtotime($report['an_Datetime'])?>
+                                    <h2 class="textshadow"><?php echo date("d-m-Y",$datetime)?></h2>
+                                    <!------------>
+                                    <!--Text-->
+                                    <p class="textshadow"><?php echo html_entity_decode(substr($report['an_content'],0,152). '...'); ?></p>
+                                    <!-------->
+                                </div>
+                                <div class="flip-overlay"></div>
+                            </div>
+                            <div class='square2'>
+                                <div class="square-container2">
+                                    <a href="inside reports.php?an_no=<?= $an_no?>"  class="boxshadow button">View Demos</a>
+                                </div>
+                                <div class="flip-overlay"></div>
+                            </div>
                         </div>
-                        <div class="flip-overlay"></div>
                     </div>
+                <?php endif;?>
                     <div class='square2'>
                         <div class="square-container2">
                             <a href="inside reports.php?an_no=<?= $an_no?>"  class="boxshadow button">View Report</a>
