@@ -2,6 +2,7 @@
 include(MAIN_PATH. "/database/db.php");
 
 global $conn;
+$exisiting_group="";
 $errors = array();
 $table1='groups';
 $username=$_SESSION['full_name']; 
@@ -135,6 +136,11 @@ if ($result->num_rows > 0) {
   /*************************Insert Group Data************************/
   $new_g_name=""; 
   if(isset($_POST['Create'])){
+    $groupinput=$_POST['g_name'];
+    if(empty($groupinput))
+    {
+      array_push($errors," Enter Group  Name");
+    }else
      $exisiting_group = selectOne($table,['g_name'=>$_POST['g_name'],'tr_id'=>$tr_id]);
      if($exisiting_group)
      {

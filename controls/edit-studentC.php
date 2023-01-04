@@ -134,6 +134,18 @@ if(count($errors)==0){
       if(empty($specialization)) 
     {   
         $error="* please enter  specialization "; 
+    }else   if(empty($username)) 
+    {   
+        $error="* please enter  your name   "; 
+    }else if(empty($userp1)) 
+    {   
+        $error="* please enter  your password   "; 
+    }else if(empty($userp2)) 
+    {   
+        $error="* please enter  your password again  "; 
+    }else if($userp1!=$userp2)
+    {   
+        $error="* Password does not match  "; 
     }
     else
     {
