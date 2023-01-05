@@ -134,3 +134,30 @@ if(isset($_GET['deleteID']))
 }
 
 
+/*********search***********/
+function searchGroup($g_name){ 
+    $search="";
+    global $errors;
+    global $conn; 
+    $term='%'.$g_name.'%';
+        $sql="SELECT *,teacher.user_id,user.full_name FROM groups,user,teacher WHERE groups.tr_id=teacher.tr_id AND teacher.user_id=user.user_id 
+        AND groups.g_name LIKE '$term' ORDER BY groups.Datetime DESC;";
+        $pre=$conn->prepare($sql);
+        $pre->execute();
+        $exisiting_group_search=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
+            
+        if($exisiting_group_search)
+        {
+            $conn->close();
+            return $exisiting_group_search;
+        }
+        elseif(!$exisiting_group_search) 
+          {
+            array_push($errors," This teacher dosn't exist");
+            $search="";
+            return $exisiting_group_search;
+         } 
+                   
+    } 
+
+

@@ -41,6 +41,13 @@ $students=selectAllStudentInGroup();
 
         <div class="header-box-content-table">
             <h2>Students Inside Group</h2><br>
+            <h4 style="text-align: left;">Teacher Name :
+                <?php 
+                if(isset($_GET['tr_name'])){
+                    $tr_name=$_GET['tr_name'];
+                }
+                echo  $tr_name?>
+            </h4>
         </div>
         <img src="../../sources/image/teacher_image_3d.png" >
     </div>

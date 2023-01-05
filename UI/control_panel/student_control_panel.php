@@ -2,7 +2,20 @@
 include("../../path.php");  
 include(MAIN_PATH."/controls/students.php"); 
 
-$students=selectAllStudentInfo();  
+////////////search///////////////
+$search="";
+if(isset($_POST['search_stu'])){
+    if(!empty($_POST['find_stu']))
+    {
+        $search=$_POST['find_stu'];
+        $students=searchStudent($search);
+    }
+}
+else{
+    $students=selectAllStudentInfo(); 
+}
+
+/* $students=selectAllStudentInfo();  */ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +29,8 @@ $students=selectAllStudentInfo();
         <link rel="stylesheet" href="../../css/controlpanel_groups_teacher_student_files.css">
         <!--icon8-->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+        <!-- Font Awesome Icons -->
+        <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>  
     </head>
 
 <body id="b-vlightblue">
@@ -60,7 +75,30 @@ $students=selectAllStudentInfo();
     <?php endif; ?>
     <!------------------------->
 
+    <form action="" method="POST"  onsubmit="return check_Enter(this)">  
+        <!--serch bar-->
+        <div class="search">
+            <input type="text" value="<?php echo $search;?>" placeholder=" Enter Student ID" id="find_stu" name="find_stu"  onkeypress="return onlyNumberKey(event)" >
+            <span class="clear-btn"><i id="clear-btn" class="fa-solid fa-xmark" onclick="ClearFields();"></i></span>
+            <button type="submit" name="search_stu">Search</button>  
+        </div>
+        <!------------->
+    </form>
+    <!-- For Errors message-->
+    <?php if(count($errors)> 0): ?>
+            <div class="msg error" style="color: #D92A2A; margin-bottom: 20px; text-align: center;"> 
+                <?php foreach($errors as $error): ?>
+                <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php  echo($error); ?></li> 
+                <?php endforeach; ?>
+            </div> 
+            <?php endif; ?> 
+    <!------------------------>
+
    <!--  table for teacher  -->
+   <?php if(empty($students)): 
+            $students=selectAllStudentInfo(); 
+    endif;?>
+    <?php if(!empty($students)): ?>
     <div class="table-box">
         <table class="table">
             <thead>
@@ -85,6 +123,7 @@ $students=selectAllStudentInfo();
             </tbody>
         </table>
     </div>
+    <?php endif;?>
     <!------------------------>
 
 </div>
@@ -111,7 +150,21 @@ $students=selectAllStudentInfo();
             return false;
         }
     }
-
+    function onlyNumberKey(evt) {
+        // Only ASCII character in that range allowed
+        var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)){
+            alert(" please enter Just Number");
+            return false;
+        }
+        return true;
+        }
+        /***********************************************************/
+        /************************clear field************************/
+        function ClearFields() {
+            document.getElementById("find_stu").value = "";
+        }
+        /***********************************************************/
 </script>
 
 </body>

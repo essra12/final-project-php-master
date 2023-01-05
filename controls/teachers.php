@@ -205,3 +205,29 @@ if(mysqli_query($conn,$sqln)){
    $conn->close();
    exit();
 }
+
+/*********search***********/
+function searchTeacher($tr_name){ 
+    $search="";
+    global $errors;
+    global $conn; 
+    $term='%'.$tr_name.'%';
+        $sql="Select teacher.tr_id,user.user_id,user.full_name,user.u_img,teacher.tr_phone_no from teacher,user WHERE user.user_id=teacher.user_id 
+        AND user.full_name LIKE '$term';";
+        $pre=$conn->prepare($sql);
+        $pre->execute();
+        $exisiting_teacher_search=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
+            
+        if($exisiting_teacher_search)
+        {
+            $conn->close();
+            return $exisiting_teacher_search;
+        }
+        elseif(!$exisiting_teacher_search) 
+          {
+            array_push($errors," This teacher dosn't exist");
+            $search="";
+            return $exisiting_teacher_search;
+         } 
+                   
+    } 
