@@ -86,7 +86,7 @@ else{
     </form>
     <!-- For Errors message-->
     <?php if(count($errors)> 0): ?>
-            <div class="msg error" style="color: #D92A2A; margin-bottom: 20px; text-align: center;"> 
+            <div class="msg error" style="color: #D92A2A; margin-bottom: 10px; text-align: left;"> 
                 <?php foreach($errors as $error): ?>
                 <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php  echo($error); ?></li> 
                 <?php endforeach; ?>

@@ -20,9 +20,7 @@ include(MAIN_PATH."/controls/teachers.php");
 
 <style>
 /* for show password */
-.form-field.tr.pass input::placeholder{
-  font-size: 17px;
-}
+
 .form-field.tr.pass span{
   position: absolute;
   right: 27%;
@@ -74,7 +72,7 @@ include(MAIN_PATH."/controls/teachers.php");
             <!------------------------>
         
         </div>
-        <div class="create-g-div">
+        <div class="create-tr-div">
 
             <div class="form-field tr ">
                <input id="full_name" class="input-name" type="text"  placeholder="Full Name" maxlength="30" name="full_name" value="<?php echo $full_name;?>"/>
@@ -97,15 +95,18 @@ include(MAIN_PATH."/controls/teachers.php");
         </div>
 
          <!-- For Errors -->
+         <!--the errors-->
+         <p id="demo"></p>
+
          <?php if(count($errors)> 0): ?>
-                <div class="msg error" style="color: #D92A2A; margin-bottom: 20px;"> 
+                <div class="msg error" style="color: #D92A2A; margin-bottom: 20px; text-align: left; margin-left:26%;"> 
                     <?php foreach($errors as $error): ?>
                     <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php echo($error); ?></li>
                     <?php endforeach; ?>
                 </div> 
             <?php endif; ?> 
             <!----------------->
-            
+
             <!-- For Succes -->
             <?php if (isset($_SESSION['message'])): ?>
                 <div class="msg success" style="color: #5a9d48; margin-bottom: 20px;">
@@ -133,43 +134,54 @@ include(MAIN_PATH."/controls/teachers.php");
     const tr_phon_no = document.getElementById("tr_phon_no").value;
     const pass = document.getElementById("pass").value;
     const conf_pass = document.getElementById("conf_pass").value;
+
+    let error = document.getElementById("error");
+
     if(full_name==""){
-        alert(" Please enter Full name");
-        return false;
+        /* alert(" Please enter Full name"); */
+       document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;Please enter Full name."; 
+       return false ;
     }
     const regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
     if(!regName.test(full_name)){
-        alert('the name is incorrect, Please rewrite your full name (first and last name).');
-        document.getElementById('full_name').focus();
+        /* alert('the name is incorrect, Please rewrite your full name (first and last name).');*/
+        document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;Please rewrite your full name (first and last name)..";
         return false;
     }
     if(tr_phon_no==""){
-        alert(" Please enter Phone Number");
+        /* alert(" Please enter Phone Number"); */
+        document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;Please enter Phone Number."; 
         return false;
     }
     if(tr_phon_no.length<10){
-        alert(" Please enter the Full Number");
+        /* alert(" Please enter the Full Number"); */
+        document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;Please enter the Full Number."; 
         return false;
     }
     if(pass==""){
-        alert(" Please enter Password");
+        /* alert(" Please enter Password"); */
+        document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;Please enter Password."; 
         return false;
     }
     if(conf_pass==""){
-        alert(" Please enter Password again");
+        /* alert(" Please enter Password again"); */
+        document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;Please enter Password again."; 
         return false;
     }
     if(conf_pass!=pass){
-        alert(" the password is not equal,Please enter the correct value ");
+        /* alert(" the password is not equal,Please enter the correct value "); */
+        document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;the password is not equal,Please enter the correct value."; 
         return false;
     }
+    
     }
 
     function onlyNumberKey(evt) {
         // Only ASCII character in that range allowed
         var ASCIICode = (evt.which) ? evt.which : evt.keyCode
         if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)){
-            alert(" pleas enter Just Number");
+            /* alert(" pleas enter Just Number"); */
+            document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;pleas enter Just Number."; 
             return false;
         }
         return true;

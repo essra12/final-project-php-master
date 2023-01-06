@@ -95,8 +95,11 @@ include(MAIN_PATH."/controls/admins.php");
                 </div>
 
                 <!-- For Errors -->
+                <!--the errors-->
+                <p id="demo"></p>
+
                 <?php if(count($errors)> 0): ?>
-                    <div class="msg error" style="color: #D92A2A; margin-bottom: 20px;"> 
+                    <div class="msg error" style="color: #D92A2A; margin-bottom: 20px; text-align: left; margin-left:26%;"> 
                         <?php foreach($errors as $error): ?>
                         <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php echo($error); ?></li>
                         <?php endforeach; ?>
@@ -132,28 +135,33 @@ include(MAIN_PATH."/controls/admins.php");
         const conf_pass = document.getElementById("conf_pass").value;
 
         if(full_name==""){
-            alert(" Please enter Full name");
+            /* alert(" Please enter Full name"); */
+            document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;Please enter Full name."; 
             return false;
         }
         const regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
         if(!regName.test(full_name)){
-            alert('the name is incorrect, Please rewrite your full name (first and last name).');
+            /* alert('the name is incorrect, Please rewrite your full name (first and last name).'); */
+            document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;Please rewrite your full name (first and last name)."; 
             document.getElementById('full_name').focus();
             return false;
         }
 
         if(pass==""){
-            alert(" Please enter Password");
+            /* alert(" Please enter Password"); */
+            document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;Please enter Password."; 
             return false;
         }
 
         if(conf_pass==""){
-            alert(" Please enter Password again");
+            /* alert(" Please enter Password again"); */
+            document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;Please enter Password again."; 
             return false;
         }
         
         if(conf_pass!=pass){
-            alert(" the password is not equal,Please enter the correct value");
+            /* alert(" the password is not equal,Please enter the correct value"); */
+            document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;the password is not equal,Please enter the correct value."; 
             return false;
         }
         }
