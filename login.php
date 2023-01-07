@@ -50,9 +50,9 @@ include(MAIN_PATH."/controls/login_path.php");
     <div class="login-container">
     <div class="circle-container"> 
     <div class="main_circle"></div>
-    <img class="imagelogo" id="image" src="sources\image\logo_dark.png" alt="no image"/>
+    <img class="imagelogo" id="image" src="sources\image\logo_light.png" alt="no image"/>
     </div>
-        <p class="main_text"><b>Welcome</b><br>Back! </p>
+        <p class="main_text">Welcome Back :) </p>
         <form method="post" action="" class="login-form"  onsubmit="return check_Enter(this)">
 
        

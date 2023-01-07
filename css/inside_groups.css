@@ -24,10 +24,23 @@
 body{
   overflow-x: hidden;
   background-color: #222242;
-}
- 
 
+}
  /*****************************************************Navigation Bar style**********************************************************/
+
+ .navbar {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222242;
+  box-shadow: var(--shadow2);
+  color: white;
+  padding: 2%;
+}
+
+/**********************************************************************************/
+  /*****************************************************Navigation Bar style**********************************************************/
 
 /*menu icon*/
 #menu-toggle{
@@ -50,17 +63,18 @@ body{
   left: 0;
   bottom: 0;
   transition: left 300ms;
+  overflow: hidden; /* Hide scrollbars */
 }
 .sidebar-container{
   height: 100%;
   width: 100%;
   background:#222242;
-  box-shadow: var(--shadow2);
+  
   padding: 1rem;
   overflow-y: auto;
 }
 .sidebar-container::-webkit-scrollbar {
-  width: 10px;
+  display: none;
 }
 
 /* Track */
@@ -84,7 +98,7 @@ body{
   grid-template-columns: 100px auto;
   align-items: center;
   margin: 3rem 0rem 2rem;
-  padding: .1rem 0 rem;
+  padding: .2rem  1rem;
   color: #FFFFFF;
 }
 .sidebar-avartar img{
@@ -127,7 +141,7 @@ a:is(:link,:active,:hover).active{
 
 .sidebar-menu ul{
   margin-left: 2rem; 
-  margin-top: 30%;
+  margin-top: 10%;
 }
 .sidebar-menu a span:first-child{
   display: inline-block;
@@ -209,28 +223,89 @@ header{
 .vertical_line{
   display: none;
 }
+  body{
+       background-color: #fff;
+    }
+
 }
-  /***********************header************************************************************************************************************/
+/******************for back button and logo*****************************************************/
+.lift-side li{
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  /* padding-right: 1rem; */
+  margin: auto;
+}
+
+.lift-side li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  /* padding: 1rem; */
+  padding-top: .3rem;
+  padding-bottom: .8rem;
+  margin-right: 1rem;
+}
+
+.back{
+  display: inline;
+  margin-right: 0;
+  }
+
+.back i{
+  margin-left: .5rem;
+  font-size: 2.2rem;
+}
+/*******************************leave button************************/ 
+.sidebar-card-btn{
+  background: #FFFFFF;
+  border-radius: 15px;
+  width: 65%;
+  margin: 0rem 2rem 0rem 3rem;
+}
+.btn-admin{
+  padding: .5rem 1rem;
+  border: none;
+  border-radius: 15px;
+  background-color: #FFBA5F;
+  font-size: 14px;
+  width: 60%;
+  margin: 1.5rem 1.5rem 1.5rem 2rem ;
+  font-weight: bold;
+  
+}
+.btn-admin:hover{
+ /*  background: var(--orange); */
+  color: #fff;
+  background-color: #D92A2A;
+  cursor: pointer;
+  
+ 
+}
+  /********************header************************************************************************************************************/
+  .main-content{
+     border-radius: 25px 0 0 0;
+     background-color: #fff;
+  }
   .header-div{
     position: relative;
-    color: #fff;
-    background-color: #222242;      
+           
   }
 
   h1{
-  font-size: 5em;
-  padding-bottom: 5px;
+  font-size: 4em;
+  padding-bottom: 0px;
   padding-left:10px;
   text-transform: capitalize;
   }
   .group_info{
-    font-size: 1.25em;
+    font-size: 1em;
     padding-bottom: 10px;
     padding-left:18px;
     text-transform: capitalize;
  } 
  .btn-create{
-    margin-left: 2em;
+    margin-left: 1em;
     margin-top: 50px;
     border: none;
     border-radius: 100%;
@@ -274,13 +349,14 @@ main{
 }
 
 /* Remove extra left and right margins, due to padding */
-.row {margin: 5% -5px;}
+.row {margin: 1% -5px;}
 
 /* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
   clear: both;
+  background-color: #222242;
 }
 
 /* Responsive columns */
@@ -295,25 +371,31 @@ main{
 /* Style the counter cards */
 .card {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-  padding: 25%;
+  padding: 22%;
    text-align: center;
    align-items: center;
   justify-content: center;
-  background-color: #fff;
+  background-color: #222242;
   border-radius: 15px;
-  color: #222242;
+  font-size: larger;
+  
+  
  }
 .card:hover {
   color: #FFBA5F;
+  background-color: #fff;
   cursor: pointer;
   /*****to add zoom****/
   -ms-transform: scale(1.010); /* IE 9 */
   -webkit-transform: scale(1.010); /* Safari 3-8 */
   transform: scale(1.010); 
-  
+   
 }
 .card a{
-  color: #222242;
+  color: #fff;
+}
+ a:visited{
+  color: #fff;
 }
 
 .card a:hover{
@@ -360,10 +442,5 @@ main{
   text-align: center;
  
   }
-  .vertical_line {
-    border-left:4px solid #fff;
-    height: 500px;
-    position: absolute;
-    left: 20%;
-    top: 15%;
-  }
+
+

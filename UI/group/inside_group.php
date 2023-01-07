@@ -16,7 +16,7 @@ if ($result_g_name->num_rows == 1) {
     }
 }
 ///////////////////////////
-//to get group name
+//to get user name
 $sql="SELECT full_name,u_img FROM user Where user_id='$user_id';";
 $result_g_name = $conn->query($sql);
 if ($result_g_name->num_rows == 1) {
@@ -35,6 +35,12 @@ if ($result->num_rows == 1) {
     
     }
 }
+/////////////////////////////////
+if(isset($_POST['leave'])){
+    global $conn;
+    $sql="DELETE FROM `student_group` WHERE student_group.stu_id=$stu_id  AND student_group.g_no=$groupNumber;";
+    $pre=$conn->query($sql);
+}
 endif;
 ///////////////////////////
 if($role=="teacher"):
@@ -49,6 +55,7 @@ if($role=="teacher"):
     }
     endif;
     ///////////////////////////
+   
 
 ?>
 
@@ -106,6 +113,9 @@ if($role=="teacher"):
     </head>    
 <html>
 <body>
+       <!------------Navigation Bar ----------->  
+       <nav class="navbar">  </nav>
+     <!------------------------------------>
     <!----------------side bar------------------->
     <input type="checkbox" name="" id="menu-toggle">
 
@@ -118,11 +128,18 @@ if($role=="teacher"):
     <div class="sidebar">
 
         <div class="sidebar-container">
-            <div class="brand">
-                 <h2>
-                    <img src="../../sources/image/logo_dark.png" alt="" style="width: 100px;">
-                </h2>
-            </div>
+           
+          <!----------------back button and logo------------------->  
+          <ul class="lift-side" id="lift-side">
+          <!-------back------>
+          <li><div class="back"><a href="../group/main page for group.php"><i class="las la-arrow-left"></i></a></div></li>
+          <!----------------->
+
+          <!-------logo------>
+          <li><div class="brand-title"><img src="../../sources/image/logo_dark.png" style="width: 100px;" /></div></li>
+          <!----------------->
+          </ul>
+       
 
             <!--menu profile photo -->
             <div class="sidebar-avartar" style="margin-top:20px">
@@ -172,13 +189,16 @@ if($role=="teacher"):
                 </ul>
             </div>
      <!--menu admen -->
-     
-      <!--   <div class="sidebar-card-btn">
-            <a href="<?php echo BASE_URL . '/UI/control_panel/admin_control_panel.php' ?>">
-                 <button  class="btn btn-admin">Admin</button>
+       <?php if($role==""):?>
+        <!--leave button -->
+        <div class="sidebar-card-btn">
+            <a onclick="return confirmDelete()" href="<?php echo BASE_URL . '/UI/group/main page for group.php'?>">
+                 <button  class="btn btn-admin" name="leave">Leave</button>
             </a>
-        </div> -->
         </div>
+        <?php endif;?>
+        
+    </div>
   </div>
     <header class="main_icon">
         <div class="header-title">
@@ -188,7 +208,7 @@ if($role=="teacher"):
         </div>
     </header>
     <!----------------End side bar------------------->
-    <div class="vertical_line"></div>
+    
 
     <!----------------------------main container---------------------------->
     <div class="main-content">
@@ -235,51 +255,51 @@ if($role=="teacher"):
 	
        <div class="row">
   <div class="column">
-    <div class="card">
-    <h3><a href="<?php echo BASE_URL . '/UI/student/materials.php' ?>">Materials</a></h3>
-    </div>
+   <a href="<?php echo BASE_URL . '/UI/student/materials.php' ?>"><div class="card">
+    <h3>Materials</h3>
+    </div></a>
   </div>
    
   <?php if($role==""):?>
   <div class="column">
-    <div class="card">
-      <h3><a href="<?php echo BASE_URL . '/UI/student/assignment.php' ?>">Assignments</a></h3>
-    </div>
+   <a href="<?php echo BASE_URL . '/UI/student/assignment.php' ?>"><div class="card">
+      <h3>Assignments</h3>
+    </div></a>
   </div>
   <?php endif;?>
   <?php if($role=="teacher"):?>
   <div class="column">
-    <div class="card">
-      <h3><a href="<?php echo BASE_URL . '/UI/teacher/Assignments for Teacher.php' ?>">Assignments</a></h3>
-    </div>
+  <a href="<?php echo BASE_URL . '/UI/teacher/Assignments for Teacher.php' ?>"><div class="card">
+      <h3>Assignments</h3>
+    </div></a>
   </div>
   <?php endif;?>
   
   <div class="column">
-    <div class="card">
-      <h3><a href="<?php echo BASE_URL . '/UI/teacher/announcement.php' ?>">Announcements</a></h3>
-    </div>
+  <a href="<?php echo BASE_URL . '/UI/teacher/announcement.php' ?>"><div class="card">
+      <h3>Announcements</h3>
+    </div></a>
   </div>
   
   <?php if($role==""):?>
   <div class="column">
-    <div class="card">
-      <h3><a href="<?php echo BASE_URL . '/UI/teacher/Add Enquiry .php' ?>">Enquiries</a></h3>
-     </div>
+  <a href="<?php echo BASE_URL . '/UI/teacher/Add Enquiry .php' ?>"><div class="card">
+      <h3>Enquiries</h3>
+     </div></a>
   </div>
   <?php endif;?>
     
   <?php if($role=="teacher"):?>
     <div class="column">
-    <div class="card">
-      <h3><a href="<?php echo BASE_URL . '/UI/teacher/Add Reply.php' ?>">Enquiries</a></h3>
-     </div>
+    <a href="<?php echo BASE_URL . '/UI/teacher/Add Reply.php' ?>"><div class="card">
+      <h3>Enquiries</h3>
+     </div></a>
   </div>
 
     <div class="column">
-        <div class="card">
-        <h3><a href="<?php echo BASE_URL . '/UI/teacher/reports.php' ?>">Report</a></h3>
-        </div>
+    <a href="<?php echo BASE_URL . '/UI/teacher/reports.php' ?>"><div class="card">
+        <h3>Report</h3>
+        </div></a>
     </div>
    <?php endif;?>
 </div>
@@ -288,9 +308,15 @@ if($role=="teacher"):
     </div>
     <!-------------end main group----------------->
 
-<!-- java script for current date -->
-<!---js section for image slider--->
     <script>
+    /*******************for delet confirm***********************/
+    function confirmDelete(){
+    if (confirm("Are you sure you want to Leave the group?")) {
+        return true;
+    } 
+    else {
+        return false;
+    }}
     </script>
       
 </body>
