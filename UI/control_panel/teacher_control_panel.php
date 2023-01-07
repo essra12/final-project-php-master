@@ -2,7 +2,20 @@
 include("../../path.php"); 
 include(MAIN_PATH."/controls/teachers.php");
 
-$teachers=selectAllteacher();  
+////////////search///////////////
+$search="";
+if(isset($_POST['search_tr'])){
+    if(!empty($_POST['find_tr']))
+    {
+        $search=$_POST['find_tr'];
+        $teachers=searchTeacher($search);
+    }
+}
+else{
+    $teachers=selectAllteacher(); 
+}
+
+/* $teachers=selectAllteacher();  */ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +29,8 @@ $teachers=selectAllteacher();
         <link rel="stylesheet" href="../../css/controlpanel_groups_teacher_student_files.css">
         <!--icon8-->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+        <!-- Font Awesome Icons -->
+        <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>            
     </head>
 
 <body id="b-vlightblue">
@@ -49,6 +64,15 @@ $teachers=selectAllteacher();
     </div>
     <!------------------>
 
+    <form action="" method="POST">  
+        <!--serch bar-->
+        <div class="search">
+            <input type="text" value="<?php echo $search;?>" placeholder=" Enter Teacher Name" id="find_tr" name="find_tr">
+            <span class="clear-btn"><i id="clear-btn" class="fa-solid fa-xmark" onclick="ClearFields();"></i></span>
+            <button type="submit" name="search_tr">Search</button>  
+        </div>
+        <!------------->
+    </form>
     <!-- For Succes message -->
     <?php if (isset($_SESSION['message'])): ?>
         <div class="msg success" style="color: #5a9d48; margin-Top: 20px;">
@@ -59,10 +83,33 @@ $teachers=selectAllteacher();
             ?>
         </div>
     <?php endif; ?>
-<!------------------------->    
+<!------------------------->   
+    <!-- For Errors message-->
+    <!--the errors-->
+    <p id="demo"></p>
 
-<!--  table for teacher  -->
+    <?php if(count($errors)> 0): ?>
+        <div class="msg error" style="color: #D92A2A; margin-bottom: 10px; text-align: left;"> 
+            <?php foreach($errors as $error): ?>
+            <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php  echo($error); ?></li> 
+            <?php endforeach; ?>
+        </div> 
+    <?php endif; ?> 
+    <?php if(count($errors_for_delete_tr)> 0): ?>
+        <div style="color: #D92A2A;  text-align: left;"> 
+            <?php foreach($errors_for_delete_tr as $error_for_delete_tr): ?>
+            <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php  echo($error_for_delete_tr); ?></li> 
+            <?php endforeach; ?>
+        </div> 
+    <?php endif; ?> 
 
+    <!------------------------>
+
+    <!--  table for teacher  -->
+    <?php if(empty($teachers)): 
+            $teachers=selectAllteacher(); 
+    endif;?>
+    <?php if(!empty($teachers)): ?>
     <div class="table-box">
         <table class="table">
             <thead>
@@ -88,12 +135,12 @@ $teachers=selectAllteacher();
             </tbody>
         </table>
     </div>
+    <?php endif;?>
 <!--------------------------->
 
 </div>
 
 <script>
-    
     /********for sidebar (highlights items after click it)**********/
     const activePage = window.location.pathname;
     const navLinks = document.querySelectorAll('.sidebar-menu a').forEach(link => {
@@ -106,14 +153,18 @@ $teachers=selectAllteacher();
        /*******************for delet confirm***********************/
 
    function confirmDelete() {
-        if (confirm("Are you sure you want to delete teacher?\ndelete it causes its group to be deleted !!!")) {
+        if (confirm("Are you sure you want to delete teacher?")) {
             return true;
         } 
         else {
             return false;
         }
     }
-
+    /************************clear field************************/
+    function ClearFields() {
+        document.getElementById("find_tr").value = "";
+    }
+    /***********************************************************/
 </script>
 </body>
 </html>

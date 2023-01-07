@@ -74,7 +74,7 @@ function selectOne($table,$condition)
 function selectAllStudentInfo(){ 
 
     global $conn;
-    $sql = "SELECT student.stu_id,user.user_id,user.full_name,user.u_img,student.stu_specialization FROM student,user WHERE user.user_id=student.user_id;";
+    $sql = "SELECT student.stu_id,user.user_id,user.full_name,user.u_img,student.stu_specialization FROM student,user WHERE user.user_id=student.user_id ORDER BY student.stu_id;";
     global $conn;
     $pre=$conn->prepare($sql);
     $pre->execute();
@@ -98,7 +98,7 @@ function selectAllTeacherInfo(){
 function selectAllteacher(){ 
 
     global $conn;
-    $sql = "Select teacher.tr_id,user.user_id,user.full_name,user.u_img,teacher.tr_phone_no from teacher,user WHERE user.user_id=teacher.user_id;";
+    $sql = "Select teacher.tr_id,user.user_id,user.full_name,user.u_img,teacher.tr_phone_no from teacher,user WHERE user.user_id=teacher.user_id ORDER BY teacher.tr_id;";
     $pre=$conn->prepare($sql);
     $pre->execute();
     $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -109,7 +109,7 @@ function selectAllteacher(){
 function selectAllGroupInfo(){ 
 
     global $conn; 
-    $sql = "SELECT *,teacher.user_id,user.full_name FROM groups,user,teacher WHERE groups.tr_id=teacher.tr_id AND teacher.user_id=user.user_id;";
+    $sql = "SELECT *,teacher.user_id,user.full_name FROM groups,user,teacher WHERE groups.tr_id=teacher.tr_id AND teacher.user_id=user.user_id ORDER BY groups.Datetime DESC ";
     $pre=$conn->prepare($sql);
     $pre->execute();
     $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);

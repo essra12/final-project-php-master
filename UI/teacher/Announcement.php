@@ -53,9 +53,7 @@ $today = strtotime($todays_date);
           <!----------------->
 
           <!-----students---->
-          <?php   if ($_SESSION['role']=="teacher"): ?> 
           <li><a href="<?php  echo BASE_URL . '/UI/teacher/testreqest.php' ?>" style="font-size: 1.5rem;"><i class="las la-user-friends"></i></a></li>
-          <?php   endif; ?>  
           <!----------------->
           
           <!------HOME------>
@@ -100,6 +98,22 @@ $today = strtotime($todays_date);
     </div>
   <?php endif; ?>
   <!-------------------->  
+  <!--fixed button-->
+  <?php if($role=="teacher"):?>
+  <div id="mybutton">
+  <div class="dropdown">
+    <button class="btn-create">+</button>
+    <div>
+      <a href="../teacher/add announcement.php?g_no=<?= $groupNumber?>">Announcement</a>
+      <a href="../teacher/add_announcement_assignment.php?g_no=<?= $groupNumber?>">Assignment</a>
+    </div>
+  </div>
+  </div>
+  <?php endif;?>
+<!--   <div id="mybutton">
+    <button class="add"><a href="">+</a></button>
+  </div> -->
+  <!---------------->
   
   <?php foreach($announcements as $key => $announcement):?>
     <?php

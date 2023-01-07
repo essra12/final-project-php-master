@@ -102,7 +102,6 @@ $join_data=selectGroupNameTeacherName();
 
           <!-- Button -->
           <div class="btn_post" style="text-align: right;">
-              <button name="cancel_join" class="btn_cancel_join" ><a href="<?php echo BASE_URL . '/UI/group/main page for group.php' ?>" >Cancel</a></button>
               <button type="submit" name="conf_join" >join</button>
           </div>
           <!----------->

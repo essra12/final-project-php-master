@@ -131,7 +131,7 @@ a:is(:link,:active,:hover).active{
 }
 
 .sidebar-menu ul{
-margin-left: 4rem; 
+margin-left: 3rem; 
 }
 .sidebar-menu a span:first-child{
     display: inline-block;
@@ -141,9 +141,10 @@ margin-left: 4rem;
 }
 
 /***admin card***/
-    .sidebar-card{
-    text-align: center;
+.sidebar-card{
+    /* text-align: center; */
     padding-top: .5rem;
+    margin-left: 1rem;
 }
 
 .sidebar-card img{
@@ -156,7 +157,7 @@ margin-left: 4rem;
     background: #FFFFFF;
     border-radius: 15px;
     width: 65%;
-    margin: 0rem 2rem 0rem 3rem;
+    margin: 0rem 2rem 0rem 2rem;
 }
 .btn-admin{
     padding: .5rem 1rem;
@@ -414,7 +415,9 @@ button[type="submit"]:hover {
     letter-spacing : 0.3px;
     justify-content : center;
 }
-
+.form-field.tr.pass input::placeholder{
+  font-size: 17px;
+}
     @media only screen and (max-width:720px) {
         .g_tr_admin-container {
             height             : 130vh;
@@ -472,7 +475,7 @@ button[type="submit"]:hover {
     } 
 } 
 
-    /**************************for circular image************************/
+/**************************for circular image************************/
 .profile-pic-div{
     display: inline-flex;
     align-items: center;
@@ -627,15 +630,21 @@ form .form-field.tr:nth-child(4)::before {
 }
 @media only screen and (max-width:780px) {
     input[type="text"],
-    input[type="password"],
     select,
     button {
     font-size: 14px;
     padding: 10px 20px;
     } 
+    .form-field.tr.pass input::placeholder{
+        font-size: 14px;
+      }
+
     .main-content.tr{
         min-width: 784px;
     } 
+    .msg.error {
+        font-size: 14px;
+    }
 }    
 @media only screen and (max-width:700px) {
     .profile-pic-div{
@@ -653,16 +662,19 @@ form .form-field.tr:nth-child(4)::before {
 } 
 @media only screen and (max-width:670px) {
     input[type="text"],
-    input[type="password"],
     select,
     button {
-    padding: 10px 10px;
+    font-size: 12px;
+    padding: 10px 8px;
     } 
+    .form-field.tr.pass input::placeholder{
+        font-size: 12px;
+        padding: 10px 0px;
+    }
     .main-content.tr{
         min-width: 670px;
     } 
 } 
-
 @media only screen and (max-width:564px) {
     .profile-pic-div{
         margin-left: 130px;
@@ -670,14 +682,14 @@ form .form-field.tr:nth-child(4)::before {
     .img_title.tr{
         margin-bottom: 20px;
     }
-    input[type="text"],
-    input[type="password"],
-    select,
-    button {
-    padding: 10px 10px;
-    } 
     .main-content.tr{
         min-width: 564px;
     } 
 } 
+p#demo {
+    color: var(--red);
+    margin-bottom: 20px;
+    text-align: left;
+    margin-left: 26%;
+}
 

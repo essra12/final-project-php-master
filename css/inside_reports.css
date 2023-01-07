@@ -131,7 +131,7 @@ a:is(:link,:active,:hover).active{
     margin: 2rem 8rem 0rem;
 }
 .main-container .title h1{
-    font-size: 45px;
+    font-size: 30px;
     margin-top:20px;
     margin-bottom: 20px;
 }
@@ -142,7 +142,7 @@ div .search{
 }
 .search input[type=text] {
     padding: 10px;
-    font-size: 18px;
+    font-size: 16px;
     /* float: left; */
     width: 25%;
     border: none;
@@ -167,13 +167,16 @@ span.clear-btn:hover{
   }
 
 /*  submit button */
+.search input[type=text] {
+    font-size: 16px;
+}
 .search button {
     /* float: left; */
     width: 10%;
     padding: 10px;
     background: var(--vdarkblue);
     color: white;
-    font-size: 18px;
+    font-size: 14px;
     border-radius : 0px 15px 15px 0px;
     border: none;
     cursor: pointer;
@@ -190,7 +193,7 @@ span.clear-btn:hover{
 }
 @media(max-width: 1448px){
     .search input[type=text] {
-        font-size: 18px;
+        font-size: 16px;
         width: 35%;
     }
     span.clear-btn{
@@ -198,9 +201,6 @@ span.clear-btn:hover{
       }
 }
 @media(max-width: 1084px){
-    .search input[type=text] {
-        font-size: 16px;
-    }
     .search button {
         width: 12%;
         font-size: 16px;
@@ -243,7 +243,7 @@ span.clear-btn:hover{
 
 .container_text_input label{
     display: block;
-    font-size: 28px;
+    font-size: 20px;
     font-weight: bold;
 }
 /** textarea field**/

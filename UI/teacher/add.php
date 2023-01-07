@@ -73,8 +73,8 @@ include(MAIN_PATH."/controls/add.php");
       
       <!-- description field -->
       <div class="inputs description">
-        <label style="color: #222242;">Description<span style="font-size: 20px;">(optional)</span></label>
-        <textarea type="text" name="description" id="description" maxlength="250" style="font-size: 20px;" ><?php echo $description;?></textarea>
+        <label style="color: #222242;">Description<span style="font-size: 16px;">(optional)</span></label>
+        <textarea type="text" name="description" id="description" maxlength="250" rows="4"><?php echo $description;?></textarea>
       </div>
       <!------------------>
 

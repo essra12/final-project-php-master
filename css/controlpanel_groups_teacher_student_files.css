@@ -126,7 +126,7 @@ a:is(:link,:active,:hover).active{
 }
 
 .sidebar-menu ul{
-    margin-left: 4rem; 
+    margin-left: 3rem; 
 }
 .sidebar-menu a span:first-child{
     display: inline-block;
@@ -137,8 +137,9 @@ a:is(:link,:active,:hover).active{
 
 /*admin card in sidebar*/
 .sidebar-card{
-    text-align: center;
+    /* text-align: center; */
     padding-top: .5rem;
+    margin-left: 1rem;
 }
 .sidebar-card img{
     width: 180px;
@@ -149,7 +150,7 @@ a:is(:link,:active,:hover).active{
     background: #FFFFFF;
     border-radius: 15px;
     width: 65%;
-    margin: 0rem 2rem 0rem 3rem;
+    margin: 0rem 2rem 0rem 2rem;
 }
 .btn-admin{
     padding: .5rem 1rem;
@@ -253,7 +254,7 @@ main{
     color: #2A3D6C;
 }
 
-/*groups card*/
+/*************groups card***************/
 .group-cards{
     display: grid;
     width: 99%;
@@ -262,10 +263,10 @@ main{
 }
 
 .group-card{
-    box-shadow: var(--shadow1);
+    box-shadow: var(--shadow2);
     padding: 0.5rem .5rem 0rem;
     border-radius: 15px;
-    background: var(--lightorange);
+    background: #fff;
     display: flex;
     justify-content: center; 
     margin-top: 2rem;
@@ -283,7 +284,6 @@ main{
 }
 .group-card-info{
     width: 90%;
-    /* padding: 0rem 0rem 3rem; */
     margin: 1rem 2rem 2.8rem .5rem;
 }
 .group-card-info h3{
@@ -349,6 +349,10 @@ main{
 
 a.show_tr_g:hover{
 color: rgb(56, 56, 56);
+}
+
+.msg.error li{
+    margin-left:30%;
 }
 
 @media only screen and (max-width:1334px) {
@@ -424,6 +428,9 @@ color: rgb(56, 56, 56);
        display: inline-block;
        cursor: pointer;
     }
+    span.clear-btn{
+        right: 40%;
+    }
 }
 
 /***************************************************** Teacher/Student/File_Control_Panel Style ***********************************************************/
@@ -447,10 +454,71 @@ color: rgb(56, 56, 56);
     text-align: center;
 }
 .header-box-content-table h2{
-    font-size: 28px;
-    padding: 1rem;
+    font-size: 26px;
+    padding-left: 1rem;
     color: var(--vdarkblue);
 }
+.header-box-content-table h4{
+    font-size: 18px;
+    padding-left: 1rem;
+    color: var(--vdarkblue);
+}
+/***********/
+
+/*Style the search field*/
+div.search{
+    margin-top: 4rem;
+    text-align: center;
+}
+div.search.group{
+    margin-top: 2rem;
+}
+.search input[type=text] {
+    padding: 10px;
+    font-size: 14px;
+    width: 30%;
+    border: none;
+    border-radius : 15px 0px 0px 15px;
+    background: #fff;
+    box-shadow: var(--shadow1);
+    margin-bottom: 12px;
+    outline: none;
+}
+/****clear btn****/
+span.clear-btn{
+    position: absolute;
+    right: 35%;
+    margin-top: 13px;
+    margin-left: 10px;
+    font-size: 14px;
+    color: rgb(87, 91, 95);
+    cursor: pointer;
+}
+span.clear-btn:hover{
+    color:var(--vdarkblue);
+}
+/*submit button*/
+.search button {
+    width: 10%;
+    padding: 10px;
+    background: var(--vdarkblue);
+    color: white;
+    font-size: 14px;
+    border-radius : 0px 15px 15px 0px;
+    border: none;
+    cursor: pointer;
+}
+.search button:hover {
+    background: var(--orange);
+    color: #000;
+}
+/* Clear floats */
+.search::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+/**********************/
 
 /*table*/
 .table-box{
@@ -624,6 +692,43 @@ table th {
 }
 
 
-
-        
-        
+@media only screen and (max-width:1280px) {
+    span.clear-btn{
+        right: 42%;
+    }
+}
+      
+@media only screen and (max-width:820px) {
+    .search input[type=text] {
+        width: 50%;
+    }
+    .search button {
+        width: 20%;
+    }
+    span.clear-btn{
+        right: 39%;
+    }
+    .msg.error li{
+        margin-left:15%;
+    }
+}
+@media only screen and (max-width:600px) {
+    .search input[type=text] {
+        width: 60%;
+    }
+    span.clear-btn{
+        right: 38%;
+    }
+    .header-box.tr h2{
+        font-size: 24px;
+    }
+    .msg.error li{
+        margin-left:10%;
+    }
+}
+p#demo {
+    color: var(--red);
+    margin-bottom: 20px;
+    text-align: left;
+    margin-left: 30%;
+}

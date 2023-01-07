@@ -50,9 +50,7 @@ if ($result_g_name->num_rows == 1) {
           <!----------------->
 
           <!-----students---->
-          <?php   if ($_SESSION['role']=="teacher"): ?> 
           <li><a href="<?php  echo BASE_URL . '/UI/teacher/testreqest.php' ?>" style="font-size: 1.5rem;"><i class="las la-user-friends"></i></a></li>
-          <?php   endif; ?>  
           <!----------------->
           
           <!------HOME------>
@@ -93,7 +91,7 @@ if ($result_g_name->num_rows == 1) {
           <!-- Text field -->
           <div class="inputs announcement">
             <label style="color: #222242;">Text</label>
-            <textarea type="text" name="an_content" id="content" style="font-size: 20px; margin-left: .5rem; margin-right: .5rem;"><?php echo $an_content; ?></textarea>
+            <textarea type="text" name="an_content" id="content" style="margin-left: .5rem; margin-right: .5rem;" rows="4"><?php echo $an_content; ?></textarea>
             <!-- Button -->
             <div class="btn_post">
                 <button type="submit" name="add_announcement" >POST</button>
