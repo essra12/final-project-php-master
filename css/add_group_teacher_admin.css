@@ -131,7 +131,7 @@ a:is(:link,:active,:hover).active{
 }
 
 .sidebar-menu ul{
-margin-left: 4rem; 
+margin-left: 3rem; 
 }
 .sidebar-menu a span:first-child{
     display: inline-block;
@@ -141,9 +141,10 @@ margin-left: 4rem;
 }
 
 /***admin card***/
-    .sidebar-card{
-    text-align: center;
+.sidebar-card{
+    /* text-align: center; */
     padding-top: .5rem;
+    margin-left: 1rem;
 }
 
 .sidebar-card img{
@@ -156,7 +157,7 @@ margin-left: 4rem;
     background: #FFFFFF;
     border-radius: 15px;
     width: 65%;
-    margin: 0rem 2rem 0rem 3rem;
+    margin: 0rem 2rem 0rem 2rem;
 }
 .btn-admin{
     padding: .5rem 1rem;

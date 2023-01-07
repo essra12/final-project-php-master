@@ -64,6 +64,15 @@ else{
     </div>
     <!------------------>
 
+    <form action="" method="POST">  
+        <!--serch bar-->
+        <div class="search">
+            <input type="text" value="<?php echo $search;?>" placeholder=" Enter Teacher Name" id="find_tr" name="find_tr">
+            <span class="clear-btn"><i id="clear-btn" class="fa-solid fa-xmark" onclick="ClearFields();"></i></span>
+            <button type="submit" name="search_tr">Search</button>  
+        </div>
+        <!------------->
+    </form>
     <!-- For Succes message -->
     <?php if (isset($_SESSION['message'])): ?>
         <div class="msg success" style="color: #5a9d48; margin-Top: 20px;">
@@ -74,26 +83,26 @@ else{
             ?>
         </div>
     <?php endif; ?>
-<!------------------------->    
-
-
-    <form action="" method="POST"  onsubmit="return check_Enter(this)">  
-        <!--serch bar-->
-        <div class="search">
-            <input type="text" value="<?php echo $search;?>" placeholder=" Enter Teacher Name" id="find_tr" name="find_tr" >
-            <span class="clear-btn"><i id="clear-btn" class="fa-solid fa-xmark" onclick="ClearFields();"></i></span>
-            <button type="submit" name="search_tr">Search</button>  
-        </div>
-        <!------------->
-    </form>
+<!------------------------->   
     <!-- For Errors message-->
+    <!--the errors-->
+    <p id="demo"></p>
+
     <?php if(count($errors)> 0): ?>
-            <div class="msg error" style="color: #D92A2A; margin-bottom: 10px; text-align: left;"> 
-                <?php foreach($errors as $error): ?>
-                <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php  echo($error); ?></li> 
-                <?php endforeach; ?>
-            </div> 
-            <?php endif; ?> 
+        <div class="msg error" style="color: #D92A2A; margin-bottom: 10px; text-align: left;"> 
+            <?php foreach($errors as $error): ?>
+            <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php  echo($error); ?></li> 
+            <?php endforeach; ?>
+        </div> 
+    <?php endif; ?> 
+    <?php if(count($errors_for_delete_tr)> 0): ?>
+        <div style="color: #D92A2A;  text-align: left;"> 
+            <?php foreach($errors_for_delete_tr as $error_for_delete_tr): ?>
+            <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php  echo($error_for_delete_tr); ?></li> 
+            <?php endforeach; ?>
+        </div> 
+    <?php endif; ?> 
+
     <!------------------------>
 
     <!--  table for teacher  -->
@@ -132,7 +141,6 @@ else{
 </div>
 
 <script>
-    
     /********for sidebar (highlights items after click it)**********/
     const activePage = window.location.pathname;
     const navLinks = document.querySelectorAll('.sidebar-menu a').forEach(link => {
@@ -145,7 +153,7 @@ else{
        /*******************for delet confirm***********************/
 
    function confirmDelete() {
-        if (confirm("Are you sure you want to delete teacher?\ndelete it causes its group to be deleted !!!")) {
+        if (confirm("Are you sure you want to delete teacher?")) {
             return true;
         } 
         else {
