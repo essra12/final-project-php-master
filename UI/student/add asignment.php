@@ -139,10 +139,10 @@ if ($result_g_name->num_rows == 1) {
           <!------------------>
 
           <!-- Id field -->
-          <div class="inputs id">
+          <!-- <div class="inputs id">
             <label style="color: #222242;">Student ID</label>
-            <input type="text" name="stu_id"  disabled="disabled" style=" border: none;" value="<?php echo $stu_id?>">
-          </div>
+            <input type="text" name="stu_id"  disabled="disabled" style=" border: none;" value="<?php /* echo $stu_id */?>">
+          </div> -->
           <!------------------>
 
           <!-- title field -->
@@ -154,8 +154,8 @@ if ($result_g_name->num_rows == 1) {
           
           <!-- description field -->
           <div class="inputs description">
-            <label style="color: #222242;">Description<span style="font-size: 20px;">(optional)</span></label>
-            <textarea type="text" name="description" id="description" maxlength="250" style="font-size: 20px;" ><?php echo $description;?></textarea>
+            <label style="color: #222242;">Description<span style="font-size: 16px;">(optional)</span></label>
+            <textarea type="text" name="description" id="description" maxlength="250"  rows="4"><?php echo $description;?></textarea>
           </div>
           <!------------------>
 

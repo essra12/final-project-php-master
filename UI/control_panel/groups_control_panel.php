@@ -68,18 +68,6 @@ else{
     </div>
     <!----------------->
 
-     <!-- For Succes -->
-     <?php if (isset($_SESSION['message'])): ?>
-                <div class="msg success" style="color: #5a9d48; margin-Top: 20px;">
-                    <li><i class="las la-check-circle" style="color: #5a9d48 ;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;<?php echo $_SESSION['message']; ?></li>
-                    <?php
-                    /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */
-                    unset($_SESSION['message']);
-                    ?>
-                </div>
-              <?php endif; ?>
-    <!----------------->
-
     <main>
 
     <form action="" method="POST"  onsubmit="return check_Enter(this)">  
@@ -91,6 +79,17 @@ else{
         </div>
         <!------------->
     </form>
+    <!-- For Succes -->
+    <?php if (isset($_SESSION['message'])): ?>
+        <div class="msg success" style="color: #5a9d48; margin-Top: 20px;">
+            <li><i class="las la-check-circle" style="color: #5a9d48 ;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;<?php echo $_SESSION['message']; ?></li>
+            <?php
+            /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */
+            unset($_SESSION['message']);
+            ?>
+        </div>
+    <?php endif; ?>
+    <!----------------->
     <!-- For Errors message-->
     <?php if(count($errors)> 0): ?>
             <div class="msg error" style="color: #D92A2A; margin-bottom: 10px;  text-align: left;"> 

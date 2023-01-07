@@ -63,6 +63,16 @@ else{
     </div>
     <!------------------>
 
+
+    <form action="" method="POST"  onsubmit="return check_Enter(this)">  
+        <!--serch bar-->
+        <div class="search">
+            <input type="text" value="<?php echo $search;?>" placeholder=" Enter Student ID" id="find_stu" name="find_stu"  onkeypress="return onlyNumberKey(event)" >
+            <span class="clear-btn"><i id="clear-btn" class="fa-solid fa-xmark" onclick="ClearFields();"></i></span>
+            <button type="submit" name="search_stu">Search</button>  
+        </div>
+        <!------------->
+    </form>
     <!-- For Succes message -->
     <?php if (isset($_SESSION['message'])): ?>
         <div class="msg success" style="color: #5a9d48; margin-Top: 20px;">
@@ -74,17 +84,11 @@ else{
         </div>
     <?php endif; ?>
     <!------------------------->
-
-    <form action="" method="POST"  onsubmit="return check_Enter(this)">  
-        <!--serch bar-->
-        <div class="search">
-            <input type="text" value="<?php echo $search;?>" placeholder=" Enter Student ID" id="find_stu" name="find_stu"  onkeypress="return onlyNumberKey(event)" >
-            <span class="clear-btn"><i id="clear-btn" class="fa-solid fa-xmark" onclick="ClearFields();"></i></span>
-            <button type="submit" name="search_stu">Search</button>  
-        </div>
-        <!------------->
-    </form>
+    
     <!-- For Errors message-->
+    <!--the errors-->
+    <p id="demo"></p>
+
     <?php if(count($errors)> 0): ?>
             <div class="msg error" style="color: #D92A2A; margin-bottom: 10px; text-align: left;"> 
                 <?php foreach($errors as $error): ?>
@@ -154,7 +158,8 @@ else{
         // Only ASCII character in that range allowed
         var ASCIICode = (evt.which) ? evt.which : evt.keyCode
         if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)){
-            alert(" please enter Just Number");
+            /* alert(" please enter Just Number"); */
+            document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;pleas enter Just Number."; 
             return false;
         }
         return true;

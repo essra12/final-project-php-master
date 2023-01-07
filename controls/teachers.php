@@ -93,118 +93,36 @@ if(isset($_POST['add_teacher'])){
 /****************************************************************************************************/
  /***************************************** delete Teacher******************************************/
 
-/*  if(isset($_GET['delete_tr_id'])&& isset($_GET['deleteID']))
- {
-    /*********for groups table********
-    $tr_id=$_GET['delete_tr_id'];
-    $sql_delete1="DELETE FROM groups WHERE tr_id='$tr_id';";
-    $conn->query($sql_delete1); 
-
-   /*********for teacher table********
-   $sql_delete2="DELETE FROM teacher WHERE tr_id='$tr_id';";
-   $conn->query($sql_delete2);   
-
-   /*********for user table********
-   $user_id=$_GET['deleteID'];
-   $sql_delete3="DELETE FROM user WHERE user_id='$user_id';";
-   $conn->query($sql_delete3);   
-
-   /*succes mmessage
-   $_SESSION['message']="teacher deleted successfully";
-   header('location: '.BASE_URL.'/UI/control_panel/teacher_control_panel.php'); 
-   $conn->close();
-   exit();
- } */ 
+$errors_for_delete_tr=array();
 
  if(isset($_GET['delete_tr_id'])&& isset($_GET['deleteID']))
  {
     $user_id_delete=$_GET['deleteID'];
     $tr_id=$_GET['delete_tr_id'];
 
-
-      /*--------------------------------------------  Delte teacher if table groups =""----------------------------
-$array_g_no=array();
-$select_g_no="SELECT  groups.g_no FROM groups,teacher WHERE groups.tr_id=teacher.tr_id AND teacher.tr_id=' $tr_id';";
-$result = $conn->query($select_g_no);
-if($result->num_rows > 0) {
-    echo '<script type="text/javascript">alert("Cannot delete tgis teacher ! .")</script>';
-    ?>
-    <script type="text/javascript">
-     window.location.href="../control_panel/teacher_control_panel.php." </script>
-     <?php 
-}
-else 
-$sqln="DELETE FROM `teacher` WHERE teacher.tr_id=' $tr_id'";
-if(mysqli_query($conn,$sqln)){
-    echo '<script type="text/javascript">alert("Record updated successfully .")</script>';
-    ?>
-    <script type="text/javascript">
-     window.location.href="../control_panel/teacher_control_panel.php." </script>
-     <?php 
-      } else {
-      echo "Error updating record: " . mysqli_error($conn);
-       }
-       */
-
-
-    //to get g_no 
-    $array_g_no=array();
-    $select_g_no="SELECT  groups.g_no FROM groups,teacher WHERE groups.tr_id=teacher.tr_id AND teacher.tr_id='$tr_id';";
+    $select_g_no="SELECT groups.g_no FROM groups,teacher WHERE groups.tr_id=teacher.tr_id AND teacher.tr_id='$tr_id';";
     $result = $conn->query($select_g_no);
     if($result->num_rows > 0) {
-      while($row = $result->fetch_assoc()) {
-        $g_no=$row['g_no'];
-        array_push($array_g_no,$g_no);
-      }
-    }//
+        array_push($errors_for_delete_tr,"this teacher can not be deleted, because he has a group.");
+    }
+    else{
+        /*********for teacher table********/
+        $sql_delete_tr="DELETE FROM teacher WHERE tr_id='$tr_id';";
+        $conn->query($sql_delete_tr);   
 
-    //to get p_no 
-    $array_p_no=array();
-    foreach($array_g_no as $g_no){
-        $group_number=$g_no;
-        $select_p_no="SELECT DISTINCT post.p_no FROM post,groups WHERE post.g_no=groups.g_no AND groups.g_no='$group_number';";
-        $result = $conn->query($select_p_no);
-        if($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-              $p_no=$row['p_no'];
-              array_push($array_p_no,$p_no);
-            } 
-          }
+        /*********for user table********/
+        /* $user_id=$_GET['deleteID'];
+        $sql_delete_user="DELETE FROM user WHERE user_id='$user_id';";
+        $conn->query($sql_delete_user);  */  
+
+        /*succes mmessage*/
+        $_SESSION['message']="teacher deleted successfully";
+        header('location: '.BASE_URL.'/UI/control_panel/teacher_control_panel.php'); 
+        $conn->close();
+        exit();
     }
 
-    /**delete from file table**/
-    if(count($array_p_no)>0){
-        for($i=0;$i<count($array_p_no);$i++){
-            //delete from file table by p_no
-            $deletefile_by_p_no=deleteFileBy_p_no($array_p_no[$i]);
-        }
-    }
-
-    /**delete from post table**/
-    for($i=0;$i<count($array_p_no);$i++){
-        //delete from post table by p_no
-        $deletepost_by_p_no=deletePostBy_p_no($array_p_no[$i]);
-    }
-    
-    /**delete from groups table**/
-    $deletegroup_by_tr_id="DELETE FROM groups WHERE tr_id='$tr_id';";
-    $conn->query($deletegroup_by_tr_id); 
-
-    /**delete from teacher table**/
-    $deleteteacher_by_tr_id="DELETE FROM teacher WHERE tr_id='$tr_id';";
-    $conn->query($deleteteacher_by_tr_id); 
-
-    /**delete from user table**/
-    $user_id=$_GET['deleteID'];
-    $sql_delete3="DELETE FROM user WHERE user_id='$user_id_delete';";
-    $conn->query($sql_delete3);   
-
-    /*succes mmessage*/
-   $_SESSION['message']="teacher deleted successfully";
-   header('location: '.BASE_URL.'/UI/control_panel/teacher_control_panel.php'); 
-   $conn->close();
-   exit();
-}
+ }
 
 /*********search***********/
 function searchTeacher($tr_name){ 
