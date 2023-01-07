@@ -52,7 +52,7 @@ include(MAIN_PATH."/controls/login_path.php");
     <div class="main_circle"></div>
     <img class="imagelogo" id="image" src="sources\image\logo_light.png" alt="no image"/>
     </div>
-        <p class="main_text">Welcome Back :) </p>
+        <p class="main_text"><b>Welcome</b> Back :) </p>
         <form method="post" action="" class="login-form"  onsubmit="return check_Enter(this)">
 
        
