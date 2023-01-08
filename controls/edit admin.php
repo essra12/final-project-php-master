@@ -35,15 +35,28 @@ else if (empty($_FILES['u_img']['name'])) {
 /**************/
 
     $username = $_POST['name'];
+    $userp1 =$_POST['pass'];/**edit profile page  داخل  password  القيمة المدخلة في حقل  */
+    $userp2 =$_POST['cof-pass'];/**edit profile page  داخل  confirm_password  القيمة المدخلة في حقل  */
     $userpass1=password_hash($_POST['pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
     $userpass2=password_hash($_POST['cof-pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
     $img=$_POST['u_img'];
 
-    if(empty($username)){
-        
-        $error="   *  please enter your name ";
- 
-     }else {
+    
+    if(empty($username)) 
+    {   
+        $error="* please enter  your name   "; 
+    }else if(empty($userp1)) 
+    {   
+        $error="* please enter  your password   "; 
+    }else if(empty($userp2)) 
+    {   
+        $error="* please enter  your password again  "; 
+    }else if($userp1!=$userp2)
+    {   
+        $error="* Password does not match  "; 
+    }
+    else
+    {
 
     $sqln="UPDATE user set user.full_name='$username' ,user.password='$userpass1', user.u_img='$img' WHERE user.full_name='$name';";
 

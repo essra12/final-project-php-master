@@ -8,7 +8,7 @@ include("../../controls/profiles.php");
 <head>
     <title>Teacher-profile</title>
     <meta name="descreption " content=" " />
-    <link rel="stylesheet" href="../../CSS/profiless.css"/>
+    <link rel="stylesheet" href="../../CSS/allprofiles.css"/>
      <!--icons-->
      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <script src="https://kit.fontawesome.com/e1ca29be31.js" crossorigin="anonymous"></script>

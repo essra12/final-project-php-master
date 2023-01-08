@@ -18,13 +18,13 @@
    margin-right:auto;
 }
 .divphoto{
-    height: 39vh;
+    height: 38vh;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 20px 20px 0px 0px;
 }
 .divdata{
-    height: 43vh;
+    height: 44vh;
     background-color: #222242;
     border-radius:0px 0px  20px 20px;
 
@@ -44,14 +44,14 @@ top: 8%;
 left: 45%;
 }
 span{
-    font-size: 35px;
+    font-size: 41px;
     position: absolute;
     top: 35%;
-    left: 35.5%;
+    left: 35.6%;
 }
 
 .Lablegroup,.LabelAssinaments,.LabelID{
-    font-size: 15px;
+    font-size: 18px;
     position: absolute;
     top: 40%;
     left: 35%;  
@@ -67,10 +67,20 @@ span{
     left: 35%; 
     color: white; 
     font-size: 25px;
-
-
 }
-.spe,.stspe{
+.name{
+    position: absolute;
+    top: 65%;
+    left: 42%;   
+}
+.spe{
+    position: absolute;
+    top: 72%;
+    left: 36%;   
+    color: white; 
+    font-size: 25px; 
+}
+.stspe{
     position: absolute;
     top: 72%;
     left: 35%; 
@@ -78,7 +88,7 @@ span{
     font-size: 25px;
 }
 .stname,.stspe{
-    padding-left: 25%;
+    padding-left: 20%;
 }
 .bt1{
     position: absolute;
@@ -125,27 +135,68 @@ font-size: 18px;
 }
 
 
+
+
+@media(max-width:1300px)
+{ 
+.photo{
+width: 14%;
+height: 20vh;
+position: absolute;
+top: 6%;
+left: 45%;
+}
+.name{
+    position: absolute;
+    top: 65%;
+    left: 40%;   
+}
+.spe{
+    position: absolute;
+    top: 72%;
+    left: 34%;   
+    color: white; 
+    font-size: 25px; 
+}
+ .stspe,.stname{
+     margin-left: 5%;
+ }
+
+
+}
+
+
 @media(max-width:912px)
 {  
-.name,.stname{
-   position: absolute;
-    top: 60%;
-    left: 35%; 
-    color: white; 
-    font-size: 20px;
-
-
-}
-.spe,.stspe{
+.name{
     position: absolute;
-    top: 68%;
-    left: 35%; 
-    color: white; 
-    font-size: 20px;
+    top: 65%;
+    left: 40%;  
+    color: rgb(255, 255, 255); 
+    font-size: 21px;  
 }
+.spe{
+        position: absolute;
+        top: 72%;
+        left: 31%;   
+        color: white; 
+        font-size: 21px; 
+}
+.stname,.stspe{
+    color: white; 
+    font-size: 21px;
+}
+.stspe{
+    position: absolute;
+    top: 72%;
+    left: 36%;
+}
+
+
+ 
 .bt1,.bt2{
     position: absolute;
-    top: 78%;
+    top: 81%;
 }
 span{
     font-size: 35px;
@@ -173,26 +224,22 @@ top: 0%;
 
 @media(max-width:682px)
 {  
-.name,.stname{
-   position: absolute;
-    top: 58%;
-    left: 32%; 
-    color: white; 
-    font-size: 20px;
-
-}
-.spe,.stspe{
+   .name{
     position: absolute;
-    top: 65%;
-    left: 32%; 
-    color: white; 
-    font-size: 20px;
-
-}
-.stspe,.stname{
-    margin-left: 2%;
-}
-
+    top: 61%;
+   }
+  .spe{
+    position: absolute;
+    top: 67%;
+  }
+    .stname{
+        position: absolute;
+        top: 61%;
+    }
+    .stspe{
+        position: absolute;
+        top: 67%;
+    }
 span{
     font-size: 35px;
     position: absolute;
@@ -248,18 +295,46 @@ top: 0%;
 { 
     .container{
         margin-top: 15%;
-    } 
+    }
+
+    .name{
+        color: #ffa734;
+    }
+    .name{
+        position: absolute;
+        top: 61%;
+        left: 33%;  
+        color: rgb(255, 255, 255); 
+        font-size: 21px;  
+    }
+    .spe{
+            position: absolute;
+            top: 67%;
+            left: 22%;   
+            color: white; 
+            font-size: 21px; 
+    }
+    .stname{
+        position: absolute;
+        top: 61%;
+    }
+    .stspe{
+        position: absolute;
+        top: 67%;
+    }
+    /* 
 .name,.stname{
    position: absolute;
-    top: 58%;
+    top: 66%;
     left: 25%; 
-    color: white; 
+    color: rgb(255, 255, 255); 
     font-size: 20px;
 
 }
+
 .spe,.stspe{
     position: absolute;
-    top: 65%;
+    top: 72%;
     left: 25%; 
     color: white; 
     font-size: 20px;
@@ -268,7 +343,7 @@ top: 0%;
 .stspe,.stname{
     margin-left: 11%;
 }
-
+*/
 span{
     font-size: 35px;
     position: absolute;
@@ -314,15 +389,6 @@ span{
 }}
 
 
-@media(max-width:1300px)
-{ 
-.photo{
-width: 14%;
-height: 20vh;
-position: absolute;
-top: 6%;
-left: 45%;
-}}
 
 
 @media(max-width:1100px)
@@ -344,4 +410,7 @@ position: absolute;
 top: 0%;
 left: 40%;
 
-}}
+}
+
+
+}
