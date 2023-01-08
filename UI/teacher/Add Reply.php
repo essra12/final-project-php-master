@@ -113,7 +113,7 @@ if ($result_g_name->num_rows == 1) {
   <span class="tooltiptext">Delete Enquiry</span>
 </div>
 
-<p><?php echo $Info['e_content'] ?></p>
+<p class="content"><?php echo $Info['e_content'] ?></p>
 
 <!-- <input  type="hidden" name="e_no" value="<?php //echo $Info['e_no'] ?>"> -->
 
@@ -125,7 +125,7 @@ if ($result_g_name->num_rows == 1) {
 
 <!--------------Delete Reply---------------------->
 <div class="card-container">
-<p class="lable"><?php echo $reply_Info['r_content'] ?></p>
+<p class="lable content"><?php echo $reply_Info['r_content'] ?></p>
 <a class="icon_x" onclick="return confirmDelete()"  href="Add Reply.php?deleteReply=<?php echo $reply_Info['r_no'];?>"><i id="deleteicon1"  class="las la-times-circle"></i></a> 
 <!--------------Edit Reply--------------_-------->  
 <a class="icon_x" onclick="return confirmDelete()"  href="Add Reply.php?deleteReply=<?php echo $reply_Info['r_no'];?>"><i id="Editicon" class="las la-pen ticon tr"></i></a> 
