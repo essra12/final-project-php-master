@@ -85,7 +85,6 @@ if ($result_g_name->num_rows == 1) {
 
 <div class="header-div">
  <h1>Assignments</h1>
-
  </div>
  <!--  <form action="" method="POST"  onsubmit="return check_Enter(this)">  
           
