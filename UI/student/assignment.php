@@ -80,13 +80,6 @@ if ($result_g_name->num_rows == 1) {
 
 <div class="header-div">
  <h1>Assignments</h1>
- <?php if($role=="teacher"):?>
-  <div id="mybutton">
-    <div>
-       <a href="../teacher/add asignment.php"><button class="btn-create">+</button></a>
-    </div>
-  </div>
-  <?php endif;?>
  </div>
  <!-----------------Dynamically Create Card-----------------> 
  <main>
