@@ -151,9 +151,14 @@ endif;
 
             <!--menu profile photo -->
             <div class="sidebar-avartar" style="margin-top:20px">
+            <div>
+                    <a href="..\student\student-profile.php" alt="" style="width: 70px; height:70px ;"><img src="<?php echo BASE_URL . '/sources/image/'.$img  ?>" alt=" " style="width: 70px; height:70px ;"></img></a>
+                </div>
+                <?php if($role=="teacher"):?>
                 <div>
                     <a href="..\teacher\profile teacher.php" alt="" style="width: 70px; height:70px ;"><img src="<?php echo BASE_URL . '/sources/image/'.$img  ?>" alt=" " style="width: 70px; height:70px ;"></img></a>
                 </div>
+                <?php endif;?>
 
                 <div class="avartar-info">
                     <div class="avartar-text">

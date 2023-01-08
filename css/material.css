@@ -163,7 +163,7 @@ a:is(:link,:active,:hover).active{
   .card {
     position: relative;
     display: block;
-    height: 100%;  
+    height: 60%;  
     border-radius: calc(var(--curve) * 1px);
     overflow: hidden;
     text-decoration: none;
@@ -231,7 +231,7 @@ a:is(:link,:active,:hover).active{
   }
   
   .card__title {
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin: 0 0 .3em;
     
   
@@ -282,47 +282,35 @@ a:is(:link,:active,:hover).active{
   width: 100%;
 }
 
-
-
-  
-  @media only screen and (min-width: 300px) {
+@media screen and (max-width: 1000px)  {
    
-    .cards{
-        
-        grid-template-columns: repeat(1, minmax(200px, auto)); 
-        width: 60%;
-     
-  } 
+      
+  .cards {
+   grid-template-columns: repeat(2, minmax(200px, auto)); 
+  }
   h1{
-    font-size: 3.5em;
-   
+   font-size: 2.5em;
+  
+   }
+   .photo-div{
+     width: 30%;
+     
     }
-  
-    
-  }
-
-  @media only screen and (min-width: 660px) and (max-width: 1060px){
-  
-    .cards{
-        
-        grid-template-columns: repeat(2, minmax(200px, auto)); 
-        width: 70%;
-     
-  }
-
-
-  } 
-  @media only screen and (min-width: 1025px) {
-    .cards{
-        
-        grid-template-columns: repeat(3, minmax(200px, auto)); 
-        width: 80%;
-     
-  }
  
+}
 
-  } 
 
+@media only screen and (max-width:610px) {
+
+.cards {
+ grid-template-columns: repeat(1, minmax(200px, 90%)); 
+ margin-left: 20%;
+}
+
+}
+
+  
+  
 
 
   
