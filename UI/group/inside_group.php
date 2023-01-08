@@ -35,14 +35,8 @@ if ($result->num_rows == 1) {
     
     }
 }
-/////////////////////////////////
-if(isset($_POST['leave'])){
-    global $conn;
-    $sql="DELETE FROM `student_group` WHERE student_group.stu_id=$stu_id  AND student_group.g_no=$groupNumber;";
-    $pre=$conn->query($sql);
-}
 endif;
-///////////////////////////
+/////////////////////////////////
 if($role=="teacher"):
     /*to get user id from user -> student*/
     $sql="SELECT tr_id FROM user,teacher Where user.user_id=teacher.user_id AND user.user_id='$user_id';";
@@ -55,6 +49,20 @@ if($role=="teacher"):
     }
     endif;
     ///////////////////////////
+     /*******************************************************/
+  /**********************leave section*******************/
+  if($role==""):
+  if(isset($_POST['leave'])){
+    $groupNumber=$_SESSION['g_no'];
+    global $conn;
+    $sql="DELETE FROM `student_group` WHERE student_group.stu_id=$stu_id  AND student_group.g_no=$groupNumber;";
+    $pre=$conn->query($sql);
+    if(mysqli_query($conn, $sql)){
+        header('location: '.BASE_URL.'/UI/group/main page for group.php');
+        $conn->close();  
+        exit();}
+}
+endif;
    
 
 ?>
@@ -188,16 +196,16 @@ if($role=="teacher"):
                     </a>
                 </ul>
             </div>
-     <!--menu admen -->
-       <?php if($role==""):?>
+        <!--*************************************************************************** -->
+        <?php if($role==""):?>
         <!--leave button -->
-        <div class="sidebar-card-btn">
-            <a onclick="return confirmDelete()" href="<?php echo BASE_URL . '/UI/group/main page for group.php'?>">
-                 <button  class="btn btn-admin" name="leave">Leave</button>
-            </a>
-        </div>
+           <div class="sidebar-card-btn">
+            <form action="inside_group.php" method="POST">
+            <input  class="btn btn-admin" type="button" value="Leave" name="leave" onclick="return confirmDelete()"> 
+            </form>
+             </div>
         <?php endif;?>
-        
+        <!--*************************************************************************** -->
     </div>
   </div>
     <header class="main_icon">

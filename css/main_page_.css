@@ -202,7 +202,7 @@ a:is(:link,:active,:hover).active{
     left: 50%;
     transform: translate(-50% , -50%);
     width:55%;
-    height: auto;
+    height: 70%;
     display: block; 
     
   }
@@ -221,9 +221,7 @@ a:is(:link,:active,:hover).active{
     font-size: 1.5em;
     }
   /*******************************************************************************************/
-  .photo-div{
-   width: 30%;
-  }
+ 
 
   .search input[type=text] {
   font-size: 12px;
@@ -297,7 +295,7 @@ a:is(:link,:active,:hover).active{
     display: flex;
     align-items: center;
     gap: 2em;
-    padding: 2em;
+    padding: 1.5em 3em;
     border-radius: calc(var(--curve) * 1px) 0 0 0;    
     background-color: var(--surface-color);
     transform: translateY(-100%);
@@ -338,41 +336,43 @@ a:is(:link,:active,:hover).active{
         cursor: pointer;
       }  
   
-  
     
-  @media only screen and (min-width: 300px) {
    
-    .cards{
-        
-        grid-template-columns: repeat(1, minmax(200px, auto)); 
-        width: 100%;
-     
-  } 
-  h1{
-    font-size: 3.5em;
-   
-    }
-   
-  }
 
-  
-  @media only screen and (min-width: 660px) and (max-width: 1060px){
-  
-    .cards{
-        
+   @media screen and (max-width: 1000px)  {
+   
+      
+       .cards {
         grid-template-columns: repeat(2, minmax(200px, auto)); 
-        width: 100%;
-     
-  }
-  } 
-  @media only screen and (min-width: 1025px) {
-    .cards{
-        
-        grid-template-columns: repeat(2, minmax(200px, auto)); 
-        width: 60%;
        }
-  
-  } 
+       h1{
+        font-size: 2.5em;
+       
+        }
+        .photo-div{
+          width: 30%;
+          
+         }
+      
+   }
+   
+   
+   @media only screen and (max-width:610px) {
+   
+    .cards {
+      grid-template-columns: repeat(1, minmax(200px, 90%)); 
+      margin-left: 20%;
+     }
+     .photo-div{
+      display: none;
+      
+     }
+   }
+
+   
+   /***************************************************** Teacher/Student/File_Control_Panel Style ***********************************************************/
+   
+
 
   /*******************************************************************************************************/
   /**********************Hovering for cards***************************************************************/
