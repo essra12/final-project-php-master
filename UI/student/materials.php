@@ -86,9 +86,15 @@ if ($result_g_name->num_rows == 1) {
 <!------------------------------------>
 <!-------------------- materials -------------------------> 
 
-<div class="header-div">
-                 
-           <h1>Materials </h1>
+<div class="header-div">              
+ <h1>Materials </h1>
+ <?php if($role=="teacher"):?>
+  <div id="mybutton">
+    <div>
+       <a href="../teacher/add material.php"><button class="btn-create">+</button></a>
+    </div>
+  </div>
+  <?php endif;?>
  </div>
  <!-----------------Dynamically Create Card-----------------> 
  <main>
@@ -112,7 +118,7 @@ if ($result_g_name->num_rows == 1) {
     <?php $datetime=strtotime($file['Datatime'])?>
         <h6 class="card__time"><i class="las la-clock"></i><?php echo  date("d-m-Y h:i a",$datetime)?></h6>
 
-        <img src="../../sources/image/file.png" class="card__image" alt="" />
+        <img src="../../sources/image/create_add_photo.png" class="card__image" alt="" />
        <div class="card__overlay">
        <div class="card__header">
           <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     

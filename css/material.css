@@ -129,8 +129,8 @@ a:is(:link,:active,:hover).active{
   
   /************************************************************************************************************************************/
   .header-div{
-    padding: 5%;
-    margin: 4rem 4rem 0rem 4rem;
+    padding: 1%;
+    margin: 4rem 8rem 0rem 8rem;
     position: relative;
     display: flex;
     justify-content: center;
@@ -144,6 +144,37 @@ a:is(:link,:active,:hover).active{
     font-size: 4.5em;
     }
   /*******************************************************************************************************/
+  .btn-create{
+    
+    margin-left: 20%;
+    margin-top: 60%;
+    border: none;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    font-size: 35px;
+    color: #FFFFFF;
+    font-style: bold;
+    background: #FFBA5F;
+    box-shadow: var(--shadow2);
+    transition: background-color 0.3s;
+  }
+  
+  .btn-create:hover{
+    color: #000000;
+    background-color: #fff;
+    cursor: pointer;
+    border: 2px solid #222242;
+  }
+  .btn-create a{
+    color: #ffffff;
+  }
+  .btn-create a:hover{
+    color: #222242;
+  }
+  
+
+
   /*******************************************************************************************************/
   .container{
     display: flex;
@@ -163,7 +194,7 @@ a:is(:link,:active,:hover).active{
   .card {
     position: relative;
     display: block;
-    height: 60%;  
+    height: 80%;  
     border-radius: calc(var(--curve) * 1px);
     overflow: hidden;
     text-decoration: none;
