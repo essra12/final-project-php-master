@@ -250,7 +250,7 @@ ul {
   
 /****Button*****/
 .container_wrapper .btn_post{
-    margin:3rem 0rem 0rem 0rem;
+    margin:1rem 0rem 0rem 0rem;
 }
 .container_wrapper .btn_post button{
     border: 2px double var(--vdarkblue);
@@ -272,7 +272,7 @@ button[type="submit"]:hover {
 
  /****Buttons in join page*****/
 .main-container .btn_post{
-    margin:3rem 0rem 0rem 0rem;
+    margin:1rem 0rem 0rem 0rem;
 }
 .main-container .btn_post button{
     border: 2px double var(--vdarkblue);
@@ -426,7 +426,10 @@ button[type="submit"]:hover {
 }
 /**********************************************************************/
 /********************:)the end ***************************************/
-
+p#demo {
+    color: var(--red);
+    text-align: center;
+}
    
 
 

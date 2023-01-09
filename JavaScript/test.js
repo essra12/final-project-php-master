@@ -69,7 +69,8 @@ fileInput.addEventListener("change", () => {
 function check_Enter() {
 const title = document.getElementById("title").value;
 if(title==""){
-    alert(" please enter Title");
+    /* alert(" please enter Title"); */
+    document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;please enter Title."; 
     return false;
 }
 
