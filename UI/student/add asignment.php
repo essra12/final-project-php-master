@@ -81,9 +81,7 @@ if ($result_g_name->num_rows == 1) {
           <!----------------->
 
           <!-----students--->
-          <?php if ($_SESSION['role']=="teacher"):?> 
           <li><a href="<?php echo BASE_URL . '/UI/teacher/testreqest.php' ?>" style="font-size: 1.5rem;"><i class="las la-user-friends"></i></a></li>
-          <?php endif; ?>  
           <!----------------->
           
           <!------HOME------>
@@ -132,9 +130,9 @@ if ($result_g_name->num_rows == 1) {
 
         <form action="" method="POST" enctype='multipart/form-data' onsubmit="return check_Enter(this)">
             
-         <!-- Id field -->
+         <!-- text field -->
          <div class="inputs ">
-            <input type="text" name="text" disabled="disabled" style=" border: none;" value="<?php echo $an_data?>">
+            <textarea type="text" name="text" disabled="disabled" style=" border: none;" rows="3"><?php echo $an_data?></textarea>
           </div>
           <!------------------>
 
@@ -148,14 +146,14 @@ if ($result_g_name->num_rows == 1) {
           <!-- title field -->
           <div class="inputs title">
             <label style="color: #222242;">Title</label>
-            <input type="text" name="title" maxlength="50" id="title" value="<?php echo $title;?>">
+            <textarea type="text" name="title" maxlength="225" id="title" rows="2"><?php echo $title;?></textarea>
           </div>
           <!------------------>
           
           <!-- description field -->
           <div class="inputs description">
             <label style="color: #222242;">Description<span style="font-size: 16px;">(optional)</span></label>
-            <textarea type="text" name="description" id="description" maxlength="250"  rows="4"><?php echo $description;?></textarea>
+            <textarea type="text" name="description" id="description"  rows="4"><?php echo $description;?></textarea>
           </div>
           <!------------------>
 
@@ -180,7 +178,7 @@ if ($result_g_name->num_rows == 1) {
 
               <!-- Button -->
               <div class="btn_post">
-                <button type="submit" name="add_assignment" >POST</button>
+                <button type="submit" name="add_assignment" >Submit</button>
               </div>
               <!----------->
 

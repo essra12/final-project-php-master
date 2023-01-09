@@ -100,7 +100,7 @@ include(MAIN_PATH."/controls/add.php");
     
           <!-- Button -->
           <div class="btn_post">
-            <button type="submit" name="add_material" >POST</button>
+            <button type="submit" name="add_material" >Submit</button>
           </div>
           <!----------->
 

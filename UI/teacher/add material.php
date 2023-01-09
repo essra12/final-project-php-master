@@ -135,7 +135,7 @@ if ($result_g_name->num_rows == 1) {
 
             <!-- Button -->
             <div class="btn_post">
-              <button type="submit" name="add_material" >POST</button>
+              <button type="submit" name="add_material" >Submit</button>
             </div>
             <!----------->
 

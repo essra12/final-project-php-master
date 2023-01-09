@@ -113,7 +113,7 @@ include(MAIN_PATH."/controls/students.php");
     const regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
       if(!regName.test(NAME)){
           /* alert('the name is incorrect, Please rewrite your full name (first and last name).'); */
-          document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;the name is incorrect, Please rewrite your full name (first and last name)."; 
+          document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;the name is incorrect<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please rewrite your full name <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(first and last name)."; 
           document.getElementById('full_name').focus();
           return false;
       }
