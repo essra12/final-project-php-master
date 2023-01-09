@@ -88,8 +88,47 @@ include("../../controls/Edit-TeacherPH.php");
     width: 100%;
     margin: 0;
    }
-   .form-field-signup{
+  
+   /**------------------------- */
+
+   
+   .login-container{
+    padding: 2%;
+    margin-top: 2%;
+    width: 30%;
+    height: 90vh;
+
    }
+   .login-form{
+    width: 100%;
+    margin: 0;
+    border: 1px solid white ;
+   }
+ 
+
+.profile-pic-div{
+    width:135px ;
+     height:135px  ; 
+     position: relative;
+     left: 50%;
+     top: 88%;  
+     transform: translate(-50% ,-50%);
+    border-radius: 100%;
+    overflow: hidden;
+    border: 1px solid grey;
+    margin-top: 5%;
+margin-bottom: 0;
+
+}
+
+#photo{
+    height: 100%;
+    width: 100%;
+}
+
+#file{
+    display: none;
+}
    
 @media only screen and (max-width:800px) {   
     .login-container{

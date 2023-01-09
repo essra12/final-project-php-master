@@ -83,13 +83,39 @@ include("../../controls/edit-studentC.php");
    .login-container{
     padding: 2%;
     width: 30%;
+    height: 100vh;
+
    }
    .login-form{
     width: 100%;
     margin: 0;
-    
+    border: 1px solid white ;
    }
-   
+ 
+
+.profile-pic-div{
+    width:130px ;
+     height:130px  ; 
+     position: relative;
+     left: 50%;
+     top: 88%;  
+     transform: translate(-50% ,-50%);
+    border-radius: 100%;
+    overflow: hidden;
+    border: 1px solid grey;
+    margin-top: 5%;
+margin-bottom: 0;
+
+}
+
+#photo{
+    height: 100%;
+    width: 100%;
+}
+
+#file{
+    display: none;
+}
 @media only screen and (max-width:800px) {   
     .login-container{
     width: 70%;
@@ -100,7 +126,7 @@ include("../../controls/edit-studentC.php");
 <body >
 
   <div class="login-container">
-      <p class="signup_text" style="margin-left:25% ;"><b>Edit Student</p>
+  <p class="signup_text" style="margin-left:25% ;"><b>Edit Student</p>
     <form class="login-form"  method="POST" name="signup_form" enctype="multipart/form-data"  onsubmit="return check_Enter(this)">
 
   <!-- For circular image -->

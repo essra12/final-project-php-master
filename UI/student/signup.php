@@ -71,6 +71,8 @@ include(MAIN_PATH."/controls/students.php");
       </div>
         
       <!-- For Errors -->
+      <p id="demo"></p>
+
       <?php if(count($errors)> 0): ?>
               <div class="msg error" style="color: #D92A2A; margin-bottom: 20px; list-style-type: none; "> 
                   <?php foreach($errors as $error): ?>
@@ -99,33 +101,40 @@ include(MAIN_PATH."/controls/students.php");
     const pass2=document.getElementById("conf_pass").value;
     const specialization=document.getElementById("spe").value;
     if(id==""){
-      alert(" Please enter ID");
+      /* alert(" Please enter ID"); */
+      document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;Please enter ID."; 
       return false
     }
     if(NAME==""){
-      alert(" Please enter name");
+      /* alert(" Please enter name"); */
+      document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;Please enter your name."; 
       return false
     }
     const regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
       if(!regName.test(NAME)){
-          alert('the name is incorrect, Please rewrite your full name (first and last name).');
+          /* alert('the name is incorrect, Please rewrite your full name (first and last name).'); */
+          document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;the name is incorrect, Please rewrite your full name (first and last name)."; 
           document.getElementById('full_name').focus();
           return false;
       }
     else if(pass==""){
-      alert(" Please enter password ");
+     /*  alert(" Please enter password "); */
+     document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;Please enter Password."; 
       return false
     }
     if(pass2==""){
-      alert(" Please enter password again");
+      /* alert(" Please enter password again"); */
+      document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;Please enter password again."; 
       return false
     }
     if(pass != pass2){
-      alert(" the password is not equal,Please enter the correct value");
+      /* alert(" the password is not equal,Please enter the correct value"); */
+      document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;the password is not equal,Please enter the correct value."; 
       return false
     }
     if(specialization==""){
-      alert(" Please enter specialization ");
+      /* alert(" Please enter specialization "); */
+      document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;Please enter specialization."; 
       return false
     }
   }
@@ -154,7 +163,7 @@ include(MAIN_PATH."/controls/students.php");
     }
   });
 
-  </script>
+</script>
 
 </body>
 </html>

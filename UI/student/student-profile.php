@@ -11,7 +11,7 @@ include("../../controls/profiles.php");
     <!--for logo-->
     <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
     <meta name="descreption " content=" " />
-    <link rel="stylesheet" href="../../CSS/profiless.css"/>
+    <link rel="stylesheet" href="../../CSS/allprofiles.css"/>
      <!--icons-->
      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <script src="https://kit.fontawesome.com/e1ca29be31.js" crossorigin="anonymous"></script>
@@ -23,14 +23,11 @@ include("../../controls/profiles.php");
     .divdata{
         border-radius:0px 0px  20px 20px;
     }
-    #group{
-    position: absolute;
-    top: 35%;
-    left: 35.5%; 
-}
+   
 .divphoto{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
 </style>
     <html>
      <body>
