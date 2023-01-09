@@ -109,7 +109,7 @@ if ($result_g_name->num_rows == 1) {
                     <input type="date" id="date" name="due_date" <?php echo $due_date; ?> required />
                 </div>
                 <div class="grade_input">
-                    <label style="color: #222242;">Out Of</label>
+                    <label style="color: #222242;">point</label>
                     <input type="text" name="an_grade" id="grade" maxlength="5" onkeypress="return isNumberKey(this, event);" value="<?php echo $grade; ?>"/>
                 </div>
             </div>

@@ -69,7 +69,7 @@ include(MAIN_PATH."/controls/admins.php");
                     <!-- For circular image -->
                     <div class="profile-pic-div admin">
                         <img src="../../sources/image/blue_rectangle_with_user.JPG" id="photo" height="200" width="200">
-                        <input type="file" id="file" name="u_img">
+                        <input type="file" id="file" accept="image/*" name="u_img">
                         <label for="file" id="uploadBtn">Choose Photo</label>
                     </div>
                     <!----------------------->

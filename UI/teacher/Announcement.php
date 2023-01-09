@@ -151,7 +151,7 @@ $today = strtotime($todays_date);
               <div style="height: 15px;"></div>
               <!-- deu date -->
               <p id="deu_date"class="card__time due_date" >Due Date&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;"><?php echo date("d-m-Y",$expiration_date)?></span>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Out Of&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;"><?php echo $announcement['grade']?></span></p>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Point&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;"><?php echo $announcement['grade']?></span></p>
               <!-------------->
             <!--------------------------->
           <?php endif;?>
@@ -163,7 +163,7 @@ $today = strtotime($todays_date);
             <?php if(!empty($announcement['due_date'])):?>
               <!-- deu date -->
               <p id="deu_date"class="card__time due_date" >Due Date&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;"><?php echo date("d-m-Y",$expiration_date)?></span>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Out Of&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;"><?php echo $announcement['grade']?></span></p>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Point&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;"><?php echo $announcement['grade']?></span></p>
               <!-------------->
               <!-------------------------deadline--------------------------------->
               <?php
