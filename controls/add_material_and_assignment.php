@@ -116,19 +116,14 @@ function selectStu_group(){
       $g_number = $_GET["g_no"];
     } */
     /******************/
- 
-   
-  global $user_id;
- 
+    global $user_id;
     $sql_select_stu_id = "SELECT  stu_id FROM `student` WHERE student.user_id ='$user_id';";
     $result = $conn->query($sql_select_stu_id);
     if ($result->num_rows == 1) {
         while($row = $result->fetch_assoc()) {
           $stu_id=$row["stu_id"];
-          
         }
     }
-
     $sql_select_stu_group = "SELECT DISTINCT stu_group FROM `student_group`,groups WHERE student_group.stu_id ='$stu_id' AND student_group.g_no ='$groupNumber';";
     $result = $conn->query($sql_select_stu_group);
     if ($result->num_rows == 1) {
@@ -159,7 +154,7 @@ if(isset($_POST['add_assignment'])){
 
     if(isset($_GET["an_no"])){
       $an_no=$_GET["an_no"];
-      $sql_insert_post = "INSERT INTO `post`(`title`, `description`, `stu_group`, `g_no`,`an_no`) VALUES ('$title','$description','$stu_group',null,'$an_no');";
+      $sql_insert_post = "INSERT INTO `post`(`title`, `description`, `stu_group`, `g_no`,`an_no`) VALUES ('$title','$description','$stu_group','$groupNumber','$an_no');";
       if(mysqli_query($conn, $sql_insert_post)){
       }
       else{
