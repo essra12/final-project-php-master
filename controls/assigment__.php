@@ -29,7 +29,7 @@ function infoforstudent(){
 function selectpostfile(){
 $group_no=$_SESSION['g_no'];
 global $conn;
-$sql="SELECT  user.full_name,student.stu_id,post.title,post.Datatime,post.p_no from user,student,student_group,post,file WHERE 
+$sql="SELECT  user.full_name,user.u_img,student.stu_id,post.title,post.Datatime,post.p_no from user,student,student_group,post,file WHERE 
 user.user_id=student.user_id and student.stu_id=student_group.stu_id and student_group.stu_group=post.stu_group and post.p_no=file.p_no and student_group.g_no='$group_no'";
 $pre=$conn->prepare($sql);
 $pre->execute();
