@@ -25,8 +25,8 @@ if ($result->num_rows == 1) {
     <link rel="stylesheet" href="../../css/main_page_.css">
     <!--icon8-->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-     <!--icon8-->
-     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+     <!--x icon-->
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
     
      <style>
         * {
@@ -35,6 +35,7 @@ if ($result->num_rows == 1) {
       input:focus {
     outline: none;
   }
+ 
     </style>
          
 </head>
@@ -186,7 +187,7 @@ if ($result->num_rows == 1) {
 <div id="section" class="container">      
  <div class="cards">
  <?php foreach($groupsInfoForTeacher as $key => $Info):?>
-   <div href="" class="card">
+   <div href="" class="card">       
      <img src="../../sources/image/background.png" class="card__image" alt="" />
      <div class="card__overlay">
        <div class="card__header">
@@ -194,7 +195,8 @@ if ($result->num_rows == 1) {
          
          <div class="card__header-text">
          <?php $_SESSION['g_no']=$Info['g_no']?>
-           <a href="inside_group.php?data=<?= $Info['g_name']?>&number=<?= $Info['g_no']?>"  style=" color:#000; text-decoration:none;"><h3 class="card__title"><?php echo $Info['g_name'] ?></h3> </a>        
+           <a href="inside_group.php?data=<?= $Info['g_name']?>&number=<?= $Info['g_no']?>"  style=" color:#000; text-decoration:none;"><h3 class="card__title"><?php echo $Info['g_name'] ?></h3> </a> 
+           <a class="child" href="" onclick="return confirmDelete()"><i id="icon2" class="fa-solid fa-xmark"></i></a>       
          </div>
        </div>
      </div>
