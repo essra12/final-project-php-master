@@ -255,7 +255,7 @@ endif;
                 <div class="dropdown">
                     <button class="btn-create">+</button>
                     <div>
-                        <a href="../teacher/add.php?g_no=<?= $group_no?>">Material</a>
+                        <a href="../teacher/add material.php?g_no=<?= $group_no?>">Material</a>
                         <a href="../teacher/add announcement.php?g_no=<?= $group_no?>">Announcement</a>
                         <a href="../teacher/add_announcement_assignment.php?g_no=<?= $group_no?>">Assignment</a>
                     </div>
