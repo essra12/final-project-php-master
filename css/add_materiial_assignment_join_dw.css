@@ -131,7 +131,7 @@ a:is(:link,:active,:hover).active{
 /***********************************************main container for (add material)*************************************************/
 
 .main-container{
-    margin: 2rem 8rem 0rem;
+    margin: 2rem 4rem 0rem;
 }
 .main-container .title h1{
     font-size: 30px;
@@ -169,6 +169,7 @@ a:is(:link,:active,:hover).active{
     border-bottom: 1px solid var(--vdarkblue);
     font-size: 16px;
     margin-top: 10px;
+    resize: none;
 }
 
 /*****************************attach field******************************************/
@@ -185,10 +186,10 @@ a:is(:link,:active,:hover).active{
 
 .container {
     background-color: #ffffff;
-    width: 90%;
+    width: 100%;
     max-width: 34.37em;
     position: relative;
-    margin: 3.12em auto;
+    margin: 0em auto 3.5em;
     padding: 3.12em 1.25em;
     border-radius: 15px;
     box-shadow: 0 1.25em 2.18em rgb(1, 28, 71, 0.3);
@@ -204,8 +205,8 @@ input[type="file"] {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
     color: #ffffff;
     text-align: center;
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     padding: 2rem;
     margin: auto;
     border-radius:100%;
@@ -214,6 +215,7 @@ input[type="file"] {
 .lab i{
     -webkit-transition: all .3s ease-out;
     transition: all .3s ease-out;
+    font-size: 16px;
 }
 
 .lab:hover i{
@@ -222,9 +224,11 @@ input[type="file"] {
 }
 
 #num-of-files {
-    font-weight: 400;
     text-align: center;
     margin: 1.25em 0 1.87em 0;
+    font-size: 15px;
+    margin-top: 30px;
+    
 }
 
 /**file list***/
@@ -249,10 +253,12 @@ ul {
 }
   
 /****Button*****/
-.container_wrapper .btn_post{
+.btn_post{
     margin:1rem 0rem 0rem 0rem;
+    text-align: center;
 }
-.container_wrapper .btn_post button{
+
+.btn_post.ass button{
     border: 2px double var(--vdarkblue);
     padding: 10px 24px;
     color: #fff;
@@ -310,35 +316,20 @@ button[type="submit"]:hover {
 }
 
 /***********************************************main container just for (add assignment)*************************************************/
-
+/**********/
+.left_side{
+    float: left;
+    width: 49%;
+    margin-right: 2rem;
+}
+.right_side{
+    float: left;
+    width: 46%;
+}
 .main-container .inputs.name input{
   border: none;
 }
 
-
-@media only screen and (max-width:640px) {
-    .main-container{
-        margin: 2rem 6rem 0rem;
-    }
-}
-
-@media only screen and (max-width:582px) {
-    .main-container{
-        margin: 2rem 4rem 0rem;
-    }
-}
-@media only screen and (max-width:513px) {
-    .main-container .title h1{
-        font-size: 40px;
-    }
-    .main-container .inputs label{
-        font-size: 24px;
-    }
-    .main-container .inputs input{
-        font-size: 16px;
-    }
-
-}
 /**********************************************************************/
 /********************:) **********************************************/
 /**file list for download page ***/
@@ -428,11 +419,55 @@ button[type="submit"]:hover {
 /********************:)the end ***************************************/
 p#demo {
     color: var(--red);
-    text-align: center;
+    text-align: left;
 }
    
+@media only screen and (max-width:1330px) {
+    .container li {
+        font-size: 12px;
+        margin-bottom: 1em;
+        padding: 1em 1em;
+        display: flex;
+        justify-content: space-between;
+    }
+    .container li i{
+        font-size: 18px;
+        margin-right: 20px;
+    }
 
+}
+@media only screen and (max-width:930px) {
+    .left_side{
+        float: none;
+        width: 100%;
+    }
+    .right_side{
+        float: none;
+        width: 100%;
+    }
+}
 
+@media only screen and (max-width:640px) {
+    .main-container{
+        margin: 2rem 6rem 0rem;
+    }
+}
 
+@media only screen and (max-width:582px) {
+    .main-container{
+        margin: 2rem 4rem 0rem;
+    }
+}
+@media only screen and (max-width:513px) {
+    .main-container .title h1{
+        font-size: 28px;
+    }
+    .main-container .inputs label{
+        font-size: 18px;
+    }
+    .main-container .inputs input{
+        font-size: 14px;
+    }
 
+}
 
