@@ -183,14 +183,26 @@ a:is(:link,:active,:hover).active{
 }
 
 /******************************************Just for add announcement*********************************************/
+.main-container.announcement{
+    margin: 2rem 12rem 0rem;
+}
 .main-container .inputs.announcement label{
     display: block;
     font-size: 20px;
     font-weight: bold;
 }
-.container_text_input .text_input{
+.main-container .inputs.announcement .text_input{
     background: var(--vvlightblue);
+    padding: .8rem;
+    border-radius: 25px;
+    font-size: 16px;
 }
+.main-container .inputs.announcement .text_input textarea{
+    background: var(--vvlightblue);
+    padding-left: .8rem;
+    font-size: 16px;
+}
+
 /********************************Just for add assignment announcement*******************************************/
 
 .main-container .inputs.assignment_announcement label{
