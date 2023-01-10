@@ -53,11 +53,9 @@ if ($result->num_rows == 1) {
           <!-------logo------>
           <li><div class="brand-title"><img src="../../sources/image/logo_dark.png" style="width: 100px;" /></div></li>
           <!----------------->
-
       </ul>
       <div class="navbar-links">
         <ul>
-          
           <!------HOME------>
           <li><a href="<?php echo BASE_URL . '/UI/group/main page for group.php' ?>" style="font-size: 1.5rem;"><i class="las la-home"></i></a></li>
           <!---------------->
@@ -218,13 +216,23 @@ if ($result->num_rows == 1) {
 <!-------------------------------------------------------------------->    
 <!-- java script for current date -->
     <script>
-        const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sept","Oct","Nov","Dec"];
-            var dt = new Date();
-            let name = month[dt.getMonth()];
-           /*  var date = dt.getDate()+'-'+name+'-'+dt.getFullYear(); */
-            var date =name+'   '+dt.getDate()+','+dt.getFullYear();
-            document.getElementById('date').innerHTML=date;
 
+    /********for sidebar (highlights items after click it)**********/
+    const activePage = window.location.pathname;
+    const navLinks = document.querySelectorAll('.navbar-links li a').forEach(link => {
+    if(link.href.includes(`${activePage}`)){
+        link.classList.add('active');
+        console.log(link);
+    }
+    })
+    /****************************************************************/
+    const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sept","Oct","Nov","Dec"];
+    var dt = new Date();
+    let name = month[dt.getMonth()];
+    /*  var date = dt.getDate()+'-'+name+'-'+dt.getFullYear(); */
+    var date =name+'   '+dt.getDate()+','+dt.getFullYear();
+    document.getElementById('date').innerHTML=date;
+   /**********************check Enter******************************/
  function check__Enter() {
    search = document.getElementById("search").value;
    Create = document.getElementById("Create").value;
@@ -248,6 +256,7 @@ if ($result->num_rows == 1) {
         }
         return true;
     } */
+  /********************************************************* */
     $(function() {
   $('a[href*=#]').on('click', function(e) {
     e.preventDefault();
@@ -259,6 +268,8 @@ function setNewImage1(){  document.getElementById("img").src="../../sources/imag
 
 function setOldImage(){ document.getElementById("img").src="<?php echo BASE_URL . '/sources/image/'.$img  ?>";
   document.getElementById("imgteacher").src="<?php echo BASE_URL . '/sources/image/'.$img  ?>";}
+
+
 
     </script>
       

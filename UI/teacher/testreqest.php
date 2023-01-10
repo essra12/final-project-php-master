@@ -125,7 +125,6 @@ h1{
 </form>
 <script>
 /*******************for delet confirm***********************/
-
 function confirmDelete() {
     if (confirm("Are you sure you want to delete ?")) {
         return true;
