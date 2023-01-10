@@ -194,7 +194,7 @@ if ($result->num_rows == 1) {
          <div class="card__header-text">
          <?php $_SESSION['g_no']=$Info['g_no']?>
            <a href="inside_group.php?data=<?= $Info['g_name']?>&number=<?= $Info['g_no']?>"  style=" color:#000; text-decoration:none;"><h3 class="card__title"><?php echo $Info['g_name'] ?></h3> </a> 
-           <a class="child" href="" onclick="return confirmDelete()"><i id="icon2" class="fa-solid fa-xmark"></i></a>       
+           <a class="child" href="main page for group.php?deleteID=<?php echo $Info['g_no']; ?>" onclick="return confirmDelete()"><i id="icon2" class="fa-solid fa-xmark"></i></a>       
          </div>
        </div>
      </div>
@@ -225,6 +225,7 @@ if ($result->num_rows == 1) {
         console.log(link);
     }
     })
+
     /****************************************************************/
     const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sept","Oct","Nov","Dec"];
     var dt = new Date();
@@ -232,6 +233,7 @@ if ($result->num_rows == 1) {
     /*  var date = dt.getDate()+'-'+name+'-'+dt.getFullYear(); */
     var date =name+'   '+dt.getDate()+','+dt.getFullYear();
     document.getElementById('date').innerHTML=date;
+
    /**********************check Enter******************************/
  function check__Enter() {
    search = document.getElementById("search").value;
@@ -245,7 +247,6 @@ if ($result->num_rows == 1) {
   return false
   }
 }
-
   /* when do not enter number */
 /*   function onlyNumberKey(evt) {
         // Only ASCII character in that range allowed
@@ -269,7 +270,16 @@ function setNewImage1(){  document.getElementById("img").src="../../sources/imag
 function setOldImage(){ document.getElementById("img").src="<?php echo BASE_URL . '/sources/image/'.$img  ?>";
   document.getElementById("imgteacher").src="<?php echo BASE_URL . '/sources/image/'.$img  ?>";}
 
-
+    /*******************for delet confirm***********************/
+    function confirmDelete() {
+    if (confirm("Are you sure you want to delete ?")) {
+        return true;
+    } 
+    else {
+        return false;
+    }
+}
+    /***********************************************************/
 
     </script>
       
