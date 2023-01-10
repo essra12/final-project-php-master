@@ -237,7 +237,7 @@ if ($result->num_rows == 1) {
 }
 
   /* when do not enter number */
-  function onlyNumberKey(evt) {
+/*   function onlyNumberKey(evt) {
         // Only ASCII character in that range allowed
         var ASCIICode = (evt.which) ? evt.which : evt.keyCode
         if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)){
@@ -245,7 +245,7 @@ if ($result->num_rows == 1) {
             return false;
         }
         return true;
-    }
+    } */
     $(function() {
   $('a[href*=#]').on('click', function(e) {
     e.preventDefault();

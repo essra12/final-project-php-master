@@ -34,7 +34,7 @@ global $errors;
 
   if(isset($_POST['search'])){
     global $conn; 
-
+    $_POST['search']=trim($_POST['search'], "EFWL");
     $exisiting_group_search = selectOne($table1,['g_no'=>$_POST['search']]);
     if($exisiting_group_search)
         {    /////
