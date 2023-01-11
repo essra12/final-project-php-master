@@ -83,7 +83,7 @@ include("../../controls/edit-studentC.php");
    .login-container{
     padding: 2%;
     width: 30%;
-    height: 95vh;
+    height: 98vh;
 
    }
    .login-form{
