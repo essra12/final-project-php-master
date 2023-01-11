@@ -74,10 +74,8 @@ if(count($errors)==0){
         $sqln="UPDATE user,student set student.stu_id=$userID, student.stu_specialization='$specialization', user.full_name='$username', user.password='$userpass1',user.u_img='$img'
         WHERE user.user_id=student.user_id and student.stu_id=$id;";
         if(mysqli_query($conn,$sqln)){
-        echo '<script type="text/javascript">alert("Record updated successfully .")</script>';
         ?>
-        <script type="text/javascript">
-            
+        <script type="text/javascript">        
         window.location.href="../group/main page for group.php" </script>
         <?php 
         } else {
@@ -130,22 +128,25 @@ if(count($errors)==0){
 
    /** empty التحقق من حقول الادخال باستحدام  */
     
-    
+   if(empty($userID)) 
+   {   
+       $error="* Please Enter  Your ID "; 
+   }else 
       if(empty($specialization)) 
     {   
-        $error="* please enter  specialization "; 
+        $error="* please Enter  Specialization  "; 
     }else   if(empty($username)) 
     {   
-        $error="* please enter  your name   "; 
+        $error="* Please Enter  Your Name   "; 
     }else if(empty($userp1)) 
     {   
-        $error="* please enter  your password   "; 
+        $error="* Please Enter  Your Password   "; 
     }else if(empty($userp2)) 
     {   
-        $error="* please enter  your password again  "; 
+        $error="* Please Enter  Your Password Again  "; 
     }else if($userp1!=$userp2)
     {   
-        $error="* Password does not match  "; 
+        $error="* Password Does Not Match  "; 
     }
     else
     {
@@ -154,10 +155,8 @@ if(count($errors)==0){
         $sqln="UPDATE user,student set student.stu_id=$userID, student.stu_specialization='$specialization', user.full_name='$username', user.password='$userpass1',user.u_img='$img'
         WHERE user.user_id=student.user_id and student.stu_id=$id;";
         if(mysqli_query($conn,$sqln)){
-        echo '<script type="text/javascript">alert("Record updated successfully .")</script>';
         ?>
-        <script type="text/javascript">
-            
+        <script >
         window.location.href="../group/main page for group.php" </script>
         <?php 
         } else {

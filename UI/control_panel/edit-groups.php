@@ -84,7 +84,6 @@ $gid=$_GET['id'];
                     
                     <select class="select-t" name="tr_id">
                         <option value=" "><?php echo $nameT ?> </option>
-
                         <?php foreach($items as $key => $item):?>
                             <?php if(!empty($tr_id) && $tr_id==$item['tr_id']):?>
                                 <option selected value="<?php echo $item['tr_id'] ?>"><?php echo $item['full_name'] ?></option>
@@ -125,7 +124,7 @@ $gid=$_GET['id'];
               <?php endif; ?>
              <!----------------->
 
-            <button type="submit"  name="submit" >Save</button> 
+            <button onclick="return confirmDelete()" type="submit"  name="submit" >Save</button> 
         </form>
 
     </div>
@@ -137,18 +136,16 @@ $gid=$_GET['id'];
    <script>
     
     /****************************************  check enter ********************************************/
-    function check_Enter(form) {
+      /****************************************  check enter ********************************************/
+      function check_Enter(form) {
     const NAME = document.getElementById("name").value;
     var tr_id = document.groups.tr_id.value;
-    if(NAME==""){
-        alert(" Please enter Group-name");
-        return false;
-    }
     if(tr_id==""){
-        alert(" Please Choese Teacher Name");
+        /* alert(" pleas Choese Teacher Name"); */
+        document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;pleas Choese Teacher Name."; 
         return false;
     }
-    }
+    } 
 
     /********************************************* for sidebar items  *********************************/
         const activePage = window.location.pathname;
@@ -205,6 +202,16 @@ $gid=$_GET['id'];
             //thanks for watching
         }
     });
+
+    
+    /***************************for show emphasis *************************/
+    function confirmDelete() {
+    if (confirm("Are you sure you want to Update ?")) {
+        return true;
+    } 
+    else {
+        return false;
+    }}
 </script>
 
 </body>

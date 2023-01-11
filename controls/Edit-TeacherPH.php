@@ -73,9 +73,8 @@ if(count($errors)==0){
         $sqln="UPDATE user,teacher set   user.full_name='$username', user.password='$userpass1',teacher.tr_phone_no='$phone',user.u_img='$img'
         WHERE user.user_id=teacher.user_id and teacher.tr_phone_no='$phon' ;";
         if(mysqli_query($conn,$sqln)){
-        echo '<script type="text/javascript">alert("Record updated successfully .")</script>';
         ?>
-        <script type="text/javascript">
+        <script >
         window.location.href="../group/main page for group.php" </script>
         <?php 
         } else {
@@ -119,7 +118,7 @@ if(count($errors)==0){
       /** empty التحقق من حقول الادخال باستحدام  */
     if(empty($username)) 
    {   
-       $error="* please enter  your name  jj "; 
+       $error="* please enter  your name   "; 
    }else if(empty($phone)) 
    {   
        $error="* please enter  your phone   "; 
@@ -137,12 +136,12 @@ if(count($errors)==0){
    {
             $sqln="UPDATE user,teacher set   user.full_name='$username', user.password='$userpass1',teacher.tr_phone_no='$phone',user.u_img='$img'
             WHERE user.user_id=teacher.user_id and teacher.tr_phone_no='$phon' ;";
-            if(mysqli_query($conn,$sqln)){
-            echo '<script type="text/javascript">alert("Record updated successfully .")</script>';
+            if(mysqli_query($conn,$sqln)){                
             ?>
-            <script type="text/javascript">
+            <script >
             window.location.href="../group/main page for group.php" </script>
             <?php 
+          
             } else {
             echo "Error updating record: " . mysqli_error($conn);
             }}}

@@ -102,7 +102,7 @@ padding: 2%;
 
 <body>
     <div class="login-container">
-    <p class="signup_text" style="margin-left:25% ;"><b>Edit Admin</p>
+    <p class="signup_text" style="margin-left:30% ;"><b>Edit Admin</p>
     <form class="login-form"  method="POST" name="signup_form" enctype="multipart/form-data"  onsubmit="return check_Enter(this)">
 
     <!-- For circular image -->

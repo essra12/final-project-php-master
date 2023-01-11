@@ -27,7 +27,27 @@ include("../../controls/profiles.php");
 .divphoto{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-
+.back{
+    position: absolute;
+    top: 2%;
+    left: 1%;
+    font-size: 30px;
+}
+.spe{
+    margin-left: 10px;
+}
+.LabelAssinaments,.Lablegroup{
+    font-size: 19px;
+}
+.LabelAssinaments{
+    font-size: 20px;
+}
+@media(max-width:582px)
+{ 
+    .LabelAssinaments,.Lablegroup{
+    font-size: 16px;
+}
+}
 </style>
     <html>
      <body>
@@ -35,6 +55,8 @@ include("../../controls/profiles.php");
 
 
 <form method="get" action="edit profile.php" enctype="multipart/form-data">
+<div class="back"><a href="../group/main page for group.php"><i class="las la-arrow-left"></i></a></div>
+
 <div class="container">
         <!-- container one for photo,groups,assinament data -->
     <div class="divphoto">

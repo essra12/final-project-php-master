@@ -16,6 +16,26 @@ include("../../controls/profiles.php");
     </head>
     <!--  style for profile student -->
 <style>
+    .back{
+    position: absolute;
+    top: 2%;
+    left: 1%;
+    font-size: 30px;
+}
+.LabelAssinaments,.Lablegroup{
+    font-size: 20px;
+}
+.LabelAssinaments{
+    font-size: 20px;
+}
+
+
+@media(max-width:582px)
+{ 
+    .LabelAssinaments,.Lablegroup{
+    font-size: 16px;
+}
+}
 </style>
 <html>
 
@@ -23,6 +43,8 @@ include("../../controls/profiles.php");
 <body>
     
 <form method="get" action="edit profile.php" enctype="multipart/form-data">
+<div class="back"><a href="../group/main page for group.php"><i class="las la-arrow-left"></i></a></div>
+
 <div class="container">
         <!-- container one for photo,groups,assinament data -->
     <div class="divphoto">

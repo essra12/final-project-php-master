@@ -102,7 +102,7 @@ function imgteacher(){
                    if ($result->num_rows > 0) {
                   while($row = $result->fetch_assoc()) {
                   $idq=$row['COUNT(groups.g_no)'];}}
-                  echo"  <label class='Lablegroup'>Groups<br>&nbsp&nbsp&nbsp&nbsp&nbsp$idq</label>";
+                  echo"  <label class='Lablegroup'>Groups<br>&nbsp&nbsp&nbsp&nbsp$idq</label>";
                   /** الاستعلام عن عدد الفروض الذي قام بإرسالها  الاستاذ  */
                   $sqlass="SELECT  COUNT(announcement.an_no) FROM user,teacher,groups,announcement WHERE user.user_id=teacher.user_id and teacher.tr_id=groups.tr_id and groups.g_no=announcement.g_no and user.user_id='$user_id'";
                   $result = $conn->query($sqlass);

@@ -61,6 +61,17 @@ h1{
             right: 9px;
 }
 
+.adelete{
+float: right;
+margin-top: 1%;
+margin-left: 3%;
+}
+.ab2:hover{
+background-color:#fff6f6;
+}
+
+
+
     </style>
 <body >
     
@@ -113,11 +124,11 @@ h1{
 
     foreach($testpost as $key => $student):?> <!--هذا المتغير عبارة عن سجل واحد من الجدول $student  -->
         <div class="ab2">
-            <label data-label="stu-name"><img src="<?php echo BASE_URL . '/sources/image/' . $student['u_img']; ?>" class="tab-img" style=" margin-right:25px;  width: 25px; height: 25px; border-radius:100%;"><?php echo $student['full_name'] ?> </label>
+            <label data-label="stu-name"><img src="<?php echo BASE_URL . '/sources/image/' . $student['u_img']; ?>" class="tab-img" style=" margin-right:25px;  width: 35px; height: 35px; border-radius:100%;"><?php echo $student['full_name'] ?>&nbsp;&nbsp;&nbsp;<?php echo $student['stu_id'] ?> </label>          
             <?php if($role=="teacher"):?>
-            <a  onclick="return confirmDelete()"href="testreqest.php?deleteSTID=<?php echo $student['g_no'];?>&deletestuid=<?php echo $student['stu_id']; ?>&group=<?php echo $student['stu_group']; ?> "><i id="croos2" class="fa-solid fa-circle-xmark" ></i></a> 
+            <a class="adelete" onclick="return confirmDelete()"href="testreqest.php?deleteSTID=<?php echo $student['g_no'];?>&deletestuid=<?php echo $student['stu_id']; ?>&group=<?php echo $student['stu_group']; ?> "><i id="croos2" class="fa-solid fa-circle-xmark" ></i></a> 
             <?php endif;?> 
-        </div>
+            </div>
         <?php endforeach ; 
 
 ?>
