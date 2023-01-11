@@ -81,9 +81,7 @@ if ($result_g_name->num_rows == 1) {
           <!----------------->
 
           <!-----students--->
-          <?php if ($_SESSION['role']=="teacher"):?> 
           <li><a href="<?php echo BASE_URL . '/UI/teacher/testreqest.php' ?>" style="font-size: 1.5rem;"><i class="las la-user-friends"></i></a></li>
-          <?php endif; ?>  
           <!----------------->
           
           <!------HOME------>
@@ -95,7 +93,7 @@ if ($result_g_name->num_rows == 1) {
           <!---------------->
 
           <!------Logout----->
-          <li><a href="..\..\logout.php" style="color:#FFBA5F;font-size: 1.5rem;"><i class="las la-sign-out-alt"></i></a></li>
+          <li><a href="..\..\logout.php" style="color:#FFBA5F;font-size: 1.5rem;"><i class="las la-sign-out-alt" style="font-weight: 600; font-size: 20px;"></i></a></li>
           <!----------------->
         </ul>
       </div>
@@ -104,95 +102,179 @@ if ($result_g_name->num_rows == 1) {
 
     <!--------main-container----------->
     <div class="main-container">
-
-    <!-- For Errors message-->
-    <?php if(count($errors_for_assignment)> 0): ?>
-      <div class="msg error" style="color: #D92A2A; margin-bottom: 20px;"> 
-        <?php foreach($errors_for_assignment as $errors_for_assignment): ?>
-        <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php echo($errors_for_assignment); ?></li>
-        <?php endforeach; ?>
-      </div> 
-    <?php endif; ?> 
-    <!------------------------>
-
-    <!-- For Succes message -->
-    <?php if (isset($_SESSION['message'])): ?>
-        <div class="msg success" style="color: #5a9d48; margin-Top: 20px;">
-            <li><i class="las la-check-circle" style="color: #5a9d48 ;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;<?php echo $_SESSION['message']; ?></li>
-            <?php
-            /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */
-            unset($_SESSION['message']);
-            ?>
+        <!--the errors-->
+        <div>
+          <p id="demo"></p>
         </div>
-    <?php endif; ?>
-    <!------------------------->
+
+        <!-- For Errors message-->
+        <?php if(count($errors_for_assignment)> 0): ?>
+          <div class="msg error" style="color: #D92A2A;"> 
+            <?php foreach($errors_for_assignment as $errors_for_assignment): ?>
+            <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php echo($errors_for_assignment); ?></li>
+            <?php endforeach; ?>
+          </div> 
+        <?php endif; ?> 
+        <!------------------------>
+
+        <!-- For Succes message -->
+        <?php if (isset($_SESSION['message'])): ?>
+            <div class="msg success" style="color: #5a9d48; margin-Top: 20px;">
+                <li><i class="las la-check-circle" style="color: #5a9d48 ;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;<?php echo $_SESSION['message']; ?></li>
+                <?php
+                /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */
+                unset($_SESSION['message']);
+                ?>
+            </div>
+        <?php endif; ?>
+        <!------------------------->
         <div class="title">
             <h1 style="color: #222242;">Add Assignment</h1>
         </div>
 
         <form action="" method="POST" enctype='multipart/form-data' onsubmit="return check_Enter(this)">
-            
-         <!-- Id field -->
-         <div class="inputs ">
-            <input type="text" name="text" disabled="disabled" style=" border: none;" value="<?php echo $an_data?>">
-          </div>
-          <!------------------>
-
-          <!-- Id field -->
-          <!-- <div class="inputs id">
-            <label style="color: #222242;">Student ID</label>
-            <input type="text" name="stu_id"  disabled="disabled" style=" border: none;" value="<?php /* echo $stu_id */?>">
-          </div> -->
-          <!------------------>
-
-          <!-- title field -->
-          <div class="inputs title">
-            <label style="color: #222242;">Title</label>
-            <input type="text" name="title" maxlength="50" id="title" value="<?php echo $title;?>">
-          </div>
-          <!------------------>
-          
-          <!-- description field -->
-          <div class="inputs description">
-            <label style="color: #222242;">Description<span style="font-size: 16px;">(optional)</span></label>
-            <textarea type="text" name="description" id="description" maxlength="250"  rows="4"><?php echo $description;?></textarea>
-          </div>
-          <!------------------>
-
-          <!-- attach field -->
-          <div class="inputs attach">
-            <label style="color: #222242;">Attach</label>
-            
-            <div class="container_wrapper">
-
-              <div class="container" style="border-radius: 15px;">
-                  <div style="margin-bottom:20px"><p style="font-size:12px;">To select more than one file, hold on Ctrl or Shift</p></div>            
-                  <input id="file-input" name="f_name[]" type="file" multiple="multiple" />
-                  <label class="lab" for="file-input">
-                      <i class="fa-solid fa-arrow-up-from-bracket"></i>
-                  </label>
-                  <div id="num-of-files">No Files Choosen</div>
-                  <ul id="files-list"></ul>
+          <div class="left_side">  
+            <!-- text field -->
+            <div class="inputs ">
+                <textarea type="text" name="text" disabled="disabled" style=" border: none;" rows="3"><?php echo $an_data?></textarea>
               </div>
+              <!------------------>
 
-              <!-- Button -->
-              <div class="btn_post">
-                <button type="submit" name="add_assignment" >POST</button>
+              <!-- Id field -->
+              <!-- <div class="inputs id">
+                <label style="color: #222242;">Student ID</label>
+                <input type="text" name="stu_id"  disabled="disabled" style=" border: none;" value="<?php /* echo $stu_id */?>">
+              </div> -->
+              <!------------------>
+
+              <!-- title field -->
+              <div class="inputs title">
+                <label style="color: #222242;">Title</label>
+                <textarea type="text" name="title" maxlength="225" id="title" rows="2"><?php echo $title;?></textarea>
               </div>
-              <!----------->
+              <!------------------>
+              
+              <!-- description field -->
+              <div class="inputs description">
+                <label style="color: #222242;">Description<span style="font-size: 16px;">(optional)</span></label>
+                <textarea type="text" name="description" id="description"  rows="4"><?php echo $description;?></textarea>
+              </div>
+              <!------------------>
+          </div> 
 
+          <div class="right_side">
+            <!-- attach field -->
+            <div class="inputs attach">
+              <label style="color: #222242;">Attach</label>
+              
+              <div class="container_wrapper">
+
+                <div class="container" style="border-radius: 15px;">
+                    <div style="margin-bottom:30px"><p style="font-size:12px;">To select more than one file, hold on Ctrl or Shift</p></div>            
+                    <input id="file-input" name="f_name[]" type="file" multiple="multiple" />
+                    <label class="lab" for="file-input">
+                        <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                    </label>
+                    <div id="num-of-files">No Files Choosen</div>
+                    <ul id="files-list"></ul>
+                </div>
+
+              </div>
             </div>
-            
           </div>
-        <!-------end attach----------->
+            <!-------end attach----------->
+
+            <!-- Button -->
+              <div class="btn_post ass">
+                <button type="submit" name="add_assignment" >Submit</button>
+              </div>
+            <!----------->
 
         </form>
               
-      </div>
+    </div>
       <!-----------end main container---------->
 
-      <!-- Script -->
-      <script src="../../javaScript/upload_files.js"></script>
+<!-- Script -->
+<!-- <script src="../../javaScript/upload_files.js"></script> -->
 
-    </body>
+<script>
+  let fileInput = document.getElementById("file-input");
+  let fileList = document.getElementById("files-list");
+  let numOfFiles = document.getElementById("num-of-files");
+
+  let x =document.getElementById("f_name");
+
+  const currentIndex = 0;
+
+  fileInput.addEventListener("change", () => {
+    fileList.innerHTML = "";
+    numOfFiles.textContent = `${fileInput.files.length} Files Selected`; 
+    const fileListArr = Array.from(fileInput.files)
+
+    for (i of fileListArr) {
+      let reader = new FileReader();
+      let listItem = document.createElement("li");
+      let fileName = i.name;
+      let fileSize = (i.size / 1024).toFixed(1);
+      let index =fileListArr.indexOf(i);
+      
+      // Creates a delete button 
+      let deleteButton = document.createElement("span")
+      deleteButton.innerHTML='<i class="lar la-times-circle"></i>'; 
+      ///////////////////////////
+
+          //add a click event to remove the current item
+          deleteButton.addEventListener("click", function() {
+            listItem.remove();
+            
+            //XXXXXXX New Code to delete file form input html XXXXXXX///
+            var attachments = document.getElementById("file-input").files; // <-- reference your file input here
+            var fileBuffer = new DataTransfer();
+          
+            // append the file list to an array iteratively
+            for (let i = 0; i < attachments.length; i++) {
+                // Exclude file in specified index
+                if (index !== i)
+                    fileBuffer.items.add(attachments[i]);
+            }
+            
+            // Assign buffer to file input
+            document.getElementById("file-input").files = fileBuffer.files; // <-- according to your file input reference
+            //XXXXXXX New Code to delete file form input html XXXXXXX///
+            numOfFiles.textContent = `${fileBuffer.files.length} Files Selected`; 
+
+          });
+          //////////////////////////////////////////////
+
+      listItem.innerHTML = `<p><i class="fas fa-file-alt"></i>${fileName}</p><p>${fileSize}KB</p>`;
+
+      //add remove item to list
+      listItem.appendChild(deleteButton);
+      /////////////////////////
+
+      if (fileSize >= 1024) {
+        fileSize = (fileSize / 1024).toFixed(1);
+        listItem.innerHTML = `<p><i class="fas fa-file-alt"></i>${fileName}</p><p>${fileSize}MB</p>`;
+      }
+      fileList.appendChild(listItem);
+    
+    }
+  
+    
+  }); 
+
+  /********************************************* check enters *********************************/
+  function check_Enter() {
+  const title = document.getElementById("title").value;
+  if(title==""){
+      /* alert(" please enter Title"); */
+      document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;please enter Title."; 
+      return false;
+  }
+  }
+
+</script>
+
+  </body>
 </html>

@@ -70,7 +70,7 @@ if ($result_g_name->num_rows == 1) {
     <!--------------------------------->
 
     <!--------main-container----------->
-    <div class="main-container">
+    <div class="main-container announcement">
 
         <!-- For Errors message-->
         <?php if(count($errors)> 0): ?>
@@ -91,10 +91,12 @@ if ($result_g_name->num_rows == 1) {
           <!-- Text field -->
           <div class="inputs announcement">
             <label style="color: #222242;">Text</label>
-            <textarea type="text" name="an_content" id="content" style="margin-left: .5rem; margin-right: .5rem;" rows="4"><?php echo $an_content; ?></textarea>
+            <div class="text_input">
+              <textarea type="text" name="an_content" id="content" style="margin-left: .5rem; margin-right: .5rem;" rows="4"><?php echo $an_content; ?></textarea>
+            </div>
             <!-- Button -->
             <div class="btn_post">
-                <button type="submit" name="add_announcement" >POST</button>
+                <button type="submit" name="add_announcement" >Submit</button>
             </div>
             <!----------->   
           </div>

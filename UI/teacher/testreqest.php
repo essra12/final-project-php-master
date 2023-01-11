@@ -136,7 +136,6 @@ background-color:#fff6f6;
 </form>
 <script>
 /*******************for delet confirm***********************/
-
 function confirmDelete() {
     if (confirm("Are you sure you want to delete ?")) {
         return true;

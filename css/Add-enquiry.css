@@ -143,9 +143,10 @@ a:is(:link,:active,:hover).active{
     position: absolute;
     top: 32%;
     left: 10%;
-    height: 35vh;
+    height: 45vh;
     width: 75%;
-    border-radius:10px;
+    border-radius:15px;
+    margin-bottom: 4%;
      }
      .AddInquiry{
     font-size: 25px;
@@ -167,12 +168,12 @@ a:is(:link,:active,:hover).active{
     font-size: 16px;
     background-color:#222242 ;
     color: white;
-    width: 18%;
+    width: 15%;
     height: 6vh;
     font-weight: 600;
     position: absolute;
-    top:70%;
-    right: 4%;
+    top:77%;
+    right: 5%;
     border: none;
     border-radius: 30px;
     margin-top: 10px;
@@ -190,7 +191,7 @@ a:is(:link,:active,:hover).active{
           width: 90%;
           margin-left: 8%;
           position: absolute;
-          top: 68%;
+          top: 80%;
          /* height:70vh;
           overflow: auto;
           */
@@ -217,11 +218,24 @@ a:is(:link,:active,:hover).active{
     .Inquiry{
     outline: none;
     border: none;
+    width: 90%;
+       height: 100px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      background-color: #fff;
+      font-size: 16px;
+      resize: none;
+    
     }
+ 
     .datetime{
       font-size: 12px;
       margin-bottom: 10px;
       color: #222242;
+    }
+    .content{
+      text-align: justify;
+      text-justify: inter-word;
     }
     .las.la-clock{
       font-size: 16px;
@@ -396,4 +410,8 @@ a{
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
-}       
+}  
+/***************************************************************************************************/
+/***************************************************************************************************/  
+/***************************************************************************************************/  
+/***************************************************************************************************/       

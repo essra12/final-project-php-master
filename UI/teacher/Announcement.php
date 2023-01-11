@@ -74,7 +74,7 @@ $today = strtotime($todays_date);
 
 <form>
 
-  <h1>Announcements </h1>
+  <h1>Announcements</h1>
 
   <main>
     <!-- For Errors message-->
@@ -139,19 +139,19 @@ $today = strtotime($todays_date);
         <?php if($role=="teacher"):?>
             <!--------Announcement------>
             <?php if(empty($announcement['due_date'])):?>
-              <a onclick="return confirmDelete()" href="announcement.php?delete_an_no=<?php echo $announcement['an_no'];?>" ><i style="position:absolute;right: 7.5%; margin-bottom:1rem;" class="fa-solid fa-xmark tr"></i></a>
-              <a href="edit_Announcment.php?textANN=<?php echo $announcement['an_no'];?>" ><i style="position:absolute;right: 9%; margin-bottom:1rem;" class="las la-pen ticon tr"></i></a>
+              <a onclick="return confirmDelete()" href="announcement.php?delete_an_no=<?php echo $announcement['an_no'];?>" ><i style="position:absolute; margin-bottom:1rem;" class="fa-solid fa-xmark tr"></i></a>
+              <a href="edit_Announcment.php?textANN=<?php echo $announcement['an_no'];?>" ><i style="position:absolute;margin-bottom:1rem;" class="las la-pen ticon tr"></i></a>
               <div style="height: 15px;"></div>
             <?php endif;?>
             <!--------------------------->
             <!--Announcement Assignment-->
             <?php if(!empty($announcement['due_date'])):?>
-              <a onclick="return confirmDelete()" href="announcement.php?delete_an_ass_no=<?php echo $announcement['an_no'];?>" ><i style="position:absolute;right: 7.5%; margin-bottom:1rem;" class="fa-solid fa-xmark tr"></i></a>
-              <a href="editAnnouncement_assignment.php?textANN=<?php echo $announcement['an_no'];?>" ><i style="position:absolute;right: 9%; margin-bottom:1rem;" class="las la-pen ticon tr"></i></a>
+              <a onclick="return confirmDelete()" href="announcement.php?delete_an_ass_no=<?php echo $announcement['an_no'];?>" ><i style="position:absolute; margin-bottom:1rem;" class="fa-solid fa-xmark tr"></i></a>
+              <a href="editAnnouncement_assignment.php?textANN=<?php echo $announcement['an_no'];?>" ><i style="position:absolute;margin-bottom:1rem;" class="las la-pen ticon tr"></i></a>
               <div style="height: 15px;"></div>
               <!-- deu date -->
               <p id="deu_date"class="card__time due_date" >Due Date&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;"><?php echo date("d-m-Y",$expiration_date)?></span>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Out Of&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;"><?php echo $announcement['grade']?></span></p>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Point&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;"><?php echo $announcement['grade']?></span></p>
               <!-------------->
             <!--------------------------->
           <?php endif;?>
@@ -163,7 +163,7 @@ $today = strtotime($todays_date);
             <?php if(!empty($announcement['due_date'])):?>
               <!-- deu date -->
               <p id="deu_date"class="card__time due_date" >Due Date&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;"><?php echo date("d-m-Y",$expiration_date)?></span>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Out Of&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;"><?php echo $announcement['grade']?></span></p>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Point&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;"><?php echo $announcement['grade']?></span></p>
               <!-------------->
               <!-------------------------deadline--------------------------------->
               <?php

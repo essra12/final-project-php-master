@@ -286,6 +286,7 @@ header{
   .main-content{
      border-radius: 25px 0 0 0;
      background-color: #fff;
+     padding-bottom: 4%;
   }
   .header-div{
     position: relative;
@@ -312,16 +313,16 @@ header{
     width: 70px;
     height: 70px;
     font-size: 40px;
-    color: #222242;
+    color: #fff;
     font-style: bold;
-    background: #fff;
+    background: #FFBA5F;
     box-shadow: var(--shadow2);
     transition      : background-color 0.3s;
 }
 
 .btn-create:hover {
-    color: #fff;
-    background-color: #FFBA5F;
+    color: #000;
+    background-color: #fff;
     cursor: pointer;
     border: 2px double #fff;
 }

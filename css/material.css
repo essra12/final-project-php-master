@@ -187,7 +187,7 @@ a:is(:link,:active,:hover).active{
     margin: 4rem 5vw;
     padding: 0;
     list-style-type: none;
-    width: 80%;
+    width: 75%;
     /****************************/
      }
   
@@ -317,7 +317,7 @@ a:is(:link,:active,:hover).active{
    
       
   .cards {
-   grid-template-columns: repeat(2, minmax(200px, auto)); 
+   grid-template-columns: repeat(2, minmax(200px,65%)); 
   }
   h1{
    font-size: 2.5em;
@@ -337,6 +337,10 @@ a:is(:link,:active,:hover).active{
  grid-template-columns: repeat(1, minmax(200px, 90%)); 
  margin-left: 20%;
 }
+.header-div{
+  padding: 3%;
+  margin: 4rem 4rem 0rem 6rem;
+  }
 
 }
 

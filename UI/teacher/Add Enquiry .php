@@ -23,6 +23,8 @@ if ($result_g_name->num_rows == 1) {
 
   <link rel="stylesheet" href="../../css/Add-enquiry.css"> 
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
  
  </head>
  <style>
@@ -94,6 +96,16 @@ if ($result_g_name->num_rows == 1) {
             ?>
         </div>
     <?php endif; ?>
+    <!-- For Succes message -->
+    <?php if (isset($_SESSION['errormessage'])): ?>
+        <div class="msg success" style="color: #D92A2A; padding:3% 0% 0% 11%;list-style-type:none;">
+            <li><i class="las la-exclamation-circle" style="color:  #D92A2A ;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;<?php echo $_SESSION['errormessage']; ?></li>
+            <?php
+            /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */
+            unset($_SESSION['errormessage']);
+            ?>
+        </div>
+    <?php endif; ?>
 <!-------------------------------------------------------------------------------->
 
 <?php if($role==""):?>
@@ -101,8 +113,8 @@ if ($result_g_name->num_rows == 1) {
 <form  onsubmit="return check__Enter()" method="post" action="Add Enquiry .php" >
 <div class="card">
 <label class="AddInquiry">Add Enquiry</label>
-<textarea class=" Inquiry"  name="enquiry" id="id" placeholder="Enquiry" style="padding:1.75% 2% 0 2%" ></textarea>
-<button type="submit" class="btpost" name="add_enquiry">POST</button>
+<textarea class=" Inquiry"  name="enquiry" id="id" placeholder="Add Class Enquiry....... " style="padding:1.75% 2% 0 2%" ></textarea>
+<button type="submit" class="btpost" name="add_enquiry">submit</button>
 </div>
 </form>
 <?php endif;?>
@@ -119,7 +131,13 @@ if ($result_g_name->num_rows == 1) {
 <?php $datetime=strtotime($Info['datetime'])?>
  <h6 class="datetime"><i class="las la-clock"></i><?php echo  date("d-m-Y h:i a",$datetime)?></h6>
 <label class="studentname">Student Id  <b><?php echo $Info['stu_id'] ?></b></label>
-<p><?php echo $Info['e_content'] ?></p>
+
+<div class="tooltip">
+<a  onclick="return confirmDelete()"  href="Add Enquiry .php?deleteEnquiryforstudent=<?php echo $Info['e_no'];?>"><i class="fa-solid fa-xmark tr" style="font-size: 20px;position:absolute;right: 22%;margin-top:1%; color:#222242;"></i></a>
+  <span class="tooltiptext">Delete Enquiry</span>
+</div>
+
+<p class="content"><?php echo $Info['e_content'] ?></p>
 <input  type="hidden" name="e_no" value="<?php echo $Info['e_no'] ?>">
 
 
@@ -129,9 +147,6 @@ if ($result_g_name->num_rows == 1) {
 <?php $replyInfo=selectReply($Info['e_no']);?>
 <?php foreach($replyInfo as $key => $reply_Info):?>
 
-<?php if($role=="teacher"):?>
-<a class="icon_x" onclick="return confirmDelete()"  href="Add Enquiry .php?deleteReply=<?php echo $reply_Info['r_no'];?>"><i id="deleteicon1" style="" class="las la-times-circle"></i></a>   
-<?php endif;?>
 
 <p class="lable"><?php echo $reply_Info['r_content'] ?></p>
 <?php $_SESSION['e_no']= $Info['e_no'] ?>

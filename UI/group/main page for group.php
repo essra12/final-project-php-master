@@ -25,8 +25,8 @@ if ($result->num_rows == 1) {
     <link rel="stylesheet" href="../../css/main_page_.css">
     <!--icon8-->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-     <!--icon8-->
-     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+     <!--x icon-->
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
     
      <style>
         * {
@@ -35,6 +35,7 @@ if ($result->num_rows == 1) {
       input:focus {
     outline: none;
   }
+ 
     </style>
          
 </head>
@@ -52,11 +53,9 @@ if ($result->num_rows == 1) {
           <!-------logo------>
           <li><div class="brand-title"><img src="../../sources/image/logo_dark.png" style="width: 100px;" /></div></li>
           <!----------------->
-
       </ul>
       <div class="navbar-links">
         <ul>
-          
           <!------HOME------>
           <li><a href="<?php echo BASE_URL . '/UI/group/main page for group.php' ?>" style="font-size: 1.5rem;"><i class="las la-home"></i></a></li>
           <!---------------->
@@ -186,7 +185,7 @@ if ($result->num_rows == 1) {
 <div id="section" class="container">      
  <div class="cards">
  <?php foreach($groupsInfoForTeacher as $key => $Info):?>
-   <div href="" class="card">
+   <div href="" class="card">       
      <img src="../../sources/image/background.png" class="card__image" alt="" />
      <div class="card__overlay">
        <div class="card__header">
@@ -194,7 +193,8 @@ if ($result->num_rows == 1) {
          
          <div class="card__header-text">
          <?php $_SESSION['g_no']=$Info['g_no']?>
-           <a href="inside_group.php?data=<?= $Info['g_name']?>&number=<?= $Info['g_no']?>"  style=" color:#000; text-decoration:none;"><h3 class="card__title"><?php echo $Info['g_name'] ?></h3> </a>        
+           <a href="inside_group.php?data=<?= $Info['g_name']?>&number=<?= $Info['g_no']?>"  style=" color:#000; text-decoration:none;"><h3 class="card__title"><?php echo $Info['g_name'] ?></h3> </a> 
+           <a class="child" href="main page for group.php?deleteID=<?php echo $Info['g_no']; ?>" onclick="return confirmDelete()"><i id="icon2" class="fa-solid fa-xmark"></i></a>       
          </div>
        </div>
      </div>
@@ -216,13 +216,25 @@ if ($result->num_rows == 1) {
 <!-------------------------------------------------------------------->    
 <!-- java script for current date -->
     <script>
-        const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sept","Oct","Nov","Dec"];
-            var dt = new Date();
-            let name = month[dt.getMonth()];
-           /*  var date = dt.getDate()+'-'+name+'-'+dt.getFullYear(); */
-            var date =name+'   '+dt.getDate()+','+dt.getFullYear();
-            document.getElementById('date').innerHTML=date;
 
+    /********for sidebar (highlights items after click it)**********/
+    const activePage = window.location.pathname;
+    const navLinks = document.querySelectorAll('.navbar-links li a').forEach(link => {
+    if(link.href.includes(`${activePage}`)){
+        link.classList.add('active');
+        console.log(link);
+    }
+    })
+
+    /****************************************************************/
+    const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sept","Oct","Nov","Dec"];
+    var dt = new Date();
+    let name = month[dt.getMonth()];
+    /*  var date = dt.getDate()+'-'+name+'-'+dt.getFullYear(); */
+    var date =name+'   '+dt.getDate()+','+dt.getFullYear();
+    document.getElementById('date').innerHTML=date;
+
+   /**********************check Enter******************************/
  function check__Enter() {
    search = document.getElementById("search").value;
    Create = document.getElementById("Create").value;
@@ -235,9 +247,8 @@ if ($result->num_rows == 1) {
   return false
   }
 }
-
   /* when do not enter number */
-  function onlyNumberKey(evt) {
+/*   function onlyNumberKey(evt) {
         // Only ASCII character in that range allowed
         var ASCIICode = (evt.which) ? evt.which : evt.keyCode
         if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)){
@@ -245,7 +256,8 @@ if ($result->num_rows == 1) {
             return false;
         }
         return true;
-    }
+    } */
+  /********************************************************* */
     $(function() {
   $('a[href*=#]').on('click', function(e) {
     e.preventDefault();
@@ -257,6 +269,17 @@ function setNewImage1(){  document.getElementById("img").src="../../sources/imag
 
 function setOldImage(){ document.getElementById("img").src="<?php echo BASE_URL . '/sources/image/'.$img  ?>";
   document.getElementById("imgteacher").src="<?php echo BASE_URL . '/sources/image/'.$img  ?>";}
+
+    /*******************for delet confirm***********************/
+    function confirmDelete() {
+    if (confirm("Are you sure you want to delete ?")) {
+        return true;
+    } 
+    else {
+        return false;
+    }
+}
+    /***********************************************************/
 
     </script>
       
