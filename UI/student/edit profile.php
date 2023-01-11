@@ -14,7 +14,8 @@ include("../../controls/edit-studentC.php");
     <link rel="stylesheet" href="../../CSS/login_and_singup.css"/>
     <link rel="stylesheet" href="../../CSS/editing.css"/>
     <!--icon-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <script src="https://kit.fontawesome.com/e1ca29be31.js" crossorigin="anonymous"></script>
     <title>Edit Profile</title>
    <html>
     <style> 
@@ -62,6 +63,7 @@ include("../../controls/edit-studentC.php");
     /* for show password */
     .form-field-signup.pass input::placeholder{
         font-size: 17px;
+
     }
     .form-field-signup.pass span{
         position: absolute;
@@ -81,9 +83,9 @@ include("../../controls/edit-studentC.php");
     }
 
    .login-container{
-    padding: 2%;
+    padding: 1%;
     width: 30%;
-    height: 98vh;
+    height: 93vh;
 
    }
    .login-form{
@@ -91,7 +93,8 @@ include("../../controls/edit-studentC.php");
     margin: 0;
     border: 1px solid white ;
    }
- 
+
+
 
 .profile-pic-div{
     width:120px ;
@@ -121,10 +124,18 @@ margin-bottom: 0;
     width: 70%;
    } 
 }
-  
+.back{
+    position: absolute;
+    top: 2%;
+    left: 1%;
+    font-size: 30px;
+    z-index: 1;
+}
 
     </style>
 <body >
+<div class="back"><a href="../student/student-profile.php"><i class="las la-arrow-left"></i></a></div>
+
   <div class="login-container">
   <p class="signup_text" style="margin-left:28% ;"><b>Edit Student</p>
     <form class="login-form"  method="POST" name="signup_form" enctype="multipart/form-data"  onsubmit="return check_Enter(this)">
@@ -137,23 +148,23 @@ margin-bottom: 0;
   </div>
         <!-- inputs  --> 
         <div class="form-field-signup">
-        <input id="id" name="id" type="text"  placeholder="ID"  value="<?php  echo $id  ?>"  maxlength="8"/>
+        <input id="id" name="id" type="text"  placeholder="ID"  style="font-size: 18px;height:6vh;" value="<?php  echo $id  ?>"  maxlength="8"/>
         </div>
         <div class="form-field-signup">
-            <input id="name" name="name" type="text"  placeholder="Full Name"  value="<?php  echo $name  ?>" maxlength="30" />
+            <input id="name" name="name" type="text"  placeholder="Full Name" style="font-size: 18px;height:6vh;"  value="<?php  echo $name  ?>" maxlength="30" />
         </div>
           
         <div class="form-field-signup pass">
-        <input id="pass" type="password"  name="pass" placeholder="password"   maxlength="25" value="<?php  echo $pass  ?>" />
+        <input id="pass" type="password"  name="pass" placeholder="password" style="font-size: 18px;height:6vh;"  maxlength="25" value="<?php  echo $pass  ?>" />
         <span class="show-btn"><i id="show-btn" class="fas fa-eye"></i></span>  
        </div>
 
           <div class="form-field-signup pass">
-            <input id="conf_pass" type="password" name="cof-pass" placeholder="Confirm Password"  value="<?php  echo $pass  ?>" maxlength="25" />
+            <input id="conf_pass" type="password" name="cof-pass" placeholder="Confirm Password" style="font-size: 18px;height:6vh;" value="<?php  echo $pass  ?>" maxlength="25" />
             <span class="show-btn_conf"><i id="show-btn_conf" class="fas fa-eye conf_pass"></i></span>   
          </div>
          <div class="form-field-signup">
-          <input id="spe" type="text" name="spe" placeholder="Specialization" value="<?php  echo $spe  ?>"maxlength="25"/>  
+          <input id="spe" type="text" name="spe" placeholder="Specialization" style="font-size: 18px;height:6vh;" value="<?php  echo $spe  ?>"maxlength="25"/>  
          </div>
 
          <div class="error" style="color: red; margin-left:30px;" > 

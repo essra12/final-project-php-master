@@ -9,11 +9,24 @@ $table2='teacher';
   /*session_start();*/
 $name= $_SESSION['name'];
 $phon=$_SESSION['phone'];
+
+
+/***************************** to get password for teacher -----> Database ************************************ */
+$Tid= $_SESSION['tid'];/**to get teacher id  */
+global $conn; 
+$query="SELECT user.password FROM `user`,teacher WHERE user.user_id=teacher.user_id and teacher.tr_id='$Tid';";
+$result = $conn->query($query);
+if ($result->num_rows > 0) {
+// output data of each row
+while($row = $result->fetch_assoc()) {
+  $passwordTR=$row['password'];/**قيمة كلمة المرور التي تم احضارها من قاعدة البيانات وهي مشفرة  */
+}} 
+/******************************************************************************************************* */
+
+
 $password=$_SESSION['pass'];
 $pass=$_SESSION['pass2'];/**كلمة مرور غير مشفرة */
 $img1=$_SESSION['img1'];/**-----------profile admin  احضار الصورة من ----------- */
-
-
 $error ="";
 if($_SERVER['REQUEST_METHOD']=='POST')
 { 
