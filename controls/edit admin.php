@@ -62,9 +62,8 @@ else if (empty($_FILES['u_img']['name'])) {
 
 
         if(mysqli_query($conn,$sqln)){
-        echo '<script type="text/javascript">alert("Record updated successfully .")</script>';
         ?>
-        <script type="text/javascript">
+        <script >
         window.location.href="../control_panel/groups_control_panel.php" </script>
         <?php 
         } else {

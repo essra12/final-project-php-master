@@ -69,11 +69,19 @@ $id3=$_SESSION['pass2'];/** login path كلمة السر غسر مشفرة تم 
     left: 29.5%;
 }
 }
+.back{
+    position: absolute;
+    top: 2%;
+    left: 1%;
+    font-size: 30px;
+}
 </style>
 <html>
 
 <body>
 <form method="get" action="edit profile.php" enctype="multipart/form-data">
+<div class="back"><a href="../control_panel/groups_control_panel.php"><i class="las la-arrow-left"></i></a></div>
+
 <div class="container">
  <!-- container one for photo,groups,assinament data -->
 <div class="divphoto">

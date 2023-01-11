@@ -107,8 +107,8 @@ include("../../controls/Edit-TeacherPH.php");
  
 
 .profile-pic-div{
-    width:135px ;
-     height:135px  ; 
+    width:120px ;
+     height:120px  ; 
      position: relative;
      left: 50%;
      top: 88%;  
@@ -135,10 +135,27 @@ margin-bottom: 0;
     width: 70%;
    } 
 }
+
+@media(max-width:582px)
+{ 
+   .profile-pic-div{
+    height: 100px;
+    width: 100px;
+
+   }
+   .signup_text{
+    font-size: 25px;
+   }
+   .login-container{
+    height: 80vh;
+
+   }
+}
+
     
 </style>
   <div class="login-container">
-      <p class="signup_text" style="margin-left:25% ;"><b>Edit Teacher</p>
+      <p class="signup_text" style="margin-left:30% ;"><b>Edit Teacher</p>
     <form class="login-form"  method="POST" name="signup_form" enctype="multipart/form-data"  onsubmit="return check_Enter(this)">
 
   <!-- For circular image -->
