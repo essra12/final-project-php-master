@@ -36,9 +36,16 @@ if ($result_g_name->num_rows == 1) {
  <!--------------------navigation_bar ----------------------->  
  <nav class="navbar">
   <ul class="lift-side">
+      <?php if($role==""):?>
       <!-------back------>
       <li><div class="back"><a href="assignment.php"><i class="las la-arrow-left"></i></a></div></li>
       <!----------------->
+      <?php endif;?>
+      <?php if($role=="teacher"):?>
+        <!-------back------>
+      <li><div class="back"><a href="../../UI/teacher/Assignments for Teacher.php"><i class="las la-arrow-left"></i></a></div></li>
+      <!----------------->
+      <?php endif;?>
 
       <!-------logo------>
       <li><div class="brand-title"><img src="../../sources/image/logo_dark.png" style="width: 100px;" /></div></li>

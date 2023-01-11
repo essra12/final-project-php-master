@@ -3,7 +3,7 @@ include("../../path.php");
 include(MAIN_PATH."/controls/assigment__.php");
 
 
-$files=selectpostfile();
+/* $files=selectpostfile(); */
 
 //to get group name
 $sql="SELECT g_name FROM groups Where g_no='$group_no';";
@@ -20,11 +20,11 @@ if(isset($_POST['search_stu'])){
     if(!empty($_POST['find_stu']))
     {
         $search=$_POST['find_stu'];
-        $students=searchStudent($search);
+        $files=search($search);
     }
 }
 else{
-    $students=selectAllStudentInfo(); 
+  $files=selectpostfile(); 
 }
 
 
@@ -42,6 +42,7 @@ else{
     <link rel="stylesheet" href="../../css/inside_reports.css" /> 
      <!--icon8-->
      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
       <title>Assignments</title>
     <style>
      a:link, a:visited{
@@ -60,6 +61,10 @@ else{
         background-color:#A4D2F0;
     color: #fff;
       }
+      #grade{
+        
+      }
+     
     </style>
     
 </head>
@@ -130,9 +135,23 @@ else{
             <button type="submit" name="search_stu">Search</button>  
         </div>
        
-    </form>
+  </form>
+
+  <!-- For Errors message-->
+  <?php if(count($errors)> 0): ?>
+    <div class="msg error" style="color: #D92A2A; margin-bottom: 20px; text-align: center;"> 
+        <?php foreach($errors as $error): ?>
+        <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php  echo($error); ?></li> 
+        <?php endforeach; ?>
+    </div> 
+  <?php endif; ?> 
+    <!------------------------>
+
   <!--------------------------------------------------------->   
-   
+  <?php if(empty($files)): 
+     $files=selectpostfile(); 
+  endif;?>
+ <?php if(!empty($files)): ?>
  <div class="table-box">
         <table class="table">
             <thead>
@@ -153,9 +172,12 @@ else{
 
                                 <td data-label="stu-name"><img src="<?php echo BASE_URL . '/sources/image/' . $file['u_img']; ?>" class="tab-img" style="  width: 30px; height: 30px;border-radius:100%;"><?php echo $file['full_name'] ?></td> 
                                 <?php $datetime=strtotime($file['Datatime'])?>
-                                <td data-label="stu_specialization"><?php echo  date("d-m-Y h:i",$datetime)?></td>
-                                <td data-label=""><?php echo $file['title'] ?></td>
-                                <td data-label=""></td>
+                                <td data-label=""><?php echo  date("d-m-Y h:i",$datetime)?></td>
+                                <td data-label=""><?php echo  html_entity_decode(substr($file['title'],0,20). '...');?></td>
+                                
+                                <!------------------grade section------------------>
+                                <td data-label=""><p id="grade" contentEditable="true" maxlength="3" size="1">20</p>/<p>20</p></td>
+                                <!-------------------------------------------------->
                                 <td data-label="delete"><a  href="../student/download_assignment.php?post_no=<?= $file['p_no']?>">Open</td>
 
                             </tr>
@@ -164,7 +186,7 @@ else{
             </tbody>
         </table>
     </div>
- 
+ <?php endif;?>
   
  
    
@@ -195,6 +217,69 @@ else{
         document.getElementById("find_stu").value = "";
         }
         /***********************************************************/
+        input = document.querySelector('#grade');
+
+    settings = {
+      maxLen: 3,
+    }
+
+    keys = {
+      'backspace': 8,
+      'shift': 16,
+      'ctrl': 17,
+      'alt': 18,
+      'delete': 46,
+      // 'cmd':
+      'leftArrow': 37,
+      'upArrow': 38,
+      'rightArrow': 39,
+      'downArrow': 40,
+    }
+
+    utils = {
+      special: {},
+      navigational: {},
+      isSpecial(e) {
+        return typeof this.special[e.keyCode] !== 'undefined';
+      },
+      isNavigational(e) {
+        return typeof this.navigational[e.keyCode] !== 'undefined';
+      }
+    }
+
+    utils.special[keys['backspace']] = true;
+    utils.special[keys['shift']] = true;
+    utils.special[keys['ctrl']] = true;
+    utils.special[keys['alt']] = true;
+    utils.special[keys['delete']] = true;
+
+    utils.navigational[keys['upArrow']] = true;
+    utils.navigational[keys['downArrow']] = true;
+    utils.navigational[keys['leftArrow']] = true;
+    utils.navigational[keys['rightArrow']] = true;
+
+    input.addEventListener('keydown', function(event) {
+      let len = event.target.innerText.trim().length;
+      hasSelection = false;
+      selection = window.getSelection();
+      isSpecial = utils.isSpecial(event);
+      isNavigational = utils.isNavigational(event);
+      
+      if (selection) {
+        hasSelection = !!selection.toString();
+      }
+      
+      if (isSpecial || isNavigational) {
+        return true;
+      }
+      
+      if (len >= settings.maxLen && !hasSelection) {
+        event.preventDefault();
+        return false;
+      }
+      
+    });
+
  </script> 
  
 </body>

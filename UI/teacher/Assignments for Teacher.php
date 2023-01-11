@@ -3,7 +3,7 @@ include("../../path.php");
 include(MAIN_PATH."/controls/assigment__.php");
 
 
-$files=selectpostfile();
+/* $files=selectpostfile(); */
 
 //to get group name
 $sql="SELECT g_name FROM groups Where g_no='$group_no';";
@@ -14,6 +14,19 @@ if ($result_g_name->num_rows == 1) {
     }
 }
 ///////////////////////////
+////////////search///////////////
+$search="";
+if(isset($_POST['search_stu'])){
+    if(!empty($_POST['find_stu']))
+    {
+        $search=$_POST['find_stu'];
+        $files=search($search);
+    }
+}
+else{
+  $files=selectpostfile(); 
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -29,6 +42,7 @@ if ($result_g_name->num_rows == 1) {
     <link rel="stylesheet" href="../../css/inside_reports.css" /> 
      <!--icon8-->
      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
       <title>Assignments</title>
     <style>
      a:link, a:visited{
@@ -39,6 +53,18 @@ if ($result_g_name->num_rows == 1) {
         color: white;
         margin-left: 9%;
       }
+      .search button{
+      background-color:#FFBA5F;
+      color: #000;
+      }
+      .search button:hover{
+        background-color:#A4D2F0;
+    color: #fff;
+      }
+      #grade{
+        
+      }
+     
     </style>
     
 </head>
@@ -81,23 +107,19 @@ if ($result_g_name->num_rows == 1) {
   </div>
 </nav> 
  <!---------------------------------------------------------->
-  <!-------------------- materials -------------------------> 
+ <!-------------------- Assignments -------------------------> 
 
 <div class="header-div">
  <h1>Assignments</h1>
+  <div id="mybutton">
+    <div>
+       <a href="../teacher/add material.php"><button class="btn-create">+</button></a>
+    </div>
+  </div>
  </div>
- <!--  <form action="" method="POST"  onsubmit="return check_Enter(this)">  
-          
-            <div class="search">
-                <input type="text" value="" placeholder=" Enter Student ID" id="find_stu" name="find_stu" maxlength="8" onkeypress="return onlyNumberKey(event)" >
-                <span class="clear-btn"><i id="clear-btn" class="fa-solid fa-xmark" onclick="ClearFields();"></i></span>
-                <button type="submit" name="search">Search</button>  
-            </div>
-           
-    
-        </form> -->
- <!-----------------Dynamically Create Card-----------------> 
+<!---------------------------------------------------------->
  <main>
+ <div class="main-container">
       <!-- For Succes -->
       <?php if (isset($_SESSION['message'])): ?>
       <div class="msg success" style="color: #5a9d48; margin-Top: 2em; margin-left:7em;">
@@ -108,38 +130,70 @@ if ($result_g_name->num_rows == 1) {
           ?>
       </div>
     <?php endif; ?>
-   
- <div class="container">
-   
-  <div class="cards">
+ <!-------------------- search ----------------------------->
  
-  <?php foreach($files as $key => $file):?>
-    <div class="card">
-    <?php $datetime=strtotime($file['Datatime'])?>
-        <h6 class="card__time"><?php echo  date("d-m-Y h:i",$datetime)?></h6>
-        <h5 class="card__time"><?php echo $file['full_name'] ?></h6>
-        <h5 class="card__time"><?php echo $file['stu_id'] ?></h6>
-
-      
-        <img src="../../sources/image/create_add_photo.png" class="card__image" alt="" />
-       <div class="card__overlay">
-       <div class="card__header">
-            
-          
-          <div class="card__header-text">
-          <h3 class="card__title child"><?php echo $file['title'] ?></h3>
-          </div>
+ <form action="" method="POST"  onsubmit="return check_Enter(this)">  
+        <!--serch bar-->
+        <div class="search">
+            <input type="text" value="<?php echo $search;?>" placeholder=" Enter Student ID" id="find_stu" name="find_stu"  onkeypress="return onlyNumberKey(event)" >
+            <span class="clear-btn"><i id="clear-btn" class="fa-solid fa-xmark" onclick="ClearFields();"></i></span>
+            <button type="submit" name="search_stu">Search</button>  
         </div>
-      
-        <?php $_SESSION['p_no']=$file['p_no'];?>
-          <a  href="../student/download_assignment.php?post_no=<?= $file['p_no']?>" >
-        <p class="card__description">Click  to Check the Assignment</p>
-        </a>
-           <!--  -->
-      </div>
-  </div>  
-    <?php endforeach; ?>    
-   </div>
+       
+  </form>
+
+  <!-- For Errors message-->
+  <?php if(count($errors)> 0): ?>
+    <div class="msg error" style="color: #D92A2A; margin-bottom: 20px; text-align: center;"> 
+        <?php foreach($errors as $error): ?>
+        <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php  echo($error); ?></li> 
+        <?php endforeach; ?>
+    </div> 
+  <?php endif; ?> 
+    <!------------------------>
+
+  <!--------------------------------------------------------->   
+  <?php if(empty($files)): 
+     $files=selectpostfile(); 
+  endif;?>
+ <?php if(!empty($files)): ?>
+ <div class="table-box">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Student Id</th>
+                    <th scope="col">Student Name</th>
+                    <th scope="col">Post date</th>
+                    <th scope="col">File Title</th>
+                    <th scope="col" width="140px">Grade</th>
+                    <th scope="col" width="70px"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+            <?php foreach($files as $key => $file):?> 
+                                <tr>
+                                <td data-label="stu-id"><?php echo $file['stu_id'] ?></td>
+
+                                <td data-label="stu-name"><img src="<?php echo BASE_URL . '/sources/image/' . $file['u_img']; ?>" class="tab-img" style="  width: 30px; height: 30px;border-radius:100%;"><?php echo $file['full_name'] ?></td> 
+                                <?php $datetime=strtotime($file['Datatime'])?>
+                                <td data-label=""><?php echo  date("d-m-Y h:i",$datetime)?></td>
+                                <td data-label=""><?php echo  html_entity_decode(substr($file['title'],0,20). '...');?></td>
+                                
+                                <!------------------grade section------------------>
+                                <td data-label=""><p id="grade" contentEditable="true" maxlength="3" size="1">20</p>/<p>20</p></td>
+                                <!-------------------------------------------------->
+                                <td data-label="delete"><a  href="../student/download_assignment.php?post_no=<?= $file['p_no']?>">Open</td>
+
+                            </tr>
+            <?php endforeach; ?> 
+              
+            </tbody>
+        </table>
+    </div>
+ <?php endif;?>
+  
+ 
    
  </div>
 </main>
@@ -168,6 +222,69 @@ if ($result_g_name->num_rows == 1) {
         document.getElementById("find_stu").value = "";
         }
         /***********************************************************/
+        input = document.querySelector('#grade');
+
+    settings = {
+      maxLen: 3,
+    }
+
+    keys = {
+      'backspace': 8,
+      'shift': 16,
+      'ctrl': 17,
+      'alt': 18,
+      'delete': 46,
+      // 'cmd':
+      'leftArrow': 37,
+      'upArrow': 38,
+      'rightArrow': 39,
+      'downArrow': 40,
+    }
+
+    utils = {
+      special: {},
+      navigational: {},
+      isSpecial(e) {
+        return typeof this.special[e.keyCode] !== 'undefined';
+      },
+      isNavigational(e) {
+        return typeof this.navigational[e.keyCode] !== 'undefined';
+      }
+    }
+
+    utils.special[keys['backspace']] = true;
+    utils.special[keys['shift']] = true;
+    utils.special[keys['ctrl']] = true;
+    utils.special[keys['alt']] = true;
+    utils.special[keys['delete']] = true;
+
+    utils.navigational[keys['upArrow']] = true;
+    utils.navigational[keys['downArrow']] = true;
+    utils.navigational[keys['leftArrow']] = true;
+    utils.navigational[keys['rightArrow']] = true;
+
+    input.addEventListener('keydown', function(event) {
+      let len = event.target.innerText.trim().length;
+      hasSelection = false;
+      selection = window.getSelection();
+      isSpecial = utils.isSpecial(event);
+      isNavigational = utils.isNavigational(event);
+      
+      if (selection) {
+        hasSelection = !!selection.toString();
+      }
+      
+      if (isSpecial || isNavigational) {
+        return true;
+      }
+      
+      if (len >= settings.maxLen && !hasSelection) {
+        event.preventDefault();
+        return false;
+      }
+      
+    });
+
  </script> 
  
 </body>
