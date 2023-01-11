@@ -199,12 +199,13 @@ a:is(:link,:active,:hover).active{
   .img-user{
     position: absolute;
     top: 40%;
-    left: 50%;
+    left:40%;
     transform: translate(-50% , -50%);
-    width:50%;
-    height:auto;
+    width:200px;
+    height:200px;
     display: block; 
-    
+    vertical-align: middle;
+        
   }
 
   
