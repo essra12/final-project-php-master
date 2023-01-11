@@ -96,7 +96,7 @@ if ($result_g_name->num_rows == 1) {
             <!--text-->
             <div class="container_text_input">
                 <label style="color: #222242; margin-left: .5rem;">Text</label>
-                <div class="text_input">
+                <div class="text_input ass_ann">
                     <textarea type="text" name="an_content" id="content" maxlength="250" rows="4" ><?php echo $an_content; ?></textarea>
                 </div>
             </div>

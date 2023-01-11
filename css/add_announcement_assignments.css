@@ -211,7 +211,12 @@ a:is(:link,:active,:hover).active{
     font-weight: bold;
     margin-right: 1rem;
 }
-
+.container_text_input .text_input.ass_ann{
+    background: var(--vvlightblue);
+    padding: .8rem;
+    border-radius: 25px;
+    font-size: 16px;
+}
 /**************text******************/
 .container_text_input .text_input{
     padding: .8rem;
