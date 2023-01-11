@@ -198,11 +198,11 @@ a:is(:link,:active,:hover).active{
   }
   .img-user{
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50% , -50%);
-    width:55%;
-    height: 70%;
+    width:50%;
+    height:auto;
     display: block; 
     
   }
