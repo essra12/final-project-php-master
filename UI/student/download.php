@@ -69,6 +69,9 @@ if ($result_g_name->num_rows == 1) {
          background-color:#222242;
          color:#fff;
      }
+     .main-container{
+        margin: 25px 250px;
+      }
 
  </style>  
     </head>
@@ -140,7 +143,7 @@ if ($result_g_name->num_rows == 1) {
            <!--------main-container----------->
       <div class="main-container">
         <div class="title">
-            <h1 style="color: #222242;">Materials</h1>
+            <h1 style="color: #222242;margin-bottom: 25px;">Materials</h1>
         </div>
 
         <form  >

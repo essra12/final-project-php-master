@@ -40,6 +40,7 @@ if ($result_g_name->num_rows == 1) {
       .las.la-clock{
       font-size: 16px;
       margin-right: 5px;}
+      
     </style>
     
 </head>
