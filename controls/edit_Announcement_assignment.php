@@ -61,12 +61,8 @@ $row =mysqli_fetch_row($result);
                    /** update statment  */
                     $sqln="UPDATE `announcement` SET `an_content`='$annou',`an_Datetime`='$date',`due_date`='$due_date',`grade`='$gradee',`g_no`='$gno' WHERE announcement.an_no=$textann";
                     if(mysqli_query($conn,$sqln)){
-                    echo '<script type="text/javascript">alert("Record updated successfully .")</script>';
-                    ?>
-                    <script type="text/javascript">
-                        
-                    window.location.href="../teacher/Announcement.php." </script>
-                    <?php 
+                      $_SESSION['message']="The announcement Update successfully";
+                      header('location: '.BASE_URL.'/UI/teacher/announcement.php');
                     } else {
                     echo "Error updating record: " . mysqli_error($conn);
                     }
