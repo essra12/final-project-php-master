@@ -96,7 +96,7 @@ include("../../controls/Edit-TeacherPH.php");
     padding: 2%;
     margin-top: 2%;
     width: 30%;
-    height: 87vh;
+    height: 90vh;
 
    }
    .login-form{

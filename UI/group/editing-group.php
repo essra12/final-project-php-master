@@ -9,7 +9,7 @@ $trid=$_GET['trID'];
 
 $user_id=$_SESSION['user_id'];
 $role=$_SESSION['role'];
-echo $groupNumber=$_SESSION['g_no'];
+$groupNumber=$_SESSION['g_no'];
 ////////////////////
 
 //to get group name
@@ -65,6 +65,16 @@ if($role=="teacher"):
         <link rel="stylesheet" href="../../css/add_group_teacher_admin.css">
         <!--icon8-->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <style>
+ 
+form .form-field:nth-child(2)::before {
+    background-image: url(https://img.icons8.com/pastel-glyph/512/groups.png);
+    width: 28px;
+    height: 28px;
+    top:0.4em;
+    left: 27%;
+}
+    </style>
     </head>
 
 <body id="b-vlightblue">
@@ -192,7 +202,10 @@ if($role=="teacher"):
             <div class="create-g-div">
 
                 <div class="form-field ">
-                    <input id="name" name="t__name" class="input-name" type="text"  placeholder="Group Name" value="<?php echo  $username;?>"   />
+                    <input id="name" name="t__name" class="input-name" type="text"  placeholder="Group Name" value="<?php echo  $username;?>"  readonly  />
+                </div>
+                
+                <div class="form-field group ">
                     <input id="name" name="g__name" class="input-name" type="text"  placeholder="Group Name" value="<?php echo  $nameg;?>"  />
                 </div>
             </div>
