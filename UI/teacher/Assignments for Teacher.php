@@ -183,7 +183,7 @@ else{
                                 <!------------------grade section------------------>
                                 <td data-label=""><p id="grade" contentEditable="true" maxlength="3" size="1">20</p>/<p>20</p></td>
                                 <!-------------------------------------------------->
-                                <td data-label="delete"><a  href="../student/download_assignment.php?post_no=<?= $file['p_no']?>">Open</td>
+                                <td data-label="delete"><a  href="../student/download_assignment.php?post_no=<?= $file['p_no']?>&stu_id=<?= $file['stu_id']?>">Open</td>
 
                             </tr>
             <?php endforeach; ?> 

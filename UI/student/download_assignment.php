@@ -2,7 +2,8 @@
 include("../../path.php");  
 /* include(MAIN_PATH. "/database/db.php"); */
  include(MAIN_PATH."/controls/download_Assignments.php"); 
-$stu_id=$_SESSION['stu_id'];
+ if($role==""){ $stu_id=$_SESSION['stu_id'];}
+if($role=="teacher"){ $stu_id=$_GET['stu_id']; }
 $table="file";
 $files=selectAll($table,['p_no'=>$_GET['post_no']]);
 
@@ -31,6 +32,11 @@ if ($result_g_name->num_rows == 1) {
         <!--file icon-->
         <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>     
     </head>
+    <style>
+      .main-container{
+        margin: 25px 250px;
+      }
+    </style>  
 
     <body>
  <!--------------------navigation_bar ----------------------->  
@@ -84,7 +90,7 @@ if ($result_g_name->num_rows == 1) {
         <!--------main-container----------->
       <div class="main-container">
         <div class="title">
-            <h1 style="color: #222242;">Assignment</h1>
+            <h1 style="color: #222242;margin-bottom: 25px;">Assignment</h1>
         </div>
 
         <form  >

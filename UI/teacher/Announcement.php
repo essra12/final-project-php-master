@@ -89,7 +89,7 @@ $today = strtotime($todays_date);
 
     <!-- For Succes -->
     <?php if (isset($_SESSION['message'])): ?>
-    <div class="msg success" style="color: #5a9d48;">
+    <div class="msg success" style="color: #5a9d48; margin-bottom:10px;">
         <li style="list-style-type: none;"><i class="las la-check-circle" style="color: #5a9d48 ;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;<?php echo $_SESSION['message']; ?></li>
         <?php
         /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */

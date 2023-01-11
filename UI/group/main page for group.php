@@ -42,9 +42,9 @@ if ($result->num_rows == 1) {
       float: right;
       margin-top: 6%;
       position: absolute;
-      top: 16%;
+      top: 15%;
       left: 76%;
-      font-size: 18px;
+      font-size: 16px;
     }
    #icon3:hover{
     color:orange;
