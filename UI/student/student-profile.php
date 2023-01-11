@@ -1,7 +1,7 @@
 <?php 
 include("../../Database/db.php");
 include("../../controls/profiles.php");
- $id=$_SESSION['id'];
+ /* $id=$_SESSION['id'];*/
 
 ?>
 
