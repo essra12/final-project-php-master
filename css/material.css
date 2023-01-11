@@ -141,13 +141,14 @@ a:is(:link,:active,:hover).active{
   }
   
   h1{
-    font-size: 4.5em;
+    font-size: 3.5em;
     }
   /*******************************************************************************************************/
   .btn-create{
     
-    margin-left: 20%;
-    margin-top: 60%;
+    margin-left: 70%;
+    margin-top: 30%;
+
     border: none;
     border-radius: 100%;
     width: 50px;
