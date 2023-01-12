@@ -255,10 +255,11 @@ ul {
 /****Button*****/
 .btn_post{
     margin:1rem 0rem 0rem 0rem;
-    text-align: center;
+    text-align: left;
+    padding-left: 17%;
 }
 
-.btn_post.ass button{
+.btn_post button{
     border: 2px double var(--vdarkblue);
     padding: 10px 24px;
     color: #fff;
@@ -444,6 +445,10 @@ p#demo {
     .right_side{
         float: none;
         width: 100%;
+    }
+    .btn_post{
+        padding-left: 0px;
+        text-align: center;
     }
 }
 
