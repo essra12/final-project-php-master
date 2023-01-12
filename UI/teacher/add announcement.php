@@ -73,8 +73,11 @@ if ($result_g_name->num_rows == 1) {
     <div class="main-container announcement">
 
         <!-- For Errors message-->
+        <!--the errors-->
+        <p id="demo"></p>
+        
         <?php if(count($errors)> 0): ?>
-        <div class="msg error" style="color: #D92A2A; margin-bottom: 20px;"> 
+        <div class="msg error" style="color: #D92A2A; margin-bottom: 10px;"> 
             <?php foreach($errors as $error): ?>
             <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php  echo($error); ?></li> 
             <?php endforeach; ?>
@@ -112,7 +115,8 @@ if ($result_g_name->num_rows == 1) {
         function check_Enter() {
             const content = document.getElementById("content").value;
             if(content==""){
-            alert(" Please enter Text");
+            /* alert(" Please enter Text"); */
+            document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;Please enter Text."; 
             return false;
             }
         }

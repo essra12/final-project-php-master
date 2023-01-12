@@ -15,6 +15,12 @@ if(isset($_POST['add_announcement_assignment'])){
     $an_content=htmlentities($_POST['an_content']);   
     $due_date=$_POST['due_date'];  
     $grade=$_POST['an_grade']; 
+    $now = new DateTime();
+    $formatnow = $now->format('Y-m-d');
+    if($formatnow == $due_date || $formatnow > $due_date){
+      array_push($errors,"Please enter correct due date");
+    }
+    else{
     $sql_insert_announcement_assignment = "INSERT INTO announcement(an_content, due_date, grade, g_no) VALUES ('$an_content','$due_date','$grade','$groupNumber');";
     if(mysqli_query($conn, $sql_insert_announcement_assignment)){
     }
@@ -32,4 +38,5 @@ if(isset($_POST['add_announcement_assignment'])){
         $grade=$_POST['an_grade'];
         $due_date=$_POST['due_date']; 
       }
+    }
 }

@@ -74,6 +74,9 @@ if ($result_g_name->num_rows == 1) {
     <div class="main-container">
 
         <!-- For Errors message-->
+        <!--the errors-->
+        <p id="demo"></p>
+
         <?php if(count($errors)> 0): ?>
         <div class="msg error" style="color: #D92A2A; margin-bottom: 20px;"> 
             <?php foreach($errors as $error): ?>
@@ -154,11 +157,13 @@ if ($result_g_name->num_rows == 1) {
             const content = document.getElementById("content").value;
             const grade = document.getElementById("grade").value;
             if(content==""){
-              alert(" Please enter Text");
+             /* alert(" Please enter Text"); */
+              document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;Please enter Text."; 
               return false;
             }
             if(grade==""){
-              alert(" Please enter grade");
+              /* alert(" Please enter grade"); */
+              document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;Please enter grade."; 
               return false;
             }
         }
@@ -174,7 +179,8 @@ if ($result_g_name->num_rows == 1) {
             }
           } else {
             if (charCode > 31 &&(charCode < 48 || charCode > 57)){
-              alert(" pleas enter Just Number");
+              /* alert(" pleas enter Just Number"); */
+              document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;pleas enter Just Number."; 
               return false;
             }
           }

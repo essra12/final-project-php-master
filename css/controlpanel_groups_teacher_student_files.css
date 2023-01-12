@@ -733,6 +733,7 @@ table th {
         margin-left:10%;
     }
 }
+/*for error message in js*/
 p#demo {
     color: var(--red);
     margin-bottom: 20px;
