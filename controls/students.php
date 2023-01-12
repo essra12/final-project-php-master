@@ -106,29 +106,19 @@ if(isset($_POST['Add_student'])){
 function selectAllStudentInGroup(){ 
     global $conn; 
     if(isset($_GET['g_no'])){
+        $_SESSION['g_no']=$_GET['g_no'];
         $sql = "SELECT user.full_name,user.u_img,student.stu_id FROM user,student, student_group WHERE user.user_id=student.user_id AND student.stu_id=student_group.stu_id AND student_group.g_no ='$_GET[g_no]';";
         $pre=$conn->prepare($sql);
         $pre->execute();
         $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
         return $records;
     }
-
-    
 }
+
 /****************************************************************************************************************************/
  /********************************************Delete Student from control panel**********************************************/
-/*  if(isset($_GET['deleteID']))
- {
-   $deleteStudent=deleteStudent($_GET['deleteID']);
-   $_SESSION['message']="Student deleted successfully";
-   header('location: '.BASE_URL.'/UI/control_panel/student_control_panel.php');
-   $conn->close();
-   exit();
- }  */
-
  if(isset($_GET['deleteID'])&& isset($_GET['deletestu_id']))
  {
-
     $user_id_delete=$_GET['deleteID'];
     $stu_id_delete=$_GET['deletestu_id'];
 
@@ -142,17 +132,6 @@ function selectAllStudentInGroup(){
         array_push($array_stu_group,$stu_group);
       }
     }
-
-    /*to get g_no 
-    $array_g_no=array();
-    $select_g_no="SELECT DISTINCT  groups.g_no FROM groups,student_group,student WHERE student_group.g_no=groups.g_no AND student.stu_id=student_group.stu_id AND student.stu_id='$stu_id_delete';";
-    $result = $conn->query($select_g_no);
-    if($result->num_rows > 0) {
-      while($row = $result->fetch_assoc()) {
-        $g_no=$row['g_no'];
-        array_push($array_g_no,$g_no);
-      }
-    }*/
 
     //to get p_no 
     $array_p_no=array();
@@ -240,6 +219,33 @@ function searchStudent($stu_id){
     global $conn; 
         $sql="SELECT student.stu_id,user.user_id,user.full_name,user.u_img,student.stu_specialization FROM student,user WHERE user.user_id=student.user_id 
         AND student.stu_id='$stu_id';";
+        $pre=$conn->prepare($sql);
+        $pre->execute();
+        $exisiting_student_search=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
+            
+        if($exisiting_student_search)
+        {
+            $conn->close();
+            return $exisiting_student_search;
+        }
+        elseif(!$exisiting_student_search) 
+          {
+            array_push($errors," This student dosn't exist");
+            $search="";
+            return $exisiting_student_search;
+         } 
+                   
+    } 
+
+    /*********search***********/
+function searchStudentInGroup($stu_id){ 
+    $g_no=$_GET['g_no'];
+    $search="";
+    global $errors;
+    global $conn; 
+    $sql = "SELECT user.full_name,user.u_img,student.stu_id FROM user,student, student_group WHERE user.user_id=student.user_id AND student.stu_id=student_group.stu_id 
+    AND student_group.g_no ='$g_no' AND student.stu_id='$stu_id';";
+
         $pre=$conn->prepare($sql);
         $pre->execute();
         $exisiting_student_search=$pre->get_result()->fetch_all(MYSQLI_ASSOC);

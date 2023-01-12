@@ -1,8 +1,19 @@
 <?php 
 include("../../path.php"); 
 include(MAIN_PATH."/controls/students.php"); 
-
-$students=selectAllStudentInGroup();  
+///////////search///////////////
+$search="";
+if(isset($_POST['search_stu'])){
+    if(!empty($_POST['find_stu']))
+    {
+        $search=$_POST['find_stu'];
+        $students=searchStudentInGroup($search);
+    }
+}
+else{
+    $students=selectAllStudentInGroup(); 
+}
+ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +27,8 @@ $students=selectAllStudentInGroup();
         <link rel="stylesheet" href="../../css/controlpanel_groups_teacher_student_files.css">
         <!--icon8-->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+        <!-- Font Awesome Icons -->
+        <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/> 
     </head>
 
 <body id="b-vlightblue">
@@ -53,6 +66,16 @@ $students=selectAllStudentInGroup();
     </div>
     <!------------------>
 
+    <form action="" method="POST"  onsubmit="return check_Enter(this)">  
+        <!--serch bar-->
+        <div class="search">
+            <input type="text" value="<?php echo $search;?>" placeholder=" Enter Student ID" id="find_stu" name="find_stu"  onkeypress="return onlyNumberKey(event)" >
+            <span class="clear-btn"><i id="clear-btn" class="fa-solid fa-xmark" onclick="ClearFields();"></i></span>
+            <button type="submit" name="search_stu">Search</button>  
+        </div>
+        <!------------->
+    </form>
+
     <!-- For Succes message -->
     <?php if (isset($_SESSION['message'])): ?>
         <div class="msg success" style="color: #5a9d48; margin-Top: 20px;">
@@ -63,10 +86,26 @@ $students=selectAllStudentInGroup();
             ?>
         </div>
     <?php endif; ?>
-<!------------------------->    
+<!------------------------->   
+
+<!-- For Errors message-->
+    <!--the errors-->
+    <p id="demo"></p>
+
+    <?php if(count($errors)> 0): ?>
+            <div class="msg error" style="color: #D92A2A; margin-bottom: 10px; text-align: left;"> 
+                <?php foreach($errors as $error): ?>
+                <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php  echo($error); ?></li> 
+                <?php endforeach; ?>
+            </div> 
+            <?php endif; ?> 
+    <!------------------------>
 
 <!--  table for teacher  -->
-
+<?php if(empty($students)): 
+        $students=selectAllStudentInGroup();  
+    endif;?>
+    <?php if(!empty($students)): ?>
     <div class="table-box">
         <table class="table">
             <thead>
@@ -90,6 +129,7 @@ $students=selectAllStudentInGroup();
             </tbody>
         </table>
     </div>
+    <?php endif;?>
 <!--------------------------->
 
 </div>
@@ -115,7 +155,12 @@ $students=selectAllStudentInGroup();
             return false;
         }
     }
-
+        /***********************************************************/
+        /************************clear field************************/
+        function ClearFields() {
+            document.getElementById("find_stu").value = "";
+        }
+        /***********************************************************/
 </script>
 </body>
 </html>
