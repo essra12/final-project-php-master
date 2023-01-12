@@ -262,12 +262,12 @@ header{
   border-radius: 15px;
   width: 65%;
   height: auto;
-  padding: 1rem;
+  padding: 1.5rem;
   text-align: center;
-  margin: 2rem 0rem 0rem .5rem ;
+  margin: 2rem 0rem 0rem 1.5rem ;
 }
 a.btn-admin {
-  padding: .5rem 1rem;
+  padding: .5rem 2rem;
   background-color: #FFBA5F;
   border-radius: 15px;
   font-size: 14px;
