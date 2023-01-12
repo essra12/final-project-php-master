@@ -9,6 +9,8 @@ $table2='teacher';
   /*session_start();*/
 $name= $_SESSION['name'];
 $phon=$_SESSION['phone'];
+$password=$_SESSION['pass'];/**كلمة السر مشفرة  */
+
 
 
 /***************************** to get password for teacher -----> Database ************************************ */
@@ -21,13 +23,25 @@ if ($result->num_rows > 0) {
 while($row = $result->fetch_assoc()) {
   $passwordTR=$row['password'];/**قيمة كلمة المرور التي تم احضارها من قاعدة البيانات وهي مشفرة  */
 }} 
+/*
+if(isset($_POST["pass"]))
+{
+ $userp1=$_POST["pass"];
+}
+      
+      if (password_verify($userp1, $passwordTR)) {
+        echo $_SESSION['pass3']=$userp1;
+    } else {
+        echo 'Invalid password.';
+    }
+*/
+
 /******************************************************************************************************* */
-
-
-$password=$_SESSION['pass'];
-$pass=$_SESSION['pass2'];/**كلمة مرور غير مشفرة */
+$pass=$_SESSION['pass3'];/**كلمة مرور غير مشفرة */
 $img1=$_SESSION['img1'];/**-----------profile admin  احضار الصورة من ----------- */
 $error ="";
+
+
 if($_SERVER['REQUEST_METHOD']=='POST')
 { 
     $p_new=trim($_POST['phone']);
