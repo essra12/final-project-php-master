@@ -17,7 +17,8 @@ $img1=$_SESSION['img1'];/** profile admin  صورة تم احضارها من */
     <link rel="stylesheet" href="../../CSS/login_and_singup.css"/>
     <link rel="stylesheet" href="../../CSS/editing.css"/>
     <!--icon-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <script src="https://kit.fontawesome.com/e1ca29be31.js" crossorigin="anonymous"></script>
     <title>Edit Profile</title>
 
 <style> 
@@ -86,7 +87,7 @@ width: 100%;
    .login-container{
     width: 29%;
 padding: 2%;
-
+height: 90vh;
    }
    *{
     font-family: "Poppins", sans-serif;
@@ -98,9 +99,18 @@ padding: 2%;
     width: 60%;
    } 
 }
+.back{
+    position: absolute;
+    top: 2%;
+    left: 1%;
+    font-size: 30px;
+    z-index: 1;
+}
     </style>
 
 <body>
+<div class="back"><a href="../admin/admin profile.php"><i class="las la-arrow-left"></i></a></div>
+
     <div class="login-container">
     <p class="signup_text" style="margin-left:30% ;"><b>Edit Admin</p>
     <form class="login-form"  method="POST" name="signup_form" enctype="multipart/form-data"  onsubmit="return check_Enter(this)">

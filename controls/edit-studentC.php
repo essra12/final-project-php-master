@@ -11,6 +11,21 @@ $table2='student';
 $id= $_SESSION['id'];
 $name=$_SESSION['name'];
 $spe=$_SESSION['spe'];
+
+
+/***************************** to get password for student  -----> Database ************************************ */
+$Sid= $_SESSION['id'];/**to get student id  */
+global $conn; 
+$query="SELECT user.password FROM `user`,teacher WHERE user.user_id=teacher.user_id and teacher.tr_id='$Sid';";
+$result = $conn->query($query);
+if ($result->num_rows > 0) {
+// output data of each row
+while($row = $result->fetch_assoc()) {
+  $passwordST=$row['password'];/**قيمة كلمة المرور التي تم احضارها من قاعدة البيانات وهي مشفرة  */
+}} 
+/******************************************************************************************************* */
+
+
 $password=$_SESSION['pass'];
 $pass=$_SESSION['pass2'];/**كلمة مرور غير مشفرة */
 $img1=$_SESSION['img1'];/**-----------profile admin  احضار الصورة من ----------- */

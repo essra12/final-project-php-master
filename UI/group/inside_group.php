@@ -1,6 +1,7 @@
 <?php 
 include("../../path.php"); 
 include(MAIN_PATH."/controls/inside_group.php");
+include(MAIN_PATH."/controls/leave_student.php");
 /////////////////////
 $user_id=$_SESSION['user_id'];
 $role=$_SESSION['role'];
@@ -25,6 +26,8 @@ if ($result_g_name->num_rows == 1) {
       $img=$row["u_img"];
     }
 }
+/////////////////////////////////
+
  if($role==""):
 /*to get user id from user -> student*/
 $sql="SELECT stu_id FROM user,student Where user.user_id=student.user_id AND user.user_id='$user_id';";
@@ -36,7 +39,19 @@ if ($result->num_rows == 1) {
     }
 }
 endif;
-/////////////////////////////////
+
+////////////////////////////////////
+/*to get student group  from  -> student*/
+if($role==""):
+$sql="SELECT student_group.stu_group FROM `student_group` WHERE student_group.g_no='$groupNumber' and student_group.stu_id='$stu_id';";
+$result= $conn->query($sql);
+if ($result->num_rows == 1) {
+    while($row = $result->fetch_assoc()) {
+      $stu_group=$row["stu_group"];
+    
+    }
+} endif;
+////////////////////////////////////////////
 if($role=="teacher"):
     /*to get user id from user -> student*/
     $sql="SELECT tr_id FROM user,teacher Where user.user_id=teacher.user_id AND user.user_id='$user_id';";
@@ -51,6 +66,7 @@ if($role=="teacher"):
     ///////////////////////////
      /*******************************************************/
   /**********************leave section*******************/
+ 
   if($role==""):
   if(isset($_POST['leave'])){
     $groupNumber=$_SESSION['g_no'];
@@ -181,7 +197,7 @@ endif;
                     <li>
                         <a href="<?php echo BASE_URL . '/UI/group/main page for group.php' ?>">
                             <span class="las la-home"></span>
-                            <span>Home</span>
+                            <span>Home </span>
                         </a>
                     </li>
                     <li>
@@ -203,12 +219,12 @@ endif;
                     </a>
                 </ul>
             </div>
-        <!--*************************************************************************** -->
+        <!--************************** Leave ************************************************* -->
         <?php if($role==""):?>
         <!--leave button -->
            <div class="sidebar-card-btn">
             <form action="inside_group.php" method="POST">
-            <input  class="btn btn-admin" type="button" value="Leave" name="leave" onclick="return confirmDelete()"> 
+            <a name="leave" onclick="return confirmDelete()" href="../group/main page for group.php?groupNO=<?php echo $groupNumber;?>&studentID=<?php echo $stu_id;?>&studentGR=<?php echo $stu_group;?>"><input  class="btn btn-admin" type="button" value="Leave" name="leave"> </a>
             </form>
              </div>
         <?php endif;?>
