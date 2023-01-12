@@ -42,6 +42,8 @@ else{
     <link rel="stylesheet" href="../../css/inside_reports.css" /> 
      <!--icon8-->
      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+     <!-- Font Awesome Icons -->
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
      <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
       <title>Assignments</title>
     <style>
@@ -172,23 +174,31 @@ else{
 
             <tbody>
             <?php foreach($files as $key => $file):?> 
-                                <tr>
-                                <td data-label="stu-id"><?php echo $file['stu_id'] ?></td>
+              <tr>
+              <td data-label="stu-id"><?php echo $file['stu_id'] ?></td>
 
-                                <td data-label="stu-name"><img src="<?php echo BASE_URL . '/sources/image/' . $file['u_img']; ?>" class="tab-img" style="  width: 30px; height: 30px;border-radius:100%;"><?php echo $file['full_name'] ?></td> 
-                                <?php $datetime=strtotime($file['Datatime'])?>
-                                <td data-label=""><?php echo  date("d-m-Y h:i",$datetime)?></td>
-                                <td data-label=""><?php echo  html_entity_decode(substr($file['title'],0,20). '...');?></td>
-                                
-                                <!------------------grade section------------------>
-                                <td data-label=""><p id="grade" contentEditable="true" maxlength="3" size="1">20</p>/<p>20</p></td>
-                                <!-------------------------------------------------->
-                                <td data-label="delete"><a  href="../student/download_assignment.php?post_no=<?= $file['p_no']?>&stu_id=<?= $file['stu_id']?>">Open</td>
-
-                            </tr>
-            <?php endforeach; ?> 
+              <td data-label="stu-name"><img src="<?php echo BASE_URL . '/sources/image/' . $file['u_img']; ?>" class="tab-img" style="  width: 30px; height: 30px;border-radius:100%;"><?php echo $file['full_name'] ?></td> 
+              <?php $datetime=strtotime($file['Datatime'])?>
+              <td data-label=""><?php echo  date("d-m-Y h:i",$datetime)?></td>
+              <td data-label=""><?php echo  html_entity_decode(substr($file['title'],0,20). '...');?></td>
               
+              <!------------------grade section------------------>
+              <?php if(!empty($file['stu_grade'])):?>
+                <td data-label=""><p id="grade" contentEditable="true" maxlength="3" size="1" class="grade"><?php echo $file['stu_grade']?></p>/<p><?php echo $file['grade']?></p></td>
+              <?php endif;
+              if(empty($file['stu_grade'])):?>
+                <td data-label=""><p id="grade" contentEditable="true" maxlength="3" size="1" class="grade">--</p>/<p><?php echo $file['grade']?></p></td>
+                <?php endif;?>
+              <!-------------------------------------------------->
+              <td data-label="open">
+                <a  href="../student/download_assignment.php?post_no=<?= $file['p_no']?>&stu_id=<?= $file['stu_id']?>">Open</a>
+                <a  href="" style="text-align:center;" id="edit" onclick= editGrade(this) >Edit</a>
+              </td>
+
+            </tr>
+            <?php endforeach; ?> 
             </tbody>
+
         </table>
     </div>
  <?php endif;?>
@@ -285,6 +295,9 @@ else{
       
     });
 
+    /***************grade******************/
+   
+    /*************************************/
  </script> 
  
 </body>

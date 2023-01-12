@@ -151,15 +151,17 @@ if ($result_g_name->num_rows == 1) {
           <!-- title field -->
           <div class="inputs title">
             <label style="color: #222242;">Title</label>
-            <label style=" font-weight: normal;font-size: 20px; padding-top:20px;" ><?php echo $title?></label>
+            <label style=" font-weight: normal;font-size: 16px; padding-top:10px;" ><?php echo $title?></label>
           </div>
           <!------------------>
           
           <!-- description field -->
+          <?php if(!empty($des)):?>
           <div class="inputs description">
             <label style="color: #222242;">Description</label>
-            <label style=" font-weight: normal;font-size: 20px; padding-top:20px;"><?php echo $des?></label>
+            <label style=" font-weight: normal;font-size: 16px; padding-top:10px;"><?php echo $des?></label>
           </div>
+          <?php endif;?>
           <!------------------>
 
           <!-- attach field -->

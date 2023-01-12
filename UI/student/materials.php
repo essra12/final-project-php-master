@@ -63,9 +63,7 @@ if ($result_g_name->num_rows == 1) {
       <!----------------->
 
       <!-----students--->
-      <?php if ($_SESSION['role']=="teacher"):?> 
       <li><a href="<?php echo BASE_URL . '/UI/teacher/testreqest.php' ?>"  style="font-size: 1.5rem;"><i class="las la-user-friends"></i></a></li>
-      <?php endif; ?>  
       <!----------------->
 
       <!------HOME------>
@@ -112,7 +110,8 @@ if ($result_g_name->num_rows == 1) {
             
 
   <div class="cards">
-  <?php foreach($files as $key => $file):?>
+  <?php foreach($files as $key => $file):
+    if(empty($file['stu_group'])):?><!--changeable-->
     <div class="card">
     <?php $datetime=strtotime($file['Datatime'])?>
         <h6 class="card__time"><i class="las la-clock"></i><?php echo  date("d-m-Y h:i a",$datetime)?></h6>
@@ -123,7 +122,7 @@ if ($result_g_name->num_rows == 1) {
           <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
           
           <div class="card__header-text">
-          <h3 class="card__title child"><?php echo $file['title'] ?></h3>
+          <h3 class="card__title child"><?php echo  html_entity_decode(substr($file['title'],0,100). '...');?></h3>
           
           <?php if($role=="teacher"):?>
           <a class="child" href="materials.php?deletePost=<?php echo $file['p_no'];?>" onclick="return confirmDelete()"><i id="icon2" class="fa-solid fa-xmark"></i></a>
@@ -138,7 +137,8 @@ if ($result_g_name->num_rows == 1) {
            <!--  -->
       </div>
   </div>  
-    <?php endforeach; ?>    
+  <?php endif;
+   endforeach; ?>    
    </div>
  </div>
 </main>
