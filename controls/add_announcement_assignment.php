@@ -17,8 +17,8 @@ if(isset($_POST['add_announcement_assignment'])){
     $grade=$_POST['an_grade']; 
     $now = new DateTime();
     $formatnow = $now->format('Y-m-d');
-    if($formatnow == $due_date){
-      array_push($errors,"Please enter due date");
+    if($formatnow == $due_date || $formatnow > $due_date){
+      array_push($errors,"Please enter correct due date");
     }
     else{
     $sql_insert_announcement_assignment = "INSERT INTO announcement(an_content, due_date, grade, g_no) VALUES ('$an_content','$due_date','$grade','$groupNumber');";
