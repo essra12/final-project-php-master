@@ -1,17 +1,13 @@
 <?php
 
-
 include("../../database/db.php");
 global $conn;
 $errors = array();
 $table2='teacher';
 /** seesion احضار البيانات باستخدام  */
-  /*session_start();*/
 $name= $_SESSION['name'];
 $phon=$_SESSION['phone'];
 $password=$_SESSION['pass'];/**كلمة السر مشفرة  */
-
-
 
 /***************************** to get password for teacher -----> Database ************************************ */
 $Tid= $_SESSION['tid'];/**to get teacher id  */
@@ -28,16 +24,14 @@ if(isset($_POST["pass"]))
 {
  $userp1=$_POST["pass"];
 }
-      
       if (password_verify($userp1, $passwordTR)) {
         echo $_SESSION['pass3']=$userp1;
     } else {
         echo 'Invalid password.';
     }
 */
-
 /******************************************************************************************************* */
-$pass=$_SESSION['pass3'];/**كلمة مرور غير مشفرة */
+$pass=$_SESSION['pass2'];/**كلمة مرور غير مشفرة */
 $img1=$_SESSION['img1'];/**-----------profile admin  احضار الصورة من ----------- */
 $error ="";
 
@@ -52,6 +46,13 @@ if($_SERVER['REQUEST_METHOD']=='POST')
             array_push($errors,"This Teacher  alredy exists");
         }else{
        /* user Image */
+       $userp1=$_POST["pass"];
+          if (password_verify($userp1, $passwordTR)) {
+          echo $_SESSION['pass3']=$userp1;
+        } else {
+            echo 'Invalid password.';
+        }
+
    if (!empty($_FILES['u_img']['name'])) {
     $imgName= time() .'_' . $_FILES['u_img']['name'];// تُرجع الدالة الوقت الحالي بعدد الثواني منذ ذلك الحين time() ،  HTTP POST عبارة عن مصفوفة ارتباطية تحتوي على عناصر تم تحميلها عبر طريقة $_FILES
     
@@ -97,12 +98,12 @@ if(count($errors)==0){
    }
    else
    {
-        $sqln="UPDATE user,teacher set   user.full_name='$username', user.password='$userpass1',teacher.tr_phone_no='$phone',user.u_img='$img'
+        $sqln="UPDATE user,teacher set user.full_name='$username', user.password='$userpass1',teacher.tr_phone_no='$phone',user.u_img='$img'
         WHERE user.user_id=teacher.user_id and teacher.tr_phone_no='$phon' ;";
         if(mysqli_query($conn,$sqln)){
         ?>
         <script >
-        window.location.href="../group/main page for group.php" </script>
+        window.location.href="../group/main page for group.php ." </script>
         <?php 
         } else {
         echo "Error updating record: " . mysqli_error($conn);
@@ -161,7 +162,7 @@ if(count($errors)==0){
    }
    else
    {
-            $sqln="UPDATE user,teacher set   user.full_name='$username', user.password='$userpass1',teacher.tr_phone_no='$phone',user.u_img='$img'
+            $sqln="UPDATE user,teacher set  user.full_name='$username', user.password='$userpass1',teacher.tr_phone_no='$phone',user.u_img='$img'
             WHERE user.user_id=teacher.user_id and teacher.tr_phone_no='$phon' ;";
             if(mysqli_query($conn,$sqln)){                
             ?>
@@ -173,5 +174,6 @@ if(count($errors)==0){
             echo "Error updating record: " . mysqli_error($conn);
             }}}
         }}
+
 ?>
 
