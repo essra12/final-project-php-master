@@ -65,6 +65,13 @@ h1{
 float: right;
 margin-top: 1%;
 margin-left: 3%;
+padding-right: 1%;
+width: 90%;
+}
+.ab2{
+  padding-top: 2%;
+  padding-bottom: 2%;
+
 }
 .ab2:hover{
 background-color:#fff6f6;
@@ -120,11 +127,12 @@ background-color:#fff6f6;
     <div class="divC2">
    <?php
   
-//------for table post---------
+//------for table student ---------
 
     foreach($testpost as $key => $student):?> <!--هذا المتغير عبارة عن سجل واحد من الجدول $student  -->
         <div class="ab2">
-            <label data-label="stu-name"><img src="<?php echo BASE_URL . '/sources/image/' . $student['u_img']; ?>" class="tab-img" style=" margin-right:25px;  width: 35px; height: 35px; border-radius:100%;"><?php echo $student['full_name'] ?>&nbsp;&nbsp;&nbsp;<?php echo $student['stu_id'] ?> </label>          
+            <label data-label="stu-name"><img src="<?php echo BASE_URL . '/sources/image/' . $student['u_img']; ?>" class="tab-img" style=" margin-right:25px;  width: 45px; height: 45px; border-radius:100%;"> </label>          
+            <label data-label="stu-name"  style="position: absolute;"><?php echo $student['full_name'] ?> <br>&nbsp;&nbsp;&nbsp;<?php echo $student['stu_id'] ?></label>          
             <?php if($role=="teacher"):?>
             <a class="adelete" onclick="return confirmDelete()"href="testreqest.php?deleteSTID=<?php echo $student['g_no'];?>&deletestuid=<?php echo $student['stu_id']; ?>&group=<?php echo $student['stu_group']; ?> "><i id="croos2" class="fa-solid fa-circle-xmark" ></i></a> 
             <?php endif;?> 
