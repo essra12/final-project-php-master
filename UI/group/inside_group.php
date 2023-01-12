@@ -1,6 +1,7 @@
 <?php 
 include("../../path.php"); 
 include(MAIN_PATH."/controls/inside_group.php");
+include(MAIN_PATH."/controls/leave_student.php");
 /////////////////////
 $user_id=$_SESSION['user_id'];
 $role=$_SESSION['role'];
@@ -223,8 +224,8 @@ endif;
         <!--leave button -->
            <div class="sidebar-card-btn">
             <form action="inside_group.php" method="POST">
-          <a  name="leave" onclick="return confirmDelete()" href="../group/main page for group.php?groupNO=<?php echo $groupNumber;?>"><input  class="btn btn-admin" type="button" value="Leave" name="leave"> </a>
-        </form>
+            <a name="leave" onclick="return confirmDelete()" href="../group/main page for group.php?groupNO=<?php echo $groupNumber;?>&studentID=<?php echo $stu_id;?>&studentGR=<?php echo $stu_group;?>"><input  class="btn btn-admin" type="button" value="Leave" name="leave"> </a>
+            </form>
              </div>
         <?php endif;?>
         <!--*************************************************************************** -->
