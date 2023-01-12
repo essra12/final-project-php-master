@@ -2,7 +2,7 @@
 <?php 
 include("../../path.php"); 
 include(MAIN_PATH."/controls/main_group_page.php");
-include(MAIN_PATH."/controls/leave_student.php");
+/*include(MAIN_PATH."/controls/leave_student.php");*/
 $user_id=$_SESSION['user_id'];
 $role=$_SESSION['role'];
 
