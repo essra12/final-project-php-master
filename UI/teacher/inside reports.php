@@ -62,7 +62,16 @@ else{
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     </head>
 
-
+<style>
+    #print:hover{
+        cursor: pointer;
+        font-size: 18px;
+    }
+    #print{
+        margin-left: 80%;
+        font-size: 16px;
+    }
+</style>
     <body>
         
     <!------Navigation Bar -------->  
@@ -146,13 +155,14 @@ else{
                 $students=selectAllStudntHaveAssignment($an_number);
         endif;?>  
         <?php if(!empty($students)): ?>
-        <div class="table-box">
+        <div id="report" class="table-box">
             <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">Student Id</th>
                         <th scope="col" >Student Name</th>
                         <th scope="col"style="text-align: center;">grade</th>
+                      <th> <i id="print" onclick="PrintDiv() " class="fa-sharp fa-solid fa-print"></i></th>
                     </tr>
                 </thead>
 
@@ -206,7 +216,16 @@ else{
         document.getElementById("find_stu").value = "";
         }
         /***********************************************************/
-      </script>  
+        function PrintDiv() {
+       var divToPrint = document.getElementById('report');
+       var popupWin = window.open('', '', 'width=600,height=300,margin-left:400px');
+       popupWin.document.open();
+       popupWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
+        popupWin.document.close();       
+                       }
 
+       
+ </script>  
+ </script>
     </body>
 </html>
