@@ -46,6 +46,14 @@ if(isset($_POST['conf_join'])){
         array_push($errors,"You alredy in the group");
     }
 
+  /**for teasting**/
+/*   $exisiting_student_in_basic_group = selectOne('testing',['stu_id'=>$stu_id,'g_no'=>$g_no]);
+  if(empty($exisiting_student_in_basic_group))
+  {
+      array_push($errors,"You cannot join to this group");
+  } */
+  /****************/
+
     if(count($errors)==0){
       $sql_join="INSERT INTO `student_group`(`stu_id`, `g_no`) VALUES ('$stu_id','$g_no')";
       $conn->query($sql_join); 

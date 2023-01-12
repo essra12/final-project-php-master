@@ -192,7 +192,7 @@ else{
               <!-------------------------------------------------->
               <td data-label="open">
                 <a  href="../student/download_assignment.php?post_no=<?= $file['p_no']?>&stu_id=<?= $file['stu_id']?>">Open</a>
-                <a  href="" style="text-align:center;" id="edit" onclick= editGrade(this) >Edit</a>
+                <a  href="" style="text-align:center;" id="edit">Edit</a>
               </td>
 
             </tr>
