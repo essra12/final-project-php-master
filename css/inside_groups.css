@@ -261,18 +261,19 @@ header{
   background: #FFFFFF;
   border-radius: 15px;
   width: 65%;
-  margin: 0rem 2rem 0rem 3rem;
+  height: auto;
+  padding: 1rem;
+  text-align: center;
+  margin: 2rem 0rem 0rem .5rem ;
 }
-.btn-admin{
+a.btn-admin {
   padding: .5rem 1rem;
-  border: none;
-  border-radius: 15px;
   background-color: #FFBA5F;
+  border-radius: 15px;
   font-size: 14px;
   width: 60%;
-  margin: 1.5rem 1.5rem 1.5rem 2rem ;
   font-weight: bold;
-  
+  color: var(--vdarkblue);
 }
 .btn-admin:hover{
  /*  background: var(--orange); */

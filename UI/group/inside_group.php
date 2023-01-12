@@ -1,7 +1,7 @@
 <?php 
 include("../../path.php"); 
 include(MAIN_PATH."/controls/inside_group.php");
-include(MAIN_PATH."/controls/leave_student.php");
+/* include(MAIN_PATH."/controls/leave_student.php");  */
 /////////////////////
 $user_id=$_SESSION['user_id'];
 $role=$_SESSION['role'];
@@ -64,22 +64,7 @@ if($role=="teacher"):
     }
     endif;
     ///////////////////////////
-     /*******************************************************/
-  /**********************leave section*******************/
- 
-  if($role==""):
-  if(isset($_POST['leave'])){
-    $groupNumber=$_SESSION['g_no'];
-    global $conn;
-    $sql="DELETE FROM `student_group` WHERE student_group.stu_id=$stu_id  AND student_group.g_no=$groupNumber;";
-    $pre=$conn->query($sql);
-    if(mysqli_query($conn, $sql)){
-        header('location: '.BASE_URL.'/UI/group/main page for group.php');
-        $conn->close();  
-        exit();}
-}
-endif;
-   
+
 
 ?>
 
@@ -223,10 +208,12 @@ endif;
         <?php if($role==""):?>
         <!--leave button -->
            <div class="sidebar-card-btn">
-            <form action="inside_group.php" method="POST">
-            <a name="leave" onclick="return confirmDelete()" href="../group/main page for group.php?groupNO=<?php echo $groupNumber;?>&studentID=<?php echo $stu_id;?>&studentGR=<?php echo $stu_group;?>"><input  class="btn btn-admin" type="button" value="Leave" name="leave"> </a>
-            </form>
-             </div>
+                <form action="" method="POST" enctype='multipart/form-data'>
+                    <!-- <button  class="btn btn-admin" type="submit" name="leave">  -->
+                        <a name="leave" class="btn-admin" onclick="return confirmDelete()" href="../group/inside_group.php?number=<?php echo $groupNumber;?>&studentID=<?php echo $stu_id;?>&stu_group=<?php echo $stu_group;?>&data=<?php echo $g_name;?>">leave</a>
+                    <!-- </button> -->
+                </form>
+           </div>
         <?php endif;?>
         <!--*************************************************************************** -->
     </div>
