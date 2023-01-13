@@ -325,3 +325,10 @@ a:is(:link,:active,:hover).active{
         font-size: 34px;
     }
 }
+
+/*for error message in js*/
+p#demo {
+    color: var(--red);
+    margin-bottom: 10px;
+    text-align: left;
+}

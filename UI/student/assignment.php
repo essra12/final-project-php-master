@@ -80,6 +80,11 @@ if ($result_g_name->num_rows == 1) {
 
 <div class="header-div">
  <h1>Assignments</h1>
+ <div id="mybutton">
+    <div>
+       <a href="../teacher/announcement.php"><button class="btn-create">+</button></a>
+    </div>
+  </div>
  </div>
  <!-----------------Dynamically Create Card-----------------> 
  <main>

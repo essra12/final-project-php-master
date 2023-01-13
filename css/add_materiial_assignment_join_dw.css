@@ -252,13 +252,16 @@ ul {
     margin-right: 20px;
 }
   
-/****Button*****/
+/****Submit Button in material && assignment*****/
 .btn_post{
+    position: fixed;
     margin:1rem 0rem 0rem 0rem;
-    text-align: center;
+    text-align: left;
+    padding-left: 17%;
+    bottom: 10%;
 }
 
-.btn_post.ass button{
+.btn_post button{
     border: 2px double var(--vdarkblue);
     padding: 10px 24px;
     color: #fff;
@@ -276,11 +279,14 @@ button[type="submit"]:hover {
    cursor: pointer;
 }
 
- /****Buttons in join page*****/
-.main-container .btn_post{
-    margin:1rem 0rem 0rem 0rem;
+/***********************************main container just for (join)***************************************/
+.main-container.join{
+    margin: 2rem 15% 0rem;
 }
-.main-container .btn_post button{
+ .main-container .btn_join{
+    text-align: center;
+}
+.main-container .btn_join button{
     border: 2px double var(--vdarkblue);
     padding: 10px 24px;
     color: #fff;
@@ -298,24 +304,8 @@ button[type="submit"]:hover {
     font-size: 14px;
 }
 
-.main-container .btn_post .btn_cancel_join{
-    background: #FFBA5F;
-    border: 2px double #FFBA5F;
-}
-.main-container .btn_post .btn_cancel_join a{
-    color: var(--vdarkblue);
-}
-.main-container .btn_post .btn_cancel_join:hover{
-    background-color: #fff;
-    border: 2px double var(--orange);
-    cursor: pointer;
-}
-.main-container .btn_post .btn_cancel_join:hover a{
-    color: #ffa024;
-    font-weight: bold;
-}
 
-/***********************************************main container just for (add assignment)*************************************************/
+/****************************main container just for (add assignment && add assignment)******************************/
 /**********/
 .left_side{
     float: left;
@@ -417,11 +407,13 @@ button[type="submit"]:hover {
 }
 /**********************************************************************/
 /********************:)the end ***************************************/
+
+/**error message in js**/
 p#demo {
     color: var(--red);
     text-align: left;
 }
-   
+/*********************/   
 @media only screen and (max-width:1330px) {
     .container li {
         font-size: 12px;
@@ -444,6 +436,12 @@ p#demo {
     .right_side{
         float: none;
         width: 100%;
+    }
+    .btn_post{
+        padding-left: 0px;
+        text-align: center;
+        position: relative;
+        margin-bottom: 10px;
     }
 }
 
