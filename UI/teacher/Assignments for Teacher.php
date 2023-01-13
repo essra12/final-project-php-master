@@ -113,11 +113,6 @@ else{
 
 <div class="header-div">
  <h1>Assignments</h1>
-  <div id="mybutton">
-    <div>
-       <a href="../teacher/add material.php"><button class="btn-create">+</button></a>
-    </div>
-  </div>
  </div>
 <!---------------------------------------------------------->
  <main>
