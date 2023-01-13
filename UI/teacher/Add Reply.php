@@ -106,11 +106,17 @@ if ($result_g_name->num_rows == 1) {
 <div class="cardst">
 <?php $datetime=strtotime($Info['datetime'])?>
  <h6 class="datetime"><i class="las la-clock"></i><?php echo  date("d-m-Y h:i a",$datetime)?></h6>
-<label class="studentname">Student Id  <b><?php echo $Info['stu_id'] ?></b></label>
 
 <div class="tooltip">
 <a  onclick="return confirmDelete()"  href="Add Reply.php?deleteEnquiry=<?php echo $Info['e_no'];?>"><i class="fa-solid fa-xmark tr" style="font-size: 20px;position:absolute;right: 22%;margin-top:1%; color:#222242;"></i></a>
   <span class="tooltiptext">Delete Enquiry</span>
+</div>
+<div class="divcontanier">
+<img class="user_image" src="<?php echo $Info['u_img'] ?>" alt=" " style="width: 70px; height:70px ;"></img>
+<div class="info">
+<label class="studentname">  <?php echo $Info['full_name'] ?></label>
+<h5 class="studentid">Student Id  <?php echo $Info['stu_id'] ?></h5>
+</div>
 </div>
 
 <p class="content"><?php echo $Info['e_content'] ?></p>
@@ -124,12 +130,13 @@ if ($result_g_name->num_rows == 1) {
 <?php foreach($replyInfo as $key => $reply_Info):?>
 
 <!--------------Delete Reply---------------------->
-<div class="card-container">
-<p class="lable content"><?php echo $reply_Info['r_content'] ?></p>
+<div class="card-container ">
+<p class="lable content reply"><?php echo $reply_Info['r_content'] ?></p>
+<div class="icons">
 <a class="icon_x" onclick="return confirmDelete()"  href="Add Reply.php?deleteReply=<?php echo $reply_Info['r_no'];?>"><i id="deleteicon1"  class="las la-times-circle"></i></a> 
 <!--------------Edit Reply--------------_-------->  
 <a class="icon_x" onclick="return confirmDelete()"  href="Add Reply.php?deleteReply=<?php echo $reply_Info['r_no'];?>"><i id="Editicon" class="las la-pen ticon tr"></i></a> 
-
+</div>
 </div>
 <?php endforeach; ?>
 <!-------------------------------------------------------------------------------------------------->
