@@ -10,6 +10,7 @@ include("../../controls/profiles.php");
     <meta name="descreption " content=" " />
      <!--for logo-->
      <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
+      <!-- css file -->
     <link rel="stylesheet" href="../../CSS/allprofiles.css"/>
      <!--icons-->
      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
