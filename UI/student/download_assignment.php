@@ -20,7 +20,6 @@ if ($result_g_name->num_rows == 1) {
 ?>
 <html>
     <head>
-   
         <meta charset="UTF-8">
         <!--for logo-->
         <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
@@ -64,9 +63,7 @@ if ($result_g_name->num_rows == 1) {
       <!----------------->
 
       <!-----students--->
-      <?php if ($_SESSION['role']=="teacher"):?> 
       <li><a href="<?php echo BASE_URL . '/UI/teacher/testreqest.php' ?>"  style="font-size: 1.5rem;"><i class="las la-user-friends"></i></a></li>
-      <?php endif; ?>  
       <!----------------->
 
       <!------HOME------>

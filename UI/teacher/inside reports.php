@@ -171,11 +171,11 @@ else{
                         <tr>
                             <td data-label="student ID"><?php echo $student['stu_id'] ?></td>
                             <td data-label="student name" ><img src="<?php echo BASE_URL . '/sources/image/' . $student['u_img']; ?>" class="tab-img" style="  width: 30px; height: 30px;border-radius:100%;"><?php echo $student['full_name'] ?></td>
-                            <?php if (empty($student['grade'])):?>
-                                <td data-label="grade" class="grade">--</td>
+                            <?php if (empty($student['stu_grade'])):?>
+                                <td data-label="grade" class="grade">--&nbsp;&nbsp;/&nbsp;&nbsp;<?php echo $out_of;?></td>
                             <?php endif;?>
-                            <?php if (!empty($student['grade'])):?>    
-                                <td data-label="grade" class="grade"><?php echo $student['grade']; ?>&nbsp;&nbsp;/&nbsp;&nbsp;<?php echo $out_of;?></td>
+                            <?php if (!empty($student['stu_grade'])):?>    
+                                <td data-label="grade" class="grade"><?php echo $student['stu_grade']; ?>&nbsp;&nbsp;/&nbsp;&nbsp;<?php echo $out_of;?></td>
                             <?php endif;?>
                         </tr>   
                     <?php endforeach; ?>                      

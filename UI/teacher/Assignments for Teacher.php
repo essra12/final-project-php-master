@@ -117,16 +117,7 @@ else{
 <!---------------------------------------------------------->
  <main>
  <div class="main-container">
-      <!-- For Succes -->
-      <?php if (isset($_SESSION['message'])): ?>
-      <div class="msg success" style="color: #5a9d48; margin-Top: 2em; margin-left:7em;">
-          <li style="list-style-type: none;"><i class="las la-check-circle" style="color: #5a9d48 ;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;<?php echo $_SESSION['message']; ?></li>
-          <?php
-          /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */
-          unset($_SESSION['message']);
-          ?>
-      </div>
-    <?php endif; ?>
+     
  <!-------------------- search ----------------------------->
  
  <form action="" method="POST"  onsubmit="return check_Enter(this)">  
@@ -148,7 +139,16 @@ else{
     </div> 
   <?php endif; ?> 
     <!------------------------>
-
+    <!-- For Succes -->
+    <?php if (isset($_SESSION['message'])): ?>
+      <div class="msg success" style="color: #5a9d48; margin-Top: 2em; margin-left:7em;">
+          <li style="list-style-type: none;"><i class="las la-check-circle" style="color: #5a9d48 ;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;<?php echo $_SESSION['message']; ?></li>
+          <?php
+          /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */
+          unset($_SESSION['message']);
+          ?>
+      </div>
+    <?php endif; ?>
   <!--------------------------------------------------------->   
   <?php if(empty($files)): 
      $files=selectpostfile(); 
@@ -179,15 +179,17 @@ else{
               
               <!------------------grade section------------------>
               <?php if(!empty($file['stu_grade'])):?>
-                <td data-label=""><p id="grade" contentEditable="true" maxlength="3" size="1" class="grade"><?php echo $file['stu_grade']?></p>/<p><?php echo $file['grade']?></p></td>
+                <!-- <td data-label=""><p id="grade" contentEditable="true" maxlength="3" size="1" class="grade"><?php /* echo $file['stu_grade'] */?></p>/<p><?php /* echo $file['grade'] */?></p></td> -->
+                <td data-label="grade" class="grade"><?php echo $file['stu_grade']; ?>&nbsp;&nbsp;/&nbsp;&nbsp;<?php echo $file['grade'];?></td>
               <?php endif;
               if(empty($file['stu_grade'])):?>
-                <td data-label=""><p id="grade" contentEditable="true" maxlength="3" size="1" class="grade">--</p>/<p><?php echo $file['grade']?></p></td>
+                <!-- <td data-label=""><p id="grade" contentEditable="true" maxlength="3" size="1" class="grade">--</p>/<p><?php/*  echo $file['grade'] */?></p></td> -->
+                <td data-label="grade" class="grade">--&nbsp;&nbsp;/&nbsp;&nbsp;<?php echo $file['grade'];?></td>
                 <?php endif;?>
               <!-------------------------------------------------->
               <td data-label="open">
-                <a  href="../student/download_assignment.php?post_no=<?= $file['p_no']?>&stu_id=<?= $file['stu_id']?>">Open</a>
-                <a  href="" style="text-align:center;" id="edit">Edit</a>
+                <a  href="../student/dow_assi.php?post_no=<?= $file['p_no']?>&stu_id=<?= $file['stu_id']?>">Open</a>
+                <!-- <a  href="" style="text-align:center;" id="edit">Edit</a> -->
               </td>
 
             </tr>

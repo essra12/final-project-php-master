@@ -144,7 +144,7 @@ function selectAllAnnouncement($g_no){
 function selectAllStudntHaveAssignment($an_no){ 
 
     global $conn; 
-    $sql = "SELECT post.stu_group,user.full_name,user.u_img,student.stu_id,post.grade FROM post,student_group,announcement,user,student WHERE post.an_no=announcement.an_no AND post.stu_group=student_group.stu_group AND user.user_id=student.user_id 
+    $sql = "SELECT post.stu_group,user.full_name,user.u_img,student.stu_id,post.stu_grade FROM post,student_group,announcement,user,student WHERE post.an_no=announcement.an_no AND post.stu_group=student_group.stu_group AND user.user_id=student.user_id 
     AND student.stu_id=student_group.stu_id AND post.an_no='$an_no'
     ORDER BY student.stu_id;";
     $pre=$conn->prepare($sql);
