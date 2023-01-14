@@ -68,9 +68,14 @@ else{
         font-size: 18px;
     }
     #print{
-        margin-left: 80%;
         font-size: 16px;
+        margin-top: 20px;
+        margin-right: 11px;
     }
+    .groupname{
+        margin-right: 11px;
+    }
+   
 </style>
     <body>
         
@@ -88,16 +93,26 @@ else{
       </ul>
       <div class="navbar-links">
         <ul>
+
+      
+
           <!----group name--->
-          <li><a href="../group/inside_group.php?data=<?= $g_name?>&number=<?= $groupNumber?>"><?php echo $g_name ?></a></li>
+          <li><a class="groupname" href="../group/inside_group.php?data=<?= $g_name?>&number=<?= $groupNumber?>"><?php echo $g_name ?></a></li>
           <!----------------->
+
+        <!------ print icon  -->
+          <?php   if ($_SESSION['role']=="teacher"): ?> 
+          <li> <i id="print" onclick="PrintDiv() "  class="fa-sharp fa-solid fa-print"></i></li>
+          <?php   endif; ?>  
+          <!-- --------------->
 
           <!-----students---->
           <?php   if ($_SESSION['role']=="teacher"): ?> 
           <li><a href="<?php  echo BASE_URL . '/UI/teacher/testreqest.php' ?>" style="font-size: 1.5rem;"><i class="las la-user-friends"></i></a></li>
           <?php   endif; ?>  
           <!----------------->
-          
+        
+
           <!------HOME------>
           <li><a href="<?php echo BASE_URL . '/UI/group/main page for group.php' ?>" style="font-size: 1.5rem;"><i class="las la-home"></i></a></li>
           <!---------------->
@@ -109,6 +124,8 @@ else{
           <!------Logout----->
           <li><a href="..\..\logout.php" style="color:#FFBA5F;font-size: 1.5rem;"><i class="las la-sign-out-alt"></i></a></li>
           <!----------------->
+
+    
         </ul>
       </div>
     </nav>
