@@ -130,12 +130,19 @@ if ($result_g_name->num_rows == 1) {
 <div class="cardst">
 <?php $datetime=strtotime($Info['datetime'])?>
  <h6 class="datetime"><i class="las la-clock"></i><?php echo  date("d-m-Y h:i a",$datetime)?></h6>
-<label class="studentname">Student Id  <b><?php echo $Info['stu_id'] ?></b></label>
-
-<div class="tooltip">
+ <div class="tooltip">
 <a  onclick="return confirmDelete()"  href="Add Enquiry .php?deleteEnquiryforstudent=<?php echo $Info['e_no'];?>"><i class="fa-solid fa-xmark tr" style="font-size: 20px;position:absolute;right: 22%;margin-top:1%; color:#222242;"></i></a>
   <span class="tooltiptext">Delete Enquiry</span>
 </div>
+<div class="divcontanier">
+<img class="user_image" src="<?php echo $Info['u_img'] ?>" alt=" " style="width: 70px; height:70px ;"></img>
+<div class="info">
+<label class="studentname">  <?php echo $Info['full_name'] ?></label>
+<h5 class="studentid">Student Id  <?php echo $Info['stu_id'] ?></h5>
+</div>
+</div>
+
+
 
 <p class="content"><?php echo $Info['e_content'] ?></p>
 <input  type="hidden" name="e_no" value="<?php echo $Info['e_no'] ?>">
@@ -148,7 +155,7 @@ if ($result_g_name->num_rows == 1) {
 <?php foreach($replyInfo as $key => $reply_Info):?>
 
 
-<p class="lable"><?php echo $reply_Info['r_content'] ?></p>
+<p class="lable reply"><?php echo $reply_Info['r_content'] ?></p>
 <?php $_SESSION['e_no']= $Info['e_no'] ?>
 <?php endforeach; ?>
 

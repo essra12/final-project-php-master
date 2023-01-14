@@ -53,7 +53,9 @@ function selectEnquiry(){
   global $conn; 
 
 $group_no=$_SESSION['g_no'];
-   $sql = "SELECT enquiry.e_no, enquiry.e_content, enquiry.datetime, student_group.stu_id  FROM `enquiry`,student_group WHERE enquiry.stu_group=student_group.stu_group and student_group.g_no='$group_no' ORDER BY enquiry.datetime DESC;";
+ /*   $sql = "SELECT enquiry.e_no, enquiry.e_content, enquiry.datetime, student_group.stu_id  FROM `enquiry`,student_group WHERE enquiry.stu_group=student_group.stu_group and student_group.g_no='$group_no' ORDER BY enquiry.datetime DESC;"; */
+ $sql = "SELECT enquiry.e_no, enquiry.e_content, enquiry.datetime, student_group.stu_id,user.full_name,user.u_img FROM `enquiry`,student_group,student,user WHERE enquiry.stu_group=student_group.stu_group and student_group.g_no=$group_no AND student_group.stu_id=student.stu_id and student.user_id=user.user_id ORDER BY enquiry.datetime DESC;";
+ 
   $pre=$conn->prepare($sql);
   $pre->execute();
   $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);

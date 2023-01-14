@@ -365,3 +365,12 @@ table th {
         font-size: 14px;
     }
 }
+/**error message in js**/
+p#demo {
+    color: var(--red);
+    text-align: center;
+}
+#demo i{
+    font-weight: 600; font-size: 20px;
+}
+/*********************/   

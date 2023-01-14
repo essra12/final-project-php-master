@@ -65,7 +65,7 @@ $join_data=selectGroupNameTeacherName();
     <!--------------------------------->
 
     <!--------main-container----------->
-    <div class="main-container">
+    <div class="main-container join">
       
       <!-- For Errors -->
       <?php if(count($errors)> 0): ?>
@@ -101,7 +101,7 @@ $join_data=selectGroupNameTeacherName();
 
 
           <!-- Button -->
-          <div class="btn_post" style="text-align: right;">
+          <div class="btn_join">
               <button type="submit" name="conf_join" >join</button>
           </div>
           <!----------->
