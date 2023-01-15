@@ -181,6 +181,7 @@ input{
     border-bottom: 1px solid var(--vdarkblue);
     font-size: 16px;
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 .main-container .inputs.grade .grade_container{
     background: #fff;
@@ -193,18 +194,13 @@ input{
 .grade_container input{
     outline: none;
     border: none;
-    padding: .8rem;
-    border-radius: 25px;
-    background: var(--vlightblue);
-    width: 100px;
+    /* padding: .8rem; */
+    border-radius: 25px; 
+    background: var(--vvlightblue);
+    width: 80px;
     text-align: center;
     font-size: 16px;
 }
-
-/* .grade_container a{
-    color: #fff;
-    width: 100px;
-} */
 
 /******************************** textarea field**************************************/
 .main-container .inputs textarea{
@@ -241,7 +237,14 @@ button[type="submit"]:hover {
    background-color: #fff;
    cursor: pointer;
 }
-
+div.grade_section{
+    background: var(--vlightblue);
+    width: 150px;
+    border-radius: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: auto;
+}
 
 /**file list for download page ***/
 

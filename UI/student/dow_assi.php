@@ -22,6 +22,16 @@ if ($result_g_name->num_rows == 1) {
 }
 ////////////////////
 
+//to get grade from announcement
+$sql_out_of_grade="SELECT announcement.grade FROM announcement,post WHERE announcement.an_no=post.an_no AND post.p_no='$p_no';";
+$result_out_of_grade = $conn->query($sql_out_of_grade);
+if ($result_out_of_grade->num_rows == 1) {
+    while($row = $result_out_of_grade->fetch_assoc()) {
+      $out_of_grade=$row["grade"];
+    }
+}
+////////////////////
+
 ?>
 <html>
     <head>
@@ -166,19 +176,16 @@ if ($result_g_name->num_rows == 1) {
                     <label style="color: #222242;">grade</label>
                     
                     <!--input text-->
+                    <div class="grade_section">
                     <?php if(!empty($grade)):?>
                         <input type="text" name="grade" id="grade" maxlength="5" style=" border: none; font-size: 16px;" value="<?php echo $grade?>"  onkeypress="return isNumberKey(this, event);"/>
+                        /&nbsp;&nbsp;&nbsp;<span><?php echo $out_of_grade ;?></span>
                     <?php endif; ?> 
                     <?php if(empty($grade)):?>
                         <input type="text" name="grade" id="grade" maxlength="5" style=" border: none; font-size: 16px;" value="--"  onkeypress="return isNumberKey(this, event);"/>
+                        /&nbsp;&nbsp;<span><?php echo $out_of_grade ;?></span>
                     <?php endif; ?> 
-                    <!--------------->
-                    
-                    <!--Edit button-->
-                    <!-- <div style="text-align:center;margin-top: 15px; margin-bottom: 15px;">
-                        <button type="submit" name="edit_grade" style="margin-bottom:15px; margin-top:15px;">Edit</button> 
-                        <a href="dow_assi.php?post_no=<?php /* $p_no; */?>&stu_id=<?php /* $stu_id; */?>" type="submit" id="edit" onclick="myFunction()">Edit</a>
-                    </div> -->
+                    </div>
                     <!--------------->
                     
                     <!--save button-->
