@@ -49,7 +49,7 @@ if ($result_out_of_grade->num_rows == 1) {
     </head>
     <body>
  <!--------------------navigation_bar ----------------------->  
- <nav class="navbar">
+  <nav class="navbar">
   <ul class="lift-side">
       <?php if($role==""):?>
       <!-------back------>
@@ -89,8 +89,8 @@ if ($result_out_of_grade->num_rows == 1) {
       <!----------------->
     </ul>
   </div>
-</nav>
- <!---------------------------------------------------------->
+  </nav>
+  <!---------------------------------------------------------->
 
     
         
@@ -198,7 +198,7 @@ if ($result_out_of_grade->num_rows == 1) {
             </div>
             <!------------------>
         </form>
-        </div>
+      </div>
 
       
       
@@ -233,5 +233,5 @@ if ($result_out_of_grade->num_rows == 1) {
         }
   /**for grade section**/
   </script>
-</body>
+  </body>
 </html>
