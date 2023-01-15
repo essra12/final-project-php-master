@@ -162,7 +162,7 @@ else{
                     <th scope="col">Student Name</th>
                     <th scope="col">Post date</th>
                     <th scope="col">File Title</th>
-                    <th scope="col" width="140px">Grade</th>
+                    <th scope="col" width="140px" style="text-align:center;">Grade</th>
                     <th scope="col" width="70px"></th>
                 </tr>
             </thead>

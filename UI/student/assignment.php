@@ -107,14 +107,21 @@ if ($result_g_name->num_rows == 1) {
     <div class="card">
     <?php $datetime=strtotime($file['Datatime'])?>
         <h6 class="card__time"><i class="las la-clock"></i><?php echo  date("d-m-Y h:i a",$datetime)?></h6>
-      
-        <img src="../../sources/image/create_add_photo.png" class="card__image" alt="" />
+        <?php if(empty($file['stu_grade'])):?>
+          <h6 style="padding-top:10px;padding-left:3.5rem">Point: -- /&nbsp;&nbsp;<?php echo $file['grade'];?></h6>
+        <?php endif;?>
+        
+        <?php if(!empty($file['stu_grade'])):?>
+          <h6 style="padding-top:10px;padding-left:3.5rem">Point:&nbsp;&nbsp;<?php echo $file['stu_grade'];?>&nbsp;&nbsp;/&nbsp;&nbsp;<?php echo $file['grade'];?></h6>
+        <?php endif;?>
+        
+       <img src="../../sources/image/create_add_photo.png" class="card__image" alt="" />
        <div class="card__overlay">
        <div class="card__header">
             
           
           <div class="card__header-text">
-          <h3 class="card__title child"><?php echo $file['title'] ?></h3>
+          <h3 class="card__title child"><?php echo  html_entity_decode(substr($file['title'],0,40). '...');?></h3>
           </div>
         </div>
       

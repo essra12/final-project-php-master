@@ -70,6 +70,7 @@
   
   .navbar-links {
     height: 100%;
+    margin-right: 0px;
   }
   /******Notification*******/
   
@@ -138,7 +139,7 @@ hr{
 } 
 
 label{
-    font-size: 22px;
+    font-size: 16px;
 }
 
 div{

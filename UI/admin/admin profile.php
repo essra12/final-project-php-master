@@ -80,7 +80,7 @@ $id3=$_SESSION['pass2'];/** login path كلمة السر غسر مشفرة تم 
 
 <body>
 <form method="get" action="edit profile.php" enctype="multipart/form-data">
-<div class="back"><a href="../control_panel/groups_control_panel.php"><i class="las la-arrow-left"></i></a></div>
+<div class="back"><a href="../control_panel/groups_control_panel.php" style="color:#222242 ;font-size:40px;"><i class="las la-arrow-left"></i></a></div>
 
 <div class="container">
  <!-- container one for photo,groups,assinament data -->

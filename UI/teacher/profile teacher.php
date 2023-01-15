@@ -46,7 +46,7 @@ include("../../controls/profiles.php");
 <body>
     
 <form method="get" action="edit profile.php" enctype="multipart/form-data">
-<div class="back"><a href="../group/main page for group.php"><i class="las la-arrow-left"></i></a></div>
+<div class="back"><a href="../group/main page for group.php" style="color:#222242;font-size:40px;"><i class="las la-arrow-left"></i></a></div>
 
 <div class="container">
         <!-- container one for photo,groups,assinament data -->

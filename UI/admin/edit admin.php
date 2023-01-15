@@ -109,7 +109,7 @@ height: 90vh;
     </style>
 
 <body>
-<div class="back"><a href="../admin/admin profile.php"><i class="las la-arrow-left"></i></a></div>
+<div class="back"><a href="../admin/admin profile.php" style="color:#222242;font-size:40px;"><i class="las la-arrow-left"></i></a></div>
 
     <div class="login-container">
     <p class="signup_text" style="margin-left:30% ;"><b>Edit Admin</p>
@@ -118,7 +118,7 @@ height: 90vh;
     <!-- For circular image -->
     <div class="profile-pic-div"  >
         <?php echo"  <img src='../../sources/image/$img1' id='photo' height='120' width='120' > ' "?>
-        <input type="file" id="file" name="u_img">
+        <input type="file" accept="image/*" id="file" name="u_img">
         <label for="file" id="uploadBtn">Choose Photo</label> 
     </div>
 

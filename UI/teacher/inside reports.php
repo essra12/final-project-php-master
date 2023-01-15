@@ -107,9 +107,7 @@ else{
           <!-- --------------->
 
           <!-----students---->
-          <?php   if ($_SESSION['role']=="teacher"): ?> 
           <li><a href="<?php  echo BASE_URL . '/UI/teacher/testreqest.php' ?>" style="font-size: 1.5rem;"><i class="las la-user-friends"></i></a></li>
-          <?php   endif; ?>  
           <!----------------->
         
 
@@ -179,7 +177,7 @@ else{
                         <th scope="col">Student Id</th>
                         <th scope="col" >Student Name</th>
                         <th scope="col"style="text-align: center;">grade</th>
-                      <th> <i id="print" onclick="PrintDiv() " class="fa-sharp fa-solid fa-print"></i></th>
+                      <!-- <th> <i id="print" onclick="PrintDiv() " class="fa-sharp fa-solid fa-print"></i></th> -->
                     </tr>
                 </thead>
 
@@ -234,12 +232,12 @@ else{
         }
         /***********************************************************/
         function PrintDiv() {
-       var divToPrint = document.getElementById('report');
-       var popupWin = window.open('', '', 'width=600,height=300,margin-left:400px');
-       popupWin.document.open();
-       popupWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
-        popupWin.document.close();       
-                       }
+            var divToPrint = document.getElementById('report');
+            var popupWin = window.open('', '', 'width=600,height=300,margin-left:400px');
+            popupWin.document.open();
+            popupWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
+            popupWin.document.close();       
+        }
 
        
  </script>  

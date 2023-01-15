@@ -112,8 +112,8 @@ else{
                     <a href="students_in_group_control_panel.php?g_no=<?= $group['g_no']?>&tr_name=<?php echo $group['full_name']?>">
                         <div class="group-card-info">
                             <h3><?php echo $group['g_name'] ?></h3>
-                            <p>Group ID:<?php echo $group['g_no'] ?></p>
-                            <p>Tr Name: <?php echo $group['full_name'] ?></p>
+                            <p>Group code: EFWL<?php echo $group['g_no'] ?></p>
+                            <p>Teacher: <?php echo $group['full_name'] ?></p>
                             
 
                         </div>

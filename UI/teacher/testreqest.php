@@ -47,7 +47,7 @@ if ($result_g_name->num_rows == 1) {
         margin-right: 0%; 
     }
 h1{
-    font-size: 30px;
+    font-size: 25px;
 }}
    hr{
     margin-right: 10%;
@@ -96,7 +96,7 @@ background-color:#fff6f6;
   <div class="navbar-links">
     <ul>
       <!----group name--->
-      <li><a href="../group/inside_group.php?data=<?= $g_name?>&number=<?= $group_no?>" style="padding-top:.5rem;"><?php echo $g_name ?></a></li>
+      <li><a href="../group/inside_group.php?data=<?= $g_name?>&number=<?= $group_no?>"><?php echo $g_name ?></a></li>
       <!----------------->
 
       <!-----students--->
@@ -132,7 +132,7 @@ background-color:#fff6f6;
     foreach($testpost as $key => $student):?> <!--هذا المتغير عبارة عن سجل واحد من الجدول $student  -->
         <div class="ab2">
             <label data-label="stu-name"><img src="<?php echo BASE_URL . '/sources/image/' . $student['u_img']; ?>" class="tab-img" style=" margin-right:25px;  width: 45px; height: 45px; border-radius:100%;"> </label>          
-            <label data-label="stu-name"  style="position: absolute;"><?php echo $student['full_name'] ?> <br>&nbsp;&nbsp;&nbsp;<?php echo $student['stu_id'] ?></label>          
+            <label data-label="stu-name"  style="position: absolute;"><?php echo $student['full_name'] ?> <br><?php echo $student['stu_id'] ?></label>          
             <?php if($role=="teacher"):?>
             <a class="adelete" onclick="return confirmDelete()"href="testreqest.php?deleteSTID=<?php echo $student['g_no'];?>&deletestuid=<?php echo $student['stu_id']; ?>&group=<?php echo $student['stu_group']; ?> "><i id="croos2" class="fa-solid fa-circle-xmark" ></i></a> 
             <?php endif;?> 
