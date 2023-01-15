@@ -41,7 +41,7 @@ if ($result_out_of_grade->num_rows == 1) {
         <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
         <meta name="viewport" content="width=device-width, minimum-scale=1">
         <title>Assignment</title>
-        <link rel="stylesheet" href="../../css/dow_assi.css">
+        <link rel="stylesheet" href="../../css/download_assignment.css">
           <!--icon8-->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
         <!--file icon-->

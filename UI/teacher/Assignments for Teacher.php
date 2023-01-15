@@ -188,7 +188,7 @@ else{
                 <?php endif;?>
               <!-------------------------------------------------->
               <td data-label="open">
-                <a  href="../student/dow_assi.php?post_no=<?= $file['p_no']?>&stu_id=<?= $file['stu_id']?>">Open</a>
+                <a  href="../student/download_assignment_for_teacher.php?post_no=<?= $file['p_no']?>&stu_id=<?= $file['stu_id']?>">Open</a>
                 <!-- <a  href="" style="text-align:center;" id="edit">Edit</a> -->
               </td>
 
