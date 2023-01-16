@@ -8,7 +8,7 @@ $table1='groups';
 $username=$_SESSION['full_name']; 
  /*$Tid= $_SESSION['tid'];*/
 //----user id for get image -----
-$user_id=$_SESSION['user_id'];
+ $user_id=$_SESSION['user_id'];
 //-------------------------------
 
 global $conn; 
@@ -84,8 +84,9 @@ if ($result->num_rows > 0) {
 function selectGroupNameForTeacher(){ 
   global $conn; 
   $username=$_SESSION['full_name'];
+  $user_id=$_SESSION['user_id'];
  /* $te= $_SESSION['tid'];*/
-  $query="SELECT tr_id FROM teacher,user WHERE teacher.user_id=user.user_id and user.full_name='".$username."'";
+$query="SELECT tr_id FROM teacher,user WHERE teacher.user_id=user.user_id and user.user_id='".$user_id."'";
 $result = $conn->query($query);
 if ($result->num_rows > 0) {
   // output data of each row
