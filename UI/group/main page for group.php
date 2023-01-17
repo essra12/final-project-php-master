@@ -14,7 +14,19 @@ if ($result->num_rows == 1) {
       $img=$row["u_img"];
     }
 }
-
+//------for get stu id---------
+if ($_SESSION['role']==""):
+  $sql="SELECT stu_id FROM student Where user_id='$user_id';";
+  $result = $conn->query($sql);
+  if ($result->num_rows == 1) {
+      while($row = $result->fetch_assoc()) {
+        $stu_id=$row["stu_id"];
+        $_SESSION["stu_id"]=$stu_id;
+      }
+  }
+  endif;
+  
+  //----------------------
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +40,9 @@ if ($result->num_rows == 1) {
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
      <!--x icon-->
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+    <!----notefication icon----->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-------------------------->
     
      <style>
         * {
@@ -58,34 +73,51 @@ if ($result->num_rows == 1) {
    
 <html>
 <body>
-   <!------------Navigation Bar ----------->  
-<nav class="navbar">
+   <!------------------------nav bar------------------------------>
+   <nav class="navbar">
       <ul class="lift-side">
-          <!-------back------>
-          <li><div class="back"></div></li>
-          <!----------------->
-
           <!-------logo------>
-          <li><div class="brand-title"><img src="../../sources/image/logo_dark.png" style="width: 100px;" /></div></li>
+          <li><div class="brand-title"><img src="../../sources/image/logo_dark.png" style="width: 100px; margin-top: 5px; margin-left:10px;" /></div></li>
           <!----------------->
       </ul>
-      <div class="navbar-links">
-        <ul>
-          <!------HOME------>
-          <li><a href="<?php echo BASE_URL . '/UI/group/main page for group.php' ?>" style="font-size: 1.5rem;"><i class="las la-home"></i></a></li>
-          <!---------------->
-
-          <!--Notification-->
-          <li><a href="#" class="notification" style="font-size: 1.5rem;"><i class="las la-bell"></i><span class="badge">3</span></a></li>
-          <!---------------->
-
-          <!------Logout----->
-          <li><a href="..\..\logout.php" style="color:#FFBA5F;font-size: 1.5rem;"><i class="las la-sign-out-alt"></i></a></li>
-          <!----------------->
-        </ul>
+      <div class="center">
+       <p style="color:#222242;">....</p>
       </div>
+      <ul>
+        <!------HOME------->
+        <li><a href="<?php echo BASE_URL . '/UI/group/main page for group.php' ?>" style="font-size: 1.5rem;"><i class="las la-home"></i></a></li>
+        <!---------------->
+
+        <!---notification--->
+        <?php if ($_SESSION['role']==""):?> 
+        <li onclick="num(this)">
+          <?php $sql1 = "SELECT announcement.*,groups.g_name FROM announcement,groups,student_group WHERE announcement.g_no=groups.g_no AND student_group.g_no=groups.g_no AND student_group.stu_id='$stu_id' AND status='0' ORDER BY an_Datetime DESC;";
+          global $conn;
+          $res = mysqli_query($conn, $sql1); ?>
+          <a href="#" id="notifications">
+            <label for="check">
+              <i class="fa fa-bell-o" aria-hidden="true"></i>
+              <span id="notification_num" class="count"><?php echo mysqli_num_rows($res);?></span>
+            </label>
+          </a>
+          <input type="checkbox" class="dropdown-check" id="check" />
+          <ul id="dropdown" class="dropdown" style="width: 300px; height: 300px; overflow: auto">
+            <?php
+            if (mysqli_num_rows($res) > 0) {
+              foreach ($res as $item) { ?>
+                <li><h5><?php echo $item["g_name"]; ?></h5><?php echo $item["an_content"]; ?></li>
+            <?php 
+              }
+            } ?>
+          </ul>
+        </li>  
+        <?php endif; ?>
+        <!------Logout----->
+          <li><a href="..\..\logout.php" style="color:#FFBA5F;font-size: 1.5rem;"><i class="las la-sign-out-alt"></i></a></li>
+        <!------------------>
+      </ul>
     </nav>
-    <!------------------------------------>
+    <!-------------------------------------------------------------->
        <!-- header div-->
        <div class="header-div">
              <h5 id="date" style="font-size:24px; padding-bottom: 10px; padding-left:14px;">  </h5>
@@ -231,7 +263,25 @@ if ($result->num_rows == 1) {
 
 <!-------------------------------------------------------------------->    
 <!-- java script for current date -->
-    <script>
+<!--------Notification--------->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+<script>
+  $(document).ready(function() {
+    $("#notifications").on("click", function() {
+        $.ajax({
+        url:'readNotifications.php',
+        success:  function(res) {
+        console.log(res);
+        } 
+        
+      }); 
+    });
+  });
+
+  function num() {
+    document.getElementById("notification_num").innerHTML = "0";
+  }
+  /*****************************/
 
     /********for sidebar (highlights items after click it)**********/
     const activePage = window.location.pathname;

@@ -85,13 +85,11 @@ else{
   <div class="navbar-links">
     <ul>
       <!----group name--->
-      <li><a href="../group/inside_group.php?data=<?= $g_name?>&number=<?= $group_no?>" style="padding-top:.5rem;"><?php echo $g_name ?></a></li>
+      <li><a href="../group/inside_group.php?data=<?= $g_name?>&number=<?= $group_no?>"><?php echo $g_name ?></a></li>
       <!----------------->
 
       <!-----students--->
-      <?php if ($_SESSION['role']=="teacher"):?> 
       <li><a href="<?php echo BASE_URL . '/UI/teacher/testreqest.php' ?>"  style="font-size: 1.5rem;"><i class="las la-user-friends"></i></a></li>
-      <?php endif; ?>  
       <!----------------->
 
       <!------HOME------>

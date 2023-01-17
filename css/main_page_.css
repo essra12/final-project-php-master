@@ -23,109 +23,112 @@
     font-family: "Poppins", sans-serif;
   }
    /*****************************************************Navigation Bar style**********************************************************/
+   .navbar {
+    background-color:var(--vdarkblue);
+    }
+    .navbar ul {
+        list-style: none;
+    }
+    .lift-side{
+        float: left;
+    }
+    .lift-side li{
+        display: block;
+        text-decoration: none;
+        color: white;
+        padding-right: .5rem;
+        margin: auto;
+    }
+    .lift-side li a {
+        display: block;
+        text-decoration: none;
+        color: white;
+    }
+    .back{
+        display: inline;
+        margin-right: 0;
+    }
+    
+    .back i{
+        margin-left: .2rem;
+        font-size: 2.2rem;
+    }
+    
+    .brand-title {
+        margin: .5rem;
+        margin-left: 0;
+    }
+    .center{
+        float: left;
+        width: 82%;
+        height: 10%;
+    } 
+    .navbar > ul > li {
+        position: relative;
+        display: inline-block;
+        margin-right: 18px;
+    }
+    .navbar > ul > li .dropdown-check {
+        display: none;
+    }
+    .navbar > ul > li > a {
+        color: #fff;
+        font-size: 1.1rem;
+        padding: 1rem 0;
+        display: inline-block;
+        cursor: pointer;
+    }
+    .navbar > ul > li > a:hover {
+        color: #a4d2f0;
+    }
+   /**********notification***************/ 
+    .navbar > ul > li > a .count {
+        position: absolute;
+        right: -3px;
+        top: 14px;
+        border-radius: 50%;
+        font-size: 0.7rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--orange);
+        color: var(--vdarkblue);
+        width: 12px;
+        height: 12px;
+    }
+    .navbar > ul > li .dropdown-check:checked ~ .dropdown {
+        visibility: visible;
+        opacity: 1;
+        z-index: 1;
+    }
+    
+    .navbar ul li .dropdown {
+        position: absolute;
+        top: 100%;
+        right: -63px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 1rem;
+        visibility: hidden;
+        opacity: 0;
+        width: 250px;
+        transition: 0.3s;
+    }
+    
+    .navbar ul li .dropdown li {
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 1rem;
+        font-size: 14px;
+    }
+    
+    .navbar ul li .dropdown li:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: 0;
+    }
 
- .navbar {
-  display: flex;
-  position: relative;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #222242;
-  box-shadow: var(--shadow2);
-  color: white;
-}
-
-ul{
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-
-.lift-side li{
-  display: block;
-  text-decoration: none;
-  color: white;
-  padding-right: 1rem;
-  margin: auto;
-}
-
-.lift-side li a {
-  display: block;
-  text-decoration: none;
-  color: white;
-  margin-left: 0;
-}
-
-.back{
-  display: inline;
-  margin-right: 0;
-}
-
-.back i{
-  margin-left: .5rem;
-  font-size: 2.2rem;
-}
-
-.brand-title {
-  font-size: 1.5rem;
-  margin: .5rem;
-  margin-left: 0;
-}
-
-.navbar-links {
-  height: 100%;
-}
-/******Notification*******/
-
-.notification {
-  color: white;
-  text-decoration: none;
-  position: relative;
-  display: inline-block;
-}
-
-.notification .badge {
-  position: absolute;
-  top: 1px;
-  right: 1px;
-  padding: 1px 6px;
-  border-radius: 50%;
-  background: var(--orange);
-  color: var(--vdarkblue);
-  font-size: .7rem;
-}
-/************************/
-.navbar-links ul {
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar-links li {
-  list-style: none;
-}
-
-.navbar-links li a {
-  display: block;
-  text-decoration: none;
-  color: white;
-  padding-left: .5rem;
-  padding-right: .5rem;
-}
-
-.navbar-links li:hover {
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.navbar-links li:hover i{
-  font-weight: bold;
-  font-size: 1.7rem;
-}
-
-a:is(:link,:active,:hover).active{
-  font-weight: bold;
-  font-size: 18px;
-}
+ /***********************************/   
 
 
 /**********************************************************************************/
