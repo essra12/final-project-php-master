@@ -10,6 +10,7 @@ include("../../controls/profiles.php");
     <meta name="descreption " content=" " />
      <!--for logo-->
      <link rel="shortcut icon" href="../../sources/image/logo_bar.png">
+      <!-- css file -->
     <link rel="stylesheet" href="../../CSS/allprofiles.css"/>
      <!--icons-->
      <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
@@ -45,7 +46,7 @@ include("../../controls/profiles.php");
 <body>
     
 <form method="get" action="edit profile.php" enctype="multipart/form-data">
-<div class="back"><a href="../group/main page for group.php"><i class="las la-arrow-left"></i></a></div>
+<div class="back"><a href="../group/main page for group.php" style="color:#222242;font-size:40px;"><i class="las la-arrow-left"></i></a></div>
 
 <div class="container">
         <!-- container one for photo,groups,assinament data -->

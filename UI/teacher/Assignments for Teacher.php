@@ -85,13 +85,11 @@ else{
   <div class="navbar-links">
     <ul>
       <!----group name--->
-      <li><a href="../group/inside_group.php?data=<?= $g_name?>&number=<?= $group_no?>" style="padding-top:.5rem;"><?php echo $g_name ?></a></li>
+      <li><a href="../group/inside_group.php?data=<?= $g_name?>&number=<?= $group_no?>"><?php echo $g_name ?></a></li>
       <!----------------->
 
       <!-----students--->
-      <?php if ($_SESSION['role']=="teacher"):?> 
       <li><a href="<?php echo BASE_URL . '/UI/teacher/testreqest.php' ?>"  style="font-size: 1.5rem;"><i class="las la-user-friends"></i></a></li>
-      <?php endif; ?>  
       <!----------------->
 
       <!------HOME------>
@@ -117,16 +115,7 @@ else{
 <!---------------------------------------------------------->
  <main>
  <div class="main-container">
-      <!-- For Succes -->
-      <?php if (isset($_SESSION['message'])): ?>
-      <div class="msg success" style="color: #5a9d48; margin-Top: 2em; margin-left:7em;">
-          <li style="list-style-type: none;"><i class="las la-check-circle" style="color: #5a9d48 ;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;<?php echo $_SESSION['message']; ?></li>
-          <?php
-          /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */
-          unset($_SESSION['message']);
-          ?>
-      </div>
-    <?php endif; ?>
+     
  <!-------------------- search ----------------------------->
  
  <form action="" method="POST"  onsubmit="return check_Enter(this)">  
@@ -148,7 +137,16 @@ else{
     </div> 
   <?php endif; ?> 
     <!------------------------>
-
+    <!-- For Succes -->
+    <?php if (isset($_SESSION['message'])): ?>
+      <div class="msg success" style="color: #5a9d48; margin-Top: 2em; margin-left:7em;">
+          <li style="list-style-type: none;"><i class="las la-check-circle" style="color: #5a9d48 ;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;<?php echo $_SESSION['message']; ?></li>
+          <?php
+          /* لالغاء الرسالة عند عمل اعادة تحميل للصفحة */
+          unset($_SESSION['message']);
+          ?>
+      </div>
+    <?php endif; ?>
   <!--------------------------------------------------------->   
   <?php if(empty($files)): 
      $files=selectpostfile(); 
@@ -162,7 +160,7 @@ else{
                     <th scope="col">Student Name</th>
                     <th scope="col">Post date</th>
                     <th scope="col">File Title</th>
-                    <th scope="col" width="140px">Grade</th>
+                    <th scope="col" width="140px" style="text-align:center;">Grade</th>
                     <th scope="col" width="70px"></th>
                 </tr>
             </thead>
@@ -179,15 +177,17 @@ else{
               
               <!------------------grade section------------------>
               <?php if(!empty($file['stu_grade'])):?>
-                <td data-label=""><p id="grade" contentEditable="true" maxlength="3" size="1" class="grade"><?php echo $file['stu_grade']?></p>/<p><?php echo $file['grade']?></p></td>
+                <!-- <td data-label=""><p id="grade" contentEditable="true" maxlength="3" size="1" class="grade"><?php /* echo $file['stu_grade'] */?></p>/<p><?php /* echo $file['grade'] */?></p></td> -->
+                <td data-label="grade" class="grade"><?php echo $file['stu_grade']; ?>&nbsp;&nbsp;/&nbsp;&nbsp;<?php echo $file['grade'];?></td>
               <?php endif;
               if(empty($file['stu_grade'])):?>
-                <td data-label=""><p id="grade" contentEditable="true" maxlength="3" size="1" class="grade">--</p>/<p><?php echo $file['grade']?></p></td>
+                <!-- <td data-label=""><p id="grade" contentEditable="true" maxlength="3" size="1" class="grade">--</p>/<p><php/*  echo $file['grade'] */?></p></td> -->
+                <td data-label="grade" class="grade">--&nbsp;&nbsp;/&nbsp;&nbsp;<?php echo $file['grade'];?></td>
                 <?php endif;?>
               <!-------------------------------------------------->
               <td data-label="open">
-                <a  href="../student/download_assignment.php?post_no=<?= $file['p_no']?>&stu_id=<?= $file['stu_id']?>">Open</a>
-                <a  href="" style="text-align:center;" id="edit">Edit</a>
+                <a  href="../student/download_assignment_for_teacher.php?post_no=<?= $file['p_no']?>&stu_id=<?= $file['stu_id']?>">Open</a>
+                <!-- <a  href="" style="text-align:center;" id="edit">Edit</a> -->
               </td>
 
             </tr>

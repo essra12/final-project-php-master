@@ -5,9 +5,11 @@ include(MAIN_PATH. "/database/db.php");
 global $conn;
 $role=$_SESSION['role'];
 $post_no=$_GET['post_no'];
+$errors=array();
+$group_no=$_SESSION['g_no'];
 
 ////////////////////////////
-$group_no=$_SESSION['g_no'];
+$_SESSION['post_no']=$post_no;
 ///////////////////////////
 
 $query="SELECT * FROM post,file WHERE post.p_no=file.p_no AND post.p_no='".$post_no."'";
@@ -19,8 +21,10 @@ while($row = $result->fetch_assoc()) {
   $title=$row['title'];
   $des=$row['description'];
 
+  /////////////
+  $grade=$row['stu_grade'];
+  ////////////
 }
-
 } 
 
 /************************************************************************/
@@ -102,8 +106,25 @@ if(isset($_GET['file']))
   } 
  }     
         
+ /********************************************************************************/
+/********************************grade*******************************************/
+/*******************************************************************************/
+if($_SERVER['REQUEST_METHOD']=='POST')
+{
+if(isset($_POST['save_grade'])){
+  $grade=$_POST['grade'];
+  $sqln="UPDATE  post SET post.stu_grade='$grade' WHERE
+  post.p_no='$post_no';";
+  if(mysqli_query($conn,$sqln)){
+    $_SESSION['message']="grade Update successfully";
+    header('location: '.BASE_URL.'/UI/teacher/Assignments for Teacher.php');
+    $conn->close();
+    exit();  
+  }
 
-
+}
+}
+ 
 
 
 

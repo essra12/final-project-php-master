@@ -163,7 +163,7 @@ margin-bottom: 0;
 }
     
 </style>
-<div class="back"><a href="../teacher/profile teacher.php"><i class="las la-arrow-left"></i></a></div>
+<div class="back"><a href="../teacher/profile teacher.php" style="color:#222242;font-size:40px;"><i class="las la-arrow-left"></i></a></div>
   <div class="login-container">
       <p class="signup_text" style="margin-left:30% ;"><b>Edit Teacher</p>
     <form class="login-form"  method="POST" name="signup_form" enctype="multipart/form-data"  onsubmit="return check_Enter(this)">
@@ -171,7 +171,7 @@ margin-bottom: 0;
   <!-- For circular image -->
   <div class="profile-pic-div"  >
         <?php echo"  <img src='../../sources/image/$img1' id='photo' height='120' width='120' > ' "?>
-        <input type="file" id="file" name="u_img">
+        <input type="file" accept="image/*" id="file" name="u_img">
         <label for="file" id="uploadBtn">Choose Photo</label>
   </div>
             <!-- inputs  --> 

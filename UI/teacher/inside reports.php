@@ -68,9 +68,14 @@ else{
         font-size: 18px;
     }
     #print{
-        margin-left: 80%;
         font-size: 16px;
+        margin-top: 20px;
+        margin-right: 11px;
     }
+    .groupname{
+        margin-right: 11px;
+    }
+   
 </style>
     <body>
         
@@ -88,16 +93,24 @@ else{
       </ul>
       <div class="navbar-links">
         <ul>
+
+      
+
           <!----group name--->
-          <li><a href="../group/inside_group.php?data=<?= $g_name?>&number=<?= $groupNumber?>"><?php echo $g_name ?></a></li>
+          <li><a class="groupname" href="../group/inside_group.php?data=<?= $g_name?>&number=<?= $groupNumber?>"><?php echo $g_name ?></a></li>
           <!----------------->
 
-          <!-----students---->
+        <!------ print icon  -->
           <?php   if ($_SESSION['role']=="teacher"): ?> 
-          <li><a href="<?php  echo BASE_URL . '/UI/teacher/testreqest.php' ?>" style="font-size: 1.5rem;"><i class="las la-user-friends"></i></a></li>
+          <li> <i id="print" onclick="PrintDiv() "  class="fa-sharp fa-solid fa-print"></i></li>
           <?php   endif; ?>  
+          <!-- --------------->
+
+          <!-----students---->
+          <li><a href="<?php  echo BASE_URL . '/UI/teacher/testreqest.php' ?>" style="font-size: 1.5rem;"><i class="las la-user-friends"></i></a></li>
           <!----------------->
-          
+        
+
           <!------HOME------>
           <li><a href="<?php echo BASE_URL . '/UI/group/main page for group.php' ?>" style="font-size: 1.5rem;"><i class="las la-home"></i></a></li>
           <!---------------->
@@ -109,6 +122,8 @@ else{
           <!------Logout----->
           <li><a href="..\..\logout.php" style="color:#FFBA5F;font-size: 1.5rem;"><i class="las la-sign-out-alt"></i></a></li>
           <!----------------->
+
+    
         </ul>
       </div>
     </nav>
@@ -162,7 +177,7 @@ else{
                         <th scope="col">Student Id</th>
                         <th scope="col" >Student Name</th>
                         <th scope="col"style="text-align: center;">grade</th>
-                      <th> <i id="print" onclick="PrintDiv() " class="fa-sharp fa-solid fa-print"></i></th>
+                      <!-- <th> <i id="print" onclick="PrintDiv() " class="fa-sharp fa-solid fa-print"></i></th> -->
                     </tr>
                 </thead>
 
@@ -171,11 +186,11 @@ else{
                         <tr>
                             <td data-label="student ID"><?php echo $student['stu_id'] ?></td>
                             <td data-label="student name" ><img src="<?php echo BASE_URL . '/sources/image/' . $student['u_img']; ?>" class="tab-img" style="  width: 30px; height: 30px;border-radius:100%;"><?php echo $student['full_name'] ?></td>
-                            <?php if (empty($student['grade'])):?>
-                                <td data-label="grade" class="grade">--</td>
+                            <?php if (empty($student['stu_grade'])):?>
+                                <td data-label="grade" class="grade">--&nbsp;&nbsp;/&nbsp;&nbsp;<?php echo $out_of;?></td>
                             <?php endif;?>
-                            <?php if (!empty($student['grade'])):?>    
-                                <td data-label="grade" class="grade"><?php echo $student['grade']; ?>&nbsp;&nbsp;/&nbsp;&nbsp;<?php echo $out_of;?></td>
+                            <?php if (!empty($student['stu_grade'])):?>    
+                                <td data-label="grade" class="grade"><?php echo $student['stu_grade']; ?>&nbsp;&nbsp;/&nbsp;&nbsp;<?php echo $out_of;?></td>
                             <?php endif;?>
                         </tr>   
                     <?php endforeach; ?>                      
@@ -217,12 +232,12 @@ else{
         }
         /***********************************************************/
         function PrintDiv() {
-       var divToPrint = document.getElementById('report');
-       var popupWin = window.open('', '', 'width=600,height=300,margin-left:400px');
-       popupWin.document.open();
-       popupWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
-        popupWin.document.close();       
-                       }
+            var divToPrint = document.getElementById('report');
+            var popupWin = window.open('', '', 'width=600,height=300,margin-left:400px');
+            popupWin.document.open();
+            popupWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
+            popupWin.document.close();       
+        }
 
        
  </script>  

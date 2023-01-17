@@ -176,6 +176,10 @@ if ($result_g_name->num_rows == 1) {
                         <i class="fa-solid fa-arrow-up-from-bracket"></i>
                     </label>
                     <div id="num-of-files">No Files Choosen</div>
+                  <a class="iframeDOC" href="https://docs.google.com"><i style="color: blue; font-size:20px" class="fa-regular fa-file-word"></i></a>
+                  <a class="iframeDOC" href="https://drive.google.com/"><i style="color: green;margin-left:3%; font-size:20px"  class="fa-brands fa-google-drive"></i></a>
+                  <a class="iframeDOC" href=" https://docs.google.com/presentation/u/0/"><i style="color: red;margin-left:3%; font-size:20px"   class="fa-solid fa-file-powerpoint"></i></a>               
+                   
                     <ul id="files-list"></ul>
                 </div>
 

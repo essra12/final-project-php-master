@@ -21,7 +21,7 @@ if(isset($_POST['add_announcement_assignment'])){
       array_push($errors,"Please enter correct due date");
     }
     else{
-    $sql_insert_announcement_assignment = "INSERT INTO announcement(an_content, due_date, grade, g_no) VALUES ('$an_content','$due_date','$grade','$groupNumber');";
+    $sql_insert_announcement_assignment = "INSERT INTO announcement(an_content, due_date, grade,g_no) VALUES ('$an_content','$due_date','$grade','$groupNumber');";
     if(mysqli_query($conn, $sql_insert_announcement_assignment)){
     }
     else{
