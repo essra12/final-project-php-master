@@ -56,19 +56,13 @@ if ($result_g_name->num_rows == 1) {
       <!----------------->
 
       <!-----students--->
-      <?php if ($_SESSION['role']=="teacher"):?> 
-      <li><a href="<?php echo BASE_URL . '/UI/teacher/testreqest.php' ?>"  style="font-size: 1.5rem;"><i class="las la-user-friends"></i></a></li>
-      <?php endif; ?>  
+      <li><a href="<?php echo BASE_URL . '/UI/teacher/testreqest.php' ?>"  style="font-size: 1.5rem;"><i class="las la-user-friends"></i></a></li> 
       <!----------------->
 
       <!------HOME------>
       <li><a href="<?php echo BASE_URL . '/UI/group/main page for group.php' ?>" style="font-size: 1.5rem;"><i class="las la-home"></i></a></li>
       <!---------------->
-
-      <!--Notification-->
-      <li><a href="#" class="notification" style="font-size: 1.5rem;"><i class="las la-bell"></i><span class="badge">3</span></a></li>
-      <!---------------->
-
+      
       <!------Logout----->
       <li><a href="..\..\logout.php" style="color:#FFBA5F;font-size: 1.5rem;"><i class="las la-sign-out-alt"></i></a></li>
       <!----------------->
