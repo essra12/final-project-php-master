@@ -190,13 +190,7 @@ if($role=="teacher"):
                             <span class="las la-user-friends"></span>
                             <span>Student</span>
                         </a>
-                    </li>     
-                    <li>
-                        <a href="#">
-                            <span class="las la-bell"></span>
-                            <span>Notifications</span>
-                        </a>
-                    </li>                
+                    </li>                     
                     <li>
                     <a href="..\..\logout.php">
                         <span class="las la-sign-out-alt" style="color:#FFBA5F;"></span>
