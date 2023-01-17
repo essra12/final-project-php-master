@@ -24,7 +24,7 @@ if ($_SESSION['role']==""):
         $_SESSION["stu_id"]=$stu_id;
       }
   }
-  endif;
+endif;
   
   //----------------------
 ?>
@@ -77,7 +77,7 @@ if ($_SESSION['role']==""):
    <nav class="navbar">
       <ul class="lift-side">
           <!-------logo------>
-          <li><div class="brand-title"><img src="../../sources/image/logo_dark.png" style="width: 100px; margin-top: 5px; margin-left:10px;" /></div></li>
+          <li><div class="brand-title"><img src="../../sources/image/logo_dark.png" style="width: 80px; margin-top: 5px; margin-left:10px;" /></div></li>
           <!----------------->
       </ul>
       <div class="center">
@@ -91,7 +91,8 @@ if ($_SESSION['role']==""):
         <!---notification--->
         <?php if ($_SESSION['role']==""):?> 
         <li onclick="num(this)">
-          <?php $sql1 = "SELECT announcement.*,groups.g_name FROM announcement,groups,student_group WHERE announcement.g_no=groups.g_no AND student_group.g_no=groups.g_no AND student_group.stu_id='$stu_id' AND status='0' ORDER BY an_Datetime DESC;";
+          <?php $sql1 = "SELECT announcement.*,groups.g_name FROM announcement,groups,student_announcement,student_group WHERE announcement.g_no=groups.g_no AND student_announcement.an_no=announcement.an_no AND student_group.g_no=groups.g_no AND student_announcement.stu_group=student_group.stu_group  
+                         AND student_group.stu_id='$stu_id' AND status='0' ORDER BY an_Datetime DESC;";
           global $conn;
           $res = mysqli_query($conn, $sql1); ?>
           <a href="#" id="notifications">
@@ -101,14 +102,17 @@ if ($_SESSION['role']==""):
             </label>
           </a>
           <input type="checkbox" class="dropdown-check" id="check" />
-          <ul id="dropdown" class="dropdown" style="width: 300px; height: 300px; overflow: auto">
+          <ul id="dropdown" class="dropdown" style="width: 300px;">
             <?php
             if (mysqli_num_rows($res) > 0) {
               foreach ($res as $item) { ?>
                 <li><h5><?php echo $item["g_name"]; ?></h5><?php echo $item["an_content"]; ?></li>
             <?php 
               }
-            } ?>
+            }
+            else{?>
+                <li><h5>no notification</h5></li>
+            <?php } ?>
           </ul>
         </li>  
         <?php endif; ?>
@@ -176,10 +180,7 @@ if ($_SESSION['role']==""):
         </section>
         </div>
 
-      
-
-
-        <h1  style=" padding:3% 18% 0% 18%;"> Groups </h1>
+        <h1 style=" padding:3% 18% 0% 18%;"> Groups </h1>
 
                 <!-- For Succes -->
                 <?php if (isset($_SESSION['message'])): ?>
@@ -255,11 +256,6 @@ if ($_SESSION['role']==""):
 
  
 <!-------------------------------------------------------------------->
-
-
-
-
-
 
 <!-------------------------------------------------------------------->    
 <!-- java script for current date -->
