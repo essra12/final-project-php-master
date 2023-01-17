@@ -112,7 +112,7 @@ if ($result_g_name->num_rows == 1) {
   <span class="tooltiptext">Delete Enquiry</span>
 </div>
 <div class="divcontanier">
-<img class="user_image" src="<?php echo $Info['u_img'] ?>" alt=" " style="width: 70px; height:70px ;"></img>
+<img class="user_image" src="../../sources/image/<?php echo $Info['u_img'];?>" alt=" " style="width: 70px; height:70px ;"></img>
 <div class="info">
 <label class="studentname">  <?php echo $Info['full_name'] ?></label>
 <h5 class="studentid">Student Id  <?php echo $Info['stu_id'] ?></h5>
@@ -125,6 +125,7 @@ if ($result_g_name->num_rows == 1) {
 
 
 <hr><!-----------------------------------replay section----------------------------------------->
+<p class="content " style="color:#808080">Replay Section</p>
 
 <?php $replyInfo=selectReply($Info['e_no']);?>
 <?php foreach($replyInfo as $key => $reply_Info):?>
@@ -135,40 +136,56 @@ if ($result_g_name->num_rows == 1) {
 <div class="icons">
 <a class="icon_x" onclick="return confirmDelete()"  href="Add Reply.php?deleteReply=<?php echo $reply_Info['r_no'];?>"><i id="deleteicon1"  class="las la-times-circle"></i></a> 
 <!--------------Edit Reply--------------_-------->  
-<a class="icon_x" onclick="return confirmDelete()"  href="Add Reply.php?deleteReply=<?php echo $reply_Info['r_no'];?>"><i id="Editicon" class="las la-pen ticon tr"></i></a> 
+<a class="icon_x" onclick=""  href="../../UI/teacher/editReply.php?EditReply=<?php echo $reply_Info['r_no'];?>"><i id="Editicon" class="las la-pen ticon tr"></i></a> 
 </div>
 </div>
-<?php endforeach; ?>
+
 <!-------------------------------------------------------------------------------------------------->
 <!---------------------------Reply section ----------------------------------------------------->
-
 <?php
 
   global $conn;
-  $sql="SELECT * FROM `response`,enquiry WHERE enquiry.e_no=response.e_no;";
+  $r_no=$reply_Info['r_no'];
+  $sql="SELECT enquiry.e_no FROM `response`,enquiry WHERE enquiry.e_no=response.e_no ;";
   $results = $conn->query($sql);
   if ($results->num_rows > 0) {
     while($row = $results->fetch_assoc()) {
       $display=$row['e_no'];
+      
     }
   }
 else{
-  $display=NULL;
-}
+  $display=null;
+  }
 
 ?>
-<?php if($display !=$Info['e_no']):?>
+<?php if($display !=$Info['e_no']){ ;?>
 <form  onsubmit="return check__Enter()" method="post" action="Add Reply.php" >  
 
 <div class="input-container"> 
+  
+<input  type="text" name="replyno" value="<?php echo $display  ?>">
 <input class="input-field reply_text" id="replyText" name="replyText" type="text" placeholder="Reply" >
 <input  type="hidden" name="replyno" value="<?php echo $Info['e_no'] ?>">
 <button type="submit" class="icon" name="reply" >Reply</button>
 </div>
 
 </form>
-<?php endif;?>
+<?php } ?>
+<?php if($display ==$Info['e_no']){ ;?>
+<form  onsubmit="return check__Enter()" method="post" action="Add Reply.php" >  
 
+<div class="input-container"> 
+  
+<input  type="text" name="replyno" value="<?php echo $display  ?>">
+<input class="input-field reply_text" id="replyText" name="replyText" type="text" placeholder="Reply" >
+<input  type="hidden" name="replyno" value="<?php echo $Info['e_no'] ?>">
+<button type="submit" class="icon" name="reply" >Reply</button>
+</div>
+
+</form>
+<?php } ?>
+<?php endforeach; ?>
 </div>
 
 
