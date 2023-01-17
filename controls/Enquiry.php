@@ -84,7 +84,8 @@ if(isset($_POST['reply'])){
    $conn->close();  
    exit();
    
-  } 
+  }
+
 }
   
 
@@ -94,7 +95,7 @@ function selectReply($e_no){
   global $conn; 
   $group_no=$_SESSION['g_no'];
   
-  $mysql="SELECT `r_no`, `r_content`, response.datetime, response.e_no, `g_no`,enquiry.e_no  FROM `response`,enquiry WHERE response.e_no='$e_no' AND g_no='$group_no' AND enquiry.e_no=response.e_no;";
+  $mysql="SELECT response.r_no, `r_content`, response.datetime, response.e_no, `g_no`,enquiry.e_no  FROM `response`,enquiry WHERE response.e_no='$e_no' AND g_no='$group_no' AND enquiry.e_no=response.e_no;";
   $pre=$conn->prepare($mysql);
   $pre->execute();
   $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -112,7 +113,11 @@ if(isset($_GET['deleteReply'])){
   global $conn;
   $r_no=$_GET['deleteReply'];
   $sql="DELETE FROM `response` WHERE r_no='$r_no';";
-  $pre=$conn->query($sql);
+  if(mysqli_query($conn, $sql)){
+    $_SESSION['message']="the Reply deleted successfully";
+    header('location: '.BASE_URL.'/UI/teacher/Add Reply.php');
+    $conn->close();  
+    exit();}
 
 
 }
@@ -159,5 +164,63 @@ if(isset($_GET['deleteEnquiryforstudent'])){
  }
 }
 
+ /*******************************************************************************************************/
+/*******************************************************************************************************/
+/******* edit reply section for teacher*************************************************************/
+/******************************************************************************************************/
+function selectReplyforEdit($r_no){
+  global $conn; 
+  $mysql="SELECT * FROM `response` WHERE response.r_no='$r_no';";
+  $pre=$conn->prepare($mysql);
+  $pre->execute();
+  $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
+  return $records;
+ }
+
+if(isset($_POST['save'])){
+
+  global $conn;
+  $r_no=$_GET['EditReply'];
+  $r_content=$_POST['replyInfo']; 
+  
+  $sql="UPDATE `response` SET `r_content`='$r_content' WHERE response.r_no='$r_no';";
+  if(mysqli_query($conn, $sql)){
+    header('location: '.BASE_URL.'/UI/teacher/Add Reply.php');
+    $conn->close();  
+    exit();}
+
+
+}
+ /*******************************************************************************************************/
+/*******************************************************************************************************/
+/******* edit enquiry section for student*************************************************************/
+/******************************************************************************************************/
+function selectEnquiryforEdit($e_no){
+  global $conn; 
+  $mysql="SELECT * FROM `enquiry` WHERE enquiry.e_no ='$e_no';";
+  $pre=$conn->prepare($mysql);
+  $pre->execute();
+  $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
+  return $records;
+ }
+
+if(isset($_POST['saveEnquiry'])){
+
+  global $conn;
+  $e_no=$_GET['EditEnquiry'];
+  $e_content=$_POST['enquiryInfo']; 
+  
+  $sql="UPDATE `enquiry` SET `e_content`='$e_content' WHERE enquiry.e_no='$e_no';";
+  if(mysqli_query($conn, $sql)){
+    header('location: '.BASE_URL.'/UI/teacher/Add Enquiry .php');
+    $conn->close();  
+    exit();}
+
+
+}
+/***************to not make the edit icon work************************** */
 
 ?>
+
+
+
