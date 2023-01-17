@@ -139,17 +139,17 @@ if ($result_g_name->num_rows == 1) {
 <a class="icon_x" onclick=""  href="../../UI/teacher/editReply.php?EditReply=<?php echo $reply_Info['r_no'];?>"><i id="Editicon" class="las la-pen ticon tr"></i></a> 
 </div>
 </div>
-
+<?php endforeach; ?>
 <!-------------------------------------------------------------------------------------------------->
 <!---------------------------Reply section ----------------------------------------------------->
 <?php
 
   global $conn;
-  $r_no=$reply_Info['r_no'];
-  $sql="SELECT enquiry.e_no FROM `response`,enquiry WHERE enquiry.e_no=response.e_no ;";
-  $results = $conn->query($sql);
-  if ($results->num_rows > 0) {
-    while($row = $results->fetch_assoc()) {
+  $e_no=$Info['e_no'];
+    $sql="SELECT * FROM `response` WHERE response.e_no='$e_no' ;";
+  $result = $conn->query($sql);
+  if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
       $display=$row['e_no'];
       
     }
@@ -159,33 +159,19 @@ else{
   }
 
 ?>
-<?php if($display !=$Info['e_no']){ ;?>
+  
+<?php if(empty($display)){ ?>
 <form  onsubmit="return check__Enter()" method="post" action="Add Reply.php" >  
 
 <div class="input-container"> 
-  
-<input  type="text" name="replyno" value="<?php echo $display  ?>">
 <input class="input-field reply_text" id="replyText" name="replyText" type="text" placeholder="Reply" >
 <input  type="hidden" name="replyno" value="<?php echo $Info['e_no'] ?>">
 <button type="submit" class="icon" name="reply" >Reply</button>
 </div>
-
 </form>
 <?php } ?>
-<?php if($display ==$Info['e_no']){ ;?>
-<form  onsubmit="return check__Enter()" method="post" action="Add Reply.php" >  
 
-<div class="input-container"> 
-  
-<input  type="text" name="replyno" value="<?php echo $display  ?>">
-<input class="input-field reply_text" id="replyText" name="replyText" type="text" placeholder="Reply" >
-<input  type="hidden" name="replyno" value="<?php echo $Info['e_no'] ?>">
-<button type="submit" class="icon" name="reply" >Reply</button>
-</div>
 
-</form>
-<?php } ?>
-<?php endforeach; ?>
 </div>
 
 

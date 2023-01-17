@@ -131,14 +131,35 @@ if ($result_g_name->num_rows == 1) {
 <?php $datetime=strtotime($Info['datetime'])?>
  <h6 class="datetime"><i class="las la-clock"></i><?php echo  date("d-m-Y h:i a",$datetime)?></h6>
 
- <div class="tooltip">
+<!--------------------------------------------------------------------->
+<!------------------------Edit icon------------------------------------>
+<?php
+
+  global $conn;
+  $e_no=$Info['e_no'];
+  $sql="SELECT * FROM `response` WHERE response.e_no='$e_no' ;";
+  $result = $conn->query($sql);
+  if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+      $display=$row['e_no'];
+      
+    }
+  }
+else{
+  $display=null;
+  }
+
+?>
+<?php if(empty($display)){ ?>
+  <div class="tooltip">
 <a  onclick="return confirmDelete()"  href="Add Enquiry .php?deleteEnquiryforstudent=<?php echo $Info['e_no'];?>"><i class="fa-solid fa-xmark tr" style="font-size: 20px;position:absolute;right: 22%;margin-top:1%; color:#222242;"></i></a>
   <span class="tooltiptext">Delete Enquiry</span>
 </div>
 <div class="tooltip1">
 <a class="" onclick=""  href="../../UI/teacher/editReply.php?EditEnquiry=<?php echo $Info['e_no'];?>"><i id="Editicon" class="las la-pen ticon tr" style="font-size: 20px;position:absolute;right: 40%;margin-top:1%; color:#222242;"></i></a>  <span class="tooltiptext">Edit Enquiry</span>
 </div> 
-
+<?php } ?>
+<!--------------------------------------------------------------------->
 
 <div class="divcontanier">
 <img class="user_image" src="./../../sources/image/<?php echo $Info['u_img'];?>" alt="" style="width: 70px; height:70px ;"></img>
