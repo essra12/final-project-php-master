@@ -177,7 +177,7 @@ else{
 
 
 <hr><!-----------------------------------replay section----------------------------------------->
-
+<p class="content " style="color:#808080">Replay Section</p>
 <?php $replyInfo=selectReply($Info['e_no']);?>
 <?php foreach($replyInfo as $key => $reply_Info):?>
 
