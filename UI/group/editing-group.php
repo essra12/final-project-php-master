@@ -247,7 +247,7 @@ border: 2px solid red;
     </style>
     </head>
 
-<body id="b-vlightblue">
+<body>
 
 <!-- menu -->
 <!--------------------navigation_bar ----------------------->  

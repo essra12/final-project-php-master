@@ -100,8 +100,8 @@ $Announcment= $_SESSION['announcment'];
             <!--text-->
             <div class="container_text_input">
                 <label style="color: #222242; margin-left: .5rem;">Text</label>
-                <div class="text_input">
-                    <textarea type="text" name="an_content" id="content" maxlength="250" style="font-size: 20px;"><?php echo $Announcment; ?></textarea>
+                <div class="text_input ass_ann">
+                    <textarea type="text" name="an_content" id="content" maxlength="250" style="font-size: 16px;"><?php echo $Announcment; ?></textarea>
                 </div>
             </div>
             <!-------->
@@ -110,12 +110,12 @@ $Announcment= $_SESSION['announcment'];
             <div class="container_date_grade_input">
                 <div class="date_input">
                     <label style="color: #222242; margin-left: .5rem;">Due date</label>
-                    <input type="date"  name="due_date" style="font-size: 20px; "  value="<?php echo  $new_date; ?>"  required />
+                    <input type="date"  name="due_date" style="font-size: 16px; "  value="<?php echo  $new_date; ?>"  required />
 
                 </div>
                 <div class="grade_input">
                     <label style="color: #222242;">Out Of</label>
-                    <input type="text" name="an_grade" id="grade" maxlength="5" style="font-size: 20px;" onkeypress="return isNumberKey(this, event);" value="<?php echo  $GRADE; ?>"/>
+                    <input type="text" name="an_grade" id="grade" maxlength="5" style="font-size: 16px;" onkeypress="return isNumberKey(this, event);" value="<?php echo  $GRADE; ?>"/>
                 </div>
             </div>
             <!-------->      

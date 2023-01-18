@@ -100,7 +100,9 @@ if ($result_g_name->num_rows == 1) {
           <!-- Text field -->
           <div class="inputs announcement">
             <label style="color: #222242;">Text</label>
-            <textarea type="text" name="an_content" id="content" maxlength="250" style="font-size: 20px; margin-left: .5rem; margin-right: .5rem;"><?php echo$announcment; ?></textarea>
+            <div class="text_input">
+              <textarea type="text" name="an_content" id="content" maxlength="250" style="font-size: 16px; margin-left: .5rem; margin-right: .5rem;" rows="4"><?php echo$announcment; ?></textarea>
+            </div>
             <!-- Button -->
             <div class="btn_post">
                 <button type="submit" onclick="return confirmDelete()" name="edit_announcement" >Edit</button>
