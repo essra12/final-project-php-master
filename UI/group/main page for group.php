@@ -77,7 +77,7 @@ endif;
    <nav class="navbar">
       <ul class="lift-side">
           <!-------logo------>
-          <li><div class="brand-title"><img src="../../sources/image/logo_dark.png" style="width: 80px; margin-top: 5px; margin-left:10px;"/></div></li>
+          <li><div class="brand-title"><img src="../../sources/image/logo_dark.png" style="width: 110px; margin-top: 5px; margin-left:10px;"/></div></li>
           <!----------------->
       </ul>
       <div class="center">
