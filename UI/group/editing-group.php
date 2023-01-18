@@ -67,6 +67,108 @@ if($role=="teacher"):
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <style>
  
+.navbar {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222242;
+    box-shadow: var(--shadow2);
+    color: white;
+}
+
+ul{
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.lift-side li{
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding-right: 1rem;
+    margin: auto;
+}
+
+.lift-side li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+}
+
+.back{
+    display: inline;
+    margin-right: 0;
+}
+
+.back i{
+    margin-left: .5rem;
+    font-size: 2.2rem;
+}
+
+.brand-title {
+    font-size: 1.5rem;
+    margin: .5rem;
+    margin-left: 0;
+}
+
+.navbar-links {
+    height: 100%;
+}
+/******Notification*******/
+
+.notification {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .notification .badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 1px 6px;
+    border-radius: 50%;
+    background: var(--orange);
+    color: var(--vdarkblue);
+    font-size: .7rem;
+  }
+/************************/
+.navbar-links ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li {
+    list-style: none;
+}
+
+.navbar-links li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+}
+
+.navbar-links li:hover {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.navbar-links li:hover i{
+    font-weight: bold;
+    font-size: 1.7rem;
+}
+
+a:is(:link,:active,:hover).active{
+    font-weight: bold;
+    font-size: 18px;
+}
+ 
 form .form-field:nth-child(2)::before {
     background-image: url(https://img.icons8.com/pastel-glyph/512/groups.png);
     width: 28px;
@@ -74,28 +176,83 @@ form .form-field:nth-child(2)::before {
     top:0.4em;
     left: 27%;
 }
+.g_tr_admin-container group{
+border: 2px solid red;
+}
+.g_tr_admin-containerr {
+    width              : 50%;
+    position:             absolute;
+    left:                  50%;
+    transform:translate(-50%);
+    height:              64vh;
+    padding            : 50px 50px;
+    background-position: center;
+    background-repeat  : no-repeat;
+    border-radius      : 15px;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    border: 2px solid white;
+    background-color: white;
+    margin-top: 5%;
+}
+.g_tr_admin-form{
+    height: 60vh;
+}
+.group_titlee{
+    margin-top: 4%;
+    margin-bottom: 7%;
+}
+@media only screen and (max-width:720px) {
+    .g_tr_admin-containerr {
+        width              : 70%;
+    }
+    .input-name{
+        font-size: 16px;
+        padding-right: 3%;
+    }
+
+}   
+@media only screen and (max-width:1200px) {
+    .g_tr_admin-containerr {
+        width              : 70%;
+    }
+    .input-name{
+        font-size: 16px;
+        padding-right: 3%;
+    }
+
+}    
+@media only screen and (max-width:670px) {
+
+    .g_tr_admin-containerr {
+        width              : 70%;
+    }
+    .input-name{
+        font-size: 16px;
+        padding-right: 3%;
+    }
+} 
+
+@media only screen and (max-width:564px) {
+    .g_tr_admin-containerr {
+        width              : 70%;
+    }
+    .input-name{
+        font-size: 16px;
+        padding-right: 5%;
+    }
+ 
+} 
+
     </style>
     </head>
 
 <body id="b-vlightblue">
 
 <!-- menu -->
-
- <!----------------side bar------------------->
- <input type="checkbox" name="" id="menu-toggle">
-
-<div class="overlay">
-    <label for="menu-toggle">
-        <span class="las la-cance" style="color:#222242;"></span>
-    </label>
-</div>
-
-<div class="sidebar">
-
-    <div class="sidebar-container">
-       
-      <!----------------back button and logo------------------->  
-      <ul class="lift-side" id="lift-side">
+<!--------------------navigation_bar ----------------------->  
+<nav class="navbar">
+  <ul class="lift-side">
       <!-------back------>
       <li><div class="back"><a href="../group/main page for group.php"><i class="las la-arrow-left"></i></a></div></li>
       <!----------------->
@@ -103,103 +260,32 @@ form .form-field:nth-child(2)::before {
       <!-------logo------>
       <li><div class="brand-title"><img src="../../sources/image/logo_dark.png" style="width: 100px;" /></div></li>
       <!----------------->
-      </ul>
-   
+  </ul>
+  <div class="navbar-links">
+    <ul>
 
-        <!--menu profile photo -->
-        <div class="sidebar-avartar" style="margin-top:20px">
-        <?php if($role==""):?>
-        <div>
-                <a href="..\student\student-profile.php" alt="" style="width: 70px; height:70px ;"><img src="<?php echo BASE_URL . '/sources/image/'.$img  ?>" alt=" " style="width: 70px; height:70px ;"></img></a>
-            </div>
-            <?php endif;?>
-            <?php if($role=="teacher"):?>
-            <div>
-                <a href="..\teacher\profile teacher.php" alt="" style="width: 70px; height:70px ;"><img src="<?php echo BASE_URL . '/sources/image/'.$img  ?>" alt=" " style="width: 70px; height:70px ;"></img></a>
-            </div>
-            <?php endif;?>
+     
+      <!------HOME------>
+      <li><a href="<?php echo BASE_URL . '/UI/group/main page for group.php' ?>" style="font-size: 1.5rem;"><i class="las la-home"></i></a></li>
+      <!---------------->
 
-            <div class="avartar-info">
-                <div class="avartar-text">
-                    <h4><?php echo $username;?></h4>
-                    <p>Id : <?php echo $stu_id;?> </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- menu items -->
-        <div class="sidebar-menu">
-            <ul>
-                <li>
-                    <a href="#">
-                        <span style="font-size:20px;"><?php echo "" ?></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo BASE_URL . '/UI/group/main page for group.php' ?>">
-                        <span class="las la-home"></span>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?php echo BASE_URL . '/UI/teacher/testreqest.php' ?>">
-                        <span class="las la-user-friends"></span>
-                        <span>Student</span>
-                    </a>
-                </li>     
-                <li>
-                    <a href="#">
-                        <span class="las la-bell"></span>
-                        <span>Notifications</span>
-                    </a>
-                </li>                
-                <li>
-                <a href="..\..\logout.php">
-                    <span class="las la-sign-out-alt" style="color:#FFBA5F;"></span>
-                    <span style="color:#FFBA5F;">LogOut</span>
-                </a>
-            </ul>
-        </div>
-    <!--*************************************************************************** -->
-    <?php if($role==""):?>
-    <!--leave button -->
-       <div class="sidebar-card-btn">
-        <form action="inside_group.php" method="POST">
-        <input  class="btn btn-admin" type="button" value="Leave" name="leave" onclick="return confirmDelete()"> 
-        </form>
-         </div>
-    <?php endif;?>
-    <!--*************************************************************************** -->
-</div>
-</div>
-<header class="main_icon">
-    <div class="header-title">
-        <label for="menu-toggle">
-            <span class="las la-bars"></span>
-        </label>
-    </div>
-</header>
-<!----------------End side bar------------------->
-<!----------------------------------------------------------------------------------------------->
-
-<header class="main_icon">
-    <div class="header-title">
-        <label for="menu-toggle">
-            <span class="las la-bars"></span>
-        </label>
-    </div>
-</header>
+      <!------Logout----->
+      <li><a href="..\..\logout.php" style="color:#FFBA5F;font-size: 1.5rem;"><i class="las la-sign-out-alt"></i></a></li>
+      <!----------------->
+    </ul>
+  </div>
+</nav> 
 <!-------------------------------  main content --------------------------------
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------->
 <div class="main-content group">
-    <div class="g_tr_admin-container group" >
+    <div class="g_tr_admin-containerr group" >
         <form  class="g_tr_admin-form" method="POST" onsubmit="return check_Enter(this)">
         <?php
         ?>
-        <div class="img_title">
-            <h2 class="group_title">Edite Group</h2>
-            <div class="create-g-div">
+        <div class="img_titlee">
+            <h2 class="group_titlee">Edite Group</h2>
+            <div class="create-g-divv">
 
                 <div class="form-field ">
                     <input id="name" name="t__name" class="input-name" type="text"  placeholder="Group Name" value="<?php echo  $username;?>"  readonly  />
