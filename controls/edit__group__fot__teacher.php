@@ -2,9 +2,9 @@
 <?php
 include("../../Database/Connection.php");  
 global $conn;
-echo $gno=$_GET['gno'];
+ $gno=$_GET['gno'];
 $nameg=$_GET['name-g'];
-echo $trid=$_GET['trID'];
+ $trid=$_GET['trID'];
 $exisiting_group="";
 $errors = array();
 $table1='groups';
