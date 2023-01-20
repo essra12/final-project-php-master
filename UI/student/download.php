@@ -28,6 +28,7 @@ if ($result_g_name->num_rows == 1) {
         <meta name="viewport" content="width=device-width, minimum-scale=1">
         <title>Materials</title>
         <link rel="stylesheet" href="../../css/add_materiial_assignment_join_dw.css">
+        <link rel="stylesheet" href="../../css/BackToTopButton.css">
           <!--icon8-->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
         <!--file icon-->
@@ -110,7 +111,8 @@ if ($result_g_name->num_rows == 1) {
       </div>
     </nav>
     <!------------------------------------>
-
+     <!---------------------------------------------------------->
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
       <!-- For Succes -->
       <?php if (isset($_SESSION['message'])): ?>
                 <div class="msg success" style="color: #5a9d48; margin-Top: 2em; margin-left:7em;">
@@ -197,6 +199,26 @@ if ($result_g_name->num_rows == 1) {
     else {
         return false;
     }
+}
+/***************************************************************/
+// Get the button
+let mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
 }
   </script>
 </body>
