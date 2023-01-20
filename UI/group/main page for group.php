@@ -243,7 +243,7 @@ endif;
          <?php $_SESSION['g_no']=$Info['g_no']?>
            <a href="inside_group.php?data=<?= $Info['g_name']?>&number=<?= $Info['g_no']?>"  style=" color:#000; text-decoration:none;"><h3 class="card__title"><?php echo $Info['g_name'] ?></h3> </a> 
            <a  href="editing-group.php?name-g=<?php echo $Info['g_name'] ?>&gno=<?= $Info['g_no']?>&trID=<?= $Info['tr_id']?>"><i id="icon3" class="las la-pen ticon edit" ></i></a>
-           <a class="child" href="main page for group.php?deleteID=<?php echo $Info['g_no']; ?>" onclick="return confirmDelete()"><i id="icon2" class="fa-solid fa-xmark"></i></a>       
+           <!-- <a class="child" href="main page for group.php?deleteID=<?php /* echo $Info['g_no']; */ ?>" onclick="return confirmDelete()"><i id="icon2" class="fa-solid fa-xmark"></i></a> -->       
          </div>
        </div>
      </div>
