@@ -27,6 +27,7 @@ if(isset($_GET['delete_an_ass_no']))
       array_push($errors,"It can't be deleted, because some students submitted the assignment");
    }
    else if($result->num_rows == 0) {
+    $deletestudent_Announcement=student_Announcement($an_no);
     $deleteStudent=deleteAnnouncement($an_no);
     $_SESSION['message']="Announcement deleted successfully";
     header('location: '.BASE_URL.'/UI/teacher/announcement.php');

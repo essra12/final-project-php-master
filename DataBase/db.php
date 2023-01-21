@@ -259,6 +259,14 @@ function deleteAnnouncement($an_no)
     $st=executeQuery($sql,['an_no'=>$an_no]);//وضع في مصفوفة لانه عنصر داخل مصفوفة
     return $st->affected_rows; //اذا تحقق الحذف يجب ان يرجع قيمة اكبر من 0
 }
+/* DELETE student_Announcement FUNCTION */
+function student_Announcement($an_no)
+{
+    global $conn;
+    $sql="DELETE FROM student_announcement WHERE an_no=?";
+    $st=executeQuery($sql,['an_no'=>$an_no]);//وضع في مصفوفة لانه عنصر داخل مصفوفة
+    return $st->affected_rows; //اذا تحقق الحذف يجب ان يرجع قيمة اكبر من 0
+}
 
 /* DELETE response by g_no FUNCTION */
 function deleteResponse_g_no($g_no)

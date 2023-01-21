@@ -66,7 +66,7 @@
     .navbar > ul > li {
         position: relative;
         display: inline-block;
-        margin-right: 18px;
+        margin-right: 12px;
     }
     .navbar > ul > li .dropdown-check {
         display: none;
