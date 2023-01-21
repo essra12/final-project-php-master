@@ -174,11 +174,11 @@ if ($result_out_of_grade->num_rows == 1) {
                     
                     <!--input text-->
                     <div class="grade_section">
-                    <?php if(!empty($grade)):?>
+                    <?php if(!empty($grade) || $grade== '0'):?>
                         <input type="text" name="grade" id="grade" maxlength="5" style=" border: none; font-size: 16px;" value="<?php echo $grade?>"  onkeypress="return isNumberKey(this, event);"/>
                         /&nbsp;&nbsp;&nbsp;<span><?php echo $out_of_grade ;?></span>
                     <?php endif; ?> 
-                    <?php if(empty($grade)):?>
+                    <?php if(empty($grade) && $grade!= '0'):?>
                         <input type="text" name="grade" id="grade" maxlength="5" style=" border: none; font-size: 16px;" value="--"  onkeypress="return isNumberKey(this, event);"/>
                         /&nbsp;&nbsp;<span><?php echo $out_of_grade ;?></span>
                     <?php endif; ?> 

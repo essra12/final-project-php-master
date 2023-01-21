@@ -174,11 +174,11 @@ else{
               <td data-label=""><?php echo  html_entity_decode(substr($file['title'],0,20). '...');?></td>
               
               <!------------------grade section------------------>
-              <?php if(!empty($file['stu_grade'])):?>
+              <?php if(!empty($file['stu_grade']) || $file['stu_grade']== '0'):?>
                 <!-- <td data-label=""><p id="grade" contentEditable="true" maxlength="3" size="1" class="grade"><?php /* echo $file['stu_grade'] */?></p>/<p><?php /* echo $file['grade'] */?></p></td> -->
                 <td data-label="grade" class="grade"><?php echo $file['stu_grade']; ?>&nbsp;&nbsp;/&nbsp;&nbsp;<?php echo $file['grade'];?></td>
               <?php endif;
-              if(empty($file['stu_grade'])):?>
+              if(empty($file['stu_grade']) && $file['stu_grade']!= '0'):?>
                 <!-- <td data-label=""><p id="grade" contentEditable="true" maxlength="3" size="1" class="grade">--</p>/<p><php/*  echo $file['grade'] */?></p></td> -->
                 <td data-label="grade" class="grade">--&nbsp;&nbsp;/&nbsp;&nbsp;<?php echo $file['grade'];?></td>
                 <?php endif;?>

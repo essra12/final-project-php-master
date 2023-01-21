@@ -160,6 +160,11 @@ if ($result_g_name->num_rows == 1) {
               document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;Please enter grade."; 
               return false;
             }
+            if(grade==0){
+              /* alert(" Please enter grade"); */
+              document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;You ccannot enter zero value."; 
+              return false;
+            }
         }
 
         function isNumberKey(txt, evt) {
