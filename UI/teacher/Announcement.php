@@ -120,10 +120,10 @@ $today = strtotime($todays_date);
     <!--------------------------------------------------Card------------------------------------------------------>  
     <div class="card" id="card"> 
        <div class="card-img">
-          <?php if(empty($announcement['due_date'])):?>
+          <?php if(empty($announcement['grade']) && $announcement['grade']!= '0'):?>
             <img src="../../sources/image/ann.png" alt="">
           <?php endif;?>
-          <?php if(!empty($announcement['due_date'])):?>
+          <?php if(!empty($announcement['grade']) || $announcement['grade']== '0'):?>
             <img src="../../sources/image/ass.png" alt="">
           <?php endif;?>
         </div>
@@ -135,14 +135,14 @@ $today = strtotime($todays_date);
         <!------------Delete/Edit announcement------------------>
         <?php if($role=="teacher"):?>
             <!--------Announcement------>
-            <?php if(empty($announcement['due_date'])):?>
+            <?php if(empty($announcement['grade']) && $announcement['grade']!= '0'):?>
               <a onclick="return confirmDelete()" href="announcement.php?delete_an_no=<?php echo $announcement['an_no'];?>" ><i style="position:absolute; margin-bottom:1rem;" class="fa-solid fa-xmark tr"></i></a>
               <a href="edit_Announcment.php?textANN=<?php echo $announcement['an_no'];?>" ><i style="position:absolute;margin-bottom:1rem;" class="las la-pen ticon tr"></i></a>
               <div style="height: 15px;"></div>
             <?php endif;?>
             <!--------------------------->
             <!--Announcement Assignment-->
-            <?php if(!empty($announcement['due_date'])):?>
+            <?php if(!empty($announcement['grade']) || $announcement['grade']== '0'):?>
               <a onclick="return confirmDelete()" href="announcement.php?delete_an_ass_no=<?php echo $announcement['an_no'];?>" ><i style="position:absolute; margin-bottom:1rem;" class="fa-solid fa-xmark tr"></i></a>
               <a href="editAnnouncement_assignment.php?textANN=<?php echo $announcement['an_no'];?>" ><i style="position:absolute;margin-bottom:1rem;" class="las la-pen ticon tr"></i></a>
               <div style="height: 15px;"></div>
@@ -157,7 +157,7 @@ $today = strtotime($todays_date);
 
         <!------------------------------------------------Assignment Button----------------------------------------------->
         <?php if($role==""):?>
-            <?php if(!empty($announcement['due_date'])):?>
+            <?php if(!empty($announcement['grade']) || $announcement['grade']== '0'):?>
               <!-- deu date -->
               <p id="deu_date"class="card__time due_date" >Due Date&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;"><?php echo date("d-m-Y",$expiration_date)?></span>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Point&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;"><?php echo $announcement['grade']?></span></p>

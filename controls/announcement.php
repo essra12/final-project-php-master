@@ -9,6 +9,7 @@ $errors=array();
 
 if(isset($_GET['delete_an_no']))
  {
+  $deletestudent_Announcement_ass=student_Announcement($_GET['delete_an_no']);
    $deleteStudent=deleteAnnouncement($_GET['delete_an_no']);
    $_SESSION['message']="Announcement deleted successfully";
    header('location: '.BASE_URL.'/UI/teacher/announcement.php');

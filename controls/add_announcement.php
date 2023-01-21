@@ -11,7 +11,7 @@ $an_content="";
 if(isset($_POST['add_announcement'])){
     unset($_POST['add_announcement']);
 $an_content=htmlentities($_POST['an_content']);    
-$sql_insert_announcement = "INSERT INTO announcement(an_content, g_no) VALUES ('$an_content','$groupNumber');";
+$sql_insert_announcement = "INSERT INTO `announcement`(`an_content`,`due_date`,`g_no`) VALUES ('$an_content',current_date(),'$groupNumber');";
 
 if(mysqli_query($conn, $sql_insert_announcement)){
 }
