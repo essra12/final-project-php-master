@@ -123,7 +123,7 @@ p#demo {
     </style>
 
 <body>
-<div class="back"><a href="../admin/admin profile.php" style="color:#222242;font-size:40px;"><i class="las la-arrow-left"></i></a></div>
+<div class="back"><a href="../teacher/profile teacher.php" style="color:#222242;font-size:40px;"><i class="las la-arrow-left"></i></a></div>
 
     <div class="login-container">
     <p class="signup_text" style="margin-left:30% ;"><b>Edit Teacher</p>
@@ -136,17 +136,17 @@ p#demo {
 
     <!-- inputs  --> 
     <div class="form-field-signup pass">
-        <input id="pass1" name="pass1" type="password" placeholder="Password"  value="<?php echo $pass ?>" maxlength="25" /> 
+        <input id="pass1" name="pass1" type="password" placeholder="old Password"  value="<?php echo $pass ?>" maxlength="25" /> 
         <span class="show-btn"><i id="show-btn" class="fas fa-eye"></i></span>  
     </div>
 
     <div class="form-field-signup pass">
-        <input id="pass" name="pass" type="password" placeholder="Password"  value="<?php echo $pass ?>" maxlength="25" /> 
+        <input id="pass" name="pass" type="password" placeholder="new Password"  value="<?php echo $pass ?>" maxlength="25" /> 
         <span class="show-btn"><i id="show-btn" class="fas fa-eye"></i></span>  
     </div>
 
     <div class="form-field-signup pass">
-        <input id="conf_pass" name="cof-pass" type="password" placeholder="Confrim Password" value="<?php echo $pass ?>" maxlength="25"/>  
+        <input id="conf_pass" name="cof-pass" type="password" placeholder="Confrim new Password" value="<?php echo $pass ?>" maxlength="25"/>  
         <span class="show-btn_conf"><i id="show-btn_conf" class="fas fa-eye conf_pass"></i></span>   
     </div> 
             
