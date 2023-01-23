@@ -46,7 +46,6 @@ function stprofileimg(){
                     $_SESSION['name']=$_GET['name'];
                     $_SESSION['spe']=$_GET['spe'];
                     $_SESSION['pass']=$_GET['password']; 
-                    $_SESSION['pass2']= $_GET['password1'];
                     $_SESSION['img1']=$_GET['img'];
                 }
                 function countgroupandassinament(){
