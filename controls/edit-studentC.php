@@ -69,11 +69,7 @@ if(count($errors)==0){
     $userID= $_POST['id'];/** edit profile  في  id القيمة المدخلة في حقل  */
     $username = $_POST['name'];
     $specialization=$_POST['spe'];
-    $userp1 =$_POST['pass'];/**edit profile page  داخل  password  القيمة المدخلة في حقل  */
-    $userp2 = $_POST['cof-pass'];/**edit profile page  داخل  confirm_password  القيمة المدخلة في حقل  */
-    
-    $userpass1=password_hash($_POST['pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
-    $userpass2=password_hash($_POST['cof-pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
+
 
     
     $img=$_POST['u_img'];
@@ -86,7 +82,7 @@ if(count($errors)==0){
     {
     /*****************/
        /** update statment  */
-        $sqln="UPDATE user,student set student.stu_id=$userID, student.stu_specialization='$specialization', user.full_name='$username', user.password='$userpass1',user.u_img='$img'
+        $sqln="UPDATE user,student set student.stu_id=$userID, student.stu_specialization='$specialization', user.full_name='$username',user.u_img='$img'
         WHERE user.user_id=student.user_id and student.stu_id=$id;";
         if(mysqli_query($conn,$sqln)){
         ?>
@@ -128,11 +124,7 @@ if(count($errors)==0){
     $userID= $_POST['id'];/** edit profile  في  id القيمة المدخلة في حقل  */
     $username = $_POST['name'];
     $specialization=$_POST['spe'];
-    $userp1 =$_POST['pass'];/**edit profile page  داخل  password  القيمة المدخلة في حقل  */
-    $userp2 = $_POST['cof-pass'];/**edit profile page  داخل  confirm_password  القيمة المدخلة في حقل  */
     
-    $userpass1=password_hash($_POST['pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
-    $userpass2=password_hash($_POST['cof-pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
   
 
   /*
@@ -153,21 +145,12 @@ if(count($errors)==0){
     }else   if(empty($username)) 
     {   
         $error="* Please Enter  Your Name   "; 
-    }else if(empty($userp1)) 
-    {   
-        $error="* Please Enter  Your Password   "; 
-    }else if(empty($userp2)) 
-    {   
-        $error="* Please Enter  Your Password Again  "; 
-    }else if($userp1!=$userp2)
-    {   
-        $error="* Password Does Not Match  "; 
     }
     else
     {
     /*****************/
        /** update statment  */
-        $sqln="UPDATE user,student set student.stu_id=$userID, student.stu_specialization='$specialization', user.full_name='$username', user.password='$userpass1',user.u_img='$img'
+        $sqln="UPDATE user,student set student.stu_id=$userID, student.stu_specialization='$specialization', user.full_name='$username',user.u_img='$img'
         WHERE user.user_id=student.user_id and student.stu_id=$id;";
         if(mysqli_query($conn,$sqln)){
         ?>

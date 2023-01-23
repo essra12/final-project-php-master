@@ -108,7 +108,6 @@ include("../../controls/edit-studentC.php");
     border: 1px solid grey;
     margin-top: 5%;
 margin-bottom: 0;
-
 }
 
 #photo{
@@ -130,6 +129,16 @@ margin-bottom: 0;
     left: 1%;
     font-size: 30px;
     z-index: 1;
+
+}
+.form-field-signup{
+padding: 3px;
+}
+.editpass{
+color: black;
+text-decoration: none;
+margin-left: 37%;
+padding-top: 5%;
 }
 
     </style>
@@ -137,7 +146,7 @@ margin-bottom: 0;
 <div class="back"><a href="../student/student-profile.php" style="color:#222242; font-size:40px;"><i class="las la-arrow-left"></i></a></div>
 
   <div class="login-container">
-  <p class="signup_text" style="margin-left:28% ;"><b>Edit Student</p>
+  <p class="signup_text" style="margin-left:28% ;margin-top:10%"><b>Edit Student</p>
     <form class="login-form"  method="POST" name="signup_form" enctype="multipart/form-data"  onsubmit="return check_Enter(this)">
 
   <!-- For circular image -->
@@ -153,16 +162,7 @@ margin-bottom: 0;
         <div class="form-field-signup">
             <input id="name" name="name" type="text"  placeholder="Full Name" style="font-size: 18px;height:6vh;"  value="<?php  echo $name  ?>" maxlength="30" />
         </div>
-          
-        <div class="form-field-signup pass">
-        <input id="pass" type="password"  name="pass" placeholder="password" style="font-size: 18px;height:6vh;"  maxlength="25" value="<?php  echo $pass  ?>" />
-        <span class="show-btn"><i id="show-btn" class="fas fa-eye"></i></span>  
-       </div>
-
-          <div class="form-field-signup pass">
-            <input id="conf_pass" type="password" name="cof-pass" placeholder="Confirm Password" style="font-size: 18px;height:6vh;" value="<?php  echo $pass  ?>" maxlength="25" />
-            <span class="show-btn_conf"><i id="show-btn_conf" class="fas fa-eye conf_pass"></i></span>   
-         </div>
+      
          <div class="form-field-signup">
           <input id="spe" type="text" name="spe" placeholder="Specialization" style="font-size: 18px;height:6vh;" value="<?php  echo $spe  ?>"maxlength="25"/>  
          </div>
@@ -183,7 +183,8 @@ margin-bottom: 0;
             <!----------------->
             
         <button type="submit" name="bts" onclick="return confirmDelete()"> Save</button>
-        <a href="../group/main page for group.php">   <button style="margin-top: 3%;" class="btcansel" type="button" > Cancel</button></a>
+        <a href="../group/main page for group.php"><button style="margin-top: 3%;margin-bottom:3%;" class="btcansel" type="button" > Cancel</button></a>
+        <a class="editpass" href="../student/edit password.php"  >Edit Password</a>
 
 
     </form>

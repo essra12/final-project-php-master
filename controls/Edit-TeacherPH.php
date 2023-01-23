@@ -46,12 +46,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
             array_push($errors,"This Teacher  alredy exists");
         }else{
        /* user Image */
-       $userp1=$_POST["pass"];
-          if (password_verify($userp1, $passwordTR)) {
-          echo $_SESSION['pass3']=$userp1;
-        } else {
-            echo 'Invalid password.';
-        }
+      
 
    if (!empty($_FILES['u_img']['name'])) {
     $imgName= time() .'_' . $_FILES['u_img']['name'];// تُرجع الدالة الوقت الحالي بعدد الثواني منذ ذلك الحين time() ،  HTTP POST عبارة عن مصفوفة ارتباطية تحتوي على عناصر تم تحميلها عبر طريقة $_FILES
@@ -75,11 +70,6 @@ if(count($errors)==0){
     /** حفظ القيم المدخلة في المتغيرات */
     $username = $_POST['name'];
     $phone = $p_new;
-    $userp1 =$_POST['pass'];/**edit profile page  داخل  password  القيمة المدخلة في حقل  */
-    $userp2 =$_POST['cof-pass'];/**edit profile page  داخل  confirm_password  القيمة المدخلة في حقل  */
-
-    $userpass1=password_hash($_POST['pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
-    $userpass2=password_hash($_POST['cof-pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
     $img=$_POST['u_img'];
 
    /** empty التحقق من حقول الادخال باستحدام  */
@@ -89,16 +79,10 @@ if(count($errors)==0){
    }else if(empty($phone)) 
    {   
        $error="* please enter  your phone   "; 
-   }else if(empty($userp1)) 
-   {   
-       $error="* please enter  your password  "; 
-   }else if(empty($userp2))
-   {   
-       $error="* please enter  your password again  "; 
    }
    else
    {
-        $sqln="UPDATE user,teacher set user.full_name='$username', user.password='$userpass1',teacher.tr_phone_no='$phone',user.u_img='$img'
+        $sqln="UPDATE user,teacher set user.full_name='$username',teacher.tr_phone_no='$phone',user.u_img='$img'
         WHERE user.user_id=teacher.user_id and teacher.tr_phone_no='$phon' ;";
         if(mysqli_query($conn,$sqln)){
         ?>
@@ -136,10 +120,7 @@ if(count($errors)==0){
         /** حفظ القيم المدخلة في المتغيرات */
         $username = $_POST['name'];
         $phone = $p_new;
-        $userp1 =$_POST['pass'];/**edit profile page  داخل  password  القيمة المدخلة في حقل  */
-        $userp2 =$_POST['cof-pass'];/**edit profile page  داخل  confirm_password  القيمة المدخلة في حقل  */
-        $userpass1=password_hash($_POST['pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
-        $userpass2=password_hash($_POST['cof-pass'], PASSWORD_DEFAULT);//password عمل تشفير لل
+       
         $img=$_POST['u_img'];
     
        /** empty التحقق من حقول الادخال باستحدام  */
@@ -150,19 +131,10 @@ if(count($errors)==0){
    }else if(empty($phone)) 
    {   
        $error="* please enter  your phone   "; 
-   }else if(empty($userp1)) 
-   {   
-       $error="* please enter  your password  "; 
-   }else if(empty($userp2))
-   {   
-       $error="* please enter  your password again  "; 
-   }else if($userp1!=$userp2)
-   {   
-       $error="* Password does not match  "; 
    }
    else
    {
-            $sqln="UPDATE user,teacher set  user.full_name='$username', user.password='$userpass1',teacher.tr_phone_no='$phone',user.u_img='$img'
+            $sqln="UPDATE user,teacher set  user.full_name='$username',teacher.tr_phone_no='$phone',user.u_img='$img'
             WHERE user.user_id=teacher.user_id and teacher.tr_phone_no='$phon' ;";
             if(mysqli_query($conn,$sqln)){                
             ?>

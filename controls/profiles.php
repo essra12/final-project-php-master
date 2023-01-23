@@ -21,7 +21,7 @@ function stprofileimg(){
                         global $conn;
                          /* $name=$_SESSION['full_name'];*/
                         $id=$_SESSION['user_id'];/** من صفحة تسجيل الدخول  stud_id*/
-                        $id3=$_SESSION['pass4'];/** login path كلمة السر غسر مشفرة تم احضارها من  */
+                        $id3=$_SESSION['pass4'];   /** login path كلمة السر غسر مشفرة تم احضارها من  */
                        $sql="SELECT USER.* ,student.stu_id,student.stu_specialization 
                        FROM user,student
                        WHERE user.user_id=student.user_id and user.user_id='".$id."';";
