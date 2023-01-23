@@ -21,7 +21,6 @@ function stprofileimg(){
                         global $conn;
                          /* $name=$_SESSION['full_name'];*/
                         $id=$_SESSION['user_id'];/** من صفحة تسجيل الدخول  stud_id*/
-                        $id3=$_SESSION['pass4'];   /** login path كلمة السر غسر مشفرة تم احضارها من  */
                        $sql="SELECT USER.* ,student.stu_id,student.stu_specialization 
                        FROM user,student
                        WHERE user.user_id=student.user_id and user.user_id='".$id."';";
@@ -40,7 +39,6 @@ function stprofileimg(){
                      $_GET['name']=$name;
                      $_GET['spe']=$spe;
                      $_GET['password']=$pass;/**كلمة مرور مشفرة */
-                     $_GET['password1']=$id3;/**كلمة مرور غير مشفرة  */
                      $_GET['img']= $img;
       
                       
