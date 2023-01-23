@@ -13,7 +13,7 @@ include(MAIN_PATH."/controls/login_path.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS\login_and_singup.css" type="text/css"/>
-    <script src="JavaScript\check.js"></script>
+  <!--   <script src="JavaScript\check.js"></script> -->
     <!--icon8-->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <!--icon-->
