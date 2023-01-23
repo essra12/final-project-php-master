@@ -3,7 +3,7 @@
 include("../../Database/Connection.php");  
 include("../../controls/edit-password.php");
 $img1=$_SESSION['img1'];/** profile   صورة تم احضارها من */
- $_SESSION['idA']
+$_SESSION['idA']
 
 ?>
 
@@ -137,7 +137,7 @@ p#demo {
 
     <!-- inputs  --> 
     <div class="form-field-signup pass">
-        <input id="pass1" name="pass1" type="password" placeholder="Password1"  value="<?php echo $pass ?>" maxlength="25" /> 
+        <input id="pass1" name="pass1" type="password" placeholder="Password"  value="<?php echo $pass ?>" maxlength="25" /> 
         <span class="show-btn"><i id="show-btn" class="fas fa-eye"></i></span>  
     </div>
 

@@ -3,7 +3,7 @@ include("../../database/db.php");
 
 global $conn;
 $errors = array();
-$Sid= $_SESSION['id'];
+/*$Sid= $_SESSION['id'];*/
 $password= $_SESSION['pass'];
 $error ="";
 
