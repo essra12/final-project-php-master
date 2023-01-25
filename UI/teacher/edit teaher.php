@@ -99,7 +99,7 @@ include("../../controls/Edit-TeacherPH.php");
     padding: 2%;
     margin-top: 2%;
     width: 30%;
-    height: 90vh;
+    height: 85vh;
 
    }
    .login-form{
@@ -161,11 +161,17 @@ margin-bottom: 0;
     font-size: 30px;
     z-index: 1;
 }
+.editpass{
+color: black;
+text-decoration: none;
+margin-left: 37%;
+padding-top: 5%;
+}
     
 </style>
 <div class="back"><a href="../teacher/profile teacher.php" style="color:#222242;font-size:40px;"><i class="las la-arrow-left"></i></a></div>
   <div class="login-container">
-      <p class="signup_text" style="margin-left:30% ;"><b>Edit Teacher</p>
+      <p class="signup_text" style="margin-left:30% ;margin-top:8% ;"><b>Edit Teacher</p>
     <form class="login-form"  method="POST" name="signup_form" enctype="multipart/form-data"  onsubmit="return check_Enter(this)">
 
   <!-- For circular image -->
@@ -182,15 +188,7 @@ margin-bottom: 0;
         <div class="form-field-signup">
         <input  id="phone" name="phone" type="text"  placeholder="Phone" onkeypress="return onlyNumberKey(event)"  value="<?php  echo $phon  ?> "  maxlength="10" />
        </div>
-          
-          <div class="form-field-signup pass">
-            <input id="pass" name="pass" type="password" placeholder="Password"  value="<?php  echo $pass  ?>"  maxlength="25" />  
-            <span class="show-btn"><i id="show-btn" class="fas fa-eye"></i></span> 
-         </div>
-         <div class="form-field-signup pass">
-          <input id="conf_pass" name="cof-pass" type="password" placeholder="Confrim Password" value="<?php  echo $pass  ?>" maxlength="25"/>  
-          <span class="show-btn_conf"><i id="show-btn_conf" class="fas fa-eye conf_pass"></i></span>   
-         </div> 
+        
          
          <div class="error" style="color: red; margin-left:20px;" > 
                    <?php echo $error ?>
@@ -206,7 +204,8 @@ margin-bottom: 0;
             <?php endif; ?> 
             <!----------------->
         <button type="submit" name="bts"  onclick="return confirmDelete()"> Save</button>
-        <a href="../group/main page for group.php">   <button style="margin-top: 3%;" class="btcansel" type="button" > Cancel</button></a>
+        <a href="../group/main page for group.php">   <button style="margin-top: 3%;margin-bottom:5%;" class="btcansel" type="button" > Cancel</button></a>
+        <a class="editpass"  href="../teacher/edit-password.php">Edit Password</a>
 
     </form>
     </div>

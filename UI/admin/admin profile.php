@@ -101,11 +101,12 @@ $id3=$_SESSION['pass2'];/** login path كلمة السر غسر مشفرة تم 
             <!-- php code  -->
             <?php
              global $conn;
-             $sqln="  SELECT  `full_name`,user.user_id FROM `user` WHERE `role`='admin'and user.user_id='".$id."';";
+             $sqln="  SELECT  `full_name`,user.user_id,user.password FROM `user` WHERE `role`='admin'and user.user_id='".$id."';";
                $result= mysqli_query($conn,$sqln);
                $row =mysqli_fetch_row($result);
                $name=$row[0];
                $ida=$row[1];
+               $pass=$row[2];
                echo"   <label class='stname' >$name</label>";
                echo"   <label class='stspe' >$ida</label>";
               /** ليتم احضار الصورة ورفعها الي صفحة التعديل   */
@@ -121,11 +122,15 @@ $id3=$_SESSION['pass2'];/** login path كلمة السر غسر مشفرة تم 
                $_GET['password']=$pass;
                $_GET['password1']=$id3;/**كلمة مرور غير مشفرة  */
                $_GET['img']= $img;
+               $_GET['id']= $ida;
+
+
 
                   $_SESSION['name']=$_GET['name'];
                   $_SESSION['pass']=$_GET['password'];  
                   $_SESSION['pass2']= $_GET['password1'];
                   $_SESSION['img1']=$_GET['img'];
+                  $_SESSION['idA']=$_GET['id'];
             ?>
             <a href="edit admin.php" >
             <input name="bts" class="bt1"  type="button" value="Edit"/></a>

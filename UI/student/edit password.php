@@ -1,10 +1,9 @@
 
 <?php
 include("../../Database/Connection.php");  
-include("../../controls/edit admin.php");
-$img1=$_SESSION['img1'];/** profile admin  صورة تم احضارها من */
- $_SESSION['idA']
-
+include("../../controls/edit-password.php");
+$img1=$_SESSION['img1'];/** profile   صورة تم احضارها من */
+$id=$_SESSION['id'];
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +26,13 @@ $img1=$_SESSION['img1'];/** profile admin  صورة تم احضارها من */
 *{
   font-family: "Poppins", sans-serif;
 }
+form .form-field-signup:nth-child(1)::before {
+    background-image: url(https://img.icons8.com/material-outlined/512/lock.png);
+    width: 24px;
+    height: 24px;
+    top:0.4em;
+    left: 6%;
+    }
     form .form-field-signup:nth-child(3)::before {
     background-image: url(https://img.icons8.com/material-outlined/512/lock.png);
     width: 24px;
@@ -35,13 +41,13 @@ $img1=$_SESSION['img1'];/** profile admin  صورة تم احضارها من */
     left: 6%;
 }
 form .form-field-signup:nth-child(2)::before {
-    background-image: url(https://img.icons8.com/small/512/user.png);
+    background-image: url(https://img.icons8.com/material-outlined/512/lock.png);
     width: 24px;
     height: 24px;
     top:0.4em;
     left: 6%;
     }
-   
+  
 
 .btcansel {
     text-align      : center;
@@ -88,7 +94,7 @@ width: 100%;
    .login-container{
     width: 29%;
 padding: 2%;
-height: 95vh;
+height: 93vh;
    }
    *{
     font-family: "Poppins", sans-serif;
@@ -108,121 +114,89 @@ height: 95vh;
     z-index: 1;
 }
 
-.editpass{
-color: black;
-text-decoration: none;
-margin-left: 37%;
-padding-top: 5%;
+p#demo {
+    color: var(--red);
+    margin-bottom: 5px;
+    text-align: left;
+    margin-left: 7%;
 }
     </style>
 
 <body>
-<div class="back"><a href="../admin/admin profile.php" style="color:#222242;font-size:40px;"><i class="las la-arrow-left"></i></a></div>
+<div class="back"><a href="../student/edit profile.php" style="color:#222242;font-size:40px;"><i class="las la-arrow-left"></i></a></div>
 
     <div class="login-container">
-    <p class="signup_text" style="margin-left:30% ;"><b>Edit Admin</p>
-    <form class="login-form"  method="POST" name="signup_form" enctype="multipart/form-data"  onsubmit="return check_Enter(this)">
+    <p class="signup_text" style="margin-left:30% ;"><b>Edit Student</p>
+    <form class="login-form"  method="POST" name="signup_form" enctype="multipart/form-data" onsubmit="return check_Enter(this)">
 
     <!-- For circular image -->
     <div class="profile-pic-div"  >
         <?php echo"  <img src='../../sources/image/$img1' id='photo' height='120' width='120' > ' "?>
-        <input type="file" accept="image/*" id="file" name="u_img">
-        <label for="file" id="uploadBtn">Choose Photo</label> 
     </div>
 
     <!-- inputs  --> 
-    <div class="form-field-signup">
-        <input id="name" name="name" type="text"  placeholder="Full_name"  value="<?php echo $name ?>"  maxlength="25" />
-    </div>
-            
     <div class="form-field-signup pass">
-        <input id="pass" name="pass" type="password" placeholder="Password"  value="<?php echo $pass ?>" maxlength="25" /> 
+        <input id="pass1" name="pass1" type="password" placeholder="old Password"  value="<?php echo $pass ?>" maxlength="25" /> 
         <span class="show-btn"><i id="show-btn" class="fas fa-eye"></i></span>  
     </div>
 
     <div class="form-field-signup pass">
-        <input id="conf_pass" name="cof-pass" type="password" placeholder="Confrim Password" value="<?php echo $pass ?>" maxlength="25"/>  
+        <input id="pass" name="pass" type="password" placeholder="new Password"  value="<?php echo $pass ?>" maxlength="25" /> 
+        <span class="show-btn"><i id="show-btn" class="fas fa-eye"></i></span>  
+    </div>
+
+    <div class="form-field-signup pass">
+        <input id="conf_pass" name="cof-pass" type="password" placeholder="Confrim new Password" value="<?php echo $pass ?>" maxlength="25"/>  
         <span class="show-btn_conf"><i id="show-btn_conf" class="fas fa-eye conf_pass"></i></span>   
     </div> 
             
-    <div class="error" style="color: red; margin-left:20px;" > 
+    <div class="error"  style="color: red; margin-left:20px;" > 
         <?php echo $error ?>
     </div>
-                
-        <button type="submit" name="bts" onclick="return confirmDelete()" > Save</button>
-        <a href="../control_panel/groups_control_panel.php">   <button style="margin-top: 3%;margin-bottom:5%;" class="btcansel" type="button" > Cancels</button></a>
-        <a class="editpass" href="../admin/edit-password-admin.php">edit password </a>
+             
+    
+                  <!-- For Errors message-->
+                  <?php if(count($errors)> 0): ?>
+                    <div class="msg error" style="color: #D92A2A; margin-bottom: 5px;"> 
+                     <?php foreach($errors as $error): ?>
+                        <li><i class="las la-exclamation-circle" style="color: #D92A2A;font-weight: 600; font-size: 20px;"></i>&nbsp;&nbsp;&nbsp;<?php echo($error); ?></li>
+                     <?php endforeach; ?>
+                    </div> 
+                   <?php endif; ?> 
+            <!----------------->
+            <p id="demo"></p>
+
+        <button type="submit" name="editpass" onclick="return confirmDelete()"  > Save</button>
+        <a href="../group/main page for group.php">   <button style="margin-top: 3%;" class="btcansel" type="button" > Cancels</button></a>
     </form>
     </div>
 
-<!-- check enter -->
 
  
   <script>
-    /************************************ circular image *********************************/
-    const imgDiv = document.querySelector('.profile-pic-div');
-    const img = document.querySelector('#photo');
-    const file = document.querySelector('#file');
-    const uploadBtn = document.querySelector('#uploadBtn');
-
-    //if user hover on img div 
-
-    imgDiv.addEventListener('mouseenter', function(){
-        uploadBtn.style.display = "block";
-    });
-
-    //if we hover out from img div
-
-    imgDiv.addEventListener('mouseleave', function(){
-        uploadBtn.style.display = "none";
-    });
-
-    file.addEventListener('change', function(){
-        //this refers to file
-        const choosedFile = this.files[0];
-
-        if (choosedFile) {
-
-            const reader = new FileReader(); //FileReader is a predefined function of JS
-
-            reader.addEventListener('load', function(){
-                img.setAttribute('src', reader.result);
-            });
-
-            reader.readAsDataURL(choosedFile);
-        }
-    });
-
 /**************************check for entres*******************************/
-    function check_Enter(){
-    const full_name = document.getElementById("name").value;
+    function check_Enter(form) {
+    const password = document.getElementById("pass1").value;
     const pass = document.getElementById("pass").value;
-    const conf_pass = document.getElementById("cof-pass").value;
+    const conf_pass = document.getElementById("conf_pass").value;
     
-    if(full_name==""){
-        alert(" Please enter full name");
-        return false;
+    if(password==""){
+        /* alert(" pleas enter Group-name"); */
+        document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;pleas enter your password."; 
+        return false ;
     }
-    const regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
-    if(!regName.test(full_name)){
-        alert('the name is incorrect, Please rewrite your full name (first and last name).');
-        document.getElementById('full_name').focus();
-        return false;
-    }
-
     if(pass==""){
-        alert(" Please enter Password");
-        return false;
+        /* alert(" pleas enter Group-name"); */
+        document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;pleas enter your new  password."; 
+        return false ;
     }
     if(conf_pass==""){
-        alert(" Please enter Password again");
+        /* alert(" pleas Choese Teacher Name"); */
+        document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;pleas enter your new  password again."; 
         return false;
-    }
-    if(conf_pass!=pass){
-        alert(" the password is not equal ");
-        return false;
-    }
-    }
+    }} 
+   
+    
 /*****************************for show password********************************/
     const passField = document.getElementById("pass");
     const showBtn = document.getElementById("show-btn");
@@ -247,9 +221,6 @@ padding-top: 5%;
         showBtn_conf.classList.remove("hide-btn");
         }
     });
-
-
-
     /***************************for show emphasis *************************/
     function confirmDelete() {
     if (confirm("Are you sure you want to Update ?")) {
