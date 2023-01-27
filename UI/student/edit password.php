@@ -25,6 +25,7 @@ $id=$_SESSION['id'];
  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 *{
   font-family: "Poppins", sans-serif;
+  list-style-type: none;
 }
 form .form-field-signup:nth-child(1)::before {
     background-image: url(https://img.icons8.com/material-outlined/512/lock.png);
