@@ -133,9 +133,10 @@ if ($result_g_name->num_rows == 1) {
    
  </div>
 </main>
- <style>
+<script>
   // Get the button
 let mybutton = document.getElementById("myBtn");
+let buttoncreate = document.getElementById("btn-create");
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
@@ -143,8 +144,10 @@ window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     mybutton.style.display = "block";
+    buttoncreate.style.display = "none";
   } else {
     mybutton.style.display = "none";
+    buttoncreate.style.display = "block";
   }
 }
 
@@ -153,7 +156,7 @@ function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
- </style>
+</script>
 </body>
 </html>
 

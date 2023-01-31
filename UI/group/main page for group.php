@@ -203,6 +203,7 @@ endif;
 <!------------------------no data section------------------------------->
 <!--------------display this section when there is no groups---------------------->
 <!--------------------------------------------------------------------->
+<?php if($role==""):?>
 <?php
 
 $user_id=$_SESSION['user_id'];
@@ -223,7 +224,6 @@ if ($result->num_rows > 0) {
 else{
 $display=null;
 }
-
 ?>
 <?php if(empty($display)){ ?>
   <div class="nodata">
@@ -231,6 +231,7 @@ $display=null;
   <p>you need to join the geoup</p>
 </div>
 <?php } ?>
+<?php endif;?>
 
  <!-----------------Dynamically Create Card------------------------------->
  <!-------------------for student  section--------------------------------> 
