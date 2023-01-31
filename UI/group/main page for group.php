@@ -199,6 +199,39 @@ endif;
          <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
  <!-- cards section-->
+ <!--------------------------------------------------------------------->
+<!------------------------no data section------------------------------->
+<!--------------display this section when there is no groups---------------------->
+<!--------------------------------------------------------------------->
+<?php
+
+$user_id=$_SESSION['user_id'];
+$query="SELECT stu_id FROM student,user WHERE student.user_id=user.user_id and user.user_id='".$user_id."'";
+$result = $conn->query($query);
+if ($result->num_rows > 0) {
+while($row = $result->fetch_assoc()) {
+  $id=$row['stu_id'];
+}}
+$sql="SELECT * FROM groups,student_group WHERE groups.g_no=student_group.g_no and student_group.stu_id='.$id.';";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+  while($row = $result->fetch_assoc()) {
+    $display=$row['g_no'];
+    
+  }
+}
+else{
+$display=null;
+}
+
+?>
+<?php if(empty($display)){ ?>
+  <div class="nodata">
+  <img src="../../sources/image/Empty state .png" class="nodata_image"/>
+  <p>you need to join the geoup</p>
+</div>
+<?php } ?>
+
  <!-----------------Dynamically Create Card------------------------------->
  <!-------------------for student  section--------------------------------> 
  <?php if($role==""):?>

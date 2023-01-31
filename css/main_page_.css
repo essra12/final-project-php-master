@@ -145,7 +145,6 @@
  
   h1{
   font-size: 2.5em;
-  padding-bottom: 10px;
   padding-left:10px;
   text-transform: capitalize;
     }
@@ -487,5 +486,19 @@ section {
   }
 }
 /**********************************************************************/
-
+/*********no data image and text*****************************/
+.nodata{
+  margin: auto;
+  width: 50%;
+ 
+}
+.nodata p{
+  color: #acb3bf;
+  align-items: center;
+  text-align: center;
+}
+.nodata img{
+ width:700px;
+ height: auto;
+}
  

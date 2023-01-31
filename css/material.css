@@ -347,7 +347,19 @@ a:is(:link,:active,:hover).active{
   }
 
 }
-
+/*********no data image and text*****************************/
+.nodata{
+  display: flex;
+  align-items: center;
+ 
+}
+.nodata p{
+  color: #5cc44e;
+  background-color: #535353;
+}
+.nodata img{
+  color: #5cc44e;
+}
   
   
 
