@@ -83,14 +83,15 @@ if ($result_g_name->num_rows == 1) {
 
 <div class="header-div">              
  <h1>Materials </h1>
- <?php if($role=="teacher"):?>
+  <?php if($role=="teacher"):?>
   <div id="mybutton">
     <div>
-       <a href="../teacher/add material.php"><button class="btn-create">+</button></a>
+       <a href="../teacher/add material.php"><button class="btn-create" id="btn-create">+</button></a>
     </div>
   </div>
   <?php endif;?>
  </div>
+ <hr>
  <!-----------------Dynamically Create Card-----------------> 
  <main>
     <!-- For Succes -->
@@ -153,15 +154,17 @@ if ($result_g_name->num_rows == 1) {
 /**************************************************************/
 // Get the button
 let mybutton = document.getElementById("myBtn");
-
+let buttoncreate = document.getElementById("btn-create");
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     mybutton.style.display = "block";
+    buttoncreate.style.display = "none";
   } else {
     mybutton.style.display = "none";
+    buttoncreate.style.display = "block";
   }
 }
 
