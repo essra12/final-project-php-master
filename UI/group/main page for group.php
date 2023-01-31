@@ -60,7 +60,7 @@ endif;
       margin-top: 6%;
       position: absolute;
       top: 15%;
-      left: 76%;
+      left: 74%;
       font-size: 16px;
     }
    #icon3:hover{
