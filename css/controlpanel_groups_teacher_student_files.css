@@ -51,6 +51,7 @@ body{
     left: 0;
     bottom: 0;
     transition: left 300ms;
+    
 }
 .sidebar-container{
     height: 100%;
@@ -59,6 +60,7 @@ body{
     box-shadow: var(--shadow2);
     padding: 1rem;
     overflow-y: auto;
+    
 }
 .sidebar-container::-webkit-scrollbar {
     width: 10px;

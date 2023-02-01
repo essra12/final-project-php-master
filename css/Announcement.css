@@ -140,7 +140,7 @@ main{
 h1{
   margin-top: 3rem;
   margin-left: 15%;
-  font-size: 30px;
+  font-size: 2.5em;
 }
 .card{
   margin: 0;
@@ -268,15 +268,7 @@ div.dropdown{
 
 /*************/
 
-@media only screen and (max-width:700px)
-{
-.text{
-  font-size: 18px;
-}
-h1{
-  font-size: 32px; 
-}
-}
+
 
 @media only screen and (max-width:960px)
 {
@@ -292,6 +284,7 @@ h1{
   .las.la-pen.ticon.tr{
     right: 25%;
   }
+ 
 }
 @media only screen and (max-width:690px)
 {
@@ -343,5 +336,86 @@ h1{
 .btn-create a:hover{
   color: #222242;
 }
+/**********************************************************************/
+/*********no data image and text*****************************/
+hr{
+  margin: 0 10%;
+}
+.nodata{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top: 3%;
+}
+.nodata p{
+  color: #acb3bf;
+  align-items: center;
+  text-align: center;
+}
+.nodata img{
+ width:100%;
+ height: auto;
+
+ 
+}
+@media only screen and (max-width:700px)
+{
+.text{
+  font-size: 18px;
+}
+h1{
+  font-size: 32px; 
+}
+.nodata{
+  width: 100%;
+  margin-top: 20%;
+}
+}
+/*************/
+
+
+
+@media only screen and (max-width:960px)
+{
+  .card-img img{
+    width: 60px;
+  }
+  #mybutton {
+    right: 50px;
+  }
+  .fa-solid.fa-xmark.tr{
+    right: 23%;
+  }
+  .las.la-pen.ticon.tr{
+    right: 25%;
+  }
+  .nodata{
+    width: 100%;
+    margin-top: 10%;
+  }
+ 
+}
+@media only screen and (max-width:690px)
+{
+  h1{
+    font-size: 28px;
+  }
+  .text{
+    margin-left: 6%;
+  }
+  .card__time{
+    margin-left: 6%;
+  }
+  .fa-solid.fa-xmark.tr{
+    right: 23%;
+    font-size: 16px;
+  }
+  .las.la-pen.ticon.tr{
+    right: 27%;
+    font-size: 16px;
+  }
+}
+
 
 

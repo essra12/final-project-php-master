@@ -22,7 +22,7 @@
     font-family: "Poppins", sans-serif;
 }
 
-/*****************************************************Navigation Bar style**********************************************************/
+/****************************************Navigation Bar style**********************************************************/
 
 .navbar {
     display: flex;
@@ -127,13 +127,16 @@ a:is(:link,:active,:hover).active{
 }
 /******************************************************************************/
 .main-container{
-    padding-left: 9.5%;
+    padding-left:15%;
 }
-.main-container  h1{
+
+h1{
     font-size: 30px;
-    margin-left: 2.5%;
-    margin-top: 2rem;
-}
+    margin-left: 13%;
+    margin-top: 4rem;
+    
+  
+  }
 /*groups card*/
 .group-cards{
     display: grid;
@@ -347,6 +350,28 @@ a:is(:link,:active,:hover).active{
     margin-top:10px;
     font-weight:700;
 }
+/**********************************************************************/
+/*********no data image and text*****************************/
+hr{
+    margin: 0 10%;
+  }
+  .nodata{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 3%;
+  }
+  .nodata p{
+    color: #acb3bf;
+    align-items: center;
+    text-align: center;
+  }
+  .nodata img{
+   width:100%;
+   height: auto;
+  
+  }
 
 @media only screen and (max-width:1450px) {
 
@@ -364,4 +389,8 @@ a:is(:link,:active,:hover).active{
         width:80%;
         height:350px;
     }
+    .nodata{
+        width: 100%;
+        margin-top: 10%;
+      }
 }

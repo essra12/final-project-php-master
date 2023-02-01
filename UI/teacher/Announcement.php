@@ -72,6 +72,16 @@ $today = strtotime($todays_date);
 <form>
 
   <h1>Announcements</h1>
+  <hr>
+<!------------------------no data section------------------------------->
+<!--------------display this section when there is no Assignments---------->
+<!--------------------------------------------------------------------->
+<?php if($announcements==null){ ?>
+  <div class="nodata">
+  <img src="../../sources/image/Empty state (1).png" />
+  <p>No Announcements yet,Announcements will appear as soon as there are added. </p>
+</div>
+<?php } ?>
 
   <main>
     <!-- For Errors message-->

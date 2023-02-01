@@ -139,6 +139,9 @@ a:is(:link,:active,:hover).active{
        border-radius: 100%; 
       margin-left: 4%; 
        } 
+       #link{
+          margin: 20% 10%;
+      }
 /**  ---------------------  card for Add  Inquiries  ---------------------------------*/
 
  .Inquirieslable{
@@ -149,9 +152,7 @@ a:is(:link,:active,:hover).active{
     left: 7%;
     font-size: 2.5em;
     padding-top:20px;
-    
-    
-     }
+       }
      .card{
     position: absolute;
     top: 32%;
@@ -368,6 +369,25 @@ a{
     #Editicon:hover{
       color: #FFBA5F;
   }
+  /**********************************************************************/
+/*********no data image and text*****************************/
+.nodata{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top: 3%;
+}
+.nodata p{
+  color: #acb3bf;
+  align-items: center;
+  text-align: center;
+}
+.nodata img{
+ width:100%;
+ height: auto;
+
+}
  
     @media only screen and (max-width:700px)
     {

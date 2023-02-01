@@ -83,6 +83,7 @@ if ($result_g_name->num_rows == 1) {
 <!--------------------------------------------------------------------------------------->
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 <label class="Inquirieslable">Enquiries </label>
+<hr id="link">
 
  <!-- For Succes message -->
     <?php if (isset($_SESSION['message'])): ?>
@@ -177,6 +178,16 @@ else{
 
 
 <?php endforeach; ?>
+
+<!------------------------no data section------------------------------->
+<!--------------display this section when there is no Assignments---------->
+<!--------------------------------------------------------------------->
+<?php if($enquiryInfo==null){ ?>
+  <div class="nodata">
+  <img src="../../sources/image/Empty state (1).png" />
+  <p>No Announcements yet,Announcements will appear as soon as there are added. </p>
+</div>
+<?php } ?>
 
 </main>
 

@@ -13,12 +13,12 @@
     --surface-color: #fff;
     --curve: 40;
 }
-  
   * {
     box-sizing: border-box;
     margin    : 0;
     padding   : 0;
     font-family: "Poppins", sans-serif;
+    
   }
   
  /*****************************************************Navigation Bar style**********************************************************/
@@ -316,6 +316,29 @@ a:is(:link,:active,:hover).active{
   width: 100%;
 }
 
+
+/**********************************************************************/
+/*********no data image and text*****************************/
+hr{
+  margin: 0 10%;
+}
+.nodata{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top: 3%;
+}
+.nodata p{
+  color: #acb3bf;
+  align-items: center;
+  text-align: center;
+}
+.nodata img{
+ width:100%;
+ height: auto;
+
+}
 @media screen and (max-width: 1000px)  {
    
       
@@ -344,20 +367,39 @@ a:is(:link,:active,:hover).active{
   padding: 3%;
   margin: 4rem 4rem 0rem 6rem;
   }
-
-}
-/*********no data image and text*****************************/
-.nodata{
-  display: flex;
-  align-items: center;
+@media screen and (max-width: 1000px)  {
+   
+      
+  .cards {
+   grid-template-columns: repeat(2, minmax(200px,65%)); 
+  }
+  h1{
+   font-size: 2.5em;
+  
+   }
+   .photo-div{
+     width: 30%;
+     
+    }
  
 }
-.nodata p{
-  color: #5cc44e;
-  background-color: #535353;
+
+
+@media only screen and (max-width:610px) {
+
+.cards {
+ grid-template-columns: repeat(1, minmax(200px, 90%)); 
+ margin-left: 20%;
 }
-.nodata img{
-  color: #5cc44e;
+.header-div{
+  padding: 3%;
+  margin: 4rem 4rem 0rem 6rem;
+  }
+  .nodata{
+    width: 100%;
+    margin-top: 10%;
+  }
+}
 }
   
   

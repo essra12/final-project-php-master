@@ -83,6 +83,18 @@ if ($result_g_name->num_rows == 1) {
   </div>
  </div>
  <!-----------------Dynamically Create Card-----------------> 
+ <hr>
+<!------------------------no data section------------------------------->
+<!--------------display this section when there is no Assignments---------->
+<!--------------------------------------------------------------------->
+<?php if($files==null){ ?>
+  <div class="nodata">
+  <img src="../../sources/image/Empty state (1).png" class="nodata_image"/>
+  <p>No Assignments yet,Please check the announcement section to add <br>your assignment.  </p>
+</div>
+<?php } ?>
+<!--------------------------------------------------------------------->
+<!--------------------------------------------------------------------->
  <main>
     <!-- For Succes -->
     <?php if (isset($_SESSION['message'])): ?>

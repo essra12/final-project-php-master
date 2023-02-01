@@ -80,7 +80,6 @@ if ($result_g_name->num_rows == 1) {
 <!------------------------------------>
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 <!-------------------- materials -------------------------> 
-
 <div class="header-div">              
  <h1>Materials </h1>
   <?php if($role=="teacher"):?>
@@ -92,6 +91,17 @@ if ($result_g_name->num_rows == 1) {
   <?php endif;?>
  </div>
  <hr>
+<!------------------------no data section------------------------------->
+<!--------------display this section when there is no materials---------->
+<!--------------------------------------------------------------------->
+<?php if($files==null){ ?>
+  <div class="nodata">
+  <img src="../../sources/image/Empty state (1).png" class="nodata_image"/>
+  <p>No Materials yet,as you wait for Materials to be made available,<br> get familiar with your enviroment.  </p>
+</div>
+<?php } ?>
+<!--------------------------------------------------------------------->
+<!--------------------------------------------------------------------->
  <!-----------------Dynamically Create Card-----------------> 
  <main>
     <!-- For Succes -->

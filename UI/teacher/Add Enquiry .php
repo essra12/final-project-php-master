@@ -117,6 +117,7 @@ if ($result_g_name->num_rows == 1) {
 <!------------------------------------- student Inquiries  card -------------------------------->
 
 <main>
+  
 <!-- to create dynamic cards with foreach -->
 
 <?php $enquiryInfo=selectEnquiry();?>
@@ -184,6 +185,7 @@ else{
 <!-- </form> -->
 </div>
 <?php endforeach; ?>
+
 
 </main>
 

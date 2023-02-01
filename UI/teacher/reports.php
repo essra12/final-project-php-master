@@ -66,8 +66,19 @@ if ($result_g_name->num_rows == 1) {
     </nav>
     <!--------------------------------->
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <h1 class="title">Reports</h1>
+        <hr>
     <div class="main-container">
-        <h1 class="title">Reports</h1>
+        
+<!------------------------no data section------------------------------->
+<!--------------display this section when there is no Assignments---------->
+<!--------------------------------------------------------------------->
+<?php if($reports==null){ ?>
+  <div class="nodata">
+  <img src="../../sources/image/Empty state (1).png" class="nodata_image"/>
+  <p>No Assignments yet,Please check the announcement section to add <br>your assignment.  </p>
+</div>
+<?php } ?>
         <div class="group-cards">
 
             <!--------------card---------------->
