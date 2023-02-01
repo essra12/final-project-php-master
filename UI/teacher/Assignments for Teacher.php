@@ -110,6 +110,7 @@ else{
 <div class="header-div">
  <h1>Assignments</h1>
  </div>
+ <hr>
 <!---------------------------------------------------------->
  <main>
  <div class="main-container">
@@ -145,6 +146,15 @@ else{
           ?>
       </div>
     <?php endif; ?>
+ <!------------------------no data section------------------------------->
+<!--------------display this section when there is no Assignments---------->
+<!--------------------------------------------------------------------->
+<?php if($files==null){ ?>
+  <div class="nodata">
+  <img src="../../sources/image/Empty state (1).png" />
+  <p>No Assignments yet,Assignments will appear as soon as there are added. </p>
+</div>
+<?php } ?>
   <!--------------------------------------------------------->   
   <?php if(empty($files)): 
      $files=selectpostfile(); 

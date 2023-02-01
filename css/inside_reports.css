@@ -191,6 +191,34 @@ span.clear-btn:hover{
     clear: both;
     display: table;
 }
+ /**********************************************************************/
+/*********no data image and text*****************************/
+.nodata{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 3%;
+  }
+  .nodata p{
+    color: #acb3bf;
+    align-items: center;
+    text-align: center;
+  }
+  .nodata img{
+   width:100%;
+   height: auto;
+  
+  }
+  
+@media only screen and (max-width:610px) {
+
+       .nodata{
+        width: 100%;
+        margin-top: 10%;
+      }
+    }
+    
 @media(max-width: 1448px){
     .search input[type=text] {
         font-size: 16px;
@@ -238,7 +266,7 @@ span.clear-btn:hover{
         right: 48%;
         font-size: 14px;
       }
-}
+  }
 /**********************************/
 
 .container_text_input label{
@@ -316,6 +344,7 @@ table th {
     width: 30px;
     height: 30px;
 }
+  
 
 
 @media(max-width: 884px){
@@ -364,6 +393,7 @@ table th {
     .msg.error{
         font-size: 14px;
     }
+  
 }
 /**error message in js**/
 p#demo {
