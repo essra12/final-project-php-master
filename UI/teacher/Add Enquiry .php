@@ -106,7 +106,7 @@ if ($result_g_name->num_rows == 1) {
 <!-- AddInquiry card   -->
 <form  onsubmit="return check__Enter()" method="post" action="Add Enquiry .php" >
 <div class="card">
-<label class="AddInquiry">Add Enquiry</label>
+<!-- <label class="AddInquiry">Add Enquiry</label> -->
 <textarea class=" Inquiry"  name="enquiry" id="id" placeholder="Add Class Enquiry....... " style="padding:1.75% 2% 0 2%" ></textarea>
 <button type="submit" class="btpost" name="add_enquiry">submit</button>
 </div>
