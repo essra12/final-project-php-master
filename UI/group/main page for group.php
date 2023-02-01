@@ -228,7 +228,7 @@ $display=null;
 <?php if(empty($display)){ ?>
   <div class="nodata">
   <img src="../../sources/image/Empty state .png" class="nodata_image"/>
-  <p>you need to join the geoup</p>
+  <p>No courese yet,you need to join the group to see the items </p>
 </div>
 <?php } ?>
 <?php endif;?>

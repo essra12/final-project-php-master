@@ -187,9 +187,8 @@ a:is(:link,:active,:hover).active{
    .cards {
     display: grid;
     grid-template-columns: repeat(3, minmax(300px, auto)); 
-    gap: 3rem;
-    margin: 4rem 5vw;
-    padding: 0;
+    gap: 2rem;
+    margin: 3rem 5vw;
     list-style-type: none;
     width: 75%;
     /****************************/
@@ -198,7 +197,7 @@ a:is(:link,:active,:hover).active{
   .card {
     position: relative;
     display: block;
-    height: 80%;  
+    height: 100%;  
     border-radius: calc(var(--curve) * 1px);
     overflow: hidden;
     text-decoration: none;

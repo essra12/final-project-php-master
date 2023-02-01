@@ -78,7 +78,7 @@ if ($result_g_name->num_rows == 1) {
  <h1>Assignments</h1>
  <div id="mybutton">
     <div>
-       <a href="../teacher/announcement.php"><button class="btn-create">+</button></a>
+       <a href="../teacher/announcement.php"><button class="btn-create" id="btn-create">+</button></a>
     </div>
   </div>
  </div>
@@ -134,10 +134,10 @@ if ($result_g_name->num_rows == 1) {
  </div>
 </main>
 <script>
-  // Get the button
+/**************************************************************/
+// Get the button
 let mybutton = document.getElementById("myBtn");
 let buttoncreate = document.getElementById("btn-create");
-
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
 
@@ -156,7 +156,7 @@ function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
-</script>
+  </script>
 </body>
 </html>
 

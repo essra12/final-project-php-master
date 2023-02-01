@@ -100,14 +100,14 @@ if ($result_g_name->num_rows == 1) {
           <!-- title field -->
           <div class="inputs title">
             <label style="color: #222242;">Title</label>
-            <textarea type="text" name="title" maxlength="225" id="title" rows="2" style="margin-top:20px; margin-bottom:30px;"><?php echo $title;?></textarea>
+            <textarea type="text" name="title" maxlength="225" id="title" rows="1" style="margin-top:20px; margin-bottom:30px;"><?php echo $title;?></textarea>
           </div>
           <!------------------>
           
           <!-- description field -->
           <div class="inputs description">
             <label style="color: #222242;">Description<span style="font-size: 16px;">(optional)</span></label>
-            <textarea type="text" name="description" id="description" rows="6" style="margin-top:20px; margin-bottom:30px;"><?php echo $description;?></textarea>
+            <textarea type="text" name="description" id="description" rows="4" style="margin-top:20px; margin-bottom:30px;"><?php echo $description;?></textarea>
           </div>
           <!------------------>
 
