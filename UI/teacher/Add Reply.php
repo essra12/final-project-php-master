@@ -179,13 +179,14 @@ else{
 
 <?php endforeach; ?>
 
+
 <!------------------------no data section------------------------------->
-<!--------------display this section when there is no Assignments---------->
+<!--------------display this section when there is no data---------->
 <!--------------------------------------------------------------------->
 <?php if($enquiryInfo==null){ ?>
   <div class="nodata">
   <img src="../../sources/image/Empty state (1).png" />
-  <p>No Announcements yet,Announcements will appear as soon as there are added. </p>
+  <p>No Enquiries yet,You will be able to add your reply when Enquiries are added. </p>
 </div>
 <?php } ?>
 

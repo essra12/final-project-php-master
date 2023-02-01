@@ -152,7 +152,7 @@ else{
 <?php if($files==null){ ?>
   <div class="nodata">
   <img src="../../sources/image/Empty state (1).png" />
-  <p>No Assignments yet,Assignments will appear as soon as there are added. </p>
+  <p style="margin-bottom:5%">No Assignments yet,Assignments will appear as soon as there are added. </p>
 </div>
 <?php } ?>
   <!--------------------------------------------------------->   

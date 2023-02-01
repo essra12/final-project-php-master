@@ -141,6 +141,7 @@ a:is(:link,:active,:hover).active{
        } 
        #link{
           margin: 20% 10%;
+          margin-top: 50%;
       }
 /**  ---------------------  card for Add  Inquiries  ---------------------------------*/
 
