@@ -179,9 +179,8 @@ a:is(:link,:active,:hover).active{
 }
 .wrapper{
     display: inline-flex;
-    text-align: center;
-  }
-
+    text-align: center;  }
+ 
 /**Upload Button**/
 
 .container {
@@ -193,6 +192,7 @@ a:is(:link,:active,:hover).active{
     padding: 3.12em 1.25em;
     border-radius: 15px;
     box-shadow: 0 1.25em 2.18em rgb(1, 28, 71, 0.3);
+    
 }
 input[type="file"] {
     display: none;
@@ -366,12 +366,17 @@ button[type="submit"]:hover {
 #file {
     width: 60%;
     white-space: nowrap;
-}
+    padding-top: 25px;
+   }
+
 #icon1:hover {
     color: #A4D2F0;
-}
+ }
 #icon2:hover {
     color: #D92A2A;
+}
+#icon3,#icon1,#icon2{
+    font-size: 1.75em;
 }
 
 
@@ -390,6 +395,7 @@ button[type="submit"]:hover {
 		width: 100%;
        
 	}
+   
 	.row tr{
         display: block;	
 		margin-bottom:15px;
@@ -400,7 +406,7 @@ button[type="submit"]:hover {
 		position: relative;
 	}
     #icon3,#icon2,#icon1{
-        font-size: 2.5em;
+        font-size: 2em;
     }
  
 	
