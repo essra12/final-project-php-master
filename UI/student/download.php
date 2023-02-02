@@ -72,7 +72,12 @@ if ($result_g_name->num_rows == 1) {
      }
      .main-container{
         margin: 25px 250px;
-      }
+        }
+        tr{
+    border-left: 5px solid #222242;
+    border-radius: 5px; 
+  }
+  
 
  </style>  
     </head>
@@ -139,14 +144,14 @@ if ($result_g_name->num_rows == 1) {
            <!--------main-container----------->
       <div class="main-container">
         <div class="title">
-            <h1 style="color: #222242;margin-bottom: 25px;">Materials</h1>
+            <h1 style="margin-bottom: 25px;">Materials</h1>
         </div>
 
         <form  >
             
           <!-- title field -->
           <div class="inputs title">
-            <label style="color: #222242;">Title</label>
+            <label >Title</label>
             <label style=" font-weight: normal;font-size: 16px; padding-top:10px;" ><?php echo $title?></label>
           </div>
           <!------------------>
@@ -154,7 +159,7 @@ if ($result_g_name->num_rows == 1) {
           <!-- description field -->
           <?php if(!empty($des)):?>
           <div class="inputs description">
-            <label style="color: #222242;">Description</label>
+            <label >Description</label>
             <label style=" font-weight: normal;font-size: 16px; padding-top:10px;"><?php echo $des?></label>
           </div>
           <?php endif;?>
@@ -162,14 +167,15 @@ if ($result_g_name->num_rows == 1) {
 
           <!-- attach field -->
           <div class="inputs attach">
-            <label style="color: #222242;">Files</label>
+            <label >Learning Resources</label>
                 <div class="container_wrapper">
                 <div class="wrapper">
                 <table class="row">
                 <tbody>
                 <?php foreach($files as $key => $file):?>
                 <tr>
-                <td><i class="fa-solid fa-file-lines" id="icon3"></i></td>
+                <!-- <td><i class="fa-solid fa-file-lines" id="icon3"></i></td> -->
+                <td><img src="../../sources/image/google-docs.png" style="width: 50px;   padding-right: 10px;" /></td>
                 <td id="file"><?php echo $file["f_name"];?></td>
                 <td></td>
                 <td class="td2"><a href="download.php?file=<?php echo $file['f_no'];?>"><i id="icon1" class="fa fa-download"></i></a></td>
