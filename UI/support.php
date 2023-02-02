@@ -65,7 +65,7 @@ include("../path.php");
                 <h1> Get started with Study Board </h1>
                 <p> Learn how to use Study Board to foster group collaboration, manage syllabuses, and more. </p>
                 <div class="watch">
-                    <p style="margin-top:20px; font-size:20px; color:#507def;"><a><i class="las la-play"></i>Watch video</a></p>
+                    <p style="margin-top:20px; font-size:20px; color:#507def; cursor: pointer;"><a><i class="las la-play"></i><span color="#000;">Watch video</span></a></p>
                 </div>
             </div>
             <div class="right_pc">
@@ -73,13 +73,45 @@ include("../path.php");
             </div>
         </section>
         <!---------------------------->
-        
-    <!--------main-container----------->
-    <div class="main-container">
-        
 
-    <!------------------------------------>
-    </div>
+        <!-- second div-->
+        <section class="second">
+            <div class="second_title">
+                <p>GETTING STARTED</p>
+                <h2>Check out quick videos to get you going</h2>
+            </div>
+            <div class="vedio">
+                <video width="80%" style="margin-top: 2rem;"  controls>
+                    <source src="movie.mp4" type="video/mp4">
+                    There was an error uploading the video
+                </video>    
+            </div>
+        </section>
+        <!---------------------------->
+        <!-- third div-->
+        <section class="third">
+            <div class="third_title">
+                <p>GETTING STARTED</p>
+                <h2>Check out quick videos to get you going</h2>
+            </div>
+            <div class="links_container">
+                <div class="google_links">
+                    <div><img src="../sources/image/google.png" style="width: 36px; margin-right: 15px;" /><h2>Google</h2></div>
+                    <br/>
+                    <p><a href="https://www.youtube.com/watch?v=RzNVGQYOmFk" style="margin-top:30px" >How your students can use Google Docs</a></p>
+                    <p><a href="https://www.youtube.com/watch?v=vZCvyCGCJVw&list=PLwXXOxvDboea6SnnRK4ToVXb-tDLn_mfZ&index=2">How your students can use Google Slides</a></p>
+                    <p><a href="https://www.youtube.com/watch?v=N2opj8XzYBY">How your students can use Google Sheets</a></p>
+                </div>
+                <div class="microsoft_links">
+                    <div><img src="../sources/image/microsoft.png" style="width: 36px; margin-right: 15px;" /><h2>Microsoft</h2></div>
+                    <br/>
+                    <p><a href="https://www.youtube.com/watch?app=desktop&v=wy7Hj84MCeA">How your students can use Microsoft Word</a></p>
+                    <p><a href="https://www.youtube.com/watch?v=Vl0H-qTclOg">How your students can use Microsoft Excel</a></p>
+                    <p><a href="https://www.youtube.com/watch?v=YLDHRUV8-zs">How your students can use Microsoft PowerPoint</a></p>
+                </div>
+            </div>
+        </section>
+        <!---------------------------->
      
 </body>
 </html>

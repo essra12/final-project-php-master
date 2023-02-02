@@ -16,7 +16,6 @@
 *{
     padding: 0px;
     margin: 0px;
-    text-decoration: none;
     list-style-type: none;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
@@ -171,4 +170,74 @@ a:is(:link,:active,:hover).active{
 }
 .right_pc img{
     margin-top: 46%;
+}
+/**********/
+.second{
+	height:84vh;
+    position: relative;
+    color: #000;
+    margin-top: 10%;
+    text-align: center;
+}
+
+.second h2{
+    margin-top:10px;
+    font-size: 1.8em;
+    padding-bottom: 10px;
+    text-transform: capitalize;
+}
+/**********/
+.third{
+	height:84vh;
+    position: relative;
+    color: #000;
+    margin-top: 20%;
+    text-align: center;
+}
+.third_title{
+    margin-bottom:50px;
+}
+.third_title h2{
+    margin-top:10px;
+    font-size: 1.8em;
+    padding-bottom: 10px;
+    text-transform: capitalize;
+}
+.links_container{
+    display: inline-block;
+    margin: 0 auto;
+}
+.links_container p{
+    margin-top: 8px;
+}
+.links_container h2{
+    margin-bottom: 10px;
+}
+.google_links{
+    float: left;
+    border: 1px solid #b3b3b3;
+    padding: 30px 60px;
+    margin-right: 2.5rem;
+    text-align: left;
+    font-size: 14px;
+}
+.google_links img{
+    float: left;
+}
+.google_links h2{
+    display: inline;
+}
+.microsoft_links{
+    float: left;
+    border: 1px solid #b3b3b3;
+    padding: 30px 40px;
+    margin-left: 2.5rem;
+    text-align: left;
+    font-size: 14px;
+}
+.microsoft_links img{
+    float: left;
+}
+.microsoft_links h2{
+    display: inline;
 }
