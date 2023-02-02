@@ -27,23 +27,17 @@ include("../path.php");
   <ul class="lift-side">
       
     <!-------back------>
-<!--     <li><div class="back"><a href="../group/inside_group.php?data=<?php $g_name?>&number=<?php $groupNumber?>"><i class="las la-arrow-left"></i></a></div></li> -->
+    <li><div class="back"><a href="group/main page for group.php"><i class="las la-arrow-left"></i></a></div></li> 
     <!----------------->
 
-      <!-------logo------>
-       <li><div class="brand-title"><img src="../sources/image/logo_dark.png" style="width: 100px;" /></div></li>
-       <!----------------->
+    <!-------logo------>
+    <li><div class="brand-title"><img src="../sources/image/logo_dark.png" style="width: 100px;" /></div></li>
+    <!----------------->
+
   </ul>
   <div class="navbar-links">
     <ul>
-      <!----group name--->
-      <!-- <li><a href="../group/inside_group.php?data=<?php /* $g_name */?>&number=<?php /* $group_no */?>" style="padding-top:1rem;"><?php /* echo $g_name */ ?></a></li> -->
-      <!----------------->
-
-      <!-----students--->
-      <li><a href="<?php echo BASE_URL . '/UI/teacher/testreqest.php' ?>"  style="font-size: 1.5rem;"><i class="las la-user-friends"></i></a></li>
-      <!----------------->
-
+        
       <!------HOME------>
       <li><a href="<?php echo BASE_URL . '/UI/group/main page for group.php' ?>" style="font-size: 1.5rem;"><i class="las la-home"></i></a></li>
       <!---------------->
