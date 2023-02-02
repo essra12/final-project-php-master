@@ -144,7 +144,7 @@ if ($result_g_name->num_rows == 1) {
            <!--------main-container----------->
       <div class="main-container">
         <div class="title">
-            <h1 style="margin-bottom: 25px;">Materials</h1>
+            <h1 style="margin-bottom: 25px;">Dwonload Materials</h1>
         </div>
 
         <form  >
