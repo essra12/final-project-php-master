@@ -34,7 +34,7 @@ if ($result->num_rows == 1) {
 $enqueries=$_POST['enquiry'];
 if(empty($enqueries))
 {
-  $_SESSION['message']="Please Enter Your  Enquiry ";
+  $_SESSION['errormessage']="Please Enter Your  Enquiry ";
 }else{
     $e_content=$_REQUEST["enquiry"];
     $sql="INSERT INTO `enquiry`(`e_no`, `e_content`, `datetime`,  `stu_group`) VALUES (0,'$e_content',current_timestamp(),'$stu_group')";
@@ -83,7 +83,7 @@ if(isset($_POST['reply'])){
   $e_no=$_POST['replyno'];
   if(empty($r_content))
   {
-    $_SESSION['message']="Please Enter Your  Reply ";
+    $_SESSION['errormessage']="Please Enter Your  Reply ";
 
   }else 
   {
