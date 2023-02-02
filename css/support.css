@@ -241,3 +241,26 @@ a:is(:link,:active,:hover).active{
 .microsoft_links h2{
     display: inline;
 }
+
+@media only screen and (max-width:935px) {
+    .center_info h1{
+        font-size: 2em;
+    }
+    .second h2{
+        font-size: 1.5em;
+    }
+    .third_title h2{
+        font-size: 1.5em;
+    }
+}
+@media only screen and (max-width:933px) {
+    .google_links{
+        float: none;
+        margin-right: 0rem;
+        margin-bottom: 20px;
+    }
+    .microsoft_links{
+        float: none;
+        margin-left: 0rem;
+    }
+}

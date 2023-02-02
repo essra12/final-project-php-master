@@ -151,7 +151,7 @@ padding-top: 5%;
                 
         <button type="submit" name="bts" onclick="return confirmDelete()" > Save</button>
         <a href="../control_panel/groups_control_panel.php">   <button style="margin-top: 3%;margin-bottom:5%;" class="btcansel" type="button" > Cancels</button></a>
-        <a class="editpass" href="../admin/edit-password-admin.php">edit password </a>
+      <!--  <a class="editpass" href="../admin/edit-password-admin.php">edit password </a>-->
     </form>
     </div>
 

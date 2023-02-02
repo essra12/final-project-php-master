@@ -57,6 +57,10 @@ if ($result_g_name->num_rows == 1) {
           <li><a href="<?php echo BASE_URL . '/UI/group/main page for group.php' ?>" style="font-size: 1.5rem;"><i class="las la-home"></i></a></li>
           <!---------------->
 
+          <!------support------->
+          <li><a href="../support.php" style="font-size: 1.5rem;"><i class="lar la-question-circle"></i></a></li>
+          <!---------------->
+
           <!------Logout----->
           <li><a href="..\..\logout.php" style="color:#FFBA5F;font-size: 1.5rem;"><i class="las la-sign-out-alt"></i></a></li>
           <!----------------->

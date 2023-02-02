@@ -31,7 +31,11 @@ if ($result->num_rows == 1) {
     
     }
 }
-
+$enqueries=$_POST['enquiry'];
+if(empty($enqueries))
+{
+  $_SESSION['errormessage']="Please Enter Your  Enquiry ";
+}else{
     $e_content=$_REQUEST["enquiry"];
     $sql="INSERT INTO `enquiry`(`e_no`, `e_content`, `datetime`,  `stu_group`) VALUES (0,'$e_content',current_timestamp(),'$stu_group')";
     if(mysqli_query($conn, $sql)){
@@ -40,7 +44,7 @@ if ($result->num_rows == 1) {
         header('location: '.BASE_URL.'/UI/teacher/Add Enquiry .php');
         $conn->close();
         exit();
-    } 
+    } }
     
 }
 /*******************************************************************************************************/
@@ -72,19 +76,25 @@ $group_no=$_SESSION['g_no'];
 
 if(isset($_POST['reply'])){
 
-
+  
   global $conn; 
   $group_no=$_SESSION['g_no'];
   $r_content=$_POST['replyText'];
   $e_no=$_POST['replyno'];
+  if(empty($r_content))
+  {
+    $_SESSION['errormessage']="Please Enter Your  Reply ";
+
+  }else 
+  {
   $sql="INSERT INTO `response`(`r_no`, `r_content`, `datetime`, `e_no`, `g_no`) VALUES (0,'$r_content',current_timestamp(),'$e_no',$group_no);";
   if(mysqli_query($conn, $sql)){
    $_SESSION['message']="Reply added successfully";
    header('location: '.BASE_URL.'/UI/teacher/Add Reply.php');
    $conn->close();  
    exit();
-   
   }
+}
 
 }
   
