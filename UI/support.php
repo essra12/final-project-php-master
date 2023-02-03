@@ -55,11 +55,11 @@ include("../path.php");
                 <img src="../sources/image/support_left.png" style="width: 100%;" />
             </div>
             <div class="center_info">
-                <img src="../sources/image/google-docs.png" style="width: 64px; margin-bottom:20px;" />
+                <img src="../sources/image/support_icon.png" style="width: 64px; margin-bottom:20px;" />
                 <h1> Get started with Study Board </h1>
                 <p> Learn how to use Study Board to foster group collaboration, manage syllabuses, and more. </p>
                 <div class="watch">
-                    <p style="margin-top:20px; font-size:20px; color:#507def; cursor: pointer;"><a><i class="las la-play"></i><span color="#000;">Watch video</span></a></p>
+                    <p style="margin-top:20px; font-size:20px; color:#507def; cursor: pointer;"><a href="#video" id="watch_v"><i class="las la-play"></i><span color="#000;">Watch video</span></a></p>
                 </div>
             </div>
             <div class="right_pc">
@@ -69,12 +69,12 @@ include("../path.php");
         <!---------------------------->
 
         <!-- second div-->
-        <section class="second">
+        <section id="video" class="second">
             <div class="second_title">
                 <p>GETTING STARTED</p>
                 <h2>Check out quick videos to get you going</h2>
             </div>
-            <div class="vedio">
+            <div  class="video">
                 <video width="80%" style="margin-top: 2rem;"  controls>
                     <source src="movie.mp4" type="video/mp4">
                     There was an error uploading the video
@@ -103,6 +103,39 @@ include("../path.php");
                     <p><a href="https://www.youtube.com/watch?v=Vl0H-qTclOg">How your students can use Microsoft Excel</a></p>
                     <p><a href="https://www.youtube.com/watch?v=YLDHRUV8-zs">How your students can use Microsoft PowerPoint</a></p>
                 </div>
+            </div>
+        </section>
+        <!---------------------------->
+        <!-- fourth div-->
+        <section class="fourth">
+            <div class="fourth_title">
+                <p>DOWNLOAD StudyBoard</p>
+            </div>
+            <div class="mobile_container">
+                <div class="mobile_img">
+                    <img src="../sources/image/mobile.jpg"/>
+                </div>
+                <div class="mobile_info">
+                    <div class="mobile_info_text">
+                        <h2>Download the Study Board mobile application</h2>
+                        <p>How your students can use Microsoft Word,How your students can use Microsoft Word,How your students can use Microsoft Word</p>
+                    </div>
+                    <div class="download_btn" style="cursor: pointer;">
+                        <div class="store_img">
+                            <img src="../sources/image/google-play.png" style="width:28px" />
+                        </div>
+                        <div class="store_text">
+                            <p>DOWNLOAD</p>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </section>
+        <!---------------------------->
+        <!-- footer -->
+        <section class="footer">
+            <div class="footer_container">
+                <!-- <p>2023</p> -->
             </div>
         </section>
         <!---------------------------->

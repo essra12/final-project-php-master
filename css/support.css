@@ -147,6 +147,10 @@ a:is(:link,:active,:hover).active{
     float: left;
     text-align: center;
 }
+a#watch_v {
+    text-decoration: none;
+    color: #507def;
+}
 .center_info i{
     font-size: 20px;
     margin-right: 10px;
@@ -188,7 +192,6 @@ a:is(:link,:active,:hover).active{
 }
 /**********/
 .third{
-	height:84vh;
     position: relative;
     color: #000;
     margin-top: 20%;
@@ -241,6 +244,64 @@ a:is(:link,:active,:hover).active{
 .microsoft_links h2{
     display: inline;
 }
+/***************/
+.fourth{
+    height: 65vh;
+    position: relative;
+    color: #000;
+    margin-top: 8%;
+    text-align: center;
+}
+.mobile_container{
+    background: #fff;
+    margin-top: 3rem;
+}
+.mobile_img{
+    width: 35%;
+    float: left;
+    text-align: right;
+    margin-right: 3rem;
+}
+.mobile_img img{
+    width: 40%;
+}
+.mobile_info{
+    text-align:left;
+    margin-right: 20rem;
+    padding-top: 5%;
+}
+.mobile_info_text{
+    margin-bottom: 3rem;
+}
+.download_btn{
+    display: inline-block;
+    background: #222242;
+    color: #fff;
+    padding: 20px 30px 20px;
+}
+.download_btn .store_img{
+    display: inline;
+    float: left;
+    background: #222242;
+    margin: auto;
+    margin-right: 15px;
+}
+.download_btn .store_text{
+    display: inline;
+    background: #222242;
+}
+.download_btn p{
+    display: inline;
+    background: #222242;
+}
+/***************/
+.footer{
+	height:50px;
+    background: #222242;
+    color: #fff;
+}
+
+/**************/
 
 @media only screen and (max-width:935px) {
     .center_info h1{
