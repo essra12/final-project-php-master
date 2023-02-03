@@ -167,6 +167,9 @@ text-decoration: none;
 margin-left: 37%;
 padding-top: 5%;
 }
+.editpass:hover{
+    color: blue;
+}
     
 </style>
 <div class="back"><a href="../teacher/profile teacher.php" style="color:#222242;font-size:40px;"><i class="las la-arrow-left"></i></a></div>
@@ -205,7 +208,7 @@ padding-top: 5%;
             <!----------------->
         <button type="submit" name="bts"  onclick="return confirmDelete()"> Save</button>
         <a href="../group/main page for group.php">   <button style="margin-top: 3%;margin-bottom:5%;" class="btcansel" type="button" > Cancel</button></a>
-        <a class="editpass"  href="../teacher/edit-password.php">Edit Password</a>
+        <a class="editpass"   href="../teacher/edit-password.php">Edit Password</a>
 
     </form>
     </div>

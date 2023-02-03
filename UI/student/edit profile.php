@@ -140,6 +140,9 @@ text-decoration: none;
 margin-left: 37%;
 padding-top: 5%;
 }
+.editpass:hover{
+    color: blue;
+}
 
     </style>
 <body >
