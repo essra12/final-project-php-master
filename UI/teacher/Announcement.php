@@ -113,7 +113,7 @@ $today = strtotime($todays_date);
   <?php if($role=="teacher"):?>
   <div id="mybutton">
   <div class="dropdown">
-    <button class="btn-create">+</button>
+    <button class="btn-create" id="btn-create">+</button>
     <div>
       <a href="../teacher/add announcement.php?g_no=<?= $groupNumber?>">Announcement</a>
       <a href="../teacher/add_announcement_assignment.php?g_no=<?= $groupNumber?>">Assignment</a>
@@ -282,6 +282,7 @@ function confirmDelete(){
 /*********************************************************8 */
 // Get the button
 let mybutton = document.getElementById("myBtn");
+let buttoncreate = document.getElementById("btn-create");
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
@@ -289,8 +290,10 @@ window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     mybutton.style.display = "block";
+    buttoncreate.style.display = "none";
   } else {
     mybutton.style.display = "none";
+    buttoncreate.style.display = "block";
   }
 }
 

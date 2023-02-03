@@ -309,33 +309,30 @@ div.dropdown{
 
 /****************************************************just for assignment************************************************************/
 
-.btn-create{
-  margin-right: 2%;
-  margin-top: 10px;
+#btn-create {
+    
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size:1.5rem;
+  font-weight: 700;
   border: none;
-  border-radius: 100%;
-  width: 50px;
-  height: 50px;
-  font-size: 35px;
-  color: #FFFFFF;
-  font-style: bold;
-  background: #222242;
-  box-shadow: var(--shadow2);
-  transition: background-color 0.3s;
+  outline: none;
+  background-color: #f9a12e;
+  color: white;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 15px;
 }
 
-.btn-create:hover{
+#btn-create:hover {
   color: #000000;
   background-color: #fff;
   cursor: pointer;
   border: 2px solid #222242;
 }
-.btn-create a{
-  color: #ffffff;
-}
-.btn-create a:hover{
-  color: #222242;
-}
+
 /**********************************************************************/
 /*********no data image and text*****************************/
 hr{

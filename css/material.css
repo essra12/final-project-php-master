@@ -604,7 +604,7 @@ button[type="submit"]:hover {
 .row th,td {
     padding: 1em 2em;
     text-align: left;
-    width: 200%;
+    width: 100%;
     white-space: nowrap;
  }
 .row  i{
@@ -653,7 +653,7 @@ tr:hover{
 
 	.row, .row tbody, .row tr, .row td{
 		display: block;
-		width: 100%;
+		width: 50%;
        
 	}
    
