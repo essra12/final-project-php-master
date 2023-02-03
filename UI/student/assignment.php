@@ -111,43 +111,37 @@ if ($result_g_name->num_rows == 1) {
       </div>
     <?php endif; ?>
     <!-------------------->
- <div class="container">
-   
-  <div class="cards">
- 
-  <?php foreach($files as $key => $file):?>
-    <div class="card">
-    <?php $datetime=strtotime($file['Datatime'])?>
-        <h6 class="card__time"><i class="las la-clock"></i><?php echo  date("d-m-Y h:i a",$datetime)?></h6>
-        <?php if(empty($file['stu_grade']) && $file['stu_grade']!= '0'): ?>
-          <h6 style="padding-top:10px;padding-left:3.5rem">Point: -- /&nbsp;&nbsp;<?php echo $file['grade'];?></h6>
-        <?php endif; ?>
-         
-        <?php if(!empty($file['stu_grade']) || $file['stu_grade']== '0'):?>
-          <h6 style="padding-top:10px;padding-left:3.5rem">Point:&nbsp;&nbsp;<?php echo $file['stu_grade'];?>&nbsp;&nbsp;/&nbsp;&nbsp;<?php echo $file['grade'];?></h6>
-        <?php endif; ?>
-        
-       <img src="../../sources/image/create_add_photo.png" class="card__image" alt="" />
-       <div class="card__overlay">
-       <div class="card__header">
-            
-          
-          <div class="card__header-text">
-          <h3 class="card__title child"><?php echo  html_entity_decode(substr($file['title'],0,40). '...');?></h3>
-          </div>
-        </div>
-      
-        <?php $_SESSION['p_no']=$file['p_no'];?>
-          <a  href="../student/download_assignment.php?post_no=<?= $file['p_no']?>" >
-        <p class="card__description">Click  to Check the Assignment</p>
-        </a>
-           <!--  -->
-      </div>
-  </div>  
-    <?php endforeach; ?>    
-   </div>
-   
- </div>
+
+ <div class="container_wrapper">
+                <div >
+                <table class="row">
+                                
+                <tbody>
+                 <?php foreach($files as $key => $file):
+                 if(empty($file['stu_group'])):?><!--changeable--> 
+                <tr>
+                  
+                <td><img src="../../sources/image/google-docs.png" style="width: 50px;   padding-right: 10px;" />
+               </td>
+                <td id="file" style=" padding: 0.25em 12em 0 0em;"><?php $datetime=strtotime($file['Datatime'])?>
+                <h6 class="card__time"><i class="las la-clock"></i><?php echo  date("d-m-Y h:i a",$datetime)?></h6><?php echo  html_entity_decode(substr($file['title'],0,100). '...');?> 
+               </td>
+               <td>
+               <?php if(empty($file['stu_grade']) && $file['stu_grade']!= '0'): ?>
+              <h6 style="padding-top:8px;padding-left:3.5rem;font-size:100%"> Point :<br> -- /&nbsp;<?php echo $file['grade'];?></h6>
+               <?php endif; ?>
+               <?php if(!empty($file['stu_grade']) || $file['stu_grade']== '0'):?>
+               <h6 style="padding-top:8px;padding-left:3.5rem;font-size:100%"> Point :<br><?php echo $file['stu_grade'];?>&nbsp;/&nbsp;<?php echo $file['grade'];?></h6>
+               <?php endif; ?>
+              </td>
+                <td style=" padding:20px 0 0 0;"><a  href="../student/download.php?post_no=<?= $file['p_no']?>" ><p class="card__description">Click to Open<br>Assignment</p></a>
+                </td>
+                 </tr>
+               <?php endif;
+               endforeach;?>
+             </tbody>
+             </table>
+            </div>
 </main>
 <script>
 /**************************************************************/

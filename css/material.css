@@ -238,24 +238,7 @@ a:is(:link,:active,:hover).active{
     transition: .2s ease-in-out;
   }
   
-  .card__arc {
-    width: 80px;
-    height: 80px;
-    position: absolute;
-    bottom: 100%;
-    right: 0;      
-    z-index: 1;
-  }
-  
-  .card__arc path {
-    fill: var(--surface-color);
-    d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
-    
-  }       
-  
-  .card:hover .card__header {
-    transform: translateY(0);
-  }
+
   
   .card__thumb {
     flex-shrink: 0;
@@ -275,21 +258,14 @@ a:is(:link,:active,:hover).active{
       }  
 
     h6{
-      color: #fff;
+    
       font-size: 12px;
-      padding-left: 3em;
-      padding-top: 2em;
-    }  
+         }  
   .card__description {
     padding: 0 2em 2em;
     margin: 0;
     color: #D7BDCA;
-    font-family: "MockFlowFont";   
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
-  }  
+    }  
   .card__description:hover {
     cursor: pointer;
     color: #535353;
@@ -401,6 +377,366 @@ hr{
   }
 }
 }
+/****************new edit*****************************************/
+/*****************************************************************/
+/****************************************************************/
+.main-container{
+    margin: 2rem 4rem 0rem;
+}
+.main-container .title h1{
+    font-size: 30px;
+    padding-top:20px;
+}
+
+.main-container .inputs{
+    background: var(--vlightblue);    
+    box-shadow: var(--shadow1);
+    border-radius: 15px;
+    padding: 1rem 2rem 1rem 2rem;
+    margin-bottom: 2rem;
+}
+.main-container .inputs label{
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.main-container .inputs input{
+    background:var(--vlightblue);
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--vdarkblue);
+    font-size: 16px;
+    margin-top: 10px;
+}
+/******************************** textarea field**************************************/
+.main-container .inputs textarea{
+    background:var(--vlightblue);
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--vdarkblue);
+    font-size: 16px;
+    margin-top: 10px;
+    resize: none;
+}
+
+/*****************************attach field******************************************/
+.container_wrapper{
+    margin-top: 25px;
+    text-align: center;
+}
+.wrapper{
+    display: inline-flex;
+    text-align: center;  }
+ 
+/**Upload Button**/
+
+.container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 34.37em;
+    position: relative;
+    margin: 0em auto 3.5em;
+    padding: 3.12em 1.25em;
+    border-radius: 15px;
+    box-shadow: 0 1.25em 2.18em rgb(1, 28, 71, 0.3);
+    
+}
+input[type="file"] {
+    display: none;
+}
+
+.lab{
+    display: block;
+    position: relative;
+    background-color: var(--vdarkblue);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
+    color: #ffffff;
+    text-align: center;
+    width: 90px;
+    height: 90px;
+    padding: 2rem;
+    margin: auto;
+    border-radius:100%;
+    cursor: pointer;
+}
+.lab i{
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+    font-size: 16px;
+}
+
+.lab:hover i{
+    transform: translateY(-10px);
+    -webkit-transform: translateY(-10px);
+}
+
+#num-of-files {
+    text-align: center;
+    margin: 1.25em 0 1.87em 0;
+    font-size: 15px;
+    margin-top: 30px;
+    
+}
+
+/**file list***/
+
+ul {
+    list-style-type: none;
+}
+.container li {
+    font-size: 14px;
+    background-color: var(--vlightblue);
+    color: var(--vdarkblue);
+    margin-bottom: 1em;
+    padding: 1.1em 1em;
+    border-radius: 0.3em;
+    display: flex;
+    justify-content: space-between;
+}
+.container li i{
+    color: var(--vdarkblue);
+    font-size: 25px;
+    margin-right: 20px;
+}
+  
+/****Submit Button in material && assignment*****/
+.btn_post{
+    position: fixed;
+    margin:1rem 0rem 0rem 0rem;
+    text-align: left;
+    padding-left: 17%;
+    bottom: 2.5%;
+}
+
+.btn_post button{
+    border: 2px double var(--vdarkblue);
+    padding: 10px 24px;
+    color: #fff;
+    border-radius: 25px;
+    background: var(--vdarkblue);
+    width: 150px;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+button[type="submit"]:hover {
+   color: var(--vdarkblue);
+   font-weight: bold;
+   background-color: #fff;
+   cursor: pointer;
+}
+
+/***********************************main container just for (join)***************************************/
+.main-container.join{
+    margin: 2rem 15% 0rem;
+}
+ .main-container .btn_join{
+    text-align: center;
+}
+.main-container .btn_join button{
+    border: 2px double var(--vdarkblue);
+    padding: 10px 24px;
+    color: #fff;
+    border-radius: 25px;
+    background: var(--vdarkblue);
+    width: 150px;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+ button[type="submit"]:hover {
+    color: var(--vdarkblue);
+    font-weight: bold;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+
+/****************************main container just for (add assignment && add assignment)******************************/
+/**********/
+.left_side{
+    float: left;
+    width: 49%;
+    margin-right: 2rem;
+}
+.right_side{
+    float: left;
+    width: 46%;
+}
+.main-container .inputs.name input{
+  border: none;
+}
+
+/**********************************************************************/
+/********************:) **********************************************/
+/**file list for download page ***/
+
+.row {
+    border-collapse: separate;
+    margin: 0;
+    padding: 0;
+    table-layout: auto;
+    width: 100%;
+    font-size: 14px;
+    border-radius: 10px;
+    table-layout: fixed;
+    border-spacing: 0 10px;
+    display: flex;
+    justify-content: center;   
+    }
+.row tr {
+    padding: .2em;
+    margin-bottom: 10px;
+    box-shadow: var(--shadow1);
+    font-weight: 500;
+    margin-bottom: 1em;
+    padding: 1.1em 1em;
+    border-radius: 0.3em;
+    display: flex;
+    background-color: #fff;
+    justify-content: space-between;
+    
+}
+
+.row th,td {
+    padding: 1em 2em;
+    text-align: left;
+    width: 200%;
+    white-space: nowrap;
+ }
+.row  i{
+    color: var(--vdarkblue);
+    font-size: 30px;
+    margin-right: 30px;
+}
+
+#file {
+    width: 60%;
+    white-space: nowrap;
+    padding-top: 10px;
+    font-size: 2em;
+   }
+
+#icon1:hover {
+    color: #A4D2F0;
+ }
+#icon2:hover {
+    color: #D92A2A;
+}
+#icon3,#icon1,#icon2{
+    font-size: 1.75em;
+}
+.main-container{
+  margin: 25px 250px;
+  }
+  tr{
+border-left: 5px solid #222242;
+border-radius: 5px; 
+}
+tr:hover{
+  background-color: #e5f3fe; 
+ 
+  }
+
+@media(max-width: 884px){
+	
+    .row{
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        
+    }
+
+	.row, .row tbody, .row tr, .row td{
+		display: block;
+		width: 100%;
+       
+	}
+   
+	.row tr{
+        display: block;	
+		margin-bottom:15px;
+   	}
+	.row td{
+		
+		text-align: center;
+		position: relative;
+	}
+    #icon3,#icon1{
+        font-size: 2em;
+    }
+ 
+	
+}
+/**********************************************************************/
+/********************:)the end ***************************************/
+
+/**error message in js**/
+p#demo {
+    color: var(--red);
+    text-align: left;
+}
+/*********************/   
+@media only screen and (max-width:1330px) {
+    .container li {
+        font-size: 12px;
+        margin-bottom: 1em;
+        padding: 1em 1em;
+        display: flex;
+        justify-content: space-between;
+    }
+    .container li i{
+        font-size: 18px;
+        margin-right: 20px;
+    }
+
+}
+@media only screen and (max-width:930px) {
+    .left_side{
+        float: none;
+        width: 100%;
+    }
+    .right_side{
+        float: none;
+        width: 100%;
+    }
+    .btn_post{
+        padding-left: 0px;
+        text-align: center;
+        position: relative;
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width:640px) {
+    .main-container{
+        margin: 2rem 6rem 0rem;
+    }
+}
+
+@media only screen and (max-width:582px) {
+    .main-container{
+        margin: 2rem 4rem 0rem;
+    }
+}
+@media only screen and (max-width:513px) {
+    .main-container .title h1{
+        font-size: 28px;
+    }
+    .main-container .inputs label{
+        font-size: 18px;
+    }
+    .main-container .inputs input{
+        font-size: 14px;
+    }
+
+}
+
+
   
   
 

@@ -118,43 +118,34 @@ if ($result_g_name->num_rows == 1) {
           ?>
       </div>
     <?php endif; ?>
-    
- <div class="container">
-            
-
-  <div class="cards">
-  <?php foreach($files as $key => $file):
-    if(empty($file['stu_group'])):?><!--changeable-->
-    <div class="card">
-    <?php $datetime=strtotime($file['Datatime'])?>
-        <h6 class="card__time"><i class="las la-clock"></i><?php echo  date("d-m-Y h:i a",$datetime)?></h6>
-
-        <img src="../../sources/image/create_add_photo.png" class="card__image" alt="" />
-       <div class="card__overlay">
-       <div class="card__header">
-          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
-          
-          <div class="card__header-text">
-            
-          <h3 class="card__title child"><?php echo  html_entity_decode(substr($file['title'],0,100). '...');?></h3>
-          
-          <?php if($role=="teacher"):?>
-          <a class="child" href="materials.php?deletePost=<?php echo $file['p_no'];?>" onclick="return confirmDelete()"><i id="icon2" class="fa-solid fa-xmark"></i></a>
-          <?php endif;?>
-          </div>
-        </div>
-        
-        <?php $_SESSION['p_no']=$file['p_no'];?>
-        <a  href="../student/download.php?post_no=<?= $file['p_no']?>" > 
-        <p class="card__description">Click  to Download</p>
-        </a>     
-           <!--  -->
-      </div>
-  </div>  
-  <?php endif;
-   endforeach; ?>    
-   </div>
- </div>
+          <div >
+                <div class="container_wrapper">
+                <div >
+                <table class="row">
+                                
+                <tbody>
+                 <?php foreach($files as $key => $file):
+                 if(empty($file['stu_group'])):?><!--changeable--> 
+                <tr>
+                  
+                <td><img src="../../sources/image/google-docs.png" style="width: 50px;   padding-right: 10px;" />
+               </td>
+                <td id="file" style=" padding: 0.25em 12em 0 0em;"><?php $datetime=strtotime($file['Datatime'])?>
+                <h6 class="card__time"><i class="las la-clock"></i><?php echo  date("d-m-Y h:i a",$datetime)?></h6><?php echo  html_entity_decode(substr($file['title'],0,100). '...');?> 
+               </td>
+               <td style=" padding: 1em 3em;"></td>
+                <td style=" padding:15px 0 0 0;"><a  href="../student/download.php?post_no=<?= $file['p_no']?>" ><p class="card__description">Click  to<br> Open</p></a>
+                </td>
+                 <!--making the delete just for teacher-->
+                 <?php if($role=="teacher"):?>
+                  <td class="td2" style="font-size: 15px;padding-top:25px"><a class="child" href="materials.php?deletePost=<?php echo $file['p_no'];?>" onclick="return confirmDelete()"><i id="icon2" class="fa-solid fa-xmark"></i></a></td>
+                 <?php endif;?>
+               </tr>
+               <?php endif;
+               endforeach;?>
+             </tbody>
+             </table>
+            </div>
 </main>
 
 <script>
