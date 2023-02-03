@@ -129,13 +129,10 @@ a:is(:link,:active,:hover).active{
 .main-container{
     padding-left:15%;
 }
-
 h1{
     font-size: 30px;
     margin-left: 13%;
     margin-top: 4rem;
-    
-  
   }
 /*groups card*/
 .group-cards{
@@ -171,7 +168,7 @@ h1{
     float:left;
 }
 .square-flip{
-    width:400px;
+    width:200%;
     height:350px;
 }
 .square,.square2{
@@ -373,7 +370,7 @@ hr{
   
   }
 
-@media only screen and (max-width:1450px) {
+@media only screen and (max-width:1200px) {
 
     .group-cards{
         grid-template-columns: repeat(2,1fr);

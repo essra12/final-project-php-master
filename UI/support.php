@@ -57,7 +57,7 @@ include("../path.php");
             <div class="center_info">
                 <img src="../sources/image/support_icon.png" style="width: 64px; margin-bottom:20px;" />
                 <h1> Get started with Study Board </h1>
-                <p> Learn how to use Study Board to foster group collaboration, manage syllabuses, and more. </p>
+                <p> Learn how to use Study Board to foster group collaboration, manage files, and more. </p>
                 <div class="watch">
                     <p style="margin-top:20px; font-size:20px; color:#507def; cursor: pointer;"><a href="#video" id="watch_v"><i class="las la-play"></i><span color="#000;">Watch video</span></a></p>
                 </div>
@@ -72,7 +72,7 @@ include("../path.php");
         <section id="video" class="second">
             <div class="second_title">
                 <p>GETTING STARTED</p>
-                <h2>Check out quick videos to get you going</h2>
+                <h2>Check out quick video to get you going</h2>
             </div>
             <div  class="video">
                 <video width="80%" style="margin-top: 2rem;"  controls>
@@ -85,23 +85,23 @@ include("../path.php");
         <!-- third div-->
         <section class="third">
             <div class="third_title">
-                <p>GETTING STARTED</p>
-                <h2>Check out quick videos to get you going</h2>
+                <p>DIGITAL SKILLS</p>
+                <h2>Check Out  these videos to improve your digital skills</h2>
             </div>
             <div class="links_container">
                 <div class="google_links">
                     <div><img src="../sources/image/google.png" style="width: 36px; margin-right: 15px;" /><h2>Google</h2></div>
                     <br/>
-                    <p><a href="https://www.youtube.com/watch?v=RzNVGQYOmFk" style="margin-top:30px" >How your students can use Google Docs</a></p>
-                    <p><a href="https://www.youtube.com/watch?v=vZCvyCGCJVw&list=PLwXXOxvDboea6SnnRK4ToVXb-tDLn_mfZ&index=2">How your students can use Google Slides</a></p>
-                    <p><a href="https://www.youtube.com/watch?v=N2opj8XzYBY">How your students can use Google Sheets</a></p>
+                    <p><a href="https://www.youtube.com/watch?v=RzNVGQYOmFk" style="margin-top:30px" target="_blank">Google Docs Beginner Tutorial</a></p>
+                    <p><a href="https://www.youtube.com/watch?v=vZCvyCGCJVw&list=PLwXXOxvDboea6SnnRK4ToVXb-tDLn_mfZ&index=2">How to use Google Slides</a></p>
+                    <p><a href="https://www.youtube.com/watch?v=N2opj8XzYBY">Google Sheets - Full Course</a></p>
                 </div>
                 <div class="microsoft_links">
                     <div><img src="../sources/image/microsoft.png" style="width: 36px; margin-right: 15px;" /><h2>Microsoft</h2></div>
                     <br/>
-                    <p><a href="https://www.youtube.com/watch?app=desktop&v=wy7Hj84MCeA">How your students can use Microsoft Word</a></p>
-                    <p><a href="https://www.youtube.com/watch?v=Vl0H-qTclOg">How your students can use Microsoft Excel</a></p>
-                    <p><a href="https://www.youtube.com/watch?v=YLDHRUV8-zs">How your students can use Microsoft PowerPoint</a></p>
+                    <p><a href="https://www.youtube.com/watch?app=desktop&v=wy7Hj84MCeA">Microsoft Word for Beginners</a></p>
+                    <p><a href="https://www.youtube.com/watch?v=Vl0H-qTclOg">Microsoft Excel Tutorial  - Full Course</a></p>
+                    <p><a href="https://www.youtube.com/watch?v=YLDHRUV8-zs">Microsoft PowerPoint Course  (Presentations Tutorial)</a></p>
                 </div>
             </div>
         </section>
@@ -118,11 +118,12 @@ include("../path.php");
                 <div class="mobile_info">
                     <div class="mobile_info_text">
                         <h2>Download the Study Board mobile application</h2>
-                        <p>How your students can use Microsoft Word,How your students can use Microsoft Word,How your students can use Microsoft Word</p>
+                        <p>If you’re a student, the Blackboard Learn app is designed especially for you to view content .
+                        The app's current version is available on Android mobile devices.</p>
                     </div>
                     <div class="download_btn" style="cursor: pointer;">
                         <div class="store_img">
-                            <img src="../sources/image/google-play.png" style="width:28px" />
+                            <img src="../sources/image/google-play.png" />
                         </div>
                         <div class="store_text">
                             <p>DOWNLOAD</p>

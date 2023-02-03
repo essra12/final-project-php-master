@@ -216,8 +216,8 @@ p.text{
 
 #mybutton {
   position: fixed;
-  top: 100px;
-  right: 110px;
+  bottom: 150px;
+  right: 150px;
 }
 #mybutton a{
   text-decoration: none;

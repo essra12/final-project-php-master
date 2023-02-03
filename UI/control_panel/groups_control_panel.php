@@ -18,8 +18,8 @@ else{
 /* $groups=selectAllGroupInfo(); */
 ?>
 <!DOCTYPE html>
-<ht7;l.ml lang="en">
-    <head>
+<html lang="en">
+<head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1">
         <title>Control Panel (Groups)</title>
@@ -30,7 +30,7 @@ else{
         <!--icon8-->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
         <!-- Font Awesome Icons -->
-        <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>   
+        <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>  
     </head>
 
 <body  id="b-vlightblue">
