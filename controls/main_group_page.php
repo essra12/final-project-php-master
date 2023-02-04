@@ -57,7 +57,7 @@ global $errors;
 /*******************************************************************************************/
 /*******to creat cards with using group name for student section **************************/
 /*******************************************************************************************/
-function selectGroupName(){ 
+function selectGroupName($user_id){ 
   global $conn; 
   /* $username=$_SESSION['full_name']; */
   $user_id=$_SESSION['user_id'];
@@ -67,11 +67,10 @@ if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
     $id=$row['stu_id'];
-    
   }
 } 
   /*******************************************************/
-  $sql = "SELECT * FROM groups,student_group WHERE groups.g_no=student_group.g_no and student_group.stu_id='.$id.' ORDER BY groups.Datetime DESC";
+  $sql = "SELECT * FROM groups,student_group,user WHERE groups.g_no=student_group.g_no and user.user_id='$user_id' ORDER BY groups.Datetime DESC";
   $pre=$conn->prepare($sql);
   $pre->execute();
   $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);

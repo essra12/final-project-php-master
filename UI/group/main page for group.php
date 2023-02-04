@@ -241,7 +241,7 @@ $display=null;
  <!-------------------for student  section--------------------------------> 
  <?php if($role==""):?>
   <!------foreach loop--------->
-  <?php $groupsInfo=selectGroupName();?>
+  <?php $groupsInfo=selectGroupName($user_id);?>
  <main>  
  <div id="section" class="container">
   <div class="cards">
