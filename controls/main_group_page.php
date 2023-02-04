@@ -68,13 +68,14 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
     $id=$row['stu_id'];
   }
+    /*******************************************************/
+    $sql = "SELECT * FROM groups,student_group,user WHERE groups.g_no=student_group.g_no and user.user_id='$user_id' and student_group.stu_id='$id' ORDER BY groups.Datetime DESC";
+    $pre=$conn->prepare($sql);
+    $pre->execute();
+    $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
 } 
-  /*******************************************************/
-  $sql = "SELECT * FROM groups,student_group,user WHERE groups.g_no=student_group.g_no and user.user_id='$user_id' ORDER BY groups.Datetime DESC";
-  $pre=$conn->prepare($sql);
-  $pre->execute();
-  $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
-  return $records;
+
   
 }
 /*******************************************************************************************/
