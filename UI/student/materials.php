@@ -5,7 +5,7 @@ include(MAIN_PATH."/controls/deletePost.php");
 $role=$_SESSION['role'];
 $table="post";
 $group_no=$_SESSION['g_no'];
-$files=selectAll($table,['g_no'=>$_SESSION['g_no']]);
+$files=selectAllfiles();
 
 //to get group name
 $sql="SELECT g_name FROM groups Where g_no='$group_no';";

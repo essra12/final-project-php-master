@@ -2,7 +2,17 @@
 include(MAIN_PATH. "/database/db.php");
 
 
-global $conn;
+
+function selectAllfiles()  
+{global $conn;
+  $group_no=$_SESSION['g_no'];
+  /*******************************************************/
+  $sql = "SELECT * FROM post where g_no='$group_no' ORDER BY Datatime DESC";
+  $pre=$conn->prepare($sql);
+  $pre->execute();
+  $records=$pre->get_result()->fetch_all(MYSQLI_ASSOC);
+  return $records;
+}
 
 if(isset($_GET['deletePost'])){
 
