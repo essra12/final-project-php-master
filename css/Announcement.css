@@ -332,6 +332,29 @@ div.dropdown{
   cursor: pointer;
   border: 2px solid #222242;
 }
+.btn-create{
+  font-size:1.5rem;
+  border: none;
+  outline: none;
+  background-color: #222242;
+  color: #fff;
+  cursor: pointer;
+  padding: 6px 15px;
+  border-radius: 100%;
+}
+a:link, a:visited {
+  text-decoration: none; 
+  color:#fff}
+  .btn-create:hover a{
+    color: #222242;
+  }
+
+.btn-create:hover{
+  color: #000000;
+  background-color: #fff;
+  cursor: pointer;
+  border: 0.5px solid #222242;
+}
 
 /**********************************************************************/
 /*********no data image and text*****************************/
