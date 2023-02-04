@@ -88,7 +88,7 @@ if ($result_g_name->num_rows == 1) {
             <!--------------card---------------->
 
             <?php foreach($reports as $key => $report):?>
-                <?php if(!empty($report['due_date'])): ?>
+                <?php if(!empty($report['grade'])): ?>
                     <div class="group-card">
                         <div class="square-flip">
                             <div class='square'>
