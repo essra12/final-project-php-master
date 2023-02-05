@@ -87,7 +87,7 @@ if ($result_g_name->num_rows == 1) {
 <nav class="navbar">
       <ul class="lift-side">
           <!-------back------>
-          <li><div class="back"><a href="../student/materials.php"><i class="las la-arrow-left"></i></a></div></li>
+          <li><div class="back"><a href="../student/inside_group.php"><i class="las la-arrow-left"></i></a></div></li>
           <!----------------->
 
           <!-------logo------>
