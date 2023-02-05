@@ -195,7 +195,13 @@ p#demo {
         /* alert(" pleas Choese Teacher Name"); */
         document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;pleas enter your new  password again."; 
         return false;
-    }} 
+    }
+    if(pass.length<8){
+        /* alert(" Please enter the Full Number"); */
+        document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;The Password can not be less than 8 characters."; 
+        return false;
+    }
+} 
    
     
 /*****************************for show password********************************/
