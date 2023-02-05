@@ -175,11 +175,6 @@ if($role=="teacher"):
             <div class="sidebar-menu">
                 <ul>
                     <li>
-                        <a href="#">
-                            <span style="font-size:20px;"><?php echo $g_name ?></span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="<?php echo BASE_URL . '/UI/group/main page for group.php' ?>">
                             <span class="las la-home"></span>
                             <span>Home </span>
@@ -190,7 +185,13 @@ if($role=="teacher"):
                             <span class="las la-user-friends"></span>
                             <span>Student</span>
                         </a>
-                    </li>                     
+                    </li>      
+                    <li>
+                        <a href="../support.php">
+                            <span class="lar la-question-circle"></span>
+                            <span>Support </span>
+                        </a>
+                    </li>               
                     <li>
                     <a href="..\..\logout.php">
                         <span class="las la-sign-out-alt" style="color:#FFBA5F;"></span>

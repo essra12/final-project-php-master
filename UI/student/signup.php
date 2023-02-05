@@ -122,6 +122,11 @@ include(MAIN_PATH."/controls/students.php");
      document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;Please enter Password."; 
       return false
     }
+    if(pass.length<8){
+     /*  alert(" Please enter password "); */
+     document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;The Password can not be less than 8 characters."; 
+      return false
+    }
     if(pass2==""){
       /* alert(" Please enter password again"); */
       document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;Please enter password again."; 
