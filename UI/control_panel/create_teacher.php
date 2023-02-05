@@ -163,6 +163,11 @@ include(MAIN_PATH."/controls/teachers.php");
         document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;Please enter Password."; 
         return false;
     }
+    if(pass.length<8){
+        /* alert(" Please enter the Full Number"); */
+        document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;The Password can not be less than 8 characters."; 
+        return false;
+    }
     if(conf_pass==""){
         /* alert(" Please enter Password again"); */
         document.getElementById("demo").innerHTML = "<i class='las la-exclamation-circle'></i>&nbsp;&nbsp;Please enter Password again."; 
